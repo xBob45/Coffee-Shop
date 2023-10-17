@@ -1,0 +1,13 @@
+.dropdown-menu{
+    --bs-dropdown-link-active-bg: #198754c7 !important;
+}
+
+#button {
+    background-color: #198754c7;
+    border-color: #198754c7;
+  }
+  
+  #button:hover {
+    background-color: #198754f2;
+    border-color: #198754f2;
+  }
