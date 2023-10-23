@@ -1,10 +1,10 @@
 {% extends "base.html" %} 
 {% block title %}Home{% endblock %}
 {% block navbar %}
-    {% if user_is_authenticated %}
+    {% if current_user.is_authenticated %}
     <ul class="navbar-nav my-2 my-lg-0">
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{current_user.username}}</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Settings</a></li>
             </ul>
@@ -18,6 +18,8 @@
     </ul>
     {% else %}
         <ul class="navbar-nav my-1 my-lg-0">
+            <li class="nav-item">
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('auth.login') }}">Log In</a>
             </li>

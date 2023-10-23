@@ -1,0 +1,37 @@
+services:
+  postgresql:
+    image: postgres
+    healthcheck:
+      test: /usr/bin/pg_isready
+      interval: 5s
+      timeout: 10s
+      retries: 120
+    networks:
+      - pgadmin_postgresql
+    ports:
+      - 5432:5432
+    restart:
+      always
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+    networks:
+      - pgadmin_postgresql
+    ports:
+      - 81:80
+    restart:
+      always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@pgadmin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+
+networks:
+  pgadmin_postgresql:
+volumes:
+  postgresql-data:
+    driver: local

@@ -8,8 +8,8 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 # Enable debug mode, that will refresh the page when you make changes.
 DEBUG = True
 
-# Connect to the MYSQL database
-#SQLALCHEMY_DATABASE_URI = 'mysql://root:<your_password>@localhost/<your_database_name>'
+# Configure the PostgreSQL database connection
+SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:postgres@127.0.0.1:5432/postgres'
 
 # Turn off the Flask-SQLAlchemy event system and warning
-#SQLALCHEMY_TRACK_MODIFICATIONS = False
+SQLALCHEMY_TRACK_MODIFICATIONS = False

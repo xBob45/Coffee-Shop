@@ -110,4 +110,11 @@
   background-color: #198754c7;
   border-color: #198754c7;
 }
+#alert-danger{
+  margin-top: 10px;
+  width: 300px;
+  margin-left: -31px;
+  text-align: center;
+
+}
 
