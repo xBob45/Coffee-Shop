@@ -35,6 +35,7 @@ def login():
     #----------------------------------SQL Injection - START----------------------------------
     import psycopg2
     conn = psycopg2.connect(host='localhost',database='postgres', user='postgres', password='postgres')
+    username = ''
     #admin
     #' OR 1=1 --
     if request.method == 'POST':
@@ -54,22 +55,24 @@ def login():
             if user_data:
                 #Turning retrieved user data into User object because Flas-Login requires it.
                 user = User(id=user_data[0], username=user_data[1], first_name=user_data[2], last_name=user_data[3],
-                        password=user_data[4], active=user_data[5], salt=user_data[6])
+                        password=user_data[4], salt=user_data[5])
                 login_user(user, remember=remember)
                 cursor.close()
                 conn.close()
                 return redirect(url_for('home.home'))
+            else:
+                #-------------------------------------------Reflected XSS - END--------------------------------------------
+                #----------------------------------SENSITIVE INFORMATION EXPOSURE - START----------------------------------  
+                #flash("Wrong credentials, please try again.")    
+                flash("Wrong password for <strong>%s</strong> user, try again." % (username))
         else:
             #flash("Wrong credentials, please try again.")
-            #----------------------------------SENSITIVE INFORMATION EXPOSURE - START----------------------------------
-            #----------------------------------Reflected XSS - START----------------------------------
+            #----------------------------------SENSITIVE INFORMATION EXPOSURE - END----------------------------------
+            #------------------------------------------Reflected XSS - END-------------------------------------------
             flash("<strong>%s</strong> is not in out database, try again." % (username))
             return render_template('auth/login.html')
 
-    #flash("Wrong credentials, please try again.")    
-    flash("Wrong password for <strong>%s</strong> user, try again." % (username))
-    #----------------------------------Reflected XSS - START----------------------------------
-    #----------------------------------SENSITIVE INFORMATION EXPOSURE - END----------------------------------  
+
     return render_template('auth/login.html') 
     #----------------------------------SQL Injection - END----------------------------------
 

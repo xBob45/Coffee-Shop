@@ -11,7 +11,6 @@ class User(UserMixin, db.Model):
     first_name = db.Column(db.String(80), nullable=False)
     last_name = db.Column(db.String(80), nullable=False)
     password = db.Column(db.String(255), nullable=False)
-    active = db.Column(db.Boolean(), default=False)
     salt = db.Column(db.String(80), nullable=True)
 
     # Relationships

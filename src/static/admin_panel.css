@@ -1,0 +1,37 @@
+.dropdown-menu{
+    --bs-dropdown-link-active-bg: #198754c7 !important;
+}
+
+.navbar-nav .nav-item {  
+    margin: 7px;
+  }
+  
+#right-part-nav {
+    padding-right: 35px;
+  }
+
+ .hr{
+  width:13em;
+ } 
+
+ .row{
+  padding-top: 10px;
+ }
+
+ #button {
+  border-color: #198754c7;
+}
+
+#button:hover {
+background-color: #198754f2;
+border-color: #198754f2;
+}
+
+#button-danger {
+  border-color: #ff000085;
+}
+
+#button-danger:hover {
+background-color: #ff0000a1;
+border-color: #ff0000a1;
+}

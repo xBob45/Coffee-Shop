@@ -27,7 +27,7 @@
   </svg>
   
 <main class="form-signin w-100 m-auto">
-<form id="login-form" method="post">
+<form id="login-form" method="POST" action="{{ url_for('auth.login') }}">
   <!-- <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
   <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
   {% if p=='True' %}
@@ -36,7 +36,7 @@
     <p>False</p>
   {% endif %}  
   <div class="mb-3">
-    <label for="UsernameTextArea" class="form-label">Email</label>
+    <label for="UsernameTextArea" class="form-label">Username</label>
     <input type="username" name="username" class="form-control" id="UsernameTextArea">
   </div>
 <div class="mb-3">

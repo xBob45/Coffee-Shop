@@ -7,7 +7,29 @@
     border-color: #198754c7;
   }
   
-  #button:hover {
-    background-color: #198754f2;
-    border-color: #198754f2;
-  }
+#button:hover {
+  background-color: #198754f2;
+  border-color: #198754f2;
+}
+
+
+.navbar-nav .nav-item {   /* Space between nuvbar items */
+  margin: 7px;
+}
+
+#right-part-nav {
+  padding-right: 35px;
+}
+
+
+#basket {
+  margin-right: 10px;
+  font-size: 25px;
+  color: #198754c7
+}
+
+#admin_button{
+  margin-right: 10px;
+}
+
+

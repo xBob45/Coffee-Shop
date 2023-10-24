@@ -2,6 +2,7 @@
 from flask import Flask
 from routes.authRoute import auth_blueprint
 from routes.homeRoute import home_blueprint
+from routes.adminRoute import admin_blueprint
 from models.User import db, User
 from flask_login import LoginManager
 
@@ -30,6 +31,7 @@ app = create_app()  # Creating the app
 # Registering the blueprint
 app.register_blueprint(auth_blueprint)
 app.register_blueprint(home_blueprint)
+app.register_blueprint(admin_blueprint)
 #migrate = Migrate(app, db)  # Initializing the migration
 
 
