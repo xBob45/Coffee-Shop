@@ -35,3 +35,11 @@ border-color: #198754f2;
 background-color: #ff0000a1;
 border-color: #ff0000a1;
 }
+
+.alert {
+  margin-top: 10px;
+  margin-left: -34px;
+  text-align: center;
+}
+
+

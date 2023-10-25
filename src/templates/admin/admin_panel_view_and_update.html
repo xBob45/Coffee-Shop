@@ -1,0 +1,95 @@
+{% extends "admin/admin_panel.html" %} 
+{% block title %}Admin Panel - View & Update{% endblock %}
+{% block content %}
+
+<div class="row justify-content-center">
+  <div class="col-md-3">
+      <h4>View User</h4>
+      <hr class="hr" />
+      <form method="POST" action="{{ url_for('admin.view_user') }}">
+          <div class="mb-3">
+              <label for="view_username" class="form-label">Username</label>
+              <input type="username" class="form-control" id="view_username" placeholder="Enter username" name="view_username">
+          </div>
+          <button type="submit" class="btn btn-outline-danger" id="admin_button">Search</button>
+      </form>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <ul class="flash">
+          {% for message in messages %}
+          <div class="alert alert-success" role="alert" id="alert-success">
+            {{ message | safe}}
+          </div>
+          {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}
+  </div>
+
+{%if user %}
+  <div class="col-md-3">
+      <h4>Update User</h4>
+      <hr class="hr" />
+      <form method="POST" action="{{ url_for('admin.update_user') }}">
+          <div class="mb-3">
+              <label for="edit_id" class="form-label-disabled">ID</label>
+              <input class="form-control" type="text" value="{{ user.id }}" disabled readonly>
+          </div>
+          <div class="mb-3">
+              <label for="edit_username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="edit_username" placeholder="Change Username" name="edit_username" value="{{ user.username }}">
+          </div>
+          <div class="mb-3">
+              <label for="edit_fn" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="edit_fn" placeholder="Change First Name" name="edit_fn" value="{{ user.first_name }}">
+          </div>
+          <div class="mb-3">
+              <label for="edit_ln" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="edit_ln" placeholder="Change Last Name" name="edit_ln" value="{{ user.last_name }}">
+          </div>
+          <div class="mb-3">
+            <label for="edit_password" class="form-label">Password</label>
+            <div class="input-group">
+                <input type="password" class="form-control" id="edit_password" placeholder="Change Password" name="edit_password" value="{{ user.password }}">
+                <span class="input-group-text" id="password-toggle" onclick="togglePasswordVisibility()">
+                    <i class="bi bi-eye" id="password-icon"></i>
+                </span>
+            </div>
+        </div>
+        
+          <div class="mb-3">
+              {% for role in user.roles %}
+              <label for="edit_role" class="form-label">Role</label>
+              <input type="text" class="form-control" id="edit_role" placeholder="Change Role" name="edit_role" value="{{ role.name }}">
+              {% endfor %}
+          </div>
+          <button type="submit" class="btn btn-outline-danger" id="update_button">Update</button>
+
+      </form>
+  </div>
+  {%else%}
+  {%endif%}
+
+</div>
+
+<script>
+    function togglePasswordVisibility() {
+        const passwordInput = document.querySelector('#edit_password');
+        const passwordIcon = document.querySelector('#password-icon');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            passwordIcon.classList.remove('bi-eye');
+            passwordIcon.classList.add('bi-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            passwordIcon.classList.remove('bi-eye-slash');
+            passwordIcon.classList.add('bi-eye');
+        }
+    }
+</script>
+
+
+
+
+{% endblock %}

@@ -61,7 +61,7 @@ def login():
                 conn.close()
                 return redirect(url_for('home.home'))
             else:
-                #-------------------------------------------Reflected XSS - END--------------------------------------------
+                #-------------------------------------------Reflected XSS - START--------------------------------------------
                 #----------------------------------SENSITIVE INFORMATION EXPOSURE - START----------------------------------  
                 #flash("Wrong credentials, please try again.")    
                 flash("Wrong password for <strong>%s</strong> user, try again." % (username))

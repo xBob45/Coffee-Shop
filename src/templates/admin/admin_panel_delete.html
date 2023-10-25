@@ -1,0 +1,18 @@
+{% extends "admin/admin_panel.html" %} 
+{% block title %}Admin Panel - Delete{% endblock %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-3">
+        <h4>Delete User</h4>
+        <form method="POST" action="{{ url_for('admin.delete_user') }}">
+        <hr class="hr" />
+        <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Username</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+        </div>
+        <button type="button" class="btn btn-outline-danger" id="button-danger">Delete</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
