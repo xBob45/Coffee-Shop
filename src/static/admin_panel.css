@@ -42,4 +42,11 @@ border-color: #ff0000a1;
   text-align: center;
 }
 
+#view_user_box, #update_user_box {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.col-md-3 {
+  padding-top: 10px;
+}
 

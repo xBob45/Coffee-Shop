@@ -1,7 +1,7 @@
 {% extends "admin/admin_panel.html" %} 
 {% block title %}Admin Panel - Add{% endblock %}
 {% block content %}
-<div class="row justify-content-center">
+<div class="d-flex justify-content-center">
     <div class="col-md-3 ">
         <h4>Add User</h4>
         <hr class="hr" />
@@ -26,11 +26,11 @@
                 <label for="formGroupExampleInput" class="form-label">Privileges</label>
                 <div class="col-sm-10">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="admin" checked>
+                      <input class="form-check-input" type="radio" name="add_role" id="gridRadios1" value="admin" checked>
                       <label class="form-check-label" for="gridRadios1">Admin</label>
                     </div>
                 <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="customer">
+                      <input class="form-check-input" type="radio" name="add_role" id="gridRadios2" value="customer">
                       <label class="form-check-label" for="gridRadios2">Customer</label>
                 </div>
                 </div>
