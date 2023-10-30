@@ -32,7 +32,7 @@ def login():
         roles = user.roles  # This will give you a list of roles associated with the user
         for role in roles:
             print(role.name)  # Print the name of each role"""
-    #----------------------------------SQL Injection - START----------------------------------
+    #----------------------------------A03 - SQL Injection - START----------------------------------
     import psycopg2
     conn = psycopg2.connect(host='localhost',database='postgres', user='postgres', password='postgres')
     username = ''
@@ -61,30 +61,29 @@ def login():
                 conn.close()
                 return redirect(url_for('home.home'))
             else:
-                #-------------------------------------------Reflected XSS - START--------------------------------------------
-                #----------------------------------SENSITIVE INFORMATION EXPOSURE - START----------------------------------  
+                #-------------------------------------------A03 - Reflected XSS - START--------------------------------------------
+                #----------------------------------A04 - SENSITIVE INFORMATION DISCLOSURE - START----------------------------------  
                 #flash("Wrong credentials, please try again.")    
                 flash("Wrong password for <strong>%s</strong> user, try again." % (username))
         else:
+            #----------------------------------A04 - SENSITIVE INFORMATION EXPOSURE - END----------------------------------
+            #------------------------------------------A03 - Reflected XSS - END-------------------------------------------
             #flash("Wrong credentials, please try again.")
-            #----------------------------------SENSITIVE INFORMATION EXPOSURE - END----------------------------------
-            #------------------------------------------Reflected XSS - END-------------------------------------------
             flash("<strong>%s</strong> is not in out database, try again." % (username))
             return render_template('auth/login.html')
 
 
     return render_template('auth/login.html') 
-    #----------------------------------SQL Injection - END----------------------------------
-
-
-
-
+    #----------------------------------A03 - SQL Injection - END----------------------------------
 
 
 def signup():
     return render_template("auth/signup.html")
 
 def logout():
+    #----------------------------------A07 - INSUFFICIENT SESSION INVALIDATION - START----------------------------------
+    #logout_user()
+    #----------------------------------A07 - INSUFFICIENT SESSION INVALIDATION - END----------------------------------
     logout_user()
     flash("You were logged out.")
     return redirect(url_for("auth.login"))

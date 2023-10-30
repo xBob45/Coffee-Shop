@@ -11,14 +11,14 @@
         <label for="delete_username" class="form-label">Username</label>
         <input type="text" class="form-control" id="delete_username" name="delete_username" placeholder="Username">
         </div>
-        <button type="submit" class="btn btn-outline-danger" id="button-danger">Delete</button>
+        <button type="submit" class="btn btn-outline-danger">Delete</button>
         </form>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul class="flash">
             {% for message in messages %}
-            <div class="alert alert-success" role="alert" id="alert-success">
-              {{ message | safe}}
+            <div class="alert alert-danger" role="alert" id="alert-success">
+              {{ message }}
             </div>
             {% endfor %}
         </ul>

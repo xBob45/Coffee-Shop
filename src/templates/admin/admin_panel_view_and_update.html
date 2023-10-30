@@ -3,7 +3,6 @@
 {% block content %}
 
 <div class="d-flex justify-content-center">
-
   <div class="col-md-3" id="view_user_box">
       <h4>View User</h4>
       <hr class="hr" />
@@ -19,7 +18,7 @@
       <ul class="flash">
           {% for message in messages %}
           <div class="alert alert-success" role="alert" id="alert-success">
-            {{ message | safe}}
+            {{ message }}
           </div>
           {% endfor %}
       </ul>
@@ -32,13 +31,11 @@
       <h4>Update User</h4>
       <hr class="hr" />
       <form method="POST" action="{{ url_for('admin.update_user') }}">
-
         <!-- Need to think about this. -->
           <div class="mb-3">
             <input type="hidden" name="edit_id" value="{{ user.id }}">
           </div>
         <!-- Need to think about this. -->
-        
           <div class="mb-3">
               <label for="edit_username" class="form-label">Username</label>
               <input type="text" class="form-control" id="edit_username" placeholder="Change Username" name="edit_username" value="{{ user.username }}">
@@ -66,19 +63,16 @@
             <label for="formGroupExampleInput" class="form-label">Privileges</label>
             <div class="col-sm-10">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="edit_role" id="gridRadios1" value="admin" {% if 'admin' in user.roles|map(attribute='name') %}checked{% endif %}>
+                    <input class="form-check-input" type="radio" name="edit_role" id="gridRadios1" value="1" {% if 'admin' in user.roles|map(attribute='name') %}checked{% endif %}>
                     <label class="form-check-label" for="gridRadios1">Admin</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="edit_role" id="gridRadios2" value="customer" {% if 'customer' in user.roles|map(attribute='name') %}checked{% endif %}>
+                    <input class="form-check-input" type="radio" name="edit_role" id="gridRadios2" value="2" {% if 'customer' in user.roles|map(attribute='name') %}checked{% endif %}>
                     <label class="form-check-label" for="gridRadios2">Customer</label>
                 </div>
             </div>
         </fieldset>
-        
-
           <button type="submit" class="btn btn-outline-danger" id="update_button">Update</button>
-
       </form>
   </div>
   {%else%}
@@ -102,8 +96,5 @@
         }
     }
 </script>
-
-
-
 
 {% endblock %}

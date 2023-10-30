@@ -1,13 +1,14 @@
 import functools
-
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
-from models.User import User, Role
+from models.User import User, Role, UserRoles
 from models.User import db
+
 def admin_panel():
+    """Function renders main page of admin panel."""
     return render_template("admin/admin_panel.html")
-
-
+        
 def add_user():
+    """Functionallows to add new entry to User table."""
     if request.method == 'POST':
         username = request.form.get("add_username")
         first_name = request.form.get("add_fname")
@@ -21,15 +22,14 @@ def add_user():
         db.session.add(user)
         db.session.commit()
         db.session.close()
-        #-------------------------------------------Reflected XSS - START--------------------------------------------
-        flash("User <strong>%s</strong> has sucesfully been added to the database." % (username))
-        #-------------------------------------------Reflected XSS - END----------------------------------------------
+        flash("User has sucesfully been added to the database.")
         #This implements the  Post/Redirect/Get (PRG) to prevent data re-insertion when reload.
         return redirect(url_for('admin.add_user'))
     return render_template("admin/admin_panel_add.html")
 
 
 def view_user():
+    """Function allows to view an arbitrary entry in User table."""
     if request.method == 'POST':
         username = request.form.get("view_username")
         print(username)
@@ -38,7 +38,7 @@ def view_user():
         if user is not None:
             return render_template("admin/admin_panel_view_and_update.html", user=user)
         else:
-            flash("User <strong>%s</strong> doesn't exists." % (username))   
+            flash("User doesn't exists.")   
     return render_template("admin/admin_panel_view_and_update.html")
 
 
@@ -51,28 +51,24 @@ def update_user():
         user.last_name = request.form.get("edit_ln")
         user.password = request.form.get("edit_password")
 
-        new_role_name = request.form.get("edit_role")
-        
-        new_role = Role.query.filter_by(name=new_role_name).first()
-        
-        if new_role:
-            if new_role not in user.roles:
-                for user_role in user.roles:
-                    user.roles.remove(user_role)
-                user.roles.append(new_role)
-                db.session.commit()
-                db.session.close()
-                flash("User has been updated.")
-            else:
-                flash("Error occured")
+        #1) Take the role id from the HTML form
+        new_role_id = int(request.form.get("edit_role"))
+
+        #2) Fetch asociation (line) of user-user's role from user_role table based on user's ID
+        user_role = UserRoles.query.filter_by(user_id=id).first()
+
+        if user_role:
+            user_role.role_id = new_role_id  # Update the role_id
+            db.session.commit()
+            flash("User has been updated.")
         else:
-            flash("Error occured")
+            flash("Error occurred")
 
     return render_template("admin/admin_panel_view_and_update.html")
 
 
-
 def delete_user():
+    """Function allows to delete arbitrary entry from User table."""
     if request.method == 'POST':
         username = request.form.get("delete_username")
         print(username)
@@ -81,11 +77,9 @@ def delete_user():
             db.session.delete(user)
             db.session.commit()
             db.session.close()
-            #-------------------------------------------Reflected XSS - START--------------------------------------------
-            flash("User <strong>%s</strong> has been deleted." % (username))
+            flash("User has been deleted.")
         else:
-            flash("User <strong>%s</strong> doesn't exists." % (username))
-            #-------------------------------------------Reflected XSS - END----------------------------------------------
+            flash("User doesn't exists.")
             return redirect(url_for('admin.delete_user'))
     
     return render_template("admin/admin_panel_delete.html")

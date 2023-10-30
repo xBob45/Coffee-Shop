@@ -18,11 +18,11 @@
   padding-top: 10px;
  }
 
- #button {
+ #button-success {
   border-color: #198754c7;
 }
 
-#button:hover {
+#button-success:hover {
 background-color: #198754f2;
 border-color: #198754f2;
 }
