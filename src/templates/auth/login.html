@@ -30,11 +30,6 @@
 <form id="login-form" method="POST" action="{{ url_for('auth.login') }}">
   <!-- <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
   <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-  {% if p=='True' %}
-    <p>True</p>
-  {% else %}
-    <p>False</p>
-  {% endif %}  
   <div class="mb-3">
     <label for="UsernameTextArea" class="form-label">Username</label>
     <input type="username" name="username" class="form-control" id="UsernameTextArea">
@@ -54,7 +49,11 @@
   <ul class="flash">
       {% for message in messages %}
       <div class="alert alert-danger" role="alert" id="alert-danger">
-        {{ message | safe}}
+        {% if ReflectedXSS == True %}
+          {{ message | safe}}
+        {% else %}
+        {{ message}}
+        {% endif %}  
       </div>
       {% endfor %}
   </ul>

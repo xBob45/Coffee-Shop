@@ -6,6 +6,7 @@ from routes.adminRoute import admin_blueprint
 from models.User import db, User
 from flask_login import LoginManager
 
+# Load env variables from .env file
 def create_app():
     app = Flask(__name__)  # flask app object
     app.config.from_object('config')  # Configuring from Python Files
@@ -20,9 +21,11 @@ def create_app():
     def load_user(user_id):
         return User.query.get(int(user_id))
     #-------------------------Flask-Login - END-------------------------
+    
     return app
 
 app = create_app()  
+
 
 # Registering the blueprint
 app.register_blueprint(auth_blueprint)
