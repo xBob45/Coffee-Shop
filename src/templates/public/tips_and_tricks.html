@@ -1,0 +1,35 @@
+{% extends "public/home.html" %} 
+{% block title %}Tips & Tricks{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center">
+
+    <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Choose</h5>
+      <p class="card-text">In our online store you can choose coffee of variaty of types and origins including the ones from greates producers  </p>
+      <a href="{{ url_for('home.guide_reader', file_name='guide1.txt') }}" class="btn btn-outline-success" id="button-outline">Go somewhere</a>
+    </div>
+    </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Prepare</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="{{ url_for('home.guide_reader', file_name='guide2.txt') }}" class="btn btn-outline-success" id="button-outline" data-topic="guide1.txt">Go somewhere</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Serve</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="{{ url_for('home.guide_reader', file_name='guide3.txt') }}" class="btn btn-outline-success" id="button-outline">Go somewhere</a>
+    </div>
+  </div>
+  
+</div>
+
+{% endblock %}

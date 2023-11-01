@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from attacks import config
 
 HardCodedKey = config.getboolean('attacks', 'HardCodedKey')
-
+DebuggModeON = config.getboolean('attacks', 'DebuggModeON')
 
 #Load variables from .env file
 load_dotenv()
@@ -20,14 +20,26 @@ else:
 
 
 
+if DebuggModeON == True:
+    #---------------------------------------------A05 - Debugg Mode ON - START----------------------------------------------
+    os.environ["FLASK_DEBUG"] = 'True'
+    FLASK_DEBUG = os.environ.get('FLASK_DEBUG')
+    #----------------------------------------------A05 - Debugg Mode ON - END-----------------------------------------------
+else:
+    os.environ["FLASK_DEBUG"] = 'False'
+    FLASK_DEBUG = os.environ.get('FLASK_DEBUG')
+
+
+
+
+
+
 # Grabs the folder where the script runs.
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-# Enable debug mode, that will refresh the page when you make changes.
-DEBUG = os.environ.get('DEBUG')
 
-# Configure the PostgreSQL database connection
 SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
+
 
 # Turn off the Flask-SQLAlchemy event system and warning
 SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
