@@ -42,15 +42,60 @@ border-color: #198754f2;
 }
 
 .card {
-  margin-top: 180px;
-  margin-bottom: 180px;
+  margin-top: 100px;
+  margin-bottom: 100px;
   margin-right: 20px ;
   margin-left: 20px ;
 }
-.flag {
+
+#toggler{
+  padding-top: 50px;
+}
+
+input{
+  display: none;
+}
+
+.switch {
   position: relative;
-  width: 300px;
-  height: 200px;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px; /* Round the slider */
+  }
+
+.slider.round {
+  background-color: #198754c7;
+}
+
+.slider.round:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%; 
+}
+
+ 
+input:checked + .slider.round:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }
