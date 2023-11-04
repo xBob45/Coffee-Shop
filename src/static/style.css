@@ -48,6 +48,17 @@ border-color: #198754f2;
   margin-left: 20px ;
 }
 
+.coffee-section .card-body, .tea-section .card-body {
+  height: 300px; /* Adjust the height as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.coffee-section .card-body a, .tea-section .card-body a {
+  margin-top: auto; /* Push the "Read" button to the bottom of the card */
+}
+
 #toggler{
   padding-top: 50px;
 }

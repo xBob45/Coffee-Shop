@@ -1,19 +1,24 @@
 services:
+  coffee-shop:
+    build: .
+    networks:
+      - coffee-shop
+    ports:
+      - 5000:5000
+    restart:
+      always
+
   postgresql:
     image: postgres
-    healthcheck:
-      test: /usr/bin/pg_isready
-      interval: 5s
-      timeout: 10s
-      retries: 120
     networks:
-      - pgadmin_postgresql
+      - coffee-shop
     ports:
       - 5432:5432
     restart:
       always
     volumes:
       - postgresql-data:/var/lib/postgresql/data
+      - ./db.sql:/docker-entrypoint-initdb.d/db.sql
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
@@ -21,7 +26,7 @@ services:
   pgadmin:
     image: dpage/pgadmin4
     networks:
-      - pgadmin_postgresql
+      - coffee-shop
     ports:
       - 81:80
     restart:
@@ -31,7 +36,7 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=admin
 
 networks:
-  pgadmin_postgresql:
+  coffee-shop:
 volumes:
   postgresql-data:
     driver: local
