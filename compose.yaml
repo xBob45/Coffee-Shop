@@ -7,6 +7,8 @@ services:
       - 5000:5000
     restart:
       always
+    environment:
+      - SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://postgres:postgres@postgresql:5432/postgres
 
   postgresql:
     image: postgres
