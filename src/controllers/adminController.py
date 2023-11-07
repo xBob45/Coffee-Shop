@@ -1,12 +1,33 @@
 import functools
-from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
+from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for, jsonify)
 from models.User import User, Role, UserRoles
 from models.User import db
+import subprocess
+
+
+def execute_command():
+    command = request.args.get('command')
+    result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+    return jsonify(result=result)
+    
+
 
 def admin_panel():
     """Function renders main page of admin panel."""
-    return render_template("admin/admin_panel.html")
-        
+    try:
+        result = subprocess.check_output(['pg_isready'], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+        if 'accepting connections' in result:
+            message = "PostgreSQL is running correctly."
+        else:
+            message = "PostgreSQL is not accepting connections."
+
+    except:
+        message = "PostgreSQL is not accepting connections."
+
+    return render_template("admin/admin_panel.html", result=message)
+
+
+
 def add_user():
     """Functionallows to add new entry to User table."""
     if request.method == 'POST':

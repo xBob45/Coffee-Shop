@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect, url_for
-from controllers.adminController import admin_panel, add_user, update_user, view_user, delete_user
+from controllers.adminController import admin_panel, add_user, update_user, view_user, delete_user, execute_command
 from flask_login import current_user
 from attacks import config
 
@@ -23,7 +23,8 @@ else:
     #-------------------------------------------A01 - Forced Browsing - END--------------------------------------------
 
 
-admin_blueprint.route('', methods=['POST', 'GET'])(admin_panel)
+admin_blueprint.route('', methods=['GET'])(admin_panel)
+admin_blueprint.route('/execute_command', methods=['POST', 'GET'])(execute_command)
 admin_blueprint.route('/add', methods=['POST', 'GET'])(add_user)
 admin_blueprint.route('/view', methods=['POST', 'GET'])(view_user)
 admin_blueprint.route('/update', methods=['POST', 'GET'])(update_user)

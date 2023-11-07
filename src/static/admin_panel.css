@@ -50,3 +50,10 @@ border-color: #ff0000a1;
   padding-top: 10px;
 }
 
+#PostgreSQL p{
+  text-align: center;
+}
+
+#PostgreSQL-alert {
+  width: 250px;
+}
