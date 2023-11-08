@@ -50,10 +50,17 @@ border-color: #ff0000a1;
   padding-top: 10px;
 }
 
-#PostgreSQL p{
-  text-align: center;
+#services-alert {
+  width: 262px;
 }
 
-#PostgreSQL-alert {
-  width: 250px;
+#services-button {
+  color: grey;
+  margin-bottom: 12px;
+  margin-top: -15px;
 }
+
+#logContent {
+  height: 500px;
+}
+

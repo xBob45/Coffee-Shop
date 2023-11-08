@@ -32,8 +32,10 @@ if PathTraversal == True:
         requested_file = os.path.join(guides_dir, file_name)
         
         #Opens the file located at the location of 'requested_file' for reading ('r')
-        file = open(requested_file, 'r')
-        content = file.read()
+        with open(requested_file, 'r') as file:
+            content = file.read()
+            file.close()
+    
         return render_template("public/guide.html", content=content)
         #---------------------------------------------A05 - Path Traversal - End---------------------------------------------
 else:
@@ -68,6 +70,7 @@ else:
                 try:
                     with open(requested_file, 'r') as file:
                         content = file.read()
+                        file.close()
                     return render_template("public/guide.html", content=content)
                 except FileNotFoundError:
                     abort(404)

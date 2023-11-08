@@ -1,14 +1,19 @@
 # Importing the necessary modules and libraries
-from flask import Flask
+from flask import Flask, render_template
 from routes.authRoute import auth_blueprint
 from routes.homeRoute import home_blueprint
 from routes.adminRoute import admin_blueprint
 from models.User import db, User
 from flask_login import LoginManager
 
+def page_not_found(e):
+  return render_template('404.html'), 404
+
+
 # Load env variables from .env file
 def create_app():
     app = Flask(__name__)  # flask app object
+    app.register_error_handler(404, page_not_found)
     app.config.from_object('config')  # Configuring from Python Files
     db.init_app(app)  # Initializing the database
 

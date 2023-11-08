@@ -1,30 +1,63 @@
 import functools
-from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for, jsonify)
+from flask import (Blueprint, flash, g, redirect, render_template, request, abort, url_for, jsonify)
 from models.User import User, Role, UserRoles
 from models.User import db
 import subprocess
+from attacks import config
 
+OSCommandInjection = config.getboolean('attacks', 'OSCommandInjection')
 
 def execute_command():
-    command = request.args.get('command')
-    result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
-    return jsonify(result=result)
-    
-
+    if OSCommandInjection == True:
+        #---------------------------------------------A03 - OS Command Injection - START----------------------------------------------
+        command = request.args.get('command')
+        result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+        return jsonify(result=result)
+        #---------------------------------------------A03 - OS Command Injection - END------------------------------------------------
+    else:
+        command_value = request.args.get('command')
+        if len(command_value) != 1:
+            abort(404)
+        else:
+            if command_value == '1':
+                command = 'systemctl status apache2'
+            elif command_value == '2':
+                command = 'systemctl status postgresql'
+            else:
+                abort(404)
+            result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+            return jsonify(result=result)
+            
 
 def admin_panel():
     """Function renders main page of admin panel."""
     try:
-        result = subprocess.check_output(['pg_isready'], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
-        if 'accepting connections' in result:
-            message = "PostgreSQL is running correctly."
+        postgre = subprocess.check_output(['pg_isready'], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+        if 'accepting connections' in postgre:
+            postgre_message = "PostgreSQL is running correctly."
         else:
-            message = "PostgreSQL is not accepting connections."
+            postgre_message = "PostgreSQL is not accepting connections."
 
     except:
-        message = "PostgreSQL is not accepting connections."
+        postgre_message = "PostgreSQL is not accepting connections."
+    
+    try:        
+        apache = subprocess.check_output(['systemctl status apache2'], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+        if 'running' in apache:
+            apache_message = "Apache is running correctly."
+        else:
+            apache_message = "Apache down"
+    except:
+        apache_message = "Apache is down"
 
-    return render_template("admin/admin_panel.html", result=message)
+    try:
+        log_file = "../app.log"
+        with open(log_file, 'r') as file:
+            log_content = file.read()
+            file.close()
+    except:
+        log_content = "Error occured while loading the file."
+    return render_template("admin/admin_panel.html", postgre_message=postgre_message, apache_message=apache_message, log_content=log_content, OSCommandInjection=OSCommandInjection)
 
 
 
