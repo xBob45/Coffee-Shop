@@ -28,9 +28,9 @@ VALUES
     ('anndoe', 'Anne', 'Doe', 'customer_password_hash1', NULL),
     ('Bob', 'Bob', 'Clever', 'customer_password_hash2', NULL);
 
--- Assign roles to users
+
 INSERT INTO user_roles (user_id, role_id)
 VALUES
-    (1, 1), -- Admin role to admin_user
-    (2, 2), -- Customer role to customer_user1
-    (3, 2); -- Customer role to customer_user2;
+    (1, 1), 
+    (2, 2),
+    (3, 2); 
