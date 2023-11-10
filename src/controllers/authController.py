@@ -4,6 +4,8 @@ from models.User import db
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
 from werkzeug.security import check_password_hash, generate_password_hash
 from attacks import config
+from dotenv import load_dotenv
+import os
 from flask_login import login_user, logout_user, login_required
 
 
@@ -67,7 +69,13 @@ def login():
     else:
         #----------------------------------------------------A03 - SQL Injection - START---------------------------------------------------
         import psycopg2
-        conn = psycopg2.connect(host='localhost',database='postgres', user='postgres', password='postgres')
+        from urllib.parse import urlparse
+
+        params = urlparse(os.environ["SQLALCHEMY_DATABASE_URI"])
+        #This extracts parameters from SQLALCHEMY_DATABASE_URI and makes connection accordingly.
+        connection = {'user': params.username, 'password': params.password, 'host': params.hostname, 'port': params.port, 'database': params.path.lstrip('/')}
+        conn = psycopg2.connect(**connection)
+        
         username = ''
         #admin
         #' OR 1=1 --
