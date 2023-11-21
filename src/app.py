@@ -1,10 +1,14 @@
 # Importing the necessary modules and libraries
+from attacks import config
 from flask import Flask, render_template
 from routes.authRoute import auth_blueprint
 from routes.homeRoute import home_blueprint
 from routes.adminRoute import admin_blueprint
 from models.User import db, User
 from flask_login import LoginManager
+
+Clickjacking = config.getboolean('attacks', 'Clickjacking')
+
 
 def page_not_found(e):
   return render_template('404.html'), 404
@@ -27,9 +31,26 @@ def create_app():
         return User.query.get(int(user_id))
     #-------------------------Flask-Login - END-------------------------
     
+    if Clickjacking:
+        #---------------------------------------------A04 - Clickjacking - START----------------------------------------------
+        pass
+    else:
+        @app.after_request
+        def security_measures(response):
+            response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
+            response.headers['X-Content-Type-Options'] = 'nosniff'
+            response.headers['X-Frame-Options'] = 'DENY'
+            return response
+        #---------------------------------------------A04 - Clickjacking - END----------------------------------------------
+    
+    
+    
     return app
 
-app = create_app()  
+app = create_app()
+
+    
+
 
 
 # Registering the blueprint

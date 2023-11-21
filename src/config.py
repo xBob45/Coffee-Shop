@@ -4,6 +4,7 @@ from attacks import config
 
 HardCodedKey = config.getboolean('attacks', 'HardCodedKey')
 DebuggModeON = config.getboolean('attacks', 'DebuggModeON')
+CookiesWithoutSecurityAttributes = config.getboolean('attacks', 'CookiesWithoutSecurityAttributes')
 
 #Load variables from .env file
 load_dotenv()
@@ -18,19 +19,24 @@ else:
     #print(SECRET_KEY)
     #---------------------------------------------A02 - Hard Coded Crypto Ket - END------------------------------------------------
 
-
-
 if DebuggModeON == True:
     #---------------------------------------------A05 - Debugg Mode ON - START----------------------------------------------
     os.environ["FLASK_DEBUG"] = 'True'
     FLASK_DEBUG = os.environ.get('FLASK_DEBUG')
-    #----------------------------------------------A05 - Debugg Mode ON - END-----------------------------------------------
 else:
     os.environ["FLASK_DEBUG"] = 'False'
     FLASK_DEBUG = os.environ.get('FLASK_DEBUG')
+     #----------------------------------------------A05 - Debugg Mode ON - END-----------------------------------------------
 
-
-
+if CookiesWithoutSecurityAttributes:
+    #---------------------------------------------A05 - Cookies without Security Attributes - START----------------------------------------------
+    SESSION_COOKIE_SECURE = False
+    SESSION_COOKIE_HTTPONLY = False
+else:
+    SESSION_COOKIE_SECURE = True
+    SESSION_COOKIE_HTTPONLY = True
+    SESSION_COOKIE_SAMESITE = 'Strict'   
+    #---------------------------------------------A05 - Cookies without Security Attributes - END------------------------------------------------
 
 
 
