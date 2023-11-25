@@ -1,5 +1,5 @@
 # Importing the necessary modules and libraries
-from attacks import config
+from attack import config
 from flask import Flask, render_template
 from routes.authRoute import auth_blueprint
 from routes.homeRoute import home_blueprint

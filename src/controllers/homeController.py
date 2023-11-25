@@ -2,7 +2,7 @@ import functools
 import os
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for, send_file, abort)
 import re
-from attacks import config
+from attack import config
 
 
 

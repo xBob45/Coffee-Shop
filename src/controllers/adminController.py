@@ -3,7 +3,7 @@ from flask import (Blueprint, flash, g, redirect, render_template, request, abor
 from models.User import User, Role, UserRoles
 from models.User import db
 import subprocess
-from attacks import config
+from attack import config
 
 OSCommandInjection = config.getboolean('attacks', 'OSCommandInjection')
 
