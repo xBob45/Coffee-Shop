@@ -1,0 +1,3 @@
+#src/config.py
+"""Fix"""
+os.environ["FLASK_DEBUG"] = "0"

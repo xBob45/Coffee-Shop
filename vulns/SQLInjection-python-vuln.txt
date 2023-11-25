@@ -1,0 +1,35 @@
+#src/controllers/authController.py
+def login():
+    """Vulnerability"""      
+    #admin
+    #' OR 1=1 --
+    if request.method == 'POST':
+        username = request.form.get('username')
+        #print(username)
+        password = request.form.get('password')
+        #print(password)
+        remember = True if request.form.get('remember') else False
+        user = db.session.execute(text("SELECT EXISTS (SELECT 1 FROM users WHERE username = '%s')" % (username)))
+        username_checks = user.fetchone()[0]
+        #print(username_checks)
+        if username_checks:
+            #print("SELECT * FROM users WHERE username = '%s' AND password = '%s'" % (username, password))
+            user_data = db.session.execute(text("SELECT *FROM users WHERE username = '%s' AND password = '%s'" % (username, password))).fetchone()
+            #print(user_data)
+            if user_data:
+                #Turning retrieved user data into User object because Flas-Login requires it.
+                user = User(id=user_data[0], username=user_data[1], first_name=user_data[2], last_name=user_data[3],
+                    password=user_data[4], salt=user_data[5])
+                login_user(user, remember=remember)
+                #SensitiveDatawithinCookie - START
+                #SensitiveDatawithinCookie - END
+                return redirect(url_for('home.home'))
+            else:
+                #SensitiveInformationDisclosure - START
+                #SensitiveInformationDisclosure - END
+
+        else:
+            #ReflectedXSS - START
+            #ReflectedXSS - END
+
+    return render_template('auth/login.html') 

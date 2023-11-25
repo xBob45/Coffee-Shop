@@ -1,0 +1,58 @@
+.
+├── __pycache__
+│   ├── __init__.cpython-310.pyc
+│   ├── app.cpython-310.pyc
+│   ├── attacks.cpython-310.pyc
+│   ├── auth.cpython-310.pyc
+│   └── config.cpython-310.pyc
+├── app.py
+├── attacks.ini
+├── attacks.py
+├── config.py
+├── controllers
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-310.pyc
+│   │   ├── adminController.cpython-310.pyc
+│   │   ├── authController.cpython-310.pyc
+│   │   └── homeController.cpython-310.pyc
+│   ├── adminController.py
+│   ├── authController.py
+│   └── homeController.py
+├── guides
+│   └── guide1.txt
+├── models
+│   ├── User.py
+│   └── __pycache__
+│       └── User.cpython-310.pyc
+├── routes
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-310.pyc
+│   │   ├── adminRoute.cpython-310.pyc
+│   │   ├── authRoute.cpython-310.pyc
+│   │   └── homeRoute.cpython-310.pyc
+│   ├── adminRoute.py
+│   ├── authRoute.py
+│   └── homeRoute.py
+├── static
+│   ├── admin_panel.css
+│   ├── sign-in.css
+│   └── style.css
+├── templates
+│   ├── admin
+│   │   ├── admin_panel.html
+│   │   ├── admin_panel_add.html
+│   │   ├── admin_panel_delete.html
+│   │   └── admin_panel_view_and_update.html
+│   ├── auth
+│   │   ├── login.html
+│   │   └── signup.html
+│   ├── base.html
+│   └── public
+│       ├── guide.html
+│       ├── home.html
+│       └── tips_and_tricks.html
+└── tree.txt
+
+13 directories, 42 files

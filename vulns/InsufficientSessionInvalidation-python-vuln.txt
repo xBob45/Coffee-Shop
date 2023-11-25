@@ -1,0 +1,7 @@
+#src/controllers/authController.py
+def logout():
+    """Vulnerability"""
+    #SensitiveDatawithinCookie2 - START
+    #SensitiveDatawithinCookie2 - END
+    flash("You were logged out.")
+    return redirect(url_for("auth.login"))

@@ -1,0 +1,6 @@
+#src/controllers/authController.py
+"""Vulnerability"""
+user_roles = db.session.query(Role.name).join(UserRoles, Role.id == UserRoles.role_id).filter(UserRoles.user_id == user.id).one()
+for role in user_roles:
+    session['role'] = role
+    break

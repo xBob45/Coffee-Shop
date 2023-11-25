@@ -1,0 +1,3 @@
+#src/routes/adminRoute.py
+"""Vulnerability"""
+"""Application doesn't perform any kind of check whether or not user who's tring to access these endpoints has 'admin' role."""

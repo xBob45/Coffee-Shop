@@ -1,0 +1,7 @@
+#src/routes/adminRoute.py
+"""Fix"""
+@admin_blueprint.before_request
+def check_if_admin():
+    #If current user is not authenticated or not of the role function loops through is 'admin'
+    if not current_user.is_authenticated or not any(role.name == 'admin' for role in current_user.roles):
+        return redirect(url_for('home.home'))
