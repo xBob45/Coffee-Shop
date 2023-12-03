@@ -21,15 +21,25 @@ def login():
                 user = User(id=user_data[0], username=user_data[1], first_name=user_data[2], last_name=user_data[3],
                     password=user_data[4], salt=user_data[5])
                 login_user(user, remember=remember)
-                #SensitiveDatawithinCookie - START
-                #SensitiveDatawithinCookie - END
+                
+                #InsertionOfSensitiveInformationIntoLogFile-1 - START
+                #InsertionOfSensitiveInformationIntoLogFile-1 - END
+
+                #SensitiveDatawithinCookie-1 - START
+                #SensitiveDatawithinCookie-1 - END
                 return redirect(url_for('home.home'))
             else:
-                #SensitiveInformationDisclosure - START
-                #SensitiveInformationDisclosure - END
+                #InsertionOfSensitiveInformationIntoLogFile-2 - START
+                #InsertionOfSensitiveInformationIntoLogFile-2 - END
+
+                #SensitiveInformationDisclosure-1 - START
+                #SensitiveInformationDisclosure-1 - END
 
         else:
-            #ReflectedXSS - START
-            #ReflectedXSS - END
+            #InsertionOfSensitiveInformationIntoLogFile-3 - START
+            #InsertionOfSensitiveInformationIntoLogFile-3 - END
+
+            #ReflectedXSS-1 - START
+            #ReflectedXSS-1 - END
 
     return render_template('auth/login.html') 

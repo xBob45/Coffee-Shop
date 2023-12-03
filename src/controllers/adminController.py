@@ -1,33 +1,17 @@
 import functools
-from flask import (Blueprint, flash, g, redirect, render_template, request, abort, url_for, jsonify)
+from flask import (flash, redirect, render_template, request, abort, url_for, jsonify)
 from models.User import User, Role, UserRoles
 from models.User import db
 import subprocess
-from attack import config
 
-OSCommandInjection = config.getboolean('attacks', 'OSCommandInjection')
 
+#OSCommandInjection-1 - START
+"""Vulnerability"""
 def execute_command():
-    if OSCommandInjection == True:
-        #---------------------------------------------A03 - OS Command Injection - START----------------------------------------------
-        command = request.args.get('command')
-        result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
-        return jsonify(result=result)
-        #---------------------------------------------A03 - OS Command Injection - END------------------------------------------------
-    else:
-        command_value = request.args.get('command')
-        if len(command_value) != 1:
-            abort(404)
-        else:
-            if command_value == '1':
-                command = 'systemctl status apache2'
-            elif command_value == '2':
-                command = 'systemctl status postgresql'
-            else:
-                abort(404)
-            result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
-            return jsonify(result=result)
-            
+    command = request.args.get('command')
+    result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+    return jsonify(result=result)
+#OSCommandInjection-1 - END
 
 def admin_panel():
     """Function renders main page of admin panel."""
@@ -37,10 +21,8 @@ def admin_panel():
             postgre_message = "PostgreSQL is running correctly."
         else:
             postgre_message = "PostgreSQL is not accepting connections."
-
     except:
         postgre_message = "PostgreSQL is not accepting connections."
-    
     try:        
         apache = subprocess.check_output(['systemctl status apache2'], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
         if 'running' in apache:
@@ -49,7 +31,6 @@ def admin_panel():
             apache_message = "Apache down"
     except:
         apache_message = "Apache is down"
-
     try:
         log_file = "../app.log"
         with open(log_file, 'r') as file:
@@ -57,9 +38,7 @@ def admin_panel():
             file.close()
     except:
         log_content = "Error occured while loading the file."
-    return render_template("admin/admin_panel.html", postgre_message=postgre_message, apache_message=apache_message, log_content=log_content, OSCommandInjection=OSCommandInjection)
-
-
+    return render_template("admin/admin_panel.html", postgre_message=postgre_message, apache_message=apache_message, log_content=log_content)
 
 def add_user():
     """Functionallows to add new entry to User table."""
@@ -81,7 +60,6 @@ def add_user():
         return redirect(url_for('admin.add_user'))
     return render_template("admin/admin_panel_add.html")
 
-
 def view_user():
     """Function allows to view an arbitrary entry in User table."""
     if request.method == 'POST':
@@ -94,7 +72,6 @@ def view_user():
         else:
             flash("User doesn't exists.")   
     return render_template("admin/admin_panel_view_and_update.html")
-
 
 def update_user():
     if request.method == 'POST':
@@ -117,9 +94,7 @@ def update_user():
             flash("User has been updated.")
         else:
             flash("Error occurred")
-
     return render_template("admin/admin_panel_view_and_update.html")
-
 
 def delete_user():
     """Function allows to delete arbitrary entry from User table."""
@@ -135,5 +110,4 @@ def delete_user():
         else:
             flash("User doesn't exists.")
             return redirect(url_for('admin.delete_user'))
-    
     return render_template("admin/admin_panel_delete.html")

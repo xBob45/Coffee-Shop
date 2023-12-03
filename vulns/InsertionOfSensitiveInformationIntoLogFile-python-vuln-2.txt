@@ -1,0 +1,2 @@
+#src/controllers/authController.py
+log_config.logging.info("User %s failed to login! Wrong password entered." % username)

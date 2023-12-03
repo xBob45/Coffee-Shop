@@ -1,0 +1,2 @@
+#src/controllers/authController.py
+log_config.logging.info("User with %s username succesfully logged in with password %s password." % (username, password))

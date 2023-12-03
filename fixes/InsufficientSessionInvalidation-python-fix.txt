@@ -1,8 +1,0 @@
-#src/controllers/authController.py
-def logout():
-    """Fix"""
-    #SensitiveDatawithinCookie2 - START
-    #SensitiveDatawithinCookie2 - END
-    logout_user()
-    flash("You were logged out.")
-    return redirect(url_for("auth.login"))

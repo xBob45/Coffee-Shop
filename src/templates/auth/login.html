@@ -48,8 +48,10 @@
   <ul class="flash">
       {% for message in messages %}
       <div class="alert alert-danger" role="alert" id="alert-danger">
-        {# ReflectedXSS - START #}
-        {# ReflectedXSS - END #}
+        {# ReflectedXSS-1 - START #}
+        {# Vulnerability #}
+        {{ message | safe}}
+        {# ReflectedXSS-1 - END #}
       </div>
       {% endfor %}
   </ul>

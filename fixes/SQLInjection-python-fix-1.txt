@@ -9,16 +9,29 @@ def login():
         remember = True if request.form.get('remember') else False
         user = User.query.filter_by(username=username).first()
         if user is None:
-            #ReflectedXSS - START
-            #ReflectedXSS - END
+            #InsertionOfSensitiveInformationIntoLogFile-3 - START
+            #InsertionOfSensitiveInformationIntoLogFile-3 - END
+
+            #ReflectedXSS-1 - START
+            #ReflectedXSS-1 - END
+
         elif user.password != password:
-            #SensitiveInformationDisclosure - START
-            #SensitiveInformationDisclosure - END
+
+            #InsertionOfSensitiveInformationIntoLogFile-2 - START
+            #InsertionOfSensitiveInformationIntoLogFile-2 - END
+
+            #SensitiveInformationDisclosure-1 - START
+            #SensitiveInformationDisclosure-1 - END
         else:
             # Perform the login action or redirect to the home page
             login_user(user, remember=remember)
-            #SensitiveDatawithinCookie - START
-            #SensitiveDatawithinCookie - END
+
+            #InsertionOfSensitiveInformationIntoLogFile-1 - START
+            #InsertionOfSensitiveInformationIntoLogFile-1 - END
+
+            #SensitiveDatawithinCookie-1 - START
+            #SensitiveDatawithinCookie-1 - END
+            
             return redirect(url_for('home.home')) 
     # If the request method is GET or the login was unsuccessful, render the login form
     return render_template('auth/login.html')

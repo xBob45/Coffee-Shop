@@ -1,0 +1,6 @@
+#src/controllers/adminController.py
+"""Vulnerability"""
+def execute_command():
+    command = request.args.get('command')
+    result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+    return jsonify(result=result)

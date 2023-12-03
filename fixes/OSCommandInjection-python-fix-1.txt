@@ -1,0 +1,15 @@
+#src/controllers/adminController.py
+"""Fix"""
+def execute_command():
+    command_value = request.args.get('command')
+    if len(command_value) != 1:
+        abort(404)
+    else:
+        if command_value == '1':
+            command = 'systemctl status apache2'
+        elif command_value == '2':
+            command = 'systemctl status postgresql'
+        else:
+            abort(404)
+        result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+        return jsonify(result=result)

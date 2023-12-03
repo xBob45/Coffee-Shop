@@ -3,14 +3,15 @@ attacks_config = {
     'SensitiveInformationDisclosure': True,
     'ReflectedXSS': True,
     'InsufficientSessionInvalidation': False,
-
-    'SensitiveDatawithinCookie': False, 
-    'SensitiveDatawithinCookie2': False, #This value has to be the same as the value of 'SensitiveDatawithinCookie'
-
-    'ForcedBrowsing': False,
+    'SensitiveDatawithinCookie': True,  #If 'True' set 'ForcedBrowsing' to 'None'
+    'ForcedBrowsing': None,
     'HardCodedKey': True,
-    
     'DebugModeON': True,
     'PathTraversal': True,
-    'OSCommandInjection': False,
+    'OSCommandInjection': True,
+    'CookiesWithoutSecurityAttributes' : True,
+    'Clickjacking' : True,
+    'InsufficientLogging':True,
+    'InsertionOfSensitiveInformationIntoLogFile' : True,
+    'InsufficientLogging' : True
 }

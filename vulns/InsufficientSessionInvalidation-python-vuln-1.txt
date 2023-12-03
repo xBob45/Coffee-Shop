@@ -1,7 +1,8 @@
 #src/controllers/authController.py
 def logout():
     """Vulnerability"""
-    #SensitiveDatawithinCookie2 - START
-    #SensitiveDatawithinCookie2 - END
+    #SensitiveDatawithinCookie-2 - START
+    #SensitiveDatawithinCookie-2 - END
+    log_config.logging.info("User %s logged out." % username)
     flash("You were logged out.")
     return redirect(url_for("auth.login"))
