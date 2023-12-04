@@ -6,11 +6,6 @@ admin_blueprint = Blueprint('admin', __name__, url_prefix='/admin')
 
 
 #SensitiveDatawithinCookie-3 - START
-@admin_blueprint.before_request
-def check_if_admin():
-    role = session.get('role')
-    if role != 'admin':
-        return redirect(url_for('home.home'))
 #SensitiveDatawithinCookie-3 - END
 
 #ForcedBrowsing-1 - START

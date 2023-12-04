@@ -1,9 +1,8 @@
 #src/controllers/homeController.py
-"""Vulnerability"""
 def guide_reader():
-#../../../../../../etc/passwd
-
-#Extracts file from 'file_name' parameter
+    """Vulnerability"""
+    #../../../../../../etc/passwd
+    #Extracts file from 'file_name' parameter
     file_name = request.args.get('file_name')
 
     #Creates a path by concatenating '/home/vojta/Bakalarka/Coffee-Shop/src/' and 'guides'

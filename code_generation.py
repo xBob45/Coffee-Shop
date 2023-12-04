@@ -77,6 +77,7 @@ def copy_function():
                     except FileNotFoundError as e:
                         print(e)
                         continue
+          
         elif attack_name == None:
             continue        
 
@@ -90,7 +91,7 @@ def delete_function():
                     content = file.readlines()
                     file.seek(0)
                 
-                    delete_block = False  # Flag to indicate if the block should be deleted
+                    delete_block = False  # 'Switch' that turn DELETE ON/OFF
                     
                     for line in content:
                         beginning = '%s-%s - START' % (attac_name,file_number)
@@ -109,5 +110,5 @@ def delete_function():
                     file.truncate()
 
 # Example usage
-#delete_function()
-copy_function()
+delete_function()
+#copy_function()

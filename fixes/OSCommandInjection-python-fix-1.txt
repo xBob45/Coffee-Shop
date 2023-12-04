@@ -1,6 +1,6 @@
 #src/controllers/adminController.py
-"""Fix"""
 def execute_command():
+    """Fix"""
     command_value = request.args.get('command')
     if len(command_value) != 1:
         abort(404)

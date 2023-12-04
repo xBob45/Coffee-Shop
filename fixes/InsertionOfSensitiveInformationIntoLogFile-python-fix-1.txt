@@ -1,2 +1,3 @@
 #src/controllers/authController.py
+"""Fix"""
 log_config.logging.info("User %s succesfully logged in." % username) 

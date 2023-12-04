@@ -1,7 +1,7 @@
 #src/controllers/homeController.py
-"""Fix"""
 def check_path(basedir, path, follow_symlinks=True):
-    """Function checks for safety of a given path."""
+    """Fix"""
+    #Function checks for safety of a given path.
     # basedir - base dir against which 'path' is compared -> /home/vojta/Bakalarka/Coffee-Shop/src/guides
     # path - path that subject of control -> /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt[OK] or /etc/passwd[NOT OK]
     # follow_symlinks - if 'True' function will also resolve symbolic links and checks if it safe.

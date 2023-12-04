@@ -26,8 +26,6 @@ def create_app():
     #-------------------------Flask-Login-------------------------
 
     #Clickjacking-1 - START
-    """Vulnerability"""
-    """No protective measures are set."""
     #Clickjacking-1 - END
     return app
 

@@ -1,2 +1,3 @@
 #src/controllers/authController.py
+"""Vulnerability"""
 log_config.logging.info("User %s failed to login! Username doesn't exist." % username)
