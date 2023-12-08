@@ -75,3 +75,4 @@ INFO User with Vojta username succesfully logged in with password customer_passw
 INFO User Vojta logged out.
 INFO User with admin username succesfully logged in with password admin_password password.
 INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User with admin username succesfully logged in with password admin_password password.

@@ -5,14 +5,22 @@ from dotenv import load_dotenv
 load_dotenv()
 
 #HardCodedKey-1 - START
+"""Vulnerability"""
+SECRET_KEY = 'iamsecret'
 #HardCodedKey-1 - END
 
 #DebugModeON-1 - START
+"""Vulnerability"""
+os.environ["FLASK_DEBUG"] = "1"
 #DebugModeON-1 - END
 
 """SameSite issues documented here"""
 #https://stackoverflow.com/questions/60980567/flask-cookies-do-not-have-the-samesite-attribute#:~:text=You%27re%20correct%20in,the%20https%20scheme).
 #CookiesWithoutSecurityAttributes-1 - START
+"""Fix"""
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = 'Strict'  
 #CookiesWithoutSecurityAttributes-1 - END
 
 # Grabs the folder where the script runs.

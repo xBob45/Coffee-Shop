@@ -3,34 +3,16 @@ CREATE TABLE roles (
     name VARCHAR(50) UNIQUE NOT NULL
 );
 
-INSERT INTO roles (name) VALUES ('admin'), ('customer');
-
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
+    role_id INTEGER REFERENCES roles(id) ON DELETE CASCADE,
     username VARCHAR(80) UNIQUE NOT NULL,
+    email VARCHAR(80) UNIQUE,
     first_name VARCHAR(80) NOT NULL,
     last_name VARCHAR(80) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    salt VARCHAR(80)
+    password VARCHAR(255) NOT NULL
 );
 
-
-CREATE TABLE user_roles (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    role_id INTEGER REFERENCES roles(id) ON DELETE CASCADE
-);
-
-
-INSERT INTO users (username, first_name, last_name, password, salt)
-VALUES
-    ('admin', 'James', 'McDonald', 'admin_password_hash', NULL),
-    ('anndoe', 'Anne', 'Doe', 'customer_password_hash1', NULL),
-    ('Bob', 'Bob', 'Clever', 'customer_password_hash2', NULL);
-
-
-INSERT INTO user_roles (user_id, role_id)
-VALUES
-    (1, 1), 
-    (2, 2),
-    (3, 2); 
+INSERT INTO roles (name) VALUES ('admin'), ('customer');
+INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'admin', 'admin@example.com', 'Admin', 'User', 'admin_password')
+INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(2,'Vojta', 'vojta@example.com', 'Vojta', 'LastName', 'customer_password')

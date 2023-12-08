@@ -6,6 +6,11 @@ import subprocess
 
 
 #OSCommandInjection-1 - START
+def execute_command():
+    """Vulnerability"""
+    command = request.args.get('command')
+    result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+    return jsonify(result=result)
 #OSCommandInjection-1 - END
 
 def admin_panel():
@@ -90,7 +95,7 @@ def update_user():
             flash("User has been updated.")
         except:
             flash("Error occurred")
-    return render_template("admin/admin_panel_view_and_update.html")
+    return redirect(request.referrer)
 
 def delete_user():
     """Function allows to delete arbitrary entry from User table."""
