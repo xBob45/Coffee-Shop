@@ -18,8 +18,8 @@ def login():
             #print(user_data)
             if user_data:
                 #Turning retrieved user data into User object because Flas-Login requires it.
-                user = User(id=user_data[0], username=user_data[1], first_name=user_data[2], last_name=user_data[3],
-                    password=user_data[4], salt=user_data[5])
+                user = User(id=user_data[0], username=user_data[2], email= user_data[3], first_name=user_data[4], last_name=user_data[5],
+                    password=user_data[6])
                 login_user(user, remember=remember)
                 
                 #InsertionOfSensitiveInformationIntoLogFile-1 - START

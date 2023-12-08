@@ -41,6 +41,10 @@
               <input type="text" class="form-control" id="edit_username" placeholder="Change Username" name="edit_username" value="{{ user.username }}">
           </div>
           <div class="mb-3">
+            <label for="edit_email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="edit_email" placeholder="Change Email" name="edit_email" value="{{ user.email }}">
+        </div>
+          <div class="mb-3">
               <label for="edit_fn" class="form-label">First Name</label>
               <input type="text" class="form-control" id="edit_fn" placeholder="Change First Name" name="edit_fn" value="{{ user.first_name }}">
           </div>
@@ -63,15 +67,16 @@
             <label for="formGroupExampleInput" class="form-label">Privileges</label>
             <div class="col-sm-10">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="edit_role" id="gridRadios1" value="1" {% if 'admin' in user.roles|map(attribute='name') %}checked{% endif %}>
+                    <input class="form-check-input" type="radio" name="edit_role" id="gridRadios1" value="1" {% if user.roles.name == 'admin' %}checked{% endif %}>
                     <label class="form-check-label" for="gridRadios1">Admin</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="edit_role" id="gridRadios2" value="2" {% if 'customer' in user.roles|map(attribute='name') %}checked{% endif %}>
-                    <label class="form-check-label" for="gridRadios2">Customer</label>
+                    <input class="form-check-input" type="radio" name="edit_role" id="gridRadios1" value="2" {% if user.roles.name == 'customer' %}checked{% endif %}>
+                    <label class="form-check-label" for="gridRadios1">Customer</label>
                 </div>
             </div>
         </fieldset>
+        
           <button type="submit" class="btn btn-outline-danger" id="update_button">Update</button>
       </form>
   </div>

@@ -2,6 +2,8 @@
 @admin_blueprint.before_request
 def check_if_admin():
     """Fix"""
-    #If current user is not authenticated or not of the role function loops through is 'admin'
-    if not current_user.is_authenticated or not any(role.name == 'admin' for role in current_user.roles):
+    #Only authenticated users with role 'admin' can access admin panel
+    if current_user.is_authenticated and current_user.roles.name == 'admin':
+        pass
+    else:
         return redirect(url_for('home.home'))

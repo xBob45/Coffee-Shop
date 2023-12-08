@@ -2,8 +2,7 @@
 {% block title %}Home{% endblock %}
 {% block navbar %}
     {% if current_user.is_authenticated %}
-        {% for role in current_user.roles %}
-            {% if role.name == 'admin'%}
+        {% if current_user.roles.name == 'admin'%}
             <ul class="navbar-nav my-2 my-lg-0" id="right-part-nav">
                 <li class="nav-item">
                     <a href="{{ url_for('admin.admin_panel')}}" class="btn btn-outline-danger" role="button" id="admin_button">Admin Panel</a>
@@ -23,15 +22,12 @@
                     <a class="nav-link" href="{{ url_for('auth.logout') }}">Log Out</a>
                 </li>
             </ul>
-            {% else %}
+        {% else %}
             <ul class="navbar-nav my-2 my-lg-0" id="right-part-nav">
                 <a href="#">
                     <li class="nav-item">
                     </li>
                 </a>
-                
-                
-                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{current_user.username}}</a>
                     <ul class="dropdown-menu">
@@ -42,8 +38,7 @@
                     <a class="nav-link" href="{{ url_for('auth.logout') }}">Log Out</a>
                 </li>
             </ul>
-            {% endif %}
-        {% endfor %}
+        {% endif %}
 
     {% else %}
         <ul class="navbar-nav my-2 my-lg-0">

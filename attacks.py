@@ -3,7 +3,7 @@ attacks_config = {
     'SensitiveInformationDisclosure': True,
     'ReflectedXSS': True,
     'InsufficientSessionInvalidation': False,
-    'SensitiveDatawithinCookie': True,  #If 'True' set 'ForcedBrowsing' to 'None'
+    'SensitiveDatawithinCookie': False,  #If 'True' set 'ForcedBrowsing' to 'None'
     'ForcedBrowsing': None,
     'HardCodedKey': True,
     'DebugModeON': True,
@@ -13,5 +13,4 @@ attacks_config = {
     'Clickjacking' : True,
     'InsufficientLogging':True,
     'InsertionOfSensitiveInformationIntoLogFile' : True,
-    'InsufficientLogging' : True
 }

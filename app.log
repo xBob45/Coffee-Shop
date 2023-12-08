@@ -14,3 +14,64 @@ INFO User with admin username succesfully logged in with password admin_password
 INFO User admin logged out.
 INFO User with admin username succesfully logged in with password admin_password_hash password.
 INFO User admin logged out.
+INFO User admin failed to login! Wrong password entered.
+INFO User asdfasdf failed to login! Username doesn't exist.
+INFO User asdfasdfasdf failed to login! Username doesn't exist.
+INFO User asdfasdfasdf failed to login! Username doesn't exist.
+INFO User admin failed to login! Wrong password entered.
+INFO User with admin username succesfully logged in with password admin_password password.
+INFO User admin logged out.
+INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User admin failed to login! Wrong password entered.
+INFO User with admin username succesfully logged in with password admin_password password.
+INFO User admin failed to login! Wrong password entered.
+INFO User with admin username succesfully logged in with password admin_password password.
+INFO User with admin username succesfully logged in with password admin_password password.
+INFO User admin logged out.
+INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User Vojta logged out.
+INFO User with admin username succesfully logged in with password admin_password password.
+INFO User admin logged out.
+INFO User with admin username succesfully logged in with password admin_password password.
+INFO User admin logged out.
+INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User Vojta logged out.
+INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User Vojta logged out.
+INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User Vojta logged out.
+INFO User with admin username succesfully logged in with password admin_password password.
+INFO User admin logged out.
+INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User Vojta logged out.
+INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User Vojta logged out.
+INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User Vojta logged out.
+INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User Vojta logged out.
+INFO User with admin username succesfully logged in with password admin_password password.
+INFO User admin logged out.
+INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User Vojta logged out.
+INFO User Vojta logged out.
+INFO User Vojtasdfa failed to login! Username doesn't exist.
+INFO User Vojta failed to login! Wrong password entered.
+INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User Vojta logged out.
+INFO User with admin username succesfully logged in with password admin_password password.
+INFO User admin logged out.
+INFO User admin failed to login! Wrong password entered.
+INFO User with admin username succesfully logged in with password ' OR 1=1 -- password.
+INFO User Vojta logged out.
+INFO User admin failed to login! Wrong password entered.
+INFO User with admin username succesfully logged in with password admin_password password.
+INFO User admin logged out.
+INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User Vojta logged out.
+INFO User with Vojta username succesfully logged in with password customer_password password.
+INFO User Vojta logged out.
+INFO User with admin username succesfully logged in with password admin_password password.
+INFO User with Vojta username succesfully logged in with password customer_password password.

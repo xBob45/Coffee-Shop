@@ -1,6 +1,6 @@
 import functools
 from flask import (flash, redirect, render_template, request, abort, url_for, jsonify)
-from models.User import User, Role, UserRoles
+from models.User import User, Role
 from models.User import db
 import subprocess
 
@@ -39,14 +39,14 @@ def add_user():
     """Functionallows to add new entry to User table."""
     if request.method == 'POST':
         username = request.form.get("add_username")
+        email = request.form.get("email")
         first_name = request.form.get("add_fname")
         last_name = request.form.get("add_lname")
         password = request.form.get("add_pass")
         role_name = request.form.get("add_role")
-        role = Role.query.filter_by(name=role_name).first()
-        print(role)
-        user = User(username=username, first_name=first_name, last_name=last_name, password=password)
-        user.roles.append(role)
+        role = Role.query.filter_by(name=role_name).first().id
+        #print(role)
+        user = User(role_id=role, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
         db.session.add(user)
         db.session.commit()
         db.session.close()
@@ -73,21 +73,22 @@ def update_user():
         id = request.form.get("edit_id")
         user = User.query.filter_by(id=id).first()
         user.username = request.form.get("edit_username")
+        user.email = request.form.get("edit_email")
         user.first_name = request.form.get("edit_fn")
         user.last_name = request.form.get("edit_ln")
         user.password = request.form.get("edit_password")
 
-        #1) Take the role id from the HTML form
-        new_role_id = int(request.form.get("edit_role"))
-
-        #2) Fetch asociation (line) of user-user's role from user_role table based on user's ID
-        user_role = UserRoles.query.filter_by(user_id=id).first()
-
-        if user_role:
-            user_role.role_id = new_role_id  # Update the role_id
+        #Update a user with new values
+        try:
+            user.username = request.form.get("edit_username")
+            user.email = request.form.get("edit_email")
+            user.first_name = request.form.get("edit_fn")
+            user.last_name = request.form.get("edit_ln")
+            user.password = request.form.get("edit_password")
+            user.role_id = int(request.form.get("edit_role"))
             db.session.commit()
             flash("User has been updated.")
-        else:
+        except:
             flash("Error occurred")
     return render_template("admin/admin_panel_view_and_update.html")
 

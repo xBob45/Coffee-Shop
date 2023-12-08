@@ -1,5 +1,5 @@
 import functools
-from models.User import User, Role, UserRoles
+from models.User import User, Role
 from models.User import db
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
 from werkzeug.security import check_password_hash, generate_password_hash
