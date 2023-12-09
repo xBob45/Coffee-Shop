@@ -1,6 +1,7 @@
 from flask import (flash, redirect, render_template, request, abort, url_for, jsonify, session)
 from models.User import User, Role
 from models.User import db
+from flask_login import logout_user
 
 def setting():
     return render_template("account/setting.html")
@@ -35,10 +36,11 @@ def delete_user():
         print(id)
         user = User.query.filter_by(id=id).first()
         if user is not None:
+            logout_user()
             db.session.delete(user)
             db.session.commit()
             db.session.close()
-            flash("User has been deleted.")
+            return redirect(url_for("auth.login"))
         else:
             flash("User doesn't exists.")
             return redirect(request.referrer)

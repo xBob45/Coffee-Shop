@@ -1,6 +1,7 @@
 {% extends "public/home.html" %} 
 {% block title %}Setting{% endblock %}
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='setting.css') }}">
 <div class="d-flex justify-content-center">
 <div class="col-md-3" id="update_user_box">
     <h4>Account Information</h4>
@@ -38,23 +39,22 @@
       <button type="submit" class="btn btn-outline-success" id="button-success">Update</button>
       </form>
 
-      {% with messages = get_flashed_messages() %}
-      {% if messages %}
-      <ul class="flash">
-          {% for message in messages %}
-          <div class="alert alert-success" role="alert" id="alert-success">
-            {{ message | safe}}
-          </div>
-          {% endfor %}
-      </ul>
-      {% endif %}
-      {% endwith %}
-    
-
     <form method="POST" action="{{ url_for('account.delete_user') }}">
         <input type="hidden" name="delete_id" value="{{ current_user.id }}">
         <button type="submit" class="btn btn-outline-danger" id="setting-button-danger">Delete</button>
     </form>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flash">
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert" id="setting-alert-success">
+          {{ message}}
+        </div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
 </div>
 </div>
 

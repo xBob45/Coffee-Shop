@@ -6,6 +6,8 @@ from werkzeug.security import check_password_hash, generate_password_hash
 import os
 from flask_login import login_user, logout_user, login_required, current_user
 from sqlalchemy.sql import text
+from psycopg2.errors import UniqueViolation
+from sqlalchemy.exc import IntegrityError
 import log_config
 
 #SQLInjection-1 - START
@@ -60,6 +62,22 @@ def login():
 #SQLInjection-1 - END
 
 def signup():
+    if request.method == 'POST':
+        try:
+            first_name = request.form.get('first_name')
+            last_name = request.form.get('first_name')
+            email = request.form.get('email')
+            username= request.form.get('username')
+            password = request.form.get('password')
+            user = User(role_id=2, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
+            db.session.add(user)
+            db.session.commit()
+            db.session.close()
+            flash("Account has been sucesfully created.")
+            return redirect(url_for("auth.login"))
+        except IntegrityError:
+            flash("Username or Email already exists.")
+            return redirect(request.referrer)
     return render_template("auth/signup.html")
 
 #InsufficientSessionInvalidation-1 - START

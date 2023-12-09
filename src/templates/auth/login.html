@@ -47,12 +47,18 @@
   {% if messages %}
   <ul class="flash">
       {% for message in messages %}
-      <div class="alert alert-danger" role="alert" id="alert-danger">
-        {# ReflectedXSS-1 - START #}
-        {# Vulnerability #}
-        {{ message | safe}}
-        {# ReflectedXSS-1 - END #}
-      </div>
+        {% if message == 'Account has been sucesfully created.' %}
+          <div class="alert alert-success" role="alert" id="alert-danger">
+            {{ message }}
+          </div>
+        {% else %}
+        <div class="alert alert-danger" role="alert" id="alert-danger">
+          {# ReflectedXSS-1 - START #}
+          {# Vulnerability #}
+          {{ message | safe}}
+          {# ReflectedXSS-1 - END #}
+        </div>
+        {% endif %}
       {% endfor %}
   </ul>
   {% endif %}

@@ -111,6 +111,3 @@ input:checked + .slider.round:before {
   transform: translateX(26px);
 }
 
-#setting-button-danger {
-  margin-left: 93px;
-  margin-top: -66px;}
