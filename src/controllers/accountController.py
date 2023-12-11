@@ -2,6 +2,7 @@ from flask import (flash, redirect, render_template, request, abort, url_for, js
 from models.User import User, Role
 from models.User import db
 from flask_login import logout_user
+from controllers.authController import check_for_password_complexity, check_if_exists
 
 def setting():
     return render_template("account/setting.html")
@@ -9,24 +10,30 @@ def setting():
 def update_user():
     if request.method == 'POST':
         id = request.form.get("edit_id")
-        user = User.query.filter_by(id=id).first()
-        user.username = request.form.get("edit_username")
-        user.email = request.form.get("edit_email")
-        user.first_name = request.form.get("edit_fn")
-        user.last_name = request.form.get("edit_ln")
-        user.password = request.form.get("edit_password")
+        username = request.form.get("edit_username")
+        email = request.form.get("edit_email")
+        first_name = request.form.get("edit_fn")
+        last_name = request.form.get("edit_ln")
+        password = request.form.get("edit_password")
 
-        #Update a user with new values
+        user = User.query.filter_by(id=id).first()
+        current_username = user.username
+        current_email = user.email
         try:
-            user.username = request.form.get("edit_username")
-            user.email = request.form.get("edit_email")
-            user.first_name = request.form.get("edit_fn")
-            user.last_name = request.form.get("edit_ln")
-            user.password = request.form.get("edit_password")
+            if current_username != username:
+                check_if_exists('username', username, 'Username')
+                user.username = username
+            if current_email != email:
+                check_if_exists('email', email, 'Email')
+                user.email = email 
+            user.first_name = first_name
+            user.last_name = last_name
+            user.password = password
+            check_for_password_complexity(user.password)
             db.session.commit()
             flash("User has been updated.")
-        except:
-            flash("Error occurred")
+        except (ValueError, Exception):
+            redirect(request.referrer)
     return redirect(request.referrer)
 
 def delete_user():

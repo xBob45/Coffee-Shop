@@ -2,6 +2,7 @@
     margin-left: 93px;
     margin-top: -66px;}
 
-#setting-alert-success{
+#setting-alert-success, #setting-alert-danger{
     margin-top: 10px;
+    text-align: center;
 }
