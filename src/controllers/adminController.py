@@ -6,11 +6,6 @@ import subprocess
 
 
 #OSCommandInjection-1 - START
-def execute_command():
-    """Vulnerability"""
-    command = request.args.get('command')
-    result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
-    return jsonify(result=result)
 #OSCommandInjection-1 - END
 
 def admin_panel():

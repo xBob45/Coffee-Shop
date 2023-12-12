@@ -6,14 +6,6 @@ admin_blueprint = Blueprint('admin', __name__, url_prefix='/admin')
 
 
 #SensitiveDatawithinCookie-3 - START
-@admin_blueprint.before_request
-def check_if_admin():
-    """Fix"""
-    #Only authenticated users with role 'admin' can access admin panel
-    if current_user.is_authenticated and current_user.roles.name == 'admin':
-        pass
-    else:
-        return redirect(url_for('home.home'))
 #SensitiveDatawithinCookie-3 - END
 
 #ForcedBrowsing-1 - START
