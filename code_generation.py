@@ -82,7 +82,7 @@ def copy_function():
             continue        
 
 def delete_function():
-    destination_files = ['src/controllers/authController.py', 'src/templates/auth/login.html', 'src/routes/adminRoute.py', 'src/config.py', 'src/controllers/homeController.py', 'src/controllers/adminController.py', 'src/templates/admin/admin_panel.html', 'src/app.py']
+    destination_files = ['src/controllers/authController.py', 'src/templates/auth/login.html', 'src/routes/adminRoute.py', 'src/config.py', 'src/controllers/homeController.py', 'src/controllers/adminController.py', 'src/templates/admin/admin_panel.html', 'src/app.py', 'src/log_config.py']
     
     for file_name in destination_files:
         for attac_name in attacks_config.keys():
@@ -99,16 +99,16 @@ def delete_function():
                         if beginning in line:
                             delete_block = True
                             file.write(line)
-                            #continue  # Skip writing the start marker to the file
+                            #continue  
                         elif end in line:
                             delete_block = False
                             #file.write(line)
-                            #continue  # Skip writing the end marker to the file
+                            #continue  
                         
                         if not delete_block:
                             file.write(line)
                     file.truncate()
 
-# Example usage
+
 delete_function()
 copy_function()

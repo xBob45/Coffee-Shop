@@ -15,7 +15,6 @@ os.environ["FLASK_DEBUG"] = "1"
 #DebugModeON-1 - END
 
 """SameSite issues documented here"""
-#https://stackoverflow.com/questions/60980567/flask-cookies-do-not-have-the-samesite-attribute#:~:text=You%27re%20correct%20in,the%20https%20scheme).
 #CookiesWithoutSecurityAttributes-1 - START
 """Fix"""
 SESSION_COOKIE_SECURE = True

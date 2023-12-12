@@ -76,3 +76,35 @@ INFO User Vojta logged out.
 INFO User with admin username succesfully logged in with password admin_password password.
 INFO User with Vojta username succesfully logged in with password customer_password password.
 INFO User with admin username succesfully logged in with password admin_password password.
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 130-880-263
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:21] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:21] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:23] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:23] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:23] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password admin_passworD#1 password.
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:24] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:24] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:28] "GET /admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:28] "[36mGET /static/admin_panel.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:30] "[35m[1mGET /admin/execute_command?command=systemctl%20status%20apache2 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:32] "GET /admin/execute_command?command=systemctl%20status%20postgresql HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:35] "GET /admin/add HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:35] "[36mGET /static/admin_panel.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:37] "GET /admin/view HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:37] "[36mGET /static/admin_panel.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:38] "GET /admin/delete HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:38] "[36mGET /static/admin_panel.css HTTP/1.1[0m" 304 -
+INFO User admin logged out.
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:39] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:39] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:39] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [12/Dec/2023 18:06:39] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
