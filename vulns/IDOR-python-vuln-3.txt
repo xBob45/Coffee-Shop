@@ -1,0 +1,6 @@
+#src/controllers/accountController.py
+def setting():
+    """Vulnerability"""
+    id = request.args.get("id")
+    user = User.query.filter_by(id=id).first()
+    return render_template("account/setting.html", user=user)

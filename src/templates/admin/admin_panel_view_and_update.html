@@ -17,9 +17,15 @@
       {% if messages %}
       <ul class="flash">
           {% for message in messages %}
-          <div class="alert alert-success" role="alert" id="alert-success">
-            {{ message }}
-          </div>
+            {% if message == 'User has been updated.' %}
+                <div class="alert alert-success" role="alert" id="alert-success">
+                {{ message }}
+                </div>
+            {% else %}
+                <div class="alert alert-danger" role="alert" id="alert-success">
+                {{ message }}
+                </div>
+            {% endif %}                
           {% endfor %}
       </ul>
       {% endif %}
@@ -60,7 +66,7 @@
                     <i class="bi bi-eye" id="password-icon"></i>
                 </span>
             </div>
-        </div>
+           </div>
         
 
         <fieldset class="row mb-3">

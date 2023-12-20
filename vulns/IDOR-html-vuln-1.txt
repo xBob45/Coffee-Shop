@@ -1,0 +1,3 @@
+#src/templates/public/home.html
+<!-- Vulnerability -->
+<li><a class="dropdown-item" href="{{ url_for('account.setting', id=current_user.id) }}">Settings</a></li>

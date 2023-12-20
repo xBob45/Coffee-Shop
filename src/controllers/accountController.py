@@ -4,8 +4,13 @@ from models.User import db
 from flask_login import logout_user
 from controllers.authController import check_for_password_complexity, check_if_exists
 
+#IDOR-3 - START
 def setting():
-    return render_template("account/setting.html")
+    """Vulnerability"""
+    id = request.args.get("id")
+    user = User.query.filter_by(id=id).first()
+    return render_template("account/setting.html", user=user)
+#IDOR-3 - END
 
 def update_user():
     if request.method == 'POST':
@@ -29,7 +34,10 @@ def update_user():
             user.first_name = first_name
             user.last_name = last_name
             user.password = password
-            check_for_password_complexity(user.password)
+            #WeakPasswordRequirements-3 - START
+            """Vulnerability"""
+            #There is no check of length and complexity of a password.
+            #WeakPasswordRequirements-3 - END
             db.session.commit()
             flash("User has been updated.")
         except (ValueError, Exception):

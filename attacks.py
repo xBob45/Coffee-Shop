@@ -13,4 +13,6 @@ attacks_config = {
     'Clickjacking' : True,
     'InsufficientLogging':True,
     'InsertionOfSensitiveInformationIntoLogFile' : True,
+    'WeakPasswordRequirements' : True,
+    'IDOR': True,
 }

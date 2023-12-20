@@ -5,7 +5,7 @@ def copy_function():
         attack_name, attack_value = item
 
         if attack_value == True:
-            for file_number in range(1,4):
+            for file_number in range(1,5):
                 file = []
                 python_file = 'vulns/%s-python-vuln-%s.txt' % (attack_name,file_number)
                 html_file = 'vulns/%s-html-vuln-%s.txt' % (attack_name,file_number)
@@ -41,7 +41,7 @@ def copy_function():
                         continue
             
         elif attack_value == False:
-            for file_number in range(1,4):
+            for file_number in range(1,5):
                 file = []
                 print(attack_name)
                 python_file = 'fixes/%s-python-fix-%s.txt' % (attack_name,file_number)
@@ -82,11 +82,23 @@ def copy_function():
             continue        
 
 def delete_function():
-    destination_files = ['src/controllers/authController.py', 'src/templates/auth/login.html', 'src/routes/adminRoute.py', 'src/config.py', 'src/controllers/homeController.py', 'src/controllers/adminController.py', 'src/templates/admin/admin_panel.html', 'src/app.py', 'src/log_config.py']
+    destination_files = ['src/controllers/authController.py', 
+                         'src/templates/auth/login.html', 
+                         'src/templates/public/home.html',
+                         'src/templates/account/setting.html',
+                         'src/routes/adminRoute.py', 
+                         'src/config.py', 
+                         'src/controllers/homeController.py', 
+                         'src/controllers/adminController.py', 
+                         'src/controllers/accountController.py', 
+                         'src/templates/admin/admin_panel.html', 
+                         'src/app.py', 
+                         'src/log_config.py',
+                        ]
     
     for file_name in destination_files:
         for attac_name in attacks_config.keys():
-            for file_number in range(1,4):
+            for file_number in range(1,5):
                 with open(file_name, 'r+') as file:
                     content = file.readlines()
                     file.seek(0)

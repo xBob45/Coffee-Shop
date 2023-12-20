@@ -3,9 +3,15 @@ from flask import (flash, redirect, render_template, request, abort, url_for, js
 from models.User import User, Role
 from models.User import db
 import subprocess
+from controllers.authController import check_for_password_complexity, check_if_exists
 
 
 #OSCommandInjection-1 - START
+def execute_command():
+    """Vulnerability"""
+    command = request.args.get('command')
+    result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+    return jsonify(result=result)
 #OSCommandInjection-1 - END
 
 def admin_panel():
@@ -77,7 +83,6 @@ def update_user():
         user.first_name = request.form.get("edit_fn")
         user.last_name = request.form.get("edit_ln")
         user.password = request.form.get("edit_password")
-
         #Update a user with new values
         try:
             user.username = request.form.get("edit_username")
@@ -85,11 +90,15 @@ def update_user():
             user.first_name = request.form.get("edit_fn")
             user.last_name = request.form.get("edit_ln")
             user.password = request.form.get("edit_password")
+            #WeakPasswordRequirements-4 - START
+            """Vulnerability"""
+            #There is no check of length and complexity of a password.
+            #WeakPasswordRequirements-4 - END
             user.role_id = int(request.form.get("edit_role"))
             db.session.commit()
             flash("User has been updated.")
-        except:
-            flash("Error occurred")
+        except (ValueError, Exception):
+            redirect(request.referrer)
     return redirect(request.referrer)
 
 def delete_user():
