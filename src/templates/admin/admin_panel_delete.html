@@ -6,6 +6,10 @@
     <div class="col-md-3">
         <h4>Delete User</h4>
         <form method="POST" action="{{ url_for('admin.delete_user') }}">
+        <!-- CSRF-3 - START -->
+        <!-- Vulnerability -->
+        <!-- No CSRF protection. -->
+        <!-- CSRF-3 - END -->
         <hr class="hr" />
         <div class="mb-3">
         <label for="delete_username" class="form-label">Username</label>

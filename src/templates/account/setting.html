@@ -10,6 +10,10 @@
     <!-- IDOR-2 - START -->
     <!-- Vulnerability -->
     <form method="POST" action="{{ url_for('account.update_user') }}">
+            <!-- CSRF-3 - START -->
+            <!-- Vulnerability -->
+            <!-- No CSRF protection. -->
+            <!-- CSRF-3 - END -->
             <div class="mb-3">
               <input type="hidden" name="edit_id" value="{{user.id}}">
             </div>
@@ -41,11 +45,20 @@
           <button type="submit" class="btn btn-outline-success" id="button-success">Update</button>
           </form>
     
-          <form method="POST" action="{{ url_for('account.delete_user') }}">
-            <input type="hidden" name="delete_id" value="{{ user.id }}">
-            <button type="submit" class="btn btn-outline-danger" id="setting-button-danger">Delete</button>
+          <!-- CSRF-2 - START -->
+          <!-- Vulnerability -->
+          <form method="GET" action="{{ url_for('account.delete_user') }}">
+              <!-- CSRF-3 - START -->
+              <!-- Vulnerability -->
+              <!-- No CSRF protection. -->
+              <!-- CSRF-3 - END -->
+              <button type="submit" class="btn btn-outline-danger" id="setting-button-danger">Delete</button>
           </form>
+          <!-- CSRF-2 - END -->
+    
     <!-- IDOR-2 - END -->
+    
+          
 
 
     {% with messages = get_flashed_messages() %}

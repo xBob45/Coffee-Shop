@@ -1,0 +1,3 @@
+#src/templates/account/setting.html,src/templates/auth/login.html,src/templates/admin/admin_panel_add.html,src/templates/admin/admin_panel_delete.html,src/templates/admin/admin_panel_view_and_update.html
+<!-- Fix -->
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>

@@ -10,40 +10,42 @@ def copy_function():
                 python_file = 'vulns/%s-python-vuln-%s.txt' % (attack_name,file_number)
                 html_file = 'vulns/%s-html-vuln-%s.txt' % (attack_name,file_number)
                 files = [python_file, html_file]
-                print(files)
+                #print(files)
                 for file in files:
                     try:
                         #This extracts the vulnerability (those few lines)
                         with open(file, 'r') as content:
                             next(content) #Skips the first line
                             vulnerability = content.read()
-                            print(content)
+                            #print(content)
 
                         #This extracts location where the vulnerability is suppose to go.
                         with open (file, 'r') as location:
-                            location = location.readlines()[0][1::].strip('\n')
-                            print(location)
-                        
-                        with open(location, 'r+') as destination:
-                            lines = destination.readlines()
-                            destination.seek(0)  # This moves file pointer back to the beginning
-                            mark = '%s-%s - START' % (attack_name,file_number)
+                            locations = location.readlines()[0][1::].split(',')
+                            locations = [l.strip('\n') for l in locations]
+                        for file in locations: 
+                            with open(file, 'r+') as destination:
+                                print(file + "-> FOUND")
+                                lines = destination.readlines()
+                                destination.seek(0)  # This moves file pointer back to the beginning
+                                mark = '%s-%s - START' % (attack_name,file_number)
 
-                            for line in lines:
-                                if mark in line:
-                                    indentation = len(line) - len(line.lstrip())
-                                    indented_function = '\n'.join([' ' * (indentation) + l for l in vulnerability.split('\n')])
-                                    destination.writelines([line, indented_function + '\n'])
-                                else:
-                                    destination.write(line)
+                                for line in lines:
+                                    if mark in line:
+                                        indentation = len(line) - len(line.lstrip())
+                                        indented_function = '\n'.join([' ' * (indentation) + l for l in vulnerability.split('\n')])
+                                        destination.writelines([line, indented_function + '\n'])
+                                    else:
+                                        destination.write(line)
                         
                     except FileNotFoundError:
+                        print(file + "-> NOT FIND")
                         continue
             
         elif attack_value == False:
             for file_number in range(1,5):
                 file = []
-                print(attack_name)
+                #print(attack_name)
                 python_file = 'fixes/%s-python-fix-%s.txt' % (attack_name,file_number)
                 html_file = 'fixes/%s-html-fix-%s.txt' % (attack_name,file_number)
                 files = [python_file, html_file]
@@ -53,29 +55,31 @@ def copy_function():
                         with open(file, 'r') as content:
                             next(content) #Skips the first line
                             fix = content.read()
-                            print(content)
+                            #print(content)
 
                         #This extracts location where the fix of a vulnerability is suppose to go.
                         with open (file, 'r') as location:
-                            location = location.readlines()[0][1::].strip('\n')
-                            print(location)
-                        
-                        with open(location, 'r+') as destination:
-                            lines = destination.readlines()
-                            destination.seek(0)  # This moves file pointer back to the beginning
+                            locations = location.readlines()[0][1::].split(',')
+                            locations = [l.strip('\n') for l in locations]
+                            #print(locations)
+                        for file in locations: 
+                            with open(file, 'r+') as destination:
+                                print(file + "-> FOUND")
+                                lines = destination.readlines()
+                                destination.seek(0)  # This moves file pointer back to the beginning
 
-                            for line in lines:
-                                mark = '%s-%s - START' % (attack_name,file_number)
+                                for line in lines:
+                                    mark = '%s-%s - START' % (attack_name,file_number)
 
-                                if mark in line:
-                                    indentation = len(line) - len(line.lstrip())
-                                    indented_function = '\n'.join([' ' * (indentation) + l for l in fix.split('\n')])
-                                    destination.writelines([line, indented_function + '\n'])
-                                else:
-                                    destination.write(line)
+                                    if mark in line:
+                                        indentation = len(line) - len(line.lstrip())
+                                        indented_function = '\n'.join([' ' * (indentation) + l for l in fix.split('\n')])
+                                        destination.writelines([line, indented_function + '\n'])
+                                    else:
+                                        destination.write(line)
                         
                     except FileNotFoundError as e:
-                        print(e)
+                        print(file + "-> NOT FIND")
                         continue
           
         elif attack_name == None:
@@ -91,7 +95,10 @@ def delete_function():
                          'src/controllers/homeController.py', 
                          'src/controllers/adminController.py', 
                          'src/controllers/accountController.py', 
-                         'src/templates/admin/admin_panel.html', 
+                         'src/templates/admin/admin_panel.html',
+                         'src/templates/admin/admin_panel_add.html',
+                         'src/templates/admin/admin_panel_delete.html',
+                         'src/templates/admin/admin_panel_view_and_update.html',
                          'src/app.py', 
                          'src/log_config.py',
                         ]

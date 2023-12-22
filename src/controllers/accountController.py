@@ -1,7 +1,7 @@
 from flask import (flash, redirect, render_template, request, abort, url_for, jsonify, session)
 from models.User import User, Role
 from models.User import db
-from flask_login import logout_user
+from flask_login import logout_user, current_user
 from controllers.authController import check_for_password_complexity, check_if_exists
 
 #IDOR-3 - START
@@ -44,10 +44,11 @@ def update_user():
             redirect(request.referrer)
     return redirect(request.referrer)
 
+#CSRF-4 - START
 def delete_user():
-    """Function allows to delete arbitrary entry from User table."""
-    if request.method == 'POST':
-        id = request.form.get("delete_id")
+    """Vulnerability"""
+    if request.method == 'GET':
+        id = current_user.id
         print(id)
         user = User.query.filter_by(id=id).first()
         if user is not None:
@@ -60,6 +61,8 @@ def delete_user():
             flash("User doesn't exists.")
             return redirect(request.referrer)
     return redirect(request.referrer)
+#CSRF-4 - END
+
 
 def upload_picture():
     pass

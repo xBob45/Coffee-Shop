@@ -5,6 +5,7 @@ from routes.adminRoute import admin_blueprint
 from routes.accountRoute import account_blueprint
 from models.User import db, User
 from flask_login import LoginManager
+from flask_wtf.csrf import CSRFProtect
 import logging
 
 def page_not_found(e):
@@ -25,6 +26,11 @@ def create_app():
     def load_user(user_id):
         return User.query.get(int(user_id))
     #-------------------------Flask-Login-------------------------
+
+    #CSRF-1 - START
+    """Vulnerability"""
+    """No CSRF protection."""
+    #CSRF-1 - END
 
     #Clickjacking-1 - START
     """Vulnerability"""

@@ -15,4 +15,5 @@ attacks_config = {
     'InsertionOfSensitiveInformationIntoLogFile' : True,
     'WeakPasswordRequirements' : True,
     'IDOR': True,
+    'CSRF': True,
 }

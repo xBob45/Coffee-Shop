@@ -13,3 +13,892 @@ INFO User with admin username succesfully logged in with password 12 password.
 INFO User with admin username succesfully logged in with password 12 password.
 INFO User with admin username succesfully logged in with password 12 password.
 INFO User admin logged out.
+INFO User admin failed to login! Wrong password entered.
+INFO User with admin username succesfully logged in with password 12 password.
+INFO User admin logged out.
+INFO User Vojta failed to login! Username doesn't exist.
+INFO User Vojta failed to login! Username doesn't exist.
+INFO User with admin username succesfully logged in with password 12 password.
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/log_config.py', reloading
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [21/Dec/2023 23:22:58] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:22:58] "[33mGET /account/None HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:22:58] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:23:32] "[33mGET /account/delete/ HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:23:32] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:26:47] "[35m[1mGET /account?id=1 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:26:47] "GET /account?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:26:47] "GET /account?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:26:47] "GET /account?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:26:47] "[36mGET /account?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:27:47] "[35m[1mGET /account?id=1 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:27:47] "[36mGET /account?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:27:47] "[36mGET /account?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:27:47] "[36mGET /account?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:27:47] "[36mGET /account?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:08] "[35m[1mGET /account?id=1 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:08] "[36mGET /account?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:08] "[36mGET /account?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:08] "[36mGET /account?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:08] "[36mGET /account?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:08] "[35m[1mGET /account?id=1 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:08] "[36mGET /account?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:08] "[36mGET /account?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:08] "[36mGET /account?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:09] "[36mGET /account?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:21] "[35m[1mGET /account?id=1 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:21] "[36mGET /account?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:21] "[36mGET /account?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:21] "[36mGET /account?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:21] "[36mGET /account?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:22] "[35m[1mGET /account?id=1 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:22] "[36mGET /account?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:22] "[36mGET /account?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:22] "[36mGET /account?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:28:22] "[36mGET /account?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:29:21] "GET /account?id=1 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:29:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:29:21] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:29:28] "[32mGET /account/delete?delete_id=1 HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:29:28] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:29:28] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:29:28] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [21/Dec/2023 23:29:33] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:29:33] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:29:33] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 106-784-001
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [21/Dec/2023 23:33:59] "GET /account?id=1 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:33:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [21/Dec/2023 23:33:59] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 00:28:42] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:28:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:28:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:28:44] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:28:44] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:28:44] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [22/Dec/2023 00:28:46] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:28:46] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:28:46] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 00:29:29] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:29:29] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:29:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:29:32] "GET /account?id=69 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:29:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:29:32] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:29:39] "[32mPOST /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:29:39] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:29:39] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:29:39] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 00:31:16] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:31:16] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:31:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:31:18] "GET /account?id=70 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:31:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:31:18] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:31:37] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:31:37] "[33mGET /account/None HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:31:37] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:34] "GET /account?id=70 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:34] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:35] "GET /account?id=70 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:35] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:36] "[32mPOST /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:36] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:36] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:36] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:38] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:38] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:38] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:49] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:49] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:54] "GET /admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:32:54] "[36mGET /static/admin_panel.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:33:20] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:33:20] "[33mGET /account/None HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:33:20] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 00:34:16] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:34:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:34:19] "GET /account?id=71 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:34:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:34:19] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:34:29] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:34:29] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:34:29] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:34:29] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [22/Dec/2023 00:34:31] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:34:31] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:34:31] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:10] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:10] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:11] "GET /account?id=72 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:11] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:21] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:21] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:21] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:21] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:35] "GET /account?id=72 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:35] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:36] "GET /account?id=72 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:36] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:36] "GET /account?id=72 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:36] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:37] "GET /account?id=72 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:37] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:44] "[35m[1mGET /account/delete HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:44] "GET /account/delete?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:44] "GET /account/delete?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:44] "GET /account/delete?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:35:44] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:37:15] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:37:15] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:37:16] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 00:37:17] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:37:17] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:37:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:37:19] "GET /account?id=73 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:37:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:37:19] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:37:24] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:37:24] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:37:24] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:37:24] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 00:40:08] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:40:08] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:40:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:40:16] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:40:16] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:40:16] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:40:16] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 00:41:49] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:41:49] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:41:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:41:50] "GET /account?id=75 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:41:50] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 00:41:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:03:38] "GET /account?id=75 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:03:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:03:38] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:03:59] "GET /account?id=75 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:03:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:03:59] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:04:00] "GET /account?id=75 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:04:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:04:00] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:04:37] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:04:37] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:04:37] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:04:37] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 01:09:09] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:09:09] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:09:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:09:11] "GET /account?id=76 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:09:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:09:12] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 01:11:06] "GET /account?id=76 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:11:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:11:06] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:11:15] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:11:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:11:25] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:11:25] "[33mGET /account/None HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:11:25] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:11:35] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:11:35] "[33mGET /account/None HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:11:35] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:26] "[33mGET /account/None HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:26] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:27] "[33mGET /account/None HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:27] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:27] "[33mGET /account/None HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:27] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:27] "[33mGET /account/None HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:27] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:27] "[33mGET /account/None HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:27] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:27] "[33mGET /account/None HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:27] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:28] "[33mGET /account/None HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:28] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:47] "[33mGET /account/None HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:47] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:51] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:52] "GET /account?id=2 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:52] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:56] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:56] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:56] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:12:56] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:15:41] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:15:41] "GET /static/sign-in.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:15:41] "GET /static/images/coffee-shop-icon.svg HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:15:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 01:15:43] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:15:43] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:15:44] "GET /static/style.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:15:47] "GET /account?id=77 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:15:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:15:47] "GET /static/setting.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:16:05] "[32mGET /account/delete?delete_id= HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:16:09] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:16:09] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:16:09] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 01:16:54] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:16:54] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:16:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:16:56] "GET /account?id=78 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:16:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:16:56] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:02] "GET /account?id=78 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:02] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:06] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:06] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:06] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:06] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:19] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:20] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:23] "GET /account?id=79 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:24] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:36] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:37] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:37] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:17:37] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:04] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:05] "GET /account?id=2 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:05] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:07] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:07] "[33mGET /account/None HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:09] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:09] "[33mGET /account/None HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:09] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:36] "[35m[1mGET /account/delete HTTP/1.1[0m" 500 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:44] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:44] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:52] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:52] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:52] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:18:52] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:41] "[35m[1mGET /account/delete HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:41] "[35m[1mGET /account/delete HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:41] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:41] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:42] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:58] "[35m[1mGET /account/delete HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:58] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:58] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:58] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:58] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:58] "[35m[1mGET /account/delete HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:58] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:58] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:58] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:58] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:58] "[35m[1mGET /account/delete HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:58] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:58] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:58] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:58] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:59] "[35m[1mGET /account/delete HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:59] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:59] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:59] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:23:59] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/accountController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 106-784-001
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 01:47:18] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:47:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:47:21] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:47:21] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:47:21] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [22/Dec/2023 01:47:22] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:47:22] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:47:22] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 01:47:26] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:47:26] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:47:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:47:35] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:47:35] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:47:35] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:47:35] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 01:48:01] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:48:01] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:48:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:25] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO User admin logged out.
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:28] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:28] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:28] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:28] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO The CSRF token is missing.
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:29] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:37] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:39] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:39] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:39] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:40] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:40] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:40] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:40] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:40] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:40] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:40] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:40] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:40] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:40] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:40] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:40] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO The CSRF token is missing.
+INFO 127.0.0.1 - - [22/Dec/2023 01:55:41] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 01:56:08] "[35m[1mGET /account/delete HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:56:12] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:56:12] "GET /static/style.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:56:18] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:56:18] "GET /static/images/coffee-shop-icon.svg HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:56:18] "GET /static/sign-in.css HTTP/1.1" 200 -
+INFO The CSRF token is missing.
+INFO 127.0.0.1 - - [22/Dec/2023 01:56:20] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+INFO The CSRF token is missing.
+INFO 127.0.0.1 - - [22/Dec/2023 01:56:25] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:32] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:32] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:32] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:32] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:32] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:32] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:32] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:32] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:32] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:32] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:32] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:32] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:34] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:45] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:45] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:45] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:50] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:50] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:57] "GET /account?id=82 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:57:57] "GET /static/setting.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:58:03] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:58:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:59:42] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:59:42] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:59:42] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 01:59:42] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/app.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 02:06:44] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:06:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:06:48] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:06:48] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:06:48] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:06:48] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:06:48] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/app.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:39] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:39] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:39] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:40] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:40] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:40] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:40] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:40] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:40] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:40] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:40] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:40] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:41] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:42] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:42] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:42] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:42] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:42] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:42] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO The CSRF token is missing.
+INFO 127.0.0.1 - - [22/Dec/2023 02:07:45] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:36] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:36] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:36] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:37] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:37] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:37] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:38] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:38] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:38] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:47] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:47] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:55] "GET /account?id=2 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:55] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:57] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:57] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:57] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:53:57] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:00] "[35m[1mGET /account/delete HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:01] "[35m[1mGET /account/delete HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:01] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:01] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:01] "[36mGET /account/delete?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:09] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:12] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:12] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:12] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:14] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:14] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:14] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:23] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:23] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:23] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:35] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:35] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:39] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:44] "[32mGET /account/delete HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:44] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:44] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 03:54:44] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 04:17:26] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 04:17:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 04:17:29] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 04:17:29] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 04:17:29] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [22/Dec/2023 04:17:31] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 04:17:31] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 04:17:31] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 04:17:40] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 04:17:40] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 04:17:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 04:17:43] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 04:17:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 04:17:43] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO User admin logged out.
+INFO 127.0.0.1 - - [22/Dec/2023 05:36:25] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:36:25] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:36:25] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:36:25] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 05:36:27] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:36:27] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:36:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:36:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:37:45] "GET /admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:37:45] "[36mGET /static/admin_panel.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:37:47] "[35m[1mGET /admin/execute_command?command=systemctl%20status%20apache2 HTTP/1.1[0m" 500 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 05:45:32] "GET /admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:45:32] "[36mGET /static/admin_panel.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:45:35] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:45:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:45:35] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO The CSRF token is missing.
+INFO 127.0.0.1 - - [22/Dec/2023 05:45:43] "[31m[1mPOST /account/update HTTP/1.1[0m" 400 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:17] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:17] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:18] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO The CSRF token is missing.
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:20] "[31m[1mPOST /account/update HTTP/1.1[0m" 400 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:25] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:25] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO The CSRF token is missing.
+INFO 127.0.0.1 - - [22/Dec/2023 05:46:27] "[31m[1mPOST /account/update HTTP/1.1[0m" 400 -
+INFO User admin logged out.
+INFO 127.0.0.1 - - [22/Dec/2023 05:48:15] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:48:15] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:48:15] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:48:15] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 05:48:16] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:48:16] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:48:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:48:20] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:48:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:48:20] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO The CSRF token is missing.
+INFO 127.0.0.1 - - [22/Dec/2023 05:48:21] "[31m[1mPOST /account/update HTTP/1.1[0m" 400 -
+INFO The CSRF token is missing.
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:36] "[31m[1mPOST /account/update HTTP/1.1[0m" 400 -
+INFO User admin logged out.
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:39] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:39] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:39] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:39] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:41] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:41] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:41] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:41] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:41] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:41] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:41] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:41] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:41] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:41] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:41] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:41] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:42] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:42] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:46] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:46] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO The CSRF token is missing.
+INFO 127.0.0.1 - - [22/Dec/2023 05:51:47] "[31m[1mPOST /account/update HTTP/1.1[0m" 400 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:16] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:16] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:17] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:17] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO User admin logged out.
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:19] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:19] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:20] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:20] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO User with admin username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:20] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:20] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:22] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:22] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:24] "[32mPOST /account/update HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:24] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:24] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:28] "GET /admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:28] "[36mGET /static/admin_panel.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:31] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:31] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:36] "[32mPOST /account/update HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:36] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:52:36] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:10] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:10] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:11] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:11] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:11] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:11] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:11] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:11] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:11] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:11] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:13] "[32mPOST /account/update HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:13] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:13] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:21] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:57:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 139-099-421
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:23] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO User admin123 logged out.
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:26] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:26] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:26] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:26] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:29] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:29] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:29] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:29] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:29] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:29] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin123 username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:33] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:33] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:39] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:39] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:43] "[32mPOST /account/update HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:43] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:43] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:58:47] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO User admin123 logged out.
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:26] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:26] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:26] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:26] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:41] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:41] "GET /static/style.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:44] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:44] "GET /static/sign-in.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:44] "GET /static/images/coffee-shop-icon.svg HTTP/1.1" 200 -
+INFO User with admin123 username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:49] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:49] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:51] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:51] "GET /static/setting.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:52] "[32mPOST /account/update HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:52] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:53] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:55] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 05:59:59] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 06:00:42] "GET /admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 06:00:42] "GET /static/admin_panel.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 06:00:47] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 06:00:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 06:00:47] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 06:01:02] "GET /account?id=15 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 06:01:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 06:01:02] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 06:01:08] "GET /account?id=55 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 06:01:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 06:01:08] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO User admin123 logged out.
+INFO 127.0.0.1 - - [22/Dec/2023 06:01:14] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [22/Dec/2023 06:01:14] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [22/Dec/2023 06:01:14] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [22/Dec/2023 06:01:14] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
