@@ -2,6 +2,8 @@ import functools
 import os
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for, send_file, abort)
 import re
+from urllib.request import urlopen
+from urllib.error import URLError
 
 def home():
     return render_template("public/home.html")
@@ -30,3 +32,47 @@ def guide_reader():
 #PathTraversal-1 - END
 
 
+def development():
+    if request.method == 'GET':
+        url = request.args.get('url')
+        if url == None:
+            return 'This is development section.'
+        try:
+            response = urlopen(url)
+            return response.read()
+        except Exception as e:
+            return str(e)
+    return 'This is development section.'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""def development():
+    if request.method == 'GET':
+        url = request.args.get('url')
+    if not url:
+        return ''
+
+    try:
+        response = urlopen(url)
+        message = response.read().decode('utf-8')
+        return message
+    except:
+        response = urlopen(url)
+        message = response.read().decode('utf-8')
+        return message"""
+    

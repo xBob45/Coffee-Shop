@@ -902,3 +902,696 @@ INFO 127.0.0.1 - - [22/Dec/2023 06:01:14] "[32mGET /logout HTTP/1.1[0m" 302 -
 INFO 127.0.0.1 - - [22/Dec/2023 06:01:14] "GET /login HTTP/1.1" 200 -
 INFO 127.0.0.1 - - [22/Dec/2023 06:01:14] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
 INFO 127.0.0.1 - - [22/Dec/2023 06:01:14] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [27/Dec/2023 23:53:13] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [27/Dec/2023 23:53:13] "GET /static/style.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [27/Dec/2023 23:53:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [27/Dec/2023 23:53:17] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [27/Dec/2023 23:53:17] "GET /static/sign-in.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [27/Dec/2023 23:53:17] "GET /static/images/coffee-shop-icon.svg HTTP/1.1" 200 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [27/Dec/2023 23:53:19] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [27/Dec/2023 23:53:19] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [27/Dec/2023 23:53:19] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [27/Dec/2023 23:53:24] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [27/Dec/2023 23:53:24] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [27/Dec/2023 23:53:24] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User admin1234 failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [27/Dec/2023 23:55:11] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [27/Dec/2023 23:55:11] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [27/Dec/2023 23:55:11] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin123 username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [27/Dec/2023 23:56:00] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [27/Dec/2023 23:56:00] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [27/Dec/2023 23:56:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [27/Dec/2023 23:56:07] "GET /admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [27/Dec/2023 23:56:07] "GET /static/admin_panel.css HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/adminController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/routes/adminRoute.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 00:04:42] "GET /admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:04:42] "[36mGET /static/admin_panel.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:04:47] "GET /admin/development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:05:05] "GET /admin/development?url=https://www.wearedevelopers.com/magazine/vs-code-shortcuts HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/adminController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 596-172-209
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+DEBUG Starting new HTTPS connection (1): www.wearedevelopers.com:443
+DEBUG https://www.wearedevelopers.com:443 "GET /magazine/vs-code-shortcuts HTTP/1.1" 403 None
+INFO 127.0.0.1 - - [28/Dec/2023 00:06:52] "GET /admin/development?url=https://www.wearedevelopers.com/magazine/vs-code-shortcuts HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:06:52] "[33mGET /cdn-cgi/styles/cf.errors.css HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:07:29] "GET /admin/development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:12:00] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:12:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:12:03] "GET /tips_and_tricks/guide?file_name=../../../../../../etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:12:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:12:17] "GET /admin/development?url=file://../../../../../../etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:12:26] "GET /admin/development?url=file:../../../../../../etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:14:26] "GET /admin/development?url=file://../../../../../../etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:14:39] "GET /admin/development?url=file://../../../../../../etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:19:57] "GET /admin/development?url=file:///../../../../../../etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:20:06] "GET /admin/development?url=file://../../../../../etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:20:12] "GET /admin/development?url=file://../../../../etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:20:17] "GET /admin/development?url=file://../../../etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:20:21] "GET /admin/development?url=file://../../etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:20:26] "GET /admin/development?url=file://../etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:20:31] "GET /admin/development?url=file://etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:23:58] "GET /admin/development?url=file://../../../../../../etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:25:12] "GET /admin/development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/adminController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 596-172-209
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/routes/homeRoute.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 596-172-209
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/routes/adminRoute.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 00:45:59] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:45:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:46:05] "GET /development HTTP/1.1" 200 -
+INFO User admin123 logged out.
+INFO 127.0.0.1 - - [28/Dec/2023 00:47:14] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:47:14] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:47:14] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:47:14] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with Voj! username succesfully logged in with password 1234sdfasdf password.
+INFO 127.0.0.1 - - [28/Dec/2023 00:47:34] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:47:34] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:47:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:47:39] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:48:06] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:48:06] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:48:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:48:12] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:48:12] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:48:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:48:32] "GET /development?url=http://127.0.0.1:5000/admin/add HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:48:41] "GET /development?url=http://127.0.0.1:5000/admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:48:50] "GET /development?url=http://127.0.0.1:5000/ HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+DEBUG Starting new HTTP connection (1): 127.0.0.1:5000
+INFO 127.0.0.1 - - [28/Dec/2023 00:49:40] "[32mGET /admin/add HTTP/1.1[0m" 302 -
+DEBUG http://127.0.0.1:5000 "GET /admin/add HTTP/1.1" 302 189
+DEBUG Resetting dropped connection: 127.0.0.1
+INFO 127.0.0.1 - - [28/Dec/2023 00:49:40] "GET / HTTP/1.1" 200 -
+DEBUG http://127.0.0.1:5000 "GET / HTTP/1.1" 200 7854
+INFO 127.0.0.1 - - [28/Dec/2023 00:49:40] "GET /development?url=http://127.0.0.1:5000/admin/add HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:49:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:50:19] "GET /development?url=file:///style.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:50:27] "GET /development?url=file://style.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:50:31] "GET /development?url=file:style.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:58:09] "GET /development?url=127.0.0.1:80 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 00:58:37] "GET /development?url=127.0.0.1:21 HTTP/1.1" 200 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:21
+INFO 127.0.0.1 - - [28/Dec/2023 01:00:28] "GET /development?url=http://127.0.0.1:21/ HTTP/1.1" 200 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+INFO 127.0.0.1 - - [28/Dec/2023 01:01:22] "GET /development?url=http://127.0.0.1:80/ HTTP/1.1" 200 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+INFO 127.0.0.1 - - [28/Dec/2023 01:02:42] "GET /development?url=http://127.0.0.1:80 HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+INFO 127.0.0.1 - - [28/Dec/2023 01:03:32] "[35m[1mGET /development?url=http://127.0.0.1:80 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:03:32] "GET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:03:32] "GET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:03:32] "GET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:03:32] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:10] "[35m[1mGET /development?url=http://127.0.0.1:80 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:10] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:10] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:10] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:10] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:21
+DEBUG Starting new HTTP connection (1): 127.0.0.1:21
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:31] "[35m[1mGET /development?url=http://127.0.0.1:21 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:32] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:32] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:32] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:443
+DEBUG Starting new HTTP connection (1): 127.0.0.1:443
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:37] "[35m[1mGET /development?url=http://127.0.0.1:443 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:37] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:37] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:37] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:53] "[35m[1mGET /development?url=http://127.0.0.1:80 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:53] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:53] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:05:53] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+INFO 127.0.0.1 - - [28/Dec/2023 01:06:37] "[35m[1mGET /development?url=http://127.0.0.1:80 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:06:37] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:06:37] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:06:37] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:06:38] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+INFO 127.0.0.1 - - [28/Dec/2023 01:06:49] "[35m[1mGET /development?url=http://127.0.0.1:80 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:06:49] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:06:49] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:06:49] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:06:49] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+INFO 127.0.0.1 - - [28/Dec/2023 01:07:20] "[35m[1mGET /development?url=http://127.0.0.1:80 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:07:20] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:07:20] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:07:20] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:07:20] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+INFO 127.0.0.1 - - [28/Dec/2023 01:08:13] "[35m[1mGET /development?url=http://127.0.0.1 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:08:13] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:08:13] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:08:13] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:5000
+INFO 127.0.0.1 - - [28/Dec/2023 01:08:28] "GET / HTTP/1.1" 200 -
+DEBUG http://127.0.0.1:5000 "GET / HTTP/1.1" 200 7854
+INFO 127.0.0.1 - - [28/Dec/2023 01:08:28] "GET /development?url=http://127.0.0.1:5000 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:08:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:5432
+DEBUG Starting new HTTP connection (1): 127.0.0.1:5432
+INFO 127.0.0.1 - - [28/Dec/2023 01:09:17] "[35m[1mGET /development?url=http://127.0.0.1:5432 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:09:17] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:09:17] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:09:17] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:46279
+DEBUG Starting new HTTP connection (1): 127.0.0.1:43897
+DEBUG http://127.0.0.1:43897 "GET / HTTP/1.1" 403 None
+INFO 127.0.0.1 - - [28/Dec/2023 01:11:23] "GET /development?url=http://127.0.0.1:43897 HTTP/1.1" 200 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:81
+DEBUG Starting new HTTP connection (1): 127.0.0.1:81
+INFO 127.0.0.1 - - [28/Dec/2023 01:14:49] "[35m[1mGET /development?url=http://127.0.0.1:81 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:14:49] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:14:49] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:14:50] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:24] "[35m[1mGET /development?url=http://127.0.0.1/admin HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:25] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:25] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:25] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:41] "[35m[1mGET /development?url=http://127.0.0.1/admin HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:42] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:42] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:42] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:42] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:51] "[35m[1mGET /development?url=http://127.0.0.1/admin/ HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:51] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:51] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:51] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+DEBUG Starting new HTTP connection (1): 127.0.0.1:80
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:56] "[35m[1mGET /development?url=http://127.0.0.1/ HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:57] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:57] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:17:57] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:18:21] "GET /development HTTP/1.1" 200 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:5000
+INFO 127.0.0.1 - - [28/Dec/2023 01:18:25] "[32mGET /admin/add HTTP/1.1[0m" 302 -
+DEBUG http://127.0.0.1:5000 "GET /admin/add HTTP/1.1" 302 189
+DEBUG Resetting dropped connection: 127.0.0.1
+INFO 127.0.0.1 - - [28/Dec/2023 01:18:25] "GET / HTTP/1.1" 200 -
+DEBUG http://127.0.0.1:5000 "GET / HTTP/1.1" 200 7854
+INFO 127.0.0.1 - - [28/Dec/2023 01:18:25] "GET /development?url=http://127.0.0.1:5000/admin/add HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:18:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:5000
+INFO 127.0.0.1 - - [28/Dec/2023 01:18:33] "[32mGET /admin HTTP/1.1[0m" 302 -
+DEBUG http://127.0.0.1:5000 "GET /admin HTTP/1.1" 302 189
+DEBUG Resetting dropped connection: 127.0.0.1
+INFO 127.0.0.1 - - [28/Dec/2023 01:18:33] "GET / HTTP/1.1" 200 -
+DEBUG http://127.0.0.1:5000 "GET / HTTP/1.1" 200 7854
+INFO 127.0.0.1 - - [28/Dec/2023 01:18:33] "GET /development?url=http://127.0.0.1:5000/admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:18:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+DEBUG Starting new HTTP connection (1): 127.0.0.1:22
+DEBUG Starting new HTTP connection (1): 127.0.0.1:22
+INFO 127.0.0.1 - - [28/Dec/2023 01:21:19] "[35m[1mGET /development?url=http://127.0.0.1:22 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:21:19] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:21:19] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:21:19] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:22:18] "[35m[1mGET /development?url=file:/etc/passwd HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:22:18] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:22:18] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:22:18] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:22:44] "[35m[1mGET /development?url=file:///etc/passwd HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:22:44] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:22:44] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:22:44] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:23:03] "[35m[1mGET /development?url=file:/127.0.0.1/etc/passwd HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:23:03] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:23:03] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:23:04] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:23:30] "[35m[1mGET /development?url=file://127.0.0.1/etc/passwd HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:23:30] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:23:30] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:23:30] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:23:35] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:24:06] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:24:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:24:07] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:24:07] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:24:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:24:20] "[35m[1mGET /development?url=file:/../../../../../../etc/passwd HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:24:21] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:24:21] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:24:21] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 01:31:18] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:31:19] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:31:19] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:31:19] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:31:33] "[35m[1mGET /development?url=file:style.css HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:31:33] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:31:33] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:31:33] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:32:10] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:33:46] "[35m[1mGET /development?url=http://127.0.0.1:5000:22 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:33:46] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:33:46] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:33:46] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:33:55] "[35m[1mGET /development?url=http://127.0.0.1:5000:80 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:33:55] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:33:55] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:33:55] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:34:07] "[35m[1mGET /development?url=http://127.0.0.1:5000:5000 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:34:07] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:34:07] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:34:07] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:34:21] "[35m[1mGET /development?url=http://127.0.0.1:5000:5532 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:34:21] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:34:21] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:34:21] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:34:29] "[35m[1mGET /development?url=http://127.0.0.1:5000:5432 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:34:29] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:34:29] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 01:34:29] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:03:34] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:03:34] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:03:34] "GET /development?url=http://127.0.0.1:5000/admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:03:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:06] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:06] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:06] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:06] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:06] "[35m[1mGET /development?url=http://127.0.0.1:5000/admin HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:06] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:06] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:06] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:26] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:26] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:26] "GET /development?url=http://127.0.0.1:5000/admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:36] "[35m[1mGET /development?url=http://127.0.0.1:5000:22 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:36] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:36] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:36] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:06:36] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:08:07] "[35m[1mGET /development?url=http://127.0.0.1:22 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:08:07] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:08:07] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:08:07] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:09:39] "[35m[1mGET /development?url=http://127.0.0.1:80 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:09:40] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:09:40] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:09:40] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:15:01] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 02:17:01] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:17:02] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:17:02] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:17:02] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:17:02] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:17:06] "GET /development HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 02:17:20] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:17:20] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:17:21] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:17:21] "GET /development HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 02:17:24] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:17:24] "GET /development HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:29] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:30] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:30] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:30] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:33] "[33mGET /admin\\ HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:33] "[33mGET /admin\\ HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:33] "[35m[1mGET /development?url=http://127.0.0.1:5000/admin\\ HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:33] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:33] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:33] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:37] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:37] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:37] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:37] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:37] "[35m[1mGET /development?url=http://127.0.0.1:5000/admin HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:37] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:37] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:21:37] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 02:24:31] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:24:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:24:32] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:24:32] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:24:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:25:12] "[35m[1mGET /development?url=https://scanme.nmap.org:22/ HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:25:12] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:25:12] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:25:12] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:25:23] "[35m[1mGET /development?url=https://scanme.nmap.org:21/ HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:25:23] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:25:23] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:25:23] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:25:34] "[35m[1mGET /development?url=https://scanme.nmap.org:80 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:25:34] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:25:34] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:25:34] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:26:39] "GET /development?url=http://scanme.nmap.org:80 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:26:40] "[33mGET /images/sitelogo-2x.png HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:26:40] "[33mGET /shared/images/nst-icons.svg HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:26:40] "[33mGET /shared/css/nst.css?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:26:40] "[33mGET /site.css HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:26:40] "[33mGET /shared/js/nst.js?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:26:40] "[33mGET /shared/images/nst-icons.svg HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:26:40] "[33mGET /shared/css/nst-foot.css?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:26:40] "[33mGET /images/sitelogo.png HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:26:40] "[33mGET /shared/images/tiny-eyeicon.png HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:26:45] "[35m[1mGET /development?url=http://scanme.nmap.org:22 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:26:45] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:26:45] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:26:45] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 596-172-209
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 596-172-209
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 02:31:09] "GET /development?url=http://scanme.nmap.org:22 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:31:17] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:31:28] "GET /development?url=127.0.0.1:21 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:31:32] "GET /development?url=127.0.0.1:22 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:31:35] "GET /development?url=127.0.0.1:80 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:31:40] "GET /development?url=127.0.0.1:5432 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:32:29] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:32:46] "GET /development?url=https://scanme.nmap.org:22/ HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:32:52] "GET /development?url=http://scanme.nmap.org:22/ HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:32:58] "GET /development?url=http://scanme.nmap.org:22 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:33:02] "GET /development?url=http://scanme.nmap.org:80 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:33:02] "[33mGET /images/sitelogo-2x.png HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:33:02] "[33mGET /shared/css/nst.css?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:33:02] "[33mGET /shared/images/nst-icons.svg HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:33:02] "[33mGET /site.css HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:33:02] "[33mGET /shared/js/nst.js?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:33:02] "[33mGET /shared/css/nst-foot.css?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:33:02] "[33mGET /shared/images/nst-icons.svg HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:33:03] "[33mGET /images/sitelogo.png HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:33:08] "GET /development?url=http://scanme.nmap.org:21 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:33:13] "GET /development?url=http://scanme.nmap.org:443 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:34:07] "GET /development?url=http://scanme.nmap.org:5432 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:34:48] "GET /development?url=http://scanme.nmap.org:53 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:35:21] "GET /development?url=http://scanme.nmap.org:53/ HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:35:27] "GET /development?url=https://scanme.nmap.org:53 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 02:35:56] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 596-172-209
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 03:19:56] "GET /development HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 596-172-209
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 03:20:42] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:20:43] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:20:43] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:20:43] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:20:44] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:20:49] "[33mGET /images/sitelogo-2x.png HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:20:49] "[33mGET /shared/images/nst-icons.svg HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:20:49] "[33mGET /site.css HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:20:49] "[33mGET /shared/css/nst.css?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:20:49] "[33mGET /shared/js/nst.js?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:20:49] "[33mGET /shared/css/nst-foot.css?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:20:49] "[33mGET /images/sitelogo.png HTTP/1.1[0m" 404 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 03:21:05] "GET /development HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 03:21:38] "[35m[1mGET /development HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:21:38] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:21:38] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:21:38] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:21:38] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 03:22:11] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:22:13] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:22:17] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:22:26] "GET /development?url=http://scanme.nmap.org:22 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:22:43] "GET /development?url=http://scanme.nmap.org:22 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:22:47] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:22:55] "GET /development?url=file:///etc/shadow HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:23:10] "GET /development?url=file://whoami HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 03:24:49] "GET /development?url=file://whoami HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 03:25:17] "GET /development HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 03:26:31] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:26:31] "GET /development?url=file:///etc/passwd\\ HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:26:34] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:26:43] "GET /development?url=http://scanme.nmap.org:53 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:27:05] "GET /development?url=file://whoami HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:27:05] "GET /development?url=file://whoami HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:27:09] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:33] "GET /development?url=http://scanme.nmap.org:53 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:41] "GET /development?url=http://scanme.nmap.org:80 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:41] "[33mGET /shared/css/nst.css?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:41] "[33mGET /shared/images/nst-icons.svg HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:41] "[33mGET /images/sitelogo-2x.png HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:41] "[33mGET /site.css HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:41] "[33mGET /shared/js/nst.js?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:41] "[33mGET /shared/images/nst-icons.svg HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:41] "[33mGET /shared/css/nst-foot.css?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:41] "[33mGET /images/sitelogo.png HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:46] "GET /development?url=http://scanme.nmap.org HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:46] "[33mGET /images/sitelogo-2x.png HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:46] "[33mGET /site.css HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:46] "[33mGET /shared/images/nst-icons.svg HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:46] "[33mGET /shared/css/nst.css?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:46] "[33mGET /shared/js/nst.js?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:46] "[33mGET /shared/css/nst-foot.css?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:46] "[33mGET /shared/images/nst-icons.svg HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:46] "[33mGET /images/sitelogo.png HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:42:54] "GET /development?url=https://scanme.nmap.org HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:43:00] "GET /development?url=http://scanme.nmap.org HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:43:00] "[33mGET /images/sitelogo-2x.png HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:43:00] "[33mGET /shared/css/nst.css?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:43:00] "[33mGET /site.css HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:43:00] "[33mGET /shared/images/nst-icons.svg HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:43:00] "[33mGET /shared/js/nst.js?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:43:00] "[33mGET /shared/css/nst-foot.css?v=2 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:43:00] "[33mGET /images/sitelogo.png HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:43:17] "GET /development?url=file:///etc/ HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 03:47:42] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:47:42] "GET /development?url=http://127.0.0.1:5000 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:47:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:47:49] "[35m[1mGET /development?url=http://127.0.0.1:80 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:47:50] "[35m[1mGET /development?url=http://127.0.0.1:80 HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:47:50] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:47:50] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:47:50] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 03:47:50] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 04:08:00] "GET /development?url=http://127.0.0.1:80 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:08:06] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:08:08] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:08:08] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:08:09] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:13:17] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:13:18] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:13:18] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:14:28] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:15:54] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:16:56] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:16:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:17:07] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:17:30] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:18:09] "POST /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:18:29] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:18:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:18:33] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:18:33] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:18:33] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin123 username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [28/Dec/2023 04:18:38] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:18:38] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:18:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:18:42] "GET /account?id=85 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:18:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:18:43] "[36mGET /static/setting.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:19:56] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:20:29] "POST /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:20:53] "POST /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:21:02] "POST /development HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 629-619-742
+INFO 127.0.0.1 - - [28/Dec/2023 04:21:41] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [28/Dec/2023 04:21:44] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -

@@ -4,6 +4,7 @@ from models.User import User, Role
 from models.User import db
 import subprocess
 from controllers.authController import check_for_password_complexity, check_if_exists
+import requests
 
 
 #OSCommandInjection-1 - START
