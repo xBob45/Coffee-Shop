@@ -9,9 +9,12 @@ services:
       always
     environment:
       - SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://postgres:postgres@postgresql:5432/postgres
-
+      
   postgresql:
+    #VulnerablePostgreSQL-1 - START
+    #Fix
     image: postgres
+    #VulnerablePostgreSQL-1 - END
     networks:
       - coffee-shop
     ports:

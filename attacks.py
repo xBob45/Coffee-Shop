@@ -16,4 +16,5 @@ attacks_config = {
     'WeakPasswordRequirements' : True,
     'IDOR': True,
     'CSRF': True,
+    'VulnerablePostgreSQL' : False,
 }

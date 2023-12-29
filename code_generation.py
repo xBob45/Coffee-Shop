@@ -101,6 +101,7 @@ def delete_function():
                          'src/templates/admin/admin_panel_view_and_update.html',
                          'src/app.py', 
                          'src/log_config.py',
+                         'compose.yaml',
                         ]
     
     for file_name in destination_files:

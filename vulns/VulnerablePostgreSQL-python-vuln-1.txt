@@ -1,0 +1,5 @@
+#compose.yaml
+#Vulnerability
+build:
+  context: .
+  dockerfile: Dockerfile-db
