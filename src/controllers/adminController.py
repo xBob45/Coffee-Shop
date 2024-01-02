@@ -5,6 +5,9 @@ from models.User import db
 import subprocess
 from controllers.authController import check_for_password_complexity, check_if_exists
 import requests
+from urllib.request import urlopen
+from urllib.error import URLError
+from urllib.parse import urlparse
 
 
 #OSCommandInjection-1 - START
@@ -117,3 +120,43 @@ def delete_user():
             flash("User doesn't exists.")
             return redirect(url_for('admin.delete_user'))
     return render_template("admin/admin_panel_delete.html")
+
+
+#SSRF-1 - START
+def development():
+    """Fix"""
+    if request.method == 'GET':
+
+        #Get data from 'url' parameter
+        url = request.args.get('url')
+        if url is not None:
+            parsed_url = urlparse(url)
+
+            #Get scheme used in a request
+            scheme = parsed_url.scheme
+            print(scheme)
+
+            #Get domain in a request
+            domain = parsed_url.netloc
+            print(domain)
+
+            #Get path in a request
+            path = parsed_url.path
+            print(path)
+            
+            #Unused URL schemas (file, ftp, . . .) are disabled
+            SCHEMES_ALLOWLIST = ['http']  #TODO <-- Adjust before deployment.
+            #Whitelist only IPs and DNS names that the application requires access to.
+            DOMAINS_ALLOWLIST = ['127.0.0.1:5000', 'localhost:5000'] #TODO <-- Adjust before deployment.
+
+            try:
+                if scheme in SCHEMES_ALLOWLIST:
+                    if domain in DOMAINS_ALLOWLIST:
+                        response = urlopen(url)
+                        return response.read()
+                else:
+                    raise Exception
+            except Exception as e:
+                return render_template('404.html')
+    return 'This is the development section.'
+#SSRF-1 - END

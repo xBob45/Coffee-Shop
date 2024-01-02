@@ -1,0 +1,13 @@
+#src/controllers/homeController.py
+def development():
+    """Vulnerability"""
+    if request.method == 'GET':
+        url = request.args.get('url')
+        if url is not None:
+            print(url)
+            try:
+                response = urlopen(url)
+                return response.read()
+            except Exception as e:
+                return str(e)
+    return 'This is development section.'

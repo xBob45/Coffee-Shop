@@ -102,6 +102,8 @@ def delete_function():
                          'src/app.py', 
                          'src/log_config.py',
                          'compose.yaml',
+                         'src/routes/homeRoute.py',
+                         'src/routes/adminRoute.py',
                         ]
     
     for file_name in destination_files:

@@ -1595,3 +1595,429 @@ WARNING  * Debugger is active!
 INFO  * Debugger PIN: 629-619-742
 INFO 127.0.0.1 - - [28/Dec/2023 04:21:41] "GET /development HTTP/1.1" 200 -
 INFO 127.0.0.1 - - [28/Dec/2023 04:21:44] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 122-848-982
+INFO 127.0.0.1 - - [01/Jan/2024 11:19:21] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:19:21] "GET /static/style.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:19:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:19:26] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 122-848-982
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 122-848-982
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 122-848-982
+INFO 127.0.0.1 - - [01/Jan/2024 11:27:13] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 122-848-982
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 122-848-982
+INFO 127.0.0.1 - - [01/Jan/2024 11:29:05] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:29:05] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:29:09] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 122-848-982
+INFO 127.0.0.1 - - [01/Jan/2024 11:29:27] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 122-848-982
+INFO 127.0.0.1 - - [01/Jan/2024 11:30:30] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:31:02] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:31:02] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:31:02] "GET /development?url=http://127.0.0.1:5000/admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:31:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 122-848-982
+INFO 127.0.0.1 - - [01/Jan/2024 11:31:09] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:31:09] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:31:09] "GET /development?url=http://127.0.0.1:5000/admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:31:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:31:18] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:31:18] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:31:18] "GET /development?url=http://127.0.0.1:5000/admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [01/Jan/2024 11:31:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 122-848-982
+INFO 127.0.0.1 - - [01/Jan/2024 12:00:21] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [01/Jan/2024 12:00:21] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [01/Jan/2024 12:00:21] "GET /development?url=http://127.0.0.1:5000/admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [01/Jan/2024 12:00:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 122-848-982
+INFO 127.0.0.1 - - [01/Jan/2024 12:01:30] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [01/Jan/2024 12:01:30] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [01/Jan/2024 12:01:30] "GET /development?url=http://127.0.0.1:5000/admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [01/Jan/2024 12:01:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 122-848-982
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 13:59:36] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 13:59:36] "GET /static/style.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 13:59:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [02/Jan/2024 13:59:40] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 14:08:24] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:08:24] "GET /static/images/404.svg HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:08:38] "GET /development?url=http://127.0.0.1:5000/admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:08:38] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:08:49] "GET /development?url=http://127.0.0.1 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:08:56] "GET /development?url=http://127.0.0.1:5000 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:08:56] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 14:09:06] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:09:06] "GET /development?url=http://127.0.0.1:5000 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:09:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 14:10:26] "GET /development?url= HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:10:26] "GET /development?url=http://127.0.0.1:5000/development?url= HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:10:26] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:10:34] "GET /development?url=https://code-maven.com/flask-return-404 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:10:34] "GET /development?url=http://127.0.0.1:5000/development?url=https://code-maven.com/flask-return-404 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:10:34] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 14:11:09] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:11:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:11:10] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:11:10] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:11:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:11:13] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:11:13] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:11:28] "GET /development?url=https://code-maven.com/flask-return-404 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:11:28] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:32] "GET /development?url=https://code-maven.com/flask-return-404 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:32] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:33] "GET /development?url=https://code-maven.com/flask-return-404 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:33] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:33] "GET /development?url=https://code-maven.com/flask-return-404 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:33] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:33] "GET /development?url=https://code-maven.com/flask-return-404 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:33] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:33] "GET /development?url=https://code-maven.com/flask-return-404 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:33] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:33] "GET /development?url=https://code-maven.com/flask-return-404 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:33] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:33] "GET /development?url=https://code-maven.com/flask-return-404 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:33] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:36] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:36] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:43] "GET /development?url=127.0.0.1:21 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:15:43] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:16:00] "GET /development?url=127.0.0.1:5000 HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:16:00] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:16:13] "[32mGET /admin HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:16:13] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:16:13] "GET /development?url=http://127.0.0.1:5000/admin HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:16:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:16:18] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:16:18] "GET /development?url=http://127.0.0.1:5000/ HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:16:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 14:16:31] "GET /development HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 14:23:43] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:23:43] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:23:50] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:23:51] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:24:11] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:24:11] "GET /static/style.css HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 739-654-076
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 739-654-076
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 739-654-076
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 739-654-076
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 739-654-076
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 14:44:45] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:44:45] "GET /static/images/404.svg HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:45:28] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:45:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:45:34] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:45:34] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 739-654-076
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 739-654-076
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 739-654-076
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 14:47:29] "[35m[1mGET /development HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:47:29] "GET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:47:29] "GET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:47:29] "GET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:47:29] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 14:47:52] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:47:52] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:47:53] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:47:53] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 739-654-076
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 14:48:19] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:48:20] "GET /development HTTP/1.1" 200 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 14:50:43] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:50:44] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:50:44] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:50:44] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:50:44] "GET /development HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:51:40] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 14:51:40] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/adminController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 739-654-076
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/routes/adminRoute.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 739-654-076
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/routes/adminRoute.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 739-654-076
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/routes/adminRoute.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 739-654-076
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/routes/adminRoute.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 739-654-076
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/routes/homeRoute.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/routes/homeRoute.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/routes/adminRoute.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/routes/adminRoute.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 15:23:46] "[35m[1mGET /development?url=file:///etc/passwd HTTP/1.1[0m" 500 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:23:46] "[36mGET /development?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:23:46] "[36mGET /development?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:23:46] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:23:46] "[36mGET /development?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO  * Detected change in '/home/vojta/Bakalarka/Coffee-Shop/src/controllers/homeController.py', reloading
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 15:24:05] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 15:30:27] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:30:28] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:30:28] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:30:28] "GET /development?url=file:///etc/passwd HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:30:35] "GET /development?url=http://scanme.nmap.org:22 HTTP/1.1" 200 -
+INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO [33mPress CTRL+C to quit[0m
+INFO  * Restarting with stat
+WARNING  * Debugger is active!
+INFO  * Debugger PIN: 931-050-751
+INFO 127.0.0.1 - - [02/Jan/2024 15:32:56] "[33mGET /development?url=file:///etc/passwd HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:32:56] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:32:57] "[33mGET /development?url=file:///etc/passwd HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:32:57] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:33:24] "[33mGET /development?url=http://127.0.0.1:5000/\\ HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:33:24] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:33:26] "[33mGET /development?url=http://127.0.0.1:5000/ HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:33:26] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:33:34] "[33mGET /development?url=http://127.0.0.1:5000 HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:33:34] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:33:50] "GET /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:33:50] "GET /static/sign-in.css HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:33:51] "GET /static/images/coffee-shop-icon.svg HTTP/1.1" 200 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [02/Jan/2024 15:33:55] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:33:55] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:33:55] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User admin failed to login! Username doesn't exist.
+INFO 127.0.0.1 - - [02/Jan/2024 15:34:03] "POST /login HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:34:03] "[36mGET /static/sign-in.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:34:03] "[36mGET /static/images/coffee-shop-icon.svg HTTP/1.1[0m" 304 -
+INFO User with admin123 username succesfully logged in with password 1234 password.
+INFO 127.0.0.1 - - [02/Jan/2024 15:34:40] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:34:40] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:34:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:34:57] "GET /admin/development?url= HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:34:57] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:35:09] "GET / HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:35:09] "GET /admin/development?url=http://localhost:5000/ HTTP/1.1" 200 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:35:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:35:24] "[33mGET /development?url=http://localhost:5000/ HTTP/1.1[0m" 404 -
+INFO 127.0.0.1 - - [02/Jan/2024 15:35:24] "[36mGET /static/images/404.svg HTTP/1.1[0m" 304 -

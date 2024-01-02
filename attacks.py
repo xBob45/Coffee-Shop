@@ -17,4 +17,5 @@ attacks_config = {
     'IDOR': True,
     'CSRF': True,
     'VulnerablePostgreSQL' : False,
+    'SSRF' : False,
 }
