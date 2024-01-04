@@ -1,0 +1,35 @@
+{% extends "public/home.html" %} 
+{% block title %}Coffee{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='product.css') }}">
+{% endblock %}
+{% block content %}
+    {% for product in content %}
+    <div class="d-flex justify-content-center">
+    <div class="card" style="width: 25rem; height: 30rem;">
+        <img src="{{ url_for('static', filename=product.image) }}" class="bd-placeholder-img card-img-top" width="150" height="150" role="img" aria-label="Product Image" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <h6 class="card-subtitle mb-2">Includes</h6>
+        {% for ingredient in product.includes %}
+            {% if 'None' not in ingredient %}
+                <li>{{ ingredient }}</li>
+            {% endif %}
+        {% endfor %}
+            <div class="d-flex flex-column">
+                <div class="d-flex">
+                    <p class="card-text-price"><br><b>Price:</b> ${{ product.price }}</p>
+                    <p class="card-text-stock"><br><b>Stock:</b> {{ product.stock }}</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="#" class="btn btn-outline-success" role="button" id="add_to_cart_button">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+{% endblock %}
+

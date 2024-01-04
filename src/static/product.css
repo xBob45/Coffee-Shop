@@ -1,0 +1,7 @@
+.flex-column {
+    flex-direction: column!important;
+    margin-top: 60px;
+}
+.card-text-price{
+    margin-right: 26px;
+  }
