@@ -45,7 +45,7 @@ def product_info():
 
     product = db.session.execute(text("SELECT * FROM products WHERE id = '%s'" % (product_id)))
     db.session.commit()
-    return render_template("public/example.html", content=product)
+    return render_template("public/product.html", content=product)
 
 def coffee():
         coffee_category_id = db.session.query(Category).filter_by(name='coffee').first().id
@@ -60,4 +60,6 @@ def tea():
     return render_template("public/tea.html", products=tea_products)
 
 def accessories():
-    return render_template("public/accessories.html")
+    accessories_category_id = db.session.query(Category).filter_by(name='accessories').first().id
+    accessory_products = db.session.query(Product).join(ProductCategory).filter_by(category_id=accessories_category_id).all()
+    return render_template("public/accessories.html", products=accessory_products)

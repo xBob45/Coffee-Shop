@@ -41,14 +41,20 @@ INSERT INTO products (name, stock, price, description, image, includes) VALUES
     ('Bourbon', 18, 122.99, 'Description for Product 10', 'images/products/coffee/coffee8.svg', ARRAY['Coffee: None','Milk: None','Weight: 1000mg']),
     ('Catimor', 18, 75.99, 'Description for Product 11', 'images/products/coffee/coffee8.svg', ARRAY['Coffee: None','Milk: None','Weight: 1000mg']),
     --Teas
-    ('Green Tea', 18, 75.99, 'Description for Product 12', 'images/products/coffee/coffee8.svg', ARRAY['Coffee: None','Milk: None','Weight: None', 'Caffeine: 30-50 mg']),
-    ('Yellow Tea', 18, 75.99, 'Description for Product 13', 'images/products/coffee/coffee8.svg', ARRAY['Coffee: None','Milk: None','Weight: None', 'Caffeine: 18-47 mg']),
-    ('Earl Grey', 18, 75.99, 'Description for Product 14', 'images/products/coffee/coffee8.svg', ARRAY['Coffee: None','Milk: None','Weight: None', 'Caffeine: 22-58 mg']),
-    ('Matcha', 18, 75.99, 'Description for Product 15', 'images/products/coffee/coffee8.svg', ARRAY['Coffee: None','Milk: None','Weight: None', 'Caffeine: ~126 mg']),
-    ('Green Tea (Loose leaf)', 18, 75.99, 'Description for Product 16', 'images/products/coffee/coffee8.svg', ARRAY['Coffee: None','Milk: None','Weight: 1000mg', 'Caffeine: 30-50 mg']),
-    ('Yellow Tea (Loose leaf)', 18, 75.99, 'Description for Product 17', 'images/products/coffee/coffee8.svg', ARRAY['Coffee: None','Milk: None','Weight: 1000mg', 'Caffeine: 30-50 mg']),
-    ('Earl Grey (Loose leaf)', 18, 75.99, 'Description for Product 18', 'images/products/coffee/coffee8.svg', ARRAY['Coffee: None','Milk: None','Weight: 1000mg', 'Caffeine: 30-50 mg']),
-    ('Matcha (Loose leaf)', 18, 75.99, 'Description for Product 19', 'images/products/coffee/coffee8.svg', ARRAY['Coffee: None','Milk: None','Weight: 1000mg', 'Caffeine: 30-50 mg']);
+    ('Green Tea', 18, 75.99, 'Description for Product 12', 'images/products/tea/tea1.svg', ARRAY['Coffee: None','Milk: None','Weight: None', 'Caffeine: 30-50 mg']),
+    ('Yellow Tea', 18, 75.99, 'Description for Product 13', 'images/products/tea/tea2.svg', ARRAY['Coffee: None','Milk: None','Weight: None', 'Caffeine: 18-47 mg']),
+    ('Earl Grey', 18, 75.99, 'Description for Product 14', 'images/products/tea/tea3.svg', ARRAY['Coffee: None','Milk: None','Weight: None', 'Caffeine: 22-58 mg']),
+    ('Ginger Tea', 18, 75.99, 'Description for Product 15', 'images/products/tea/tea5.svg', ARRAY['Coffee: None','Milk: None','Weight: None', 'Caffeine: 0 mg']),
+    ('Green Tea (Loose leaf)', 18, 75.99, 'Description for Product 16', 'images/products/tea/tea6.svg', ARRAY['Coffee: None','Milk: None','Weight: 1000mg', 'Caffeine: 30-50 mg']),
+    ('Yellow Tea (Loose leaf)', 18, 75.99, 'Description for Product 17', 'images/products/tea/tea6.svg', ARRAY['Coffee: None','Milk: None','Weight: 1000mg', 'Caffeine: 30-50 mg']),
+    ('Earl Grey (Loose leaf)', 18, 75.99, 'Description for Product 18', 'images/products/tea/tea6.svg', ARRAY['Coffee: None','Milk: None','Weight: 1000mg', 'Caffeine: 30-50 mg']),
+    --Accessories
+    ('Coffee Brew', 18, 75.99, 'Description for Product 12', 'images/products/accessories/accessory1.svg', ARRAY['Coffee: None','Milk: None','Weight: None', 'Caffeine: None']),
+    ('Coffee Portafilter', 18, 75.99, 'Description for Product 12', 'images/products/accessories/accessory2.svg', ARRAY['Coffee: None','Milk: None','Weight: None', 'Caffeine: None']),
+    ('Coffee Machine', 18, 75.99, 'Description for Product 12', 'images/products/accessories/accessory3.svg', ARRAY['Coffee: None','Milk: None','Weight: None', 'Caffeine: None']),
+    ('Tea Pot', 18, 75.99, 'Description for Product 12', 'images/products/accessories/accessory4.svg', ARRAY['Coffee: None','Milk: None','Weight: None', 'Caffeine: None']),
+    ('Mug', 18, 75.99, 'Description for Product 12', 'images/products/accessories/accessory5.svg', ARRAY['Coffee: None','Milk: None','Weight: None', 'Caffeine: None']),
+    ('Coffee Cup', 18, 75.99, 'Description for Product 12', 'images/products/accessories/accessory6.svg', ARRAY['Coffee: None','Milk: None','Weight: None', 'Caffeine: None']);
 
 CREATE TABLE categories (
     id SERIAL PRIMARY KEY,
@@ -82,4 +88,9 @@ INSERT INTO product_categories (product_id, category_id) VALUES
     (16,2),
     (17,2),
     (18,2),
-    (19,2);
+    (19,3),
+    (20,3),
+    (21,3),
+    (22,3),
+    (23,3),
+    (24,3);
