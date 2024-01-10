@@ -4,6 +4,7 @@ def guide_reader():
     #../../../../../../etc/passwd
     #Extracts file from 'file_name' parameter
     file_name = request.args.get('file_name')
+    log_config.logging.info("Requested filename: %s" % file_name)
 
     #Creates a path by concatenating '/home/vojta/Bakalarka/Coffee-Shop/src/' and 'guides'
     guides_dir = os.path.join(os.getcwd(), 'guides')
@@ -13,6 +14,7 @@ def guide_reader():
         
     #Opens the file located at the location of 'requested_file' for reading ('r')
     with open(requested_file, 'r') as file:
+        log_config.logging.info("Opened file: %s" % file)
         content = file.read()
     
     return render_template("public/guide.html", content=content)

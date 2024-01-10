@@ -1,14 +1,13 @@
 {% extends "admin/admin_panel.html" %} 
 {% block title %}Admin Panel - Delete{% endblock %}
 {% block content %}
-
 <div class="d-flex justify-content-center">
     <div class="col-md-3">
         <h4>Delete User</h4>
         <form method="POST" action="{{ url_for('admin.delete_user') }}">
         <!-- CSRF-3 - START -->
-        <!-- Vulnerability -->
-        <!-- No CSRF protection. -->
+        <!-- Fix -->
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <!-- CSRF-3 - END -->
         <hr class="hr" />
         <div class="mb-3">

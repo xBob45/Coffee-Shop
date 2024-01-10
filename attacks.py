@@ -2,6 +2,7 @@ attacks_config = {
     'SQLInjection': False,
     'SensitiveInformationDisclosure': True,
     'ReflectedXSS': True,
+    'StoredXSS': False,
     'InsufficientSessionInvalidation': False,
     'SensitiveDatawithinCookie': False,  #If 'True' set 'ForcedBrowsing' to 'None'
     'ForcedBrowsing': None,
@@ -13,9 +14,9 @@ attacks_config = {
     'Clickjacking' : True,
     'InsufficientLogging':True,
     'InsertionOfSensitiveInformationIntoLogFile' : True,
-    'WeakPasswordRequirements' : True,
+    'WeakPasswordRequirements' : False,
     'IDOR': True,
-    'CSRF': True,
+    'CSRF': False,
     'VulnerablePostgreSQL' : False,
     'SSRF' : False,
 }

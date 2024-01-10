@@ -7,6 +7,7 @@ from models.User import db, User
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
 import logging
+from flask_wtf import CSRFProtect
 
 def page_not_found(e):
   return render_template('404.html'), 404
@@ -16,20 +17,20 @@ def create_app():
     app.register_error_handler(404, page_not_found)
     app.config.from_object('config')  # Configuring from Python Files
     db.init_app(app)  # Initializing the database
-
     #-------------------------Flask-Login-------------------------
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
-
     @login_manager.user_loader
+    
     def load_user(user_id):
         return User.query.get(int(user_id))
     #-------------------------Flask-Login-------------------------
 
     #CSRF-1 - START
-    """Vulnerability"""
-    """No CSRF protection."""
+    """Fix"""
+    csrf = CSRFProtect()
+    csrf.init_app(app)
     #CSRF-1 - END
 
     #Clickjacking-1 - START

@@ -16,10 +16,9 @@ os.environ["FLASK_DEBUG"] = "1"
 
 """SameSite issues documented here"""
 #CookiesWithoutSecurityAttributes-1 - START
-"""Fix"""
-SESSION_COOKIE_SECURE = True
-SESSION_COOKIE_HTTPONLY = True
-SESSION_COOKIE_SAMESITE = 'Strict'  
+"""Vulnerability"""
+SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_HTTPONLY = False
 #CookiesWithoutSecurityAttributes-1 - END
 
 # Grabs the folder where the script runs.
@@ -31,3 +30,7 @@ SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
 SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
 
 
+#CSRF
+"""SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = 'None'"""

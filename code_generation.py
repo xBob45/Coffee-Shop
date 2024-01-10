@@ -17,8 +17,8 @@ def copy_function():
                         with open(file, 'r') as content:
                             next(content) #Skips the first line
                             vulnerability = content.read()
-                            #print(content)
-
+                            
+                            
                         #This extracts location where the vulnerability is suppose to go.
                         with open (file, 'r') as location:
                             locations = location.readlines()[0][1::].split(',')
@@ -39,7 +39,7 @@ def copy_function():
                                         destination.write(line)
                         
                     except FileNotFoundError:
-                        print(file + "-> NOT FIND")
+                        print(file + "-> NOT FOUND")
                         continue
             
         elif attack_value == False:
@@ -87,7 +87,8 @@ def copy_function():
 
 def delete_function():
     destination_files = ['src/controllers/authController.py', 
-                         'src/templates/auth/login.html', 
+                         'src/templates/auth/login.html',
+                         'src/templates/auth/signup.html', 
                          'src/templates/public/home.html',
                          'src/templates/account/setting.html',
                          'src/routes/adminRoute.py', 

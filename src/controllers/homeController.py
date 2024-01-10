@@ -8,6 +8,7 @@ from urllib.parse import urlparse
 from models.User import Product, Category, ProductCategory
 from models.User import db
 from sqlalchemy.sql import text
+import log_config
 
 def home():
     return render_template("public/home.html")
@@ -21,6 +22,7 @@ def guide_reader():
     #../../../../../../etc/passwd
     #Extracts file from 'file_name' parameter
     file_name = request.args.get('file_name')
+    log_config.logging.info("Requested filename: %s" % file_name)
 
     #Creates a path by concatenating '/home/vojta/Bakalarka/Coffee-Shop/src/' and 'guides'
     guides_dir = os.path.join(os.getcwd(), 'guides')
@@ -30,6 +32,7 @@ def guide_reader():
         
     #Opens the file located at the location of 'requested_file' for reading ('r')
     with open(requested_file, 'r') as file:
+        log_config.logging.info("Opened file: %s" % file)
         content = file.read()
     
     return render_template("public/guide.html", content=content)
@@ -48,10 +51,10 @@ def product_info():
     return render_template("public/product.html", content=product)
 
 def coffee():
-        coffee_category_id = db.session.query(Category).filter_by(name='coffee').first().id
-        #print(coffee_category_id)
-        coffee_products = db.session.query(Product).join(ProductCategory).filter_by(category_id=coffee_category_id).all()
-        return render_template("public/coffee.html", products=coffee_products)
+    coffee_category_id = db.session.query(Category).filter_by(name='coffee').first().id
+    #print(coffee_category_id)
+    coffee_products = db.session.query(Product).join(ProductCategory).filter_by(category_id=coffee_category_id).all()
+    return render_template("public/coffee.html", products=coffee_products)
 
 def tea():
     tea_category_id = db.session.query(Category).filter_by(name='tea').first().id

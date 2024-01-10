@@ -1,0 +1,32 @@
+#src/controllers/authController.py
+def signup():
+    """Vulnerability"""
+    if request.method == 'POST':
+        try:
+            first_name = request.form.get('first_name')
+            #User input is not beeing validated in any way.
+            last_name = request.form.get('last_name')
+            #User input is not beeing validated in any way.
+            email = request.form.get('email')
+            #User input is not beeing validated in any way.
+            username= request.form.get('username')
+            #User input is not beeing validated in any way.
+            password = request.form.get('password')
+            check_if_exists('email', email, 'Email')
+            check_if_exists('username', username, 'Username')
+            #WeakPasswordRequirements-1 - START
+            #WeakPasswordRequirements-1 - END
+            user = User(role_id=2, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
+            db.session.add(user)
+            db.session.commit()
+            db.session.close()
+            log_config.logging.info("User %s has been sucessfully deleted." % username)
+            flash("Account has been sucesfully created.")
+            return redirect(url_for("auth.login"))
+        except ValueError:
+            return redirect(request.referrer)
+        except Exception:
+            log_config.logging.info("Error occured.")
+            flash("Error occured.")
+            redirect(request.referrer)         
+    return render_template("auth/signup.html")

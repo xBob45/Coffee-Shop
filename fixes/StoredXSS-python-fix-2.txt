@@ -1,19 +1,4 @@
-from flask import (flash, redirect, render_template, request, abort, url_for, jsonify, session)
-from models.User import User, Role
-from models.User import db
-from flask_login import logout_user, current_user
-from controllers.authController import check_for_password_complexity, check_if_exists, input_validation
-import log_config
-
-#IDOR-3 - START
-def setting():
-    """Vulnerability"""
-    id = request.args.get("id")
-    user = User.query.filter_by(id=id).first()
-    return render_template("account/setting.html", user=user)
-#IDOR-3 - END
-
-#StoredXSS-2 - START
+#src/controllers/accountController.py
 def update_user():
     """Fix"""
     if request.method == 'POST':
@@ -46,8 +31,6 @@ def update_user():
             input_validation(user.last_name, "Last Name")
             user.password = password
             #WeakPasswordRequirements-3 - START
-            """Fix"""
-            check_for_password_complexity(password)
             #WeakPasswordRequirements-3 - END
             db.session.commit()
             log_config.logging.info("User %s has been sucessfully updated." % username)
@@ -55,30 +38,3 @@ def update_user():
         except (ValueError, Exception):
             redirect(request.referrer)
     return redirect(request.referrer)
-#StoredXSS-2 - END
-
-
-#CSRF-4 - START
-def delete_user():
-    """ Fix """
-    if request.method == 'POST':
-        id = current_user.id
-        print(id)
-        user = User.query.filter_by(id=id).first()
-        username = user.username
-        if user is not None:
-            logout_user()
-            db.session.delete(user)
-            db.session.commit()
-            db.session.close()
-            log_config.logging.info("User has been deleted.")
-            return redirect(url_for("auth.login"))
-        else:
-            flash("User doesn't exists.")
-            return redirect(request.referrer)
-    return redirect(request.referrer)
-#CSRF-4 - END
-
-
-def upload_picture():
-    pass

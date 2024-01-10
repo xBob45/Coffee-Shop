@@ -6,6 +6,7 @@ def development():
         #Get data from 'url' parameter
         url = request.args.get('url')
         if url is not None:
+            log_config.logging.info("URL: %s." % url)
             parsed_url = urlparse(url)
 
             #Get scheme used in a request
@@ -28,10 +29,12 @@ def development():
             try:
                 if scheme in SCHEMES_ALLOWLIST:
                     if domain in DOMAINS_ALLOWLIST:
+                        log_config.logging.info("URL was opened.")
                         response = urlopen(url)
                         return response.read()
                 else:
                     raise Exception
             except Exception as e:
+                log_config.logging.error("URL was rejected")
                 return render_template('404.html')
     return 'This is the development section.'

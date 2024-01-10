@@ -3,11 +3,14 @@ def development():
     """Vulnerability"""
     if request.method == 'GET':
         url = request.args.get('url')
+        log_config.logging.info("URL: %s." % url)
         if url is not None:
             print(url)
             try:
                 response = urlopen(url)
+                log_config.logging.info("URL was opened.")
                 return response.read()
-            except Exception as e:
-                return str(e)
+            except Exception:
+                log_config.logging.error("URL was rejected")
+                return render_template('404.html')
     return 'This is development section.'

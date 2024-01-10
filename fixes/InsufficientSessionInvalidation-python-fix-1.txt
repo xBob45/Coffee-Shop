@@ -3,8 +3,7 @@ def logout():
     """Fix"""
     #SensitiveDatawithinCookie-2 - START
     #SensitiveDatawithinCookie-2 - END
-    username = current_user.username
     logout_user()
-    log_config.logging.info("User %s logged out." % username)
+    log_config.logging.info("User logged out.")
     flash("You were logged out.")
     return redirect(url_for("auth.login"))

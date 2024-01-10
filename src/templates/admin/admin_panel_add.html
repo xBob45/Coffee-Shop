@@ -7,8 +7,8 @@
         <hr class="hr" />
         <form method="POST" action="{{ url_for('admin.add_user') }}">
             <!-- CSRF-3 - START -->
-            <!-- Vulnerability -->
-            <!-- No CSRF protection. -->
+            <!-- Fix -->
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             <!-- CSRF-3 - END -->
             <div class="mb-2">
                 <label for="add_username" class="form-label">Username</label>
@@ -49,8 +49,13 @@
         {% if messages %}
         <ul class="flash">
             {% for message in messages %}
-            <div class="alert alert-success" role="alert" id="alert-success">
-              {{ message | safe}}
+                {% if message == 'User has sucesfully been added to the database.' %}
+                    <div class="alert alert-success" role="alert" id="alert-success">
+                    {{ message }}
+                {% else %}
+                    <div class="alert alert-danger" role="alert" id="alert-danger">
+                    {{ message }} 
+                {% endif %}    
             </div>
             {% endfor %}
         </ul>

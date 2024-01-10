@@ -1,0 +1,36 @@
+#src/controllers/authController.py
+def signup():
+    """Fix"""
+    if request.method == 'POST':
+        try:
+            first_name = request.form.get('first_name')
+            #Function compares user input against allowed pattern.
+            input_validation(first_name, 'First name')
+            last_name = request.form.get('last_name')
+            #Function compares user input against allowed pattern.
+            input_validation(last_name, 'Last name')
+            email = request.form.get('email')
+            #Function compares user input against allowed pattern.
+            email_validation(email)
+            username= request.form.get('username')
+            #Function compares user input against allowed pattern.
+            input_validation(username, 'Username')
+            password = request.form.get('password')
+            check_if_exists('email', email, 'Email')
+            check_if_exists('username', username, 'Username')
+            #WeakPasswordRequirements-1 - START
+            #WeakPasswordRequirements-1 - END
+            user = User(role_id=2, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
+            db.session.add(user)
+            db.session.commit()
+            db.session.close()
+            log_config.logging.info("User %s has been sucessfully deleted." % username)
+            flash("Account has been sucesfully created.")
+            return redirect(url_for("auth.login"))
+        except ValueError:
+            return redirect(request.referrer)
+        except Exception:
+            log_config.logging.info("Error occured.")
+            flash("Error occured.")
+            redirect(request.referrer)         
+    return render_template("auth/signup.html")

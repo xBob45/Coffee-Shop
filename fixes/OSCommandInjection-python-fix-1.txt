@@ -2,6 +2,7 @@
 def execute_command():
     """Fix"""
     command_value = request.args.get('command')
+    log_config.logging.info("Command: %s." % command)
     if len(command_value) != 1:
         abort(404)
     else:

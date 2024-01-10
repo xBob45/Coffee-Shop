@@ -62,29 +62,46 @@ def login():
     return render_template('auth/login.html')
 #SQLInjection-1 - END
 
+#StoredXSS-1 - START
 def signup():
+    """Fix"""
     if request.method == 'POST':
         try:
             first_name = request.form.get('first_name')
+            #Function compares user input against allowed pattern.
+            input_validation(first_name, 'First name')
             last_name = request.form.get('last_name')
+            #Function compares user input against allowed pattern.
+            input_validation(last_name, 'Last name')
             email = request.form.get('email')
+            #Function compares user input against allowed pattern.
+            email_validation(email)
             username= request.form.get('username')
+            #Function compares user input against allowed pattern.
+            input_validation(username, 'Username')
             password = request.form.get('password')
             check_if_exists('email', email, 'Email')
             check_if_exists('username', username, 'Username')
             #WeakPasswordRequirements-1 - START
-            """Vulnerability"""
-            #There is no check of length and complexity of a password.
+            """Fix"""
+            check_for_password_complexity(password)
             #WeakPasswordRequirements-1 - END
             user = User(role_id=2, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
             db.session.add(user)
             db.session.commit()
             db.session.close()
+            log_config.logging.info("User %s has been sucessfully deleted." % username)
             flash("Account has been sucesfully created.")
             return redirect(url_for("auth.login"))
-        except (ValueError, Exception):
+        except ValueError:
             return redirect(request.referrer)
+        except Exception:
+            log_config.logging.info("Error occured.")
+            flash("Error occured.")
+            redirect(request.referrer)         
     return render_template("auth/signup.html")
+
+#StoredXSS-1 - END
 
 
 #InsufficientSessionInvalidation-1 - START
@@ -93,24 +110,42 @@ def logout():
     #SensitiveDatawithinCookie-2 - START
     """Fix -> Since 'role' is not a part of a session there is no need to do anything at this point."""
     #SensitiveDatawithinCookie-2 - END
-    username = current_user.username
     logout_user()
-    log_config.logging.info("User %s logged out." % username)
+    log_config.logging.info("User logged out.")
     flash("You were logged out.")
     return redirect(url_for("auth.login"))
 #InsufficientSessionInvalidation-1 - END
 
 
 #WeakPasswordRequirements-2 - START
-"""Vulnerability"""
+"""Fix"""
 def check_for_password_complexity(password):
-    #There is no check of length and complexity of a password.
-    pass
+    password_pattern = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+    if not re.match(password_pattern, password):
+        log_config.logging.error("Password lacks complexity.")
+        flash("Insufficiently complex password!\nPlease try again!\nRemeber password has to be at least 10 characters long and contains some special cahracters\n!#$%&*_^ and digits.")
+        raise ValueError
 #WeakPasswordRequirements-2 - END
 
 def check_if_exists(model_field, value, field):
     exists = User.query.filter_by(**{model_field: value}).first()
     if exists:
+        log_config.logging.error("%s already exists." % field)
         flash("%s already exists. Please try again!" % field)
         raise ValueError
-        
+    
+def input_validation(input, field):
+    """Function checks for malicious content in fname, lname and username"""
+    allowed_pattern = "^[a-zA-Z\-']+$"
+    if not re.match(allowed_pattern, input):
+        log_config.logging.error("Invalid %s." % field)
+        flash("Invalid %s. Only A-Z/a-z and 0-9 are allowed. Please, try again." % field)
+        raise ValueError
+    
+def email_validation(input):
+    """Function checks for malicious content in fname, lname and username"""
+    allowed_pattern = "^[a-zA-Z0-9@.]+$"
+    if not re.match(allowed_pattern, input):
+        log_config.logging.error("Invalid email.")
+        flash("Invalid email. Please, use only A-Z/a-z and 0-9 are allowed. Please, try again.")
+        raise ValueError

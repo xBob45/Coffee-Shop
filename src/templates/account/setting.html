@@ -11,8 +11,8 @@
     <!-- Vulnerability -->
     <form method="POST" action="{{ url_for('account.update_user') }}">
             <!-- CSRF-3 - START -->
-            <!-- Vulnerability -->
-            <!-- No CSRF protection. -->
+            <!-- Fix -->
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             <!-- CSRF-3 - END -->
             <div class="mb-3">
               <input type="hidden" name="edit_id" value="{{user.id}}">
@@ -46,11 +46,11 @@
           </form>
     
           <!-- CSRF-2 - START -->
-          <!-- Vulnerability -->
-          <form method="GET" action="{{ url_for('account.delete_user') }}">
+          <!-- Fix -->
+          <form method="POST" action="{{ url_for('account.delete_user') }}">
               <!-- CSRF-3 - START -->
-              <!-- Vulnerability -->
-              <!-- No CSRF protection. -->
+              <!-- Fix -->
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
               <!-- CSRF-3 - END -->
               <button type="submit" class="btn btn-outline-danger" id="setting-button-danger">Delete</button>
           </form>
@@ -58,19 +58,16 @@
     
     <!-- IDOR-2 - END -->
     
-          
-
-
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <ul class="flash">
         {% for message in messages %}
         {% if message == 'User has been updated.' %}
-            <div class="alert alert-success" role="alert" id="setting-alert-success">
+            <div class="alert alert-success" role="alert" id="setting-alert">
             {{ message}}
             </div>
         {% else %}
-            <div class="alert alert-danger" role="alert" id="setting-alert-danger">
+            <div class="alert alert-danger" role="alert" id="setting-alert">
             {{ message}}
             </div>
         {% endif %}

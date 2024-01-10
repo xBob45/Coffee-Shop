@@ -1,0 +1,35 @@
+#src/controllers/accountController.py
+def update_user():
+    """Vulnerability"""
+    if request.method == 'POST':
+        id = request.form.get("edit_id")
+        username = request.form.get("edit_username")
+        email = request.form.get("edit_email")
+        first_name = request.form.get("edit_fn")
+        last_name = request.form.get("edit_ln")
+        password = request.form.get("edit_password")
+        user = User.query.filter_by(id=id).first()
+        current_username = user.username
+        current_email = user.email
+        try:
+            if current_username != username:
+                #User input is not beeing validated in any way.
+                check_if_exists('username', username, 'Username')
+                user.username = username
+            if current_email != email:
+                #User input is not beeing validated in any way.
+                check_if_exists('email', email, 'Email')
+                user.email = email 
+            #User input is not beeing validated in any way.     
+            user.first_name = first_name
+            #User input is not beeing validated in any way.
+            user.last_name = last_name
+            user.password = password
+            #WeakPasswordRequirements-3 - START
+            #WeakPasswordRequirements-3 - END
+            db.session.commit()
+            log_config.logging.info("User %s has been sucessfully updated." % username)
+            flash("User has been updated.")
+        except (ValueError, Exception):
+            redirect(request.referrer)
+    return redirect(request.referrer)
