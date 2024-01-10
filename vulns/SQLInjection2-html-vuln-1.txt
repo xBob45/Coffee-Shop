@@ -1,10 +1,4 @@
-{% extends "public/home.html" %} 
-{% block title %}Coffee{% endblock %}
-{% block style %}
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='product.css') }}">
-{% endblock %}
-<!-- SQLInjection2-1 - START -->
+#src/templates/public/product.html
 <!-- Vulnerability -->
 {% block content %}
     {% for product in product %}
@@ -34,5 +28,3 @@
 
     {% endfor %}
 {% endblock %}
-<!-- SQLInjection2-1 - END -->
-

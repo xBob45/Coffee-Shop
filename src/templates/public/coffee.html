@@ -41,7 +41,10 @@
               <img src="{{ url_for('static', filename=product['image']) }}" class="bd-placeholder-img card-img-top" width="150" height="150" role="img" aria-label="Product Image" preserveAspectRatio="xMidYMid slice" focusable="false">
               <div class="card-body">
                 <a href="{{ url_for('home.product_info', id=product['id']) }}" class="card-link">
-                  <h5 class="card-title">{{ product['name'] | safe}}</h5>
+                  <!-- SQLInjection2-2 - START -->
+                  <!-- Vulnerability -->
+                  <h5 class="card-title">{{ product['name'] |safe }}</h5>
+                  <!-- SQLInjection2-2 - END -->
                 </a>
                 <p class="card-text">{{ product['description'] }}</p>
                 <div class="d-flex">

@@ -1,5 +1,6 @@
 attacks_config = {
     'SQLInjection': False,
+    'SQLInjection2': True,
     'SensitiveInformationDisclosure': True,
     'ReflectedXSS': True,
     'StoredXSS': False,

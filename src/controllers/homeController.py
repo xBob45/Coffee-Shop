@@ -44,11 +44,14 @@ def guide_reader():
 
 def product_info():
     product_id = request.args.get('id')
-    #http://127.0.0.1:5000/product?id=1'; UPDATE products SET price = 0.01 WHERE id = 1; --
-
+    #SQLi#2 - http://127.0.0.1:5000/product?id=1'; UPDATE products SET price = 0.01 WHERE id = 1; --
+    #StoredXSS - http://127.0.0.1:5000/product?id=1'; UPDATE products SET name = '<script>alert(1)Cappuccino</script>' WHERE id = 1; --
+    #SQLInjection2-1 - START
+    """Vulnerability"""
     product = db.session.execute(text("SELECT * FROM products WHERE id = '%s'" % (product_id)))
+    #SQLInjection2-1 - END
     db.session.commit()
-    return render_template("public/product.html", content=product)
+    return render_template("public/product.html", product=product)
 
 def coffee():
     coffee_category_id = db.session.query(Category).filter_by(name='coffee').first().id

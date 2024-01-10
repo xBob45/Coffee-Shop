@@ -1,0 +1,3 @@
+#src/controllers/homeController.py
+"""Fix"""
+product = db.session.query(Product).filter_by(id=product_id).first()

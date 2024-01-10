@@ -155,3 +155,7 @@ INFO User HackedYou failed to login! Wrong password entered.
 INFO User HackedYou failed to login! Wrong password entered.
 INFO User HackedYou failed to login! Wrong password entered.
 INFO User HackedYou2 failed to login! Username doesn't exist.
+INFO The CSRF token has expired.
+INFO The CSRF token has expired.
+INFO User HackedYou failed to login! Wrong password entered.
+INFO User with HackedYou username succesfully logged in with password 1aaaaFFFF333###aAAAAcc...????? password.

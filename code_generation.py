@@ -105,6 +105,8 @@ def delete_function():
                          'compose.yaml',
                          'src/routes/homeRoute.py',
                          'src/routes/adminRoute.py',
+                         'src/templates/public/product.html',
+                         'src/templates/public/coffee.html',
                         ]
     
     for file_name in destination_files:
