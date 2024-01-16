@@ -8,35 +8,32 @@
     <hr class="hr" />
     <div class="button-container">
     <!-- IDOR-2 - START -->
-    <!-- Vulnerability -->
+    <!-- Fix -->
     <form method="POST" action="{{ url_for('account.update_user') }}">
-            <!-- CSRF-3 - START -->
-            <!-- Fix -->
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-            <!-- CSRF-3 - END -->
             <div class="mb-3">
-              <input type="hidden" name="edit_id" value="{{user.id}}">
+              <input type="hidden" name="edit_id" value="{{current_user.id}}">
             </div>
             <div class="mb-3">
                 <label for="edit_username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="edit_username" placeholder="Change Username" name="edit_username" value="{{user.username}}">
+                <input type="text" class="form-control" id="edit_username" placeholder="Change Username" name="edit_username" value="{{current_user.username}}">
             </div>
             <div class="mb-3">
               <label for="edit_email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="edit_email" placeholder="Change Email" name="edit_email" value="{{user.email}}">
+              <input type="email" class="form-control" id="edit_email" placeholder="Change Email" name="edit_email" value="{{current_user.email}}">
           </div>
             <div class="mb-3">
                 <label for="edit_fn" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="edit_fn" placeholder="Change First Name" name="edit_fn" value="{{user.first_name}}">
+                <input type="text" class="form-control" id="edit_fn" placeholder="Change First Name" name="edit_fn" value="{{current_user.first_name}}">
             </div>
             <div class="mb-3">
                 <label for="edit_ln" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="edit_ln" placeholder="Change Last Name" name="edit_ln" value="{{user.last_name}}">
+                <input type="text" class="form-control" id="edit_ln" placeholder="Change Last Name" name="edit_ln" value="{{current_user.last_name}}">
             </div>
             <div class="mb-3">
               <label for="edit_password" class="form-label">Password</label>
               <div class="input-group">
-                  <input type="password" class="form-control" id="edit_password" placeholder="Change Password" name="edit_password" value="{{user.password}}">
+                  <input type="password" class="form-control" id="edit_password" placeholder="Change Password" name="edit_password" value="{{current_user.password}}">
                   <span class="input-group-text" id="password-toggle" onclick="togglePasswordVisibility()">
                       <i class="bi bi-eye" id="password-icon"></i>
                   </span>
@@ -45,17 +42,16 @@
           <button type="submit" class="btn btn-outline-success" id="button-success">Update</button>
           </form>
     
-          <!-- CSRF-2 - START -->
+          <!-- CSRF-1 - START -->
           <!-- Fix -->
           <form method="POST" action="{{ url_for('account.delete_user') }}">
-              <!-- CSRF-3 - START -->
+              <!-- CSRF-2 - START -->
               <!-- Fix -->
               <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-              <!-- CSRF-3 - END -->
+              <!-- CSRF-2 - END -->
               <button type="submit" class="btn btn-outline-danger" id="setting-button-danger">Delete</button>
           </form>
-          <!-- CSRF-2 - END -->
-    
+          <!-- CSRF-1 - END -->
     <!-- IDOR-2 - END -->
     
     {% with messages = get_flashed_messages() %}

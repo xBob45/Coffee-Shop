@@ -7,7 +7,6 @@ from models.User import db, User
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
 import logging
-from flask_wtf import CSRFProtect
 
 def page_not_found(e):
   return render_template('404.html'), 404
@@ -27,11 +26,11 @@ def create_app():
         return User.query.get(int(user_id))
     #-------------------------Flask-Login-------------------------
 
-    #CSRF-1 - START
-    """Fix"""
+
+    #Flask-WTF
     csrf = CSRFProtect()
     csrf.init_app(app)
-    #CSRF-1 - END
+    #Flask-WTF
 
     #Clickjacking-1 - START
     """Vulnerability"""

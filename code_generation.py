@@ -5,7 +5,7 @@ def copy_function():
         attack_name, attack_value = item
 
         if attack_value == True:
-            for file_number in range(1,5):
+            for file_number in range(1,6):
                 file = []
                 python_file = 'vulns/%s-python-vuln-%s.txt' % (attack_name,file_number)
                 html_file = 'vulns/%s-html-vuln-%s.txt' % (attack_name,file_number)
@@ -43,7 +43,7 @@ def copy_function():
                         continue
             
         elif attack_value == False:
-            for file_number in range(1,5):
+            for file_number in range(1,6):
                 file = []
                 #print(attack_name)
                 python_file = 'fixes/%s-python-fix-%s.txt' % (attack_name,file_number)
@@ -111,7 +111,7 @@ def delete_function():
     
     for file_name in destination_files:
         for attac_name in attacks_config.keys():
-            for file_number in range(1,5):
+            for file_number in range(1,6):
                 with open(file_name, 'r+') as file:
                     content = file.readlines()
                     file.seek(0)

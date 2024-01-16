@@ -4,42 +4,48 @@ def login():
     #admin
     #' OR 1=1 --
     if request.method == 'POST':
-        username = request.form.get('username')
-        #print(username)
-        password = request.form.get('password')
-        #print(password)
-        remember = True if request.form.get('remember') else False
-        user = db.session.execute(text("SELECT EXISTS (SELECT 1 FROM users WHERE username = '%s')" % (username)))
-        username_checks = user.fetchone()[0]
-        #print(username_checks)
-        if username_checks:
-            #print("SELECT * FROM users WHERE username = '%s' AND password = '%s'" % (username, password))
-            user_data = db.session.execute(text("SELECT *FROM users WHERE username = '%s' AND password = '%s'" % (username, password))).fetchone()
-            #print(user_data)
-            if user_data:
-                #Turning retrieved user data into User object because Flas-Login requires it.
-                user = User(id=user_data[0], username=user_data[2], email= user_data[3], first_name=user_data[4], last_name=user_data[5],
-                    password=user_data[6])
-                login_user(user, remember=remember)
-                
-                #InsertionOfSensitiveInformationIntoLogFile-1 - START
-                #InsertionOfSensitiveInformationIntoLogFile-1 - END
+        try:
+            validate_csrf(request.form.get('csrf_token'))
+            username = request.form.get('username')
+            #print(username)
+            password = request.form.get('password')
+            #print(password)
+            remember = True if request.form.get('remember') else False
+            user = db.session.execute(text("SELECT EXISTS (SELECT 1 FROM users WHERE username = '%s')" % (username)))
+            username_checks = user.fetchone()[0]
+            #print(username_checks)
+            if username_checks:
+                #print("SELECT * FROM users WHERE username = '%s' AND password = '%s'" % (username, password))
+                user_data = db.session.execute(text("SELECT *FROM users WHERE username = '%s' AND password = '%s'" % (username, password))).fetchone()
+                #print(user_data)
+                if user_data:
+                    #Turning retrieved user data into User object because Flas-Login requires it.
+                    user = User(id=user_data[0], username=user_data[2], email= user_data[3], first_name=user_data[4], last_name=user_data[5],
+                        password=user_data[6])
+                    login_user(user, remember=remember)
+                    
+                    #InsertionOfSensitiveInformationIntoLogFile-1 - START
+                    #InsertionOfSensitiveInformationIntoLogFile-1 - END
 
-                #SensitiveDatawithinCookie-1 - START
-                #SensitiveDatawithinCookie-1 - END
-                return redirect(url_for('home.home'))
+                    #SensitiveDatawithinCookie-1 - START
+                    #SensitiveDatawithinCookie-1 - END
+                    return redirect(url_for('home.home'))
+                else:
+                    #InsertionOfSensitiveInformationIntoLogFile-2 - START
+                    #InsertionOfSensitiveInformationIntoLogFile-2 - END
+
+                    #SensitiveInformationDisclosure-1 - START
+                    #SensitiveInformationDisclosure-1 - END
+
             else:
-                #InsertionOfSensitiveInformationIntoLogFile-2 - START
-                #InsertionOfSensitiveInformationIntoLogFile-2 - END
+                #InsertionOfSensitiveInformationIntoLogFile-3 - START
+                #InsertionOfSensitiveInformationIntoLogFile-3 - END
 
-                #SensitiveInformationDisclosure-1 - START
-                #SensitiveInformationDisclosure-1 - END
-
-        else:
-            #InsertionOfSensitiveInformationIntoLogFile-3 - START
-            #InsertionOfSensitiveInformationIntoLogFile-3 - END
-
-            #ReflectedXSS-1 - START
-            #ReflectedXSS-1 - END
-
+                #ReflectedXSS-1 - START
+                #ReflectedXSS-1 - END
+        except ValidationError:
+            log_config.logging.error("Missing or invalid CSRF token.") 
+        except Exception:
+            log_config.logging.info("Error occured, try again")
+            flash("Unexpected error. Try again, please.")
     return render_template('auth/login.html') 

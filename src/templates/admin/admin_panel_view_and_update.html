@@ -7,10 +7,7 @@
       <h4>View User</h4>
       <hr class="hr" />
       <form method="POST" action="{{ url_for('admin.view_user') }}">
-        <!-- CSRF-3 - START -->
-        <!-- Fix -->
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-        <!-- CSRF-3 - END -->
           <div class="mb-3">
               <label for="view_username" class="form-label">Username</label>
               <input type="username" class="form-control" id="view_username" placeholder="Enter username" name="view_username">
@@ -41,10 +38,7 @@
       <h4>Update User</h4>
       <hr class="hr" />
       <form method="POST" action="{{ url_for('admin.update_user') }}">
-            <!-- CSRF-3 - START -->
-            <!-- Fix -->
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-            <!-- CSRF-3 - END -->
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
           <div class="mb-3">
             <input type="hidden" name="edit_id" value="{{ user.id }}">
           </div>

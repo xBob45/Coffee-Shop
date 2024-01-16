@@ -1,8 +1,7 @@
 #src/templates/account/setting.html
 <!-- Fix -->
 <form method="POST" action="{{ url_for('account.update_user') }}">
-        <!-- CSRF-3 - START -->
-        <!-- CSRF-3 - END -->
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <div class="mb-3">
           <input type="hidden" name="edit_id" value="{{current_user.id}}">
         </div>
@@ -34,5 +33,5 @@
       <button type="submit" class="btn btn-outline-success" id="button-success">Update</button>
       </form>
 
-      <!-- CSRF-2 - START -->
-      <!-- CSRF-2 - END -->
+      <!-- CSRF-1 - START -->
+      <!-- CSRF-1 - END -->

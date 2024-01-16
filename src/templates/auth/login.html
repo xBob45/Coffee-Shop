@@ -30,10 +30,7 @@
 <main class="form-signin w-100 m-auto">
   {%block form%}
     <form id="login-form" method="POST" action="{{ url_for('auth.login') }}">
-      <!-- CSRF-3 - START -->
-      <!-- Fix -->
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-      <!-- CSRF-3 - END -->
       <img class="mb-4" src="{{ url_for('static', filename='images/coffee-shop-icon.svg') }}" id="coffee-shop-icon" alt="" width="160" height="160">
       <div class="mb-3">
         <label for="UsernameTextArea" class="form-label">Username</label>

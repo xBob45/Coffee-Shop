@@ -1,7 +1,2 @@
 #src/templates/account/setting.html
-<!-- Vulnerability -->
-<form method="GET" action="{{ url_for('account.delete_user') }}">
-    <!-- CSRF-3 - START -->
-    <!-- CSRF-3 - END -->
-    <button type="submit" class="btn btn-outline-danger" id="setting-button-danger">Delete</button>
-</form>
+<!-- No CSRF protection. -->

@@ -3,6 +3,7 @@ def signup():
     """Fix"""
     if request.method == 'POST':
         try:
+            validate_csrf(request.form.get('csrf_token'))
             first_name = request.form.get('first_name')
             #Function compares user input against allowed pattern.
             input_validation(first_name, 'First name')
@@ -27,6 +28,8 @@ def signup():
             log_config.logging.info("User %s has been sucessfully deleted." % username)
             flash("Account has been sucesfully created.")
             return redirect(url_for("auth.login"))
+        except ValidationError:
+            log_config.logging.error("Missing or invalid CSRF token.") 
         except ValueError:
             return redirect(request.referrer)
         except Exception:

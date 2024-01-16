@@ -45,8 +45,8 @@
                       <!-- StoredXSS-1 - END -->
                       <ul class="dropdown-menu">
                       <!-- IDOR-1 - START -->
-                      <!-- Vulnerability -->
-                      <li><a class="dropdown-item" href="{{ url_for('account.setting', id=current_user.id) }}">Settings</a></li>
+                      <!-- Fix -->
+                      <li><a class="dropdown-item" href="{{ url_for('account.setting') }}">Settings</a></li>
                       <!-- IDOR-1 - END -->
                       </ul>
                   </li>

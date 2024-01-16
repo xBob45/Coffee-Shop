@@ -11,13 +11,13 @@ attacks_config = {
     'DebugModeON': True,
     'PathTraversal': True,
     'OSCommandInjection': True,
-    'CookiesWithoutSecurityAttributes' : True,
+    'CookiesWithoutSecurityAttributes' : None,
     'Clickjacking' : True,
     'InsufficientLogging':True,
     'InsertionOfSensitiveInformationIntoLogFile' : True,
     'WeakPasswordRequirements' : False,
-    'IDOR': True,
-    'CSRF': False,
+    'IDOR': False,
+    'CSRF': False, #If 'True' set 'CookiesWithoutSecurityAttributes' to 'None'
     'VulnerablePostgreSQL' : False,
     'SSRF' : False,
 }

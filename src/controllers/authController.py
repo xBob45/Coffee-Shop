@@ -10,55 +10,62 @@ from psycopg2.errors import UniqueViolation
 from sqlalchemy.exc import IntegrityError
 import log_config
 import re
+from flask_wtf.csrf import validate_csrf, ValidationError
 
 #SQLInjection-1 - START
 def login():
     """Fix"""
     if request.method == 'POST':
-        username = request.form.get('username')
-        print(username)
-        password = request.form.get('password')
-        print(password)
-        remember = True if request.form.get('remember') else False
-        user = User.query.filter_by(username=username).first()
-        if user is None:
-            #InsertionOfSensitiveInformationIntoLogFile-3 - START
-            """Vulnerability"""
-            log_config.logging.info("User %s failed to login! Username doesn't exist." % username)
-            #InsertionOfSensitiveInformationIntoLogFile-3 - END
+        try:
+            validate_csrf(request.form.get('csrf_token'))
+            username = request.form.get('username')
+            print(username)
+            password = request.form.get('password')
+            print(password)
+            remember = True if request.form.get('remember') else False
+            user = User.query.filter_by(username=username).first()
+            if user is None:
+                #InsertionOfSensitiveInformationIntoLogFile-3 - START
+                """Vulnerability"""
+                log_config.logging.info("User %s failed to login! Username doesn't exist." % username)
+                #InsertionOfSensitiveInformationIntoLogFile-3 - END
 
-            #ReflectedXSS-1 - START
-            """Vulnerability"""
-            flash("Incorrect credentials for %s." %(username))
-            #ReflectedXSS-1 - END
+                #ReflectedXSS-1 - START
+                """Vulnerability"""
+                flash("Incorrect credentials for %s." %(username))
+                #ReflectedXSS-1 - END
 
-        elif user.password != password:
+            elif user.password != password:
 
-            #InsertionOfSensitiveInformationIntoLogFile-2 - START
-            """Vulnerability"""
-            log_config.logging.info("User %s failed to login! Wrong password entered." % username)
-            #InsertionOfSensitiveInformationIntoLogFile-2 - END
+                #InsertionOfSensitiveInformationIntoLogFile-2 - START
+                """Vulnerability"""
+                log_config.logging.info("User %s failed to login! Wrong password entered." % username)
+                #InsertionOfSensitiveInformationIntoLogFile-2 - END
 
-            #SensitiveInformationDisclosure-1 - START
-            """Vulnerability"""
-            flash("Incorrect password.")
-            #SensitiveInformationDisclosure-1 - END
-        else:
-            # Perform the login action or redirect to the home page
-            login_user(user, remember=remember)
+                #SensitiveInformationDisclosure-1 - START
+                """Vulnerability"""
+                flash("Incorrect password.")
+                #SensitiveInformationDisclosure-1 - END
+            else:
+                # Perform the login action or redirect to the home page
+                login_user(user, remember=remember)
 
-            #InsertionOfSensitiveInformationIntoLogFile-1 - START
-            """Vulnerability"""
-            log_config.logging.info("User with %s username succesfully logged in with password %s password." % (username, password))
-            #InsertionOfSensitiveInformationIntoLogFile-1 - END
+                #InsertionOfSensitiveInformationIntoLogFile-1 - START
+                """Vulnerability"""
+                log_config.logging.info("User with %s username succesfully logged in with password %s password." % (username, password))
+                #InsertionOfSensitiveInformationIntoLogFile-1 - END
 
-            #SensitiveDatawithinCookie-1 - START
-            """Fix -> Sensitive data as 'role' should not be stored within a cookie."""
-            
-            #SensitiveDatawithinCookie-1 - END
-            
-            return redirect(url_for('home.home')) 
-    # If the request method is GET or the login was unsuccessful, render the login form
+                #SensitiveDatawithinCookie-1 - START
+                """Fix -> Sensitive data as 'role' should not be stored within a cookie."""
+                
+                #SensitiveDatawithinCookie-1 - END
+                
+                return redirect(url_for('home.home'))
+        except ValidationError:
+            log_config.logging.error("Missing or invalid CSRF token.") 
+        except Exception:
+            log_config.logging.info("Error occured, try again")
+            flash("Unexpected error. Try again, please.")
     return render_template('auth/login.html')
 #SQLInjection-1 - END
 
@@ -67,6 +74,7 @@ def signup():
     """Fix"""
     if request.method == 'POST':
         try:
+            validate_csrf(request.form.get('csrf_token'))
             first_name = request.form.get('first_name')
             #Function compares user input against allowed pattern.
             input_validation(first_name, 'First name')
@@ -93,6 +101,8 @@ def signup():
             log_config.logging.info("User %s has been sucessfully deleted." % username)
             flash("Account has been sucesfully created.")
             return redirect(url_for("auth.login"))
+        except ValidationError:
+            log_config.logging.error("Missing or invalid CSRF token.") 
         except ValueError:
             return redirect(request.referrer)
         except Exception:

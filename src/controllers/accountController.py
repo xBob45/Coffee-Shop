@@ -4,30 +4,30 @@ from models.User import db
 from flask_login import logout_user, current_user
 from controllers.authController import check_for_password_complexity, check_if_exists, input_validation
 import log_config
+from flask_wtf.csrf import validate_csrf, ValidationError
 
 #IDOR-3 - START
 def setting():
-    """Vulnerability"""
-    id = request.args.get("id")
-    user = User.query.filter_by(id=id).first()
-    return render_template("account/setting.html", user=user)
+    """Fix"""
+    return render_template("account/setting.html")
 #IDOR-3 - END
 
 #StoredXSS-2 - START
 def update_user():
     """Fix"""
     if request.method == 'POST':
-        id = request.form.get("edit_id")
-        username = request.form.get("edit_username")
-        email = request.form.get("edit_email")
-        first_name = request.form.get("edit_fn")
-        last_name = request.form.get("edit_ln")
-        password = request.form.get("edit_password")
-
-        user = User.query.filter_by(id=id).first()
-        current_username = user.username
-        current_email = user.email
         try:
+            validate_csrf(request.form.get('csrf_token'))
+            id = request.form.get("edit_id")
+            username = request.form.get("edit_username")
+            email = request.form.get("edit_email")
+            first_name = request.form.get("edit_fn")
+            last_name = request.form.get("edit_ln")
+            password = request.form.get("edit_password")
+
+            user = User.query.filter_by(id=id).first()
+            current_username = user.username
+            current_email = user.email
             if current_username != username:
                 #Function compares user input against allowed pattern.
                 input_validation(username, "Username")
@@ -52,32 +52,45 @@ def update_user():
             db.session.commit()
             log_config.logging.info("User %s has been sucessfully updated." % username)
             flash("User has been updated.")
-        except (ValueError, Exception):
-            redirect(request.referrer)
-    return redirect(request.referrer)
+        except ValidationError:
+            log_config.logging.error("Missing or invalid CSRF token.")
+        except ValueError:
+            return redirect(request.referrer)
+        except Exception:
+            log_config.logging.info("Error, user has not been updated.")
+            flash("Error occured, try again.")
+            redirect(request.referrer)    
+    return render_template("admin/admin_panel_view_and_update.html")
 #StoredXSS-2 - END
 
 
-#CSRF-4 - START
+#CSRF-3 - START
 def delete_user():
     """ Fix """
     if request.method == 'POST':
-        id = current_user.id
-        print(id)
-        user = User.query.filter_by(id=id).first()
-        username = user.username
-        if user is not None:
-            logout_user()
-            db.session.delete(user)
-            db.session.commit()
-            db.session.close()
-            log_config.logging.info("User has been deleted.")
-            return redirect(url_for("auth.login"))
-        else:
-            flash("User doesn't exists.")
-            return redirect(request.referrer)
+        try:
+            validate_csrf(request.form.get('csrf_token'))
+            id = current_user.id
+            print(id)
+            user = User.query.filter_by(id=id).first()
+            username = user.username
+            if user is not None:
+                logout_user()
+                db.session.delete(user)
+                db.session.commit()
+                db.session.close()
+                log_config.logging.info("User has been deleted.")
+                return redirect(url_for("auth.login"))
+            else:
+                flash("User doesn't exists.")
+                return redirect(request.referrer)
+        except ValidationError:
+            log_config.logging.error("Missing or invalid CSRF token.")
+        except Exception:
+            flash("Error occureed. Please try again.")
+            log_config.logging.error("Error occureed. Please try again.")
     return redirect(request.referrer)
-#CSRF-4 - END
+#CSRF-3 - END
 
 
 def upload_picture():

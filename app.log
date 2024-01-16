@@ -159,3 +159,231 @@ INFO The CSRF token has expired.
 INFO The CSRF token has expired.
 INFO User HackedYou failed to login! Wrong password entered.
 INFO User with HackedYou username succesfully logged in with password 1aaaaFFFF333###aAAAAcc...????? password.
+INFO User with HackedYou username succesfully logged in with password 1aaaaFFFF333###aAAAAcc...????? password.
+INFO User has been deleted.
+INFO User HackedYou failed to login! Username doesn't exist.
+INFO User with admin12sadfasdf username succesfully logged in with password 123422##11@@@# password.
+INFO User with admin12sadfasdf username succesfully logged in with password 123422##11@@@# password.
+ERROR Password lacks complexity.
+INFO User admin12sadfasdf has been sucessfully updated.
+INFO User admin12sadfasdf has been sucessfully updated.
+INFO User has been deleted.
+ERROR Invalid Username.
+ERROR Invalid Username.
+INFO User adminsadfasdf has been sucessfully deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User logged out.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User adminsadfasdf has been sucessfully deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User logged out.
+INFO User logged out.
+INFO User logged out.
+INFO User adminsadfasdf failed to login! Wrong password entered.
+INFO User adminsadfasdf failed to login! Wrong password entered.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User adminsadfasdf failed to login! Username doesn't exist.
+INFO User adminsadfasdf has been sucessfully deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User logged out.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User logged out.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+ERROR Username already exists.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+INFO User logged out.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+ERROR Error occureed. Please try again.
+ERROR Error occureed. Please try again.
+ERROR Error occureed. Please try again.
+ERROR Error occureed. Please try again.
+ERROR Error occureed. Please try again.
+ERROR Error occureed. Please try again.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+ERROR Error occureed. Please try again.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+INFO The CSRF token is missing.
+INFO The CSRF token is missing.
+INFO The CSRF token is missing.
+INFO The CSRF token is missing.
+INFO The CSRF token is missing.
+INFO The CSRF token is missing.
+INFO The CSRF token is missing.
+INFO The CSRF token is missing.
+INFO User adminsadfasdf failed to login! Username doesn't exist.
+INFO User adminsadfasdf failed to login! Username doesn't exist.
+INFO User adminsadfasdf failed to login! Username doesn't exist.
+INFO User adminsadfasdf failed to login! Username doesn't exist.
+INFO User adminsadfasdf failed to login! Username doesn't exist.
+INFO User adminsadfasdf failed to login! Username doesn't exist.
+INFO User adminsadfasdf failed to login! Username doesn't exist.
+INFO User adminsadfasdf failed to login! Username doesn't exist.
+INFO User adminsadfasdf has been sucessfully deleted.
+INFO User with adminsadfasdf username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User Vojta has been sucessfully updated.
+INFO User logged out.
+INFO User adminsadfasdf failed to login! Username doesn't exist.
+INFO User with Vojta username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO PostgreSQL is running correctly.
+INFO Apache is down
+INFO New has been created.
+ERROR Invalid Username.
+INFO User has been sucessfully updated.
+INFO User has been deleted.
+INFO User logged out.
+INFO User with Vojta username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO PostgreSQL is running correctly.
+INFO Apache is down
+INFO User logged out.
+INFO User with Vojta username succesfully logged in with password ' OR 1=1 -- password.
+INFO User logged out.
+INFO User with Vojta username succesfully logged in with password ' OR 1=1 -- password.
+INFO Error occured, try again
+INFO Error occured, try again
+INFO User asds failed to login! Username doesn't exist.
+INFO User asdasd failed to login! Username doesn't exist.
+INFO User with Vojta username succesfully logged in with password ' OR 1=1 -- password.
+INFO User logged out.
+INFO User with Vojta username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User VojtaM has been sucessfully updated.
+INFO PostgreSQL is running correctly.
+INFO Apache is down
+INFO New has been created.
+INFO User has been sucessfully updated.
+INFO User has been deleted.
+INFO User logged out.
+INFO User Vojta failed to login! Username doesn't exist.
+INFO User Vojta failed to login! Username doesn't exist.
+INFO User with VojtaM username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User Vojta has been sucessfully updated.
+INFO PostgreSQL is running correctly.
+INFO Apache is down
+INFO New has been created.
+INFO User has been sucessfully updated.
+INFO User has been deleted.
+INFO User logged out.
+INFO User VojtaM failed to login! Username doesn't exist.
+INFO User VojtaM failed to login! Username doesn't exist.
+INFO User with Vojta username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO PostgreSQL is running correctly.
+INFO Apache is down
+INFO PostgreSQL is running correctly.
+INFO Apache is down
+INFO User has been deleted.
+INFO User Vojta has been sucessfully deleted.
+INFO User with Vojta username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User logged out.
+INFO User with Vojta username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User has been deleted.
+ERROR Error occureed. Please try again.
+INFO User Vojta has been sucessfully deleted.
+INFO User with Vojta username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User logged out.
+INFO User with Vojta username succesfully logged in with password 1234aaAA22##11@@@# password.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+INFO PostgreSQL is running correctly.
+INFO Apache is down
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+ERROR Missing or invalid CSRF token.
+INFO PostgreSQL is running correctly.
+INFO Apache is down
+INFO User logged out.
+INFO User with Vojta username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User logged out.
+INFO User Vojta failed to login! Wrong password entered.
+INFO User with Vojta username succesfully logged in with password 1234aaAA22##11@@@# password.

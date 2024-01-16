@@ -9,6 +9,8 @@ from urllib.request import urlopen
 from urllib.error import URLError
 from urllib.parse import urlparse
 import log_config
+from flask_wtf.csrf import validate_csrf, ValidationError
+
 
 #OSCommandInjection-1 - START
 def execute_command():
@@ -57,6 +59,7 @@ def add_user():
     """Functionallows to add new entry to User table."""
     if request.method == 'POST':
         try:
+            validate_csrf(request.form.get('csrf_token'))
             username = request.form.get("add_username")
             input_validation(username, 'Username')
 
@@ -88,6 +91,8 @@ def add_user():
             flash("User has sucesfully been added to the database.")
             #This implements the  Post/Redirect/Get (PRG) to prevent data re-insertion when reload.
             return redirect(url_for('admin.add_user'))
+        except ValidationError:
+            log_config.logging.error("Missing or invalid CSRF token.")
         except ValueError:
             return redirect(request.referrer)
         except Exception:
@@ -101,6 +106,7 @@ def view_user():
     """Function allows to view an arbitrary entry in User table."""
     if request.method == 'POST':
         try:
+            validate_csrf(request.form.get('csrf_token'))
             username = request.form.get("view_username")
             user = User.query.filter_by(username=username).first()
             print(user)
@@ -108,7 +114,9 @@ def view_user():
                 return render_template("admin/admin_panel_view_and_update.html", user=user)
             else:
                 flash("User doesn't exists.")  
-        except:
+        except ValidationError:
+            log_config.logging.error("Missing or invalid CSRF token.")
+        except Exception:
             log_config.logging.error("Error occured.")
             flash("Error occured.")
             redirect(request.referrer)
@@ -116,18 +124,19 @@ def view_user():
 
 def update_user():
     if request.method == 'POST':
-        id = request.form.get("edit_id")
-        print(id)
-        username = request.form.get("edit_username")
-        email = request.form.get("edit_email")
-        first_name = request.form.get("edit_fn")
-        last_name = request.form.get("edit_ln")
-        password = request.form.get("edit_password")
-
-        user = User.query.filter_by(id=id).first()
-        current_username = user.username
-        current_email = user.email
         try:
+            validate_csrf(request.form.get('csrf_token'))
+            id = request.form.get("edit_id")
+            print(id)
+            username = request.form.get("edit_username")
+            email = request.form.get("edit_email")
+            first_name = request.form.get("edit_fn")
+            last_name = request.form.get("edit_ln")
+            password = request.form.get("edit_password")
+
+            user = User.query.filter_by(id=id).first()
+            current_username = user.username
+            current_email = user.email
             if current_username != username:
                 input_validation(username, "Username")
                 check_if_exists('username', username, 'Username')
@@ -146,10 +155,12 @@ def update_user():
             db.session.commit()
             log_config.logging.info("User has been sucessfully updated.")
             flash("User has been updated.")
+        except ValidationError:
+            log_config.logging.error("Missing or invalid CSRF token.")
         except ValueError:
             return redirect(request.referrer)
         except Exception:
-            log_config.logging.info("Error, new user hasn't been created.")
+            log_config.logging.info("Error, user has not been updated.")
             flash("Error occured, try again.")
             redirect(request.referrer)    
     return render_template("admin/admin_panel_view_and_update.html")
@@ -158,6 +169,7 @@ def delete_user():
     """Function allows to delete arbitrary entry from User table."""
     if request.method == 'POST':
         try:
+            validate_csrf(request.form.get('csrf_token'))
             username = request.form.get("delete_username")
             print(username)
             user = User.query.filter_by(username=username).first()
@@ -171,7 +183,9 @@ def delete_user():
                 log_config.logging.error("User could not be deleted.")
                 flash("User doesn't exists.")
                 redirect(request.referrer)
-        except:
+        except ValidationError:
+            log_config.logging.error("Missing or invalid CSRF token.")
+        except Exception:
             log_config.logging.error("Error occured.")
             flash("Error occured.")
             redirect(request.referrer)

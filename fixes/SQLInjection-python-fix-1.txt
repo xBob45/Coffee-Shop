@@ -2,36 +2,42 @@
 def login():
     """Fix"""
     if request.method == 'POST':
-        username = request.form.get('username')
-        print(username)
-        password = request.form.get('password')
-        print(password)
-        remember = True if request.form.get('remember') else False
-        user = User.query.filter_by(username=username).first()
-        if user is None:
-            #InsertionOfSensitiveInformationIntoLogFile-3 - START
-            #InsertionOfSensitiveInformationIntoLogFile-3 - END
+        try:
+            validate_csrf(request.form.get('csrf_token'))
+            username = request.form.get('username')
+            print(username)
+            password = request.form.get('password')
+            print(password)
+            remember = True if request.form.get('remember') else False
+            user = User.query.filter_by(username=username).first()
+            if user is None:
+                #InsertionOfSensitiveInformationIntoLogFile-3 - START
+                #InsertionOfSensitiveInformationIntoLogFile-3 - END
 
-            #ReflectedXSS-1 - START
-            #ReflectedXSS-1 - END
+                #ReflectedXSS-1 - START
+                #ReflectedXSS-1 - END
 
-        elif user.password != password:
+            elif user.password != password:
 
-            #InsertionOfSensitiveInformationIntoLogFile-2 - START
-            #InsertionOfSensitiveInformationIntoLogFile-2 - END
+                #InsertionOfSensitiveInformationIntoLogFile-2 - START
+                #InsertionOfSensitiveInformationIntoLogFile-2 - END
 
-            #SensitiveInformationDisclosure-1 - START
-            #SensitiveInformationDisclosure-1 - END
-        else:
-            # Perform the login action or redirect to the home page
-            login_user(user, remember=remember)
+                #SensitiveInformationDisclosure-1 - START
+                #SensitiveInformationDisclosure-1 - END
+            else:
+                # Perform the login action or redirect to the home page
+                login_user(user, remember=remember)
 
-            #InsertionOfSensitiveInformationIntoLogFile-1 - START
-            #InsertionOfSensitiveInformationIntoLogFile-1 - END
+                #InsertionOfSensitiveInformationIntoLogFile-1 - START
+                #InsertionOfSensitiveInformationIntoLogFile-1 - END
 
-            #SensitiveDatawithinCookie-1 - START
-            #SensitiveDatawithinCookie-1 - END
-            
-            return redirect(url_for('home.home')) 
-    # If the request method is GET or the login was unsuccessful, render the login form
+                #SensitiveDatawithinCookie-1 - START
+                #SensitiveDatawithinCookie-1 - END
+                
+                return redirect(url_for('home.home'))
+        except ValidationError:
+            log_config.logging.error("Missing or invalid CSRF token.") 
+        except Exception:
+            log_config.logging.info("Error occured, try again")
+            flash("Unexpected error. Try again, please.")
     return render_template('auth/login.html')

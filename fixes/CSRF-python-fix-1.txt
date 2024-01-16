@@ -1,4 +1,0 @@
-#src/app.py
-"""Fix"""
-csrf = CSRFProtect()
-csrf.init_app(app)

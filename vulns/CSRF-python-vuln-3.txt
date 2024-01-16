@@ -1,0 +1,23 @@
+#src/controllers/accountController.py
+def delete_user():
+    """ Vulnerability """
+    if request.method == 'GET':
+        try:
+            id = current_user.id
+            print(id)
+            user = User.query.filter_by(id=id).first()
+            username = user.username
+            if user is not None:
+                logout_user()
+                db.session.delete(user)
+                db.session.commit()
+                db.session.close()
+                log_config.logging.info("User has been deleted.")
+                return redirect(url_for("auth.login"))
+            else:
+                flash("User doesn't exists.")
+                return redirect(request.referrer)
+        except Exception as e:
+            flash("Error occureed. Please try again.")
+            log_config.logging.error("Error occureed. Please try again.")
+    return redirect(request.referrer)

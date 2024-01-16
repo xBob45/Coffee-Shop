@@ -14,12 +14,15 @@ SECRET_KEY = 'iamsecret'
 os.environ["FLASK_DEBUG"] = "1"
 #DebugModeON-1 - END
 
-"""SameSite issues documented here"""
 #CookiesWithoutSecurityAttributes-1 - START
-"""Vulnerability"""
-SESSION_COOKIE_SECURE = False
-SESSION_COOKIE_HTTPONLY = False
 #CookiesWithoutSecurityAttributes-1 - END
+
+#CSRF-4 - START
+"""Fix"""
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = 'Strict'
+#CSRF-4 - END
 
 # Grabs the folder where the script runs.
 basedir = os.path.abspath(os.path.dirname(__file__))
