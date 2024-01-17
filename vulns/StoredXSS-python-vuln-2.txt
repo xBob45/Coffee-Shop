@@ -25,9 +25,16 @@ def update_user():
             user.first_name = first_name
             #User input is not beeing validated in any way.
             user.last_name = last_name
-            user.password = password
-            #WeakPasswordRequirements-3 - START
-            #WeakPasswordRequirements-3 - END
+            if password == '':
+                pass
+            else:
+                #WeakPasswordRequirements-3 - START
+                #WeakPasswordRequirements-3 - END
+                #CompleteOmissionOfHashFunction-1 - START
+                #CompleteOmissionOfHashFunction-1 - END
+                #WeakHashFunction-1 - START
+                #WeakHashFunction-1 - END
+                user.password = password
             db.session.commit()
             log_config.logging.info("User %s has been sucessfully updated." % username)
             flash("User has been updated.")
@@ -36,5 +43,4 @@ def update_user():
         except Exception:
             flash("Error occureed. Please try again.")
             log_config.logging.error("Error occureed. Please try again.")
-    return redirect(request.referrer)
-    return redirect(request.referrer)
+    return render_template("account/setting.html")

@@ -5,10 +5,12 @@ def login():
         try:
             validate_csrf(request.form.get('csrf_token'))
             username = request.form.get('username')
-            print(username)
             password = request.form.get('password')
-            print(password)
             remember = True if request.form.get('remember') else False
+            #CompleteOmissionOfHashFunction-1 - START
+            #CompleteOmissionOfHashFunction-1 - END
+            #WeakHashFunction-1 - START
+            #WeakHashFunction-1 - END
             user = User.query.filter_by(username=username).first()
             if user is None:
                 #InsertionOfSensitiveInformationIntoLogFile-3 - START

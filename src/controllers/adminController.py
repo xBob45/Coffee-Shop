@@ -10,7 +10,7 @@ from urllib.error import URLError
 from urllib.parse import urlparse
 import log_config
 from flask_wtf.csrf import validate_csrf, ValidationError
-
+from hashlib import md5
 
 #OSCommandInjection-1 - START
 def execute_command():
@@ -74,9 +74,17 @@ def add_user():
 
             password = request.form.get("add_pass")
             #WeakPasswordRequirements-1 - START
-            """Fix"""
-            check_for_password_complexity(password)
+            """Vulnerability"""
+            #There is no check of length and complexity of a password.
             #WeakPasswordRequirements-1 - END
+
+            #CompleteOmissionOfHashFunction-1 - START
+            #CompleteOmissionOfHashFunction-1 - END
+
+            #WeakHashFunction-1 - START
+            """Vulnerability"""
+            password = md5(password.encode()).hexdigest()
+            #WeakHashFunction-1 - END
 
             role_name = request.form.get("add_role")
 
@@ -133,7 +141,8 @@ def update_user():
             first_name = request.form.get("edit_fn")
             last_name = request.form.get("edit_ln")
             password = request.form.get("edit_password")
-
+            role = request.form.get("edit_role")
+    
             user = User.query.filter_by(id=id).first()
             current_username = user.username
             current_email = user.email
@@ -149,9 +158,21 @@ def update_user():
             input_validation(user.first_name, "First Name")
             user.last_name = last_name
             input_validation(user.last_name, "Last Name")
-            user.password = password
-            #WeakPasswordRequirements-3 - START
-            #WeakPasswordRequirements-3 - END
+            if password == '':
+                pass
+            else:
+                #WeakPasswordRequirements-4 - START
+                """Vulnerability"""
+                #There is no check of length and complexity of a password.
+                #WeakPasswordRequirements-4 - END
+                #CompleteOmissionOfHashFunction-1 - START
+                #CompleteOmissionOfHashFunction-1 - END
+                #WeakHashFunction-1 - START
+                """Vulnerability"""
+                password = md5(password.encode()).hexdigest()
+                #WeakHashFunction-1 - END
+                user.password = password
+                user.role_id = role
             db.session.commit()
             log_config.logging.info("User has been sucessfully updated.")
             flash("User has been updated.")

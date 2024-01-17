@@ -15,9 +15,11 @@ attacks_config = {
     'Clickjacking' : True,
     'InsufficientLogging':True,
     'InsertionOfSensitiveInformationIntoLogFile' : True,
-    'WeakPasswordRequirements' : False,
+    'WeakPasswordRequirements' : True,
     'IDOR': False,
     'CSRF': False, #If 'True' set 'CookiesWithoutSecurityAttributes' to 'None'
     'VulnerablePostgreSQL' : False,
     'SSRF' : False,
+    'CompleteOmissionOfHashFunction' : None, #signup-V-I, login-V-I, admin-add-I, admin-update-I, setting.
+    'WeakHashFunction' : True #signup-V-I, login-V-I, admin-add-I, admin-add-I, 
 }

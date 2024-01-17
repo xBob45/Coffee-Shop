@@ -24,7 +24,7 @@
         <div class="mb-3">
           <label for="edit_password" class="form-label">Password</label>
           <div class="input-group">
-              <input type="password" class="form-control" id="edit_password" placeholder="Change Password" name="edit_password" value="{{user.password}}">
+              <input type="password" class="form-control" id="edit_password" placeholder="Change Password" name="edit_password">
               <span class="input-group-text" id="password-toggle" onclick="togglePasswordVisibility()">
                   <i class="bi bi-eye" id="password-icon"></i>
               </span>

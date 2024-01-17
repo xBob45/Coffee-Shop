@@ -387,3 +387,94 @@ INFO User with Vojta username succesfully logged in with password 1234aaAA22##11
 INFO User logged out.
 INFO User Vojta failed to login! Wrong password entered.
 INFO User with Vojta username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO User with Vojta username succesfully logged in with password 1234aaAA22##11@@@# password.
+INFO PostgreSQL is running correctly.
+INFO Apache is down
+INFO User has been sucessfully updated.
+INFO User has been sucessfully updated.
+INFO User has been sucessfully updated.
+INFO User has been sucessfully updated.
+INFO User has been sucessfully updated.
+ERROR Password lacks complexity.
+ERROR Password lacks complexity.
+INFO User has been sucessfully updated.
+INFO User has been sucessfully updated.
+INFO PostgreSQL is running correctly.
+INFO Apache is down
+INFO User Vojta has been sucessfully updated.
+ERROR Password lacks complexity.
+ERROR Error occureed. Please try again.
+INFO User Vojta has been sucessfully updated.
+INFO User Vojta has been sucessfully updated.
+INFO User Vojta has been sucessfully updated.
+ERROR Password lacks complexity.
+ERROR Error occureed. Please try again.
+INFO User Vojta has been sucessfully updated.
+INFO User logged out.
+ERROR Email already exists.
+ERROR Username already exists.
+INFO Error occured.
+INFO Error occured.
+INFO Error occured.
+INFO Error occured.
+INFO User Vojtaasdfas has been sucessfully deleted.
+INFO User Vojtaasdfas failed to login! Wrong password entered.
+INFO User Vojtaasdfas failed to login! Wrong password entered.
+INFO User Vojtaasdfas failed to login! Wrong password entered.
+ERROR Email already exists.
+INFO User Ben has been sucessfully deleted.
+INFO User with Ben username succesfully logged in with password 202cb962ac59075b964b07152d234b70 password.
+INFO User logged out.
+ERROR Password lacks complexity.
+INFO User JognD has been sucessfully deleted.
+INFO User JohnD failed to login! Username doesn't exist.
+INFO User JohnD failed to login! Username doesn't exist.
+INFO User JohnD has been sucessfully deleted.
+INFO User with JohnD username succesfully logged in with password 81dc9bdb52d04dc20036dbd8313ed055 password.
+INFO User JohnD has been sucessfully updated.
+INFO User JohnD has been sucessfully updated.
+INFO User JohnD has been sucessfully updated.
+INFO PostgreSQL is running correctly.
+INFO Apache is down
+INFO New has been created.
+INFO User has been sucessfully updated.
+INFO User has been sucessfully updated.
+INFO User logged out.
+INFO User with JaneD username succesfully logged in with password 76419c58730d9f35de7ac538c2fd6737 password.
+INFO User JaneD has been sucessfully updated.
+INFO User JaneD has been sucessfully updated.
+INFO User Jane has been sucessfully updated.
+INFO User logged out.
+INFO User JaneD failed to login! Username doesn't exist.
+INFO User JaneD failed to login! Username doesn't exist.
+INFO User with Jane username succesfully logged in with password a2550eeab0724a691192ca13982e6ebd password.
+INFO User Jane has been sucessfully updated.
+INFO PostgreSQL is running correctly.
+INFO Apache is down
+INFO User Jane has been sucessfully updated.
+INFO User has been sucessfully updated.
+INFO User JaneD has been sucessfully updated.
+INFO User JaneD has been sucessfully updated.
+INFO User JaneD has been sucessfully updated.
+INFO User Jane has been sucessfully updated.
+INFO PostgreSQL is running correctly.
+INFO Apache is down
+INFO New has been created.
+INFO New has been created.
+ERROR Email already exists.
+INFO New has been created.
+INFO User has been sucessfully updated.
+INFO User has been sucessfully updated.
+INFO User has been sucessfully updated.
+INFO User has been sucessfully updated.
+INFO User has been sucessfully updated.
+INFO User has been sucessfully updated.
+INFO User has been sucessfully updated.
+INFO User has been sucessfully updated.
+INFO User has been sucessfully updated.
+INFO PostgreSQL is running correctly.
+INFO Apache is down
+INFO PostgreSQL is running correctly.
+INFO Apache is down
+INFO User has been sucessfully updated.
+INFO User has been sucessfully updated.

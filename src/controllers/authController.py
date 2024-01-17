@@ -11,6 +11,7 @@ from sqlalchemy.exc import IntegrityError
 import log_config
 import re
 from flask_wtf.csrf import validate_csrf, ValidationError
+from hashlib import md5
 
 #SQLInjection-1 - START
 def login():
@@ -19,10 +20,14 @@ def login():
         try:
             validate_csrf(request.form.get('csrf_token'))
             username = request.form.get('username')
-            print(username)
             password = request.form.get('password')
-            print(password)
             remember = True if request.form.get('remember') else False
+            #CompleteOmissionOfHashFunction-1 - START
+            #CompleteOmissionOfHashFunction-1 - END
+            #WeakHashFunction-1 - START
+            """Vulnerability"""
+            password = md5(password.encode()).hexdigest()
+            #WeakHashFunction-1 - END
             user = User.query.filter_by(username=username).first()
             if user is None:
                 #InsertionOfSensitiveInformationIntoLogFile-3 - START
@@ -91,9 +96,15 @@ def signup():
             check_if_exists('email', email, 'Email')
             check_if_exists('username', username, 'Username')
             #WeakPasswordRequirements-1 - START
-            """Fix"""
-            check_for_password_complexity(password)
+            """Vulnerability"""
+            #There is no check of length and complexity of a password.
             #WeakPasswordRequirements-1 - END
+            #CompleteOmissionOfHashFunction-1 - START
+            #CompleteOmissionOfHashFunction-1 - END
+            #WeakHashFunction-1 - START
+            """Vulnerability"""
+            password = md5(password.encode()).hexdigest()
+            #WeakHashFunction-1 - END
             user = User(role_id=2, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
             db.session.add(user)
             db.session.commit()
@@ -128,13 +139,10 @@ def logout():
 
 
 #WeakPasswordRequirements-2 - START
-"""Fix"""
+"""Vulnerability"""
 def check_for_password_complexity(password):
-    password_pattern = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
-    if not re.match(password_pattern, password):
-        log_config.logging.error("Password lacks complexity.")
-        flash("Insufficiently complex password!\nPlease try again!\nRemeber password has to be at least 10 characters long and contains some special cahracters\n!#$%&*_^ and digits.")
-        raise ValueError
+    #There is no check of length and complexity of a password.
+    pass
 #WeakPasswordRequirements-2 - END
 
 def check_if_exists(model_field, value, field):

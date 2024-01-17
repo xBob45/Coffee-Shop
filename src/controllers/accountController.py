@@ -5,6 +5,7 @@ from flask_login import logout_user, current_user
 from controllers.authController import check_for_password_complexity, check_if_exists, input_validation
 import log_config
 from flask_wtf.csrf import validate_csrf, ValidationError
+from hashlib import md5
 
 #IDOR-3 - START
 def setting():
@@ -24,6 +25,7 @@ def update_user():
             first_name = request.form.get("edit_fn")
             last_name = request.form.get("edit_ln")
             password = request.form.get("edit_password")
+            
 
             user = User.query.filter_by(id=id).first()
             current_username = user.username
@@ -44,11 +46,20 @@ def update_user():
             user.last_name = last_name
             #Function compares user input against allowed pattern.
             input_validation(user.last_name, "Last Name")
-            user.password = password
-            #WeakPasswordRequirements-3 - START
-            """Fix"""
-            check_for_password_complexity(password)
-            #WeakPasswordRequirements-3 - END
+            if password == '':
+                pass
+            else:
+                #WeakPasswordRequirements-3 - START
+                """Vulnerability"""
+                #There is no check of length and complexity of a password.
+                #WeakPasswordRequirements-3 - END
+                #CompleteOmissionOfHashFunction-1 - START
+                #CompleteOmissionOfHashFunction-1 - END
+                #WeakHashFunction-1 - START
+                """Vulnerability"""
+                password = md5(password.encode()).hexdigest()
+                #WeakHashFunction-1 - END
+                user.password = password
             db.session.commit()
             log_config.logging.info("User %s has been sucessfully updated." % username)
             flash("User has been updated.")
@@ -60,7 +71,7 @@ def update_user():
             log_config.logging.info("Error, user has not been updated.")
             flash("Error occured, try again.")
             redirect(request.referrer)    
-    return render_template("admin/admin_panel_view_and_update.html")
+    return render_template("account/setting.html")
 #StoredXSS-2 - END
 
 

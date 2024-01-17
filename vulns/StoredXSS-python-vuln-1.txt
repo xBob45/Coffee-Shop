@@ -13,10 +13,14 @@ def signup():
             username= request.form.get('username')
             #User input is not beeing validated in any way.
             password = request.form.get('password')
-            check_if_exists('email', email, 'Email')
-            check_if_exists('username', username, 'Username')
             #WeakPasswordRequirements-1 - START
             #WeakPasswordRequirements-1 - END
+            #CompleteOmissionOfHashFunction-1 - START
+            #CompleteOmissionOfHashFunction-1 - END
+            #WeakHashFunction-1 - START
+            #WeakHashFunction-1 - END
+            check_if_exists('email', email, 'Email')
+            check_if_exists('username', username, 'Username')
             user = User(role_id=2, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
             db.session.add(user)
             db.session.commit()

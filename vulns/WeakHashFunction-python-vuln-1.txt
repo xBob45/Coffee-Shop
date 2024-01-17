@@ -1,0 +1,3 @@
+#src/controllers/authController.py,src/controllers/adminController.py,src/controllers/accountController.py
+"""Vulnerability"""
+password = md5(password.encode()).hexdigest()

@@ -7,13 +7,14 @@ def login():
         try:
             validate_csrf(request.form.get('csrf_token'))
             username = request.form.get('username')
-            #print(username)
             password = request.form.get('password')
-            #print(password)
+            #CompleteOmissionOfHashFunction-1 - START
+            #CompleteOmissionOfHashFunction-1 - END
+            #WeakHashFunction-1 - START
+            #WeakHashFunction-1 - END
             remember = True if request.form.get('remember') else False
             user = db.session.execute(text("SELECT EXISTS (SELECT 1 FROM users WHERE username = '%s')" % (username)))
             username_checks = user.fetchone()[0]
-            #print(username_checks)
             if username_checks:
                 #print("SELECT * FROM users WHERE username = '%s' AND password = '%s'" % (username, password))
                 user_data = db.session.execute(text("SELECT *FROM users WHERE username = '%s' AND password = '%s'" % (username, password))).fetchone()
