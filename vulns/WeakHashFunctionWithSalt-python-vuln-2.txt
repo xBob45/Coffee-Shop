@@ -1,0 +1,3 @@
+#src/controllers/authController.py
+db_passwd = user.password 
+if (md5_crypt.verify(password, db_passwd)) != True:

@@ -1,11 +1,11 @@
 attacks_config = {
-    'SQLInjection': False,
+    'SQLInjection': True,
     'SQLInjection2': True,
     'SensitiveInformationDisclosure': True,
-    'ReflectedXSS': True,
+    'ReflectedXSS': False,
     'StoredXSS': False,
     'InsufficientSessionInvalidation': False,
-    'SensitiveDatawithinCookie': False,  #If 'True' set 'ForcedBrowsing' to 'None'
+    'SensitiveDatawithinCookie': True,  #If 'True' set 'ForcedBrowsing' to 'None'
     'ForcedBrowsing': None,
     'HardCodedKey': True,
     'DebugModeON': True,
@@ -20,6 +20,9 @@ attacks_config = {
     'CSRF': False, #If 'True' set 'CookiesWithoutSecurityAttributes' to 'None'
     'VulnerablePostgreSQL' : False,
     'SSRF' : False,
-    'CompleteOmissionOfHashFunction' : None, #signup-V-I, login-V-I, admin-add-I, admin-update-I, setting.
-    'WeakHashFunction' : True #signup-V-I, login-V-I, admin-add-I, admin-add-I, 
+    'CompleteOmissionOfHashFunction' : None,
+    'WeakHashFunction' : None, 
+    'WeakHashFunctionWithSalt': True 
 }
+
+#TODO -> Adjust database queries according to gnerated hash function so the users could log in.

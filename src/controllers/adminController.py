@@ -3,7 +3,7 @@ from flask import (flash, redirect, render_template, request, abort, url_for, js
 from models.User import User, Role
 from models.User import db
 import subprocess
-from controllers.authController import check_for_password_complexity, check_if_exists, email_validation, input_validation
+from controllers.authController import check_for_password_complexity, check_if_exists, email_validation, input_validation, ph
 import requests
 from urllib.request import urlopen
 from urllib.error import URLError
@@ -11,6 +11,7 @@ from urllib.parse import urlparse
 import log_config
 from flask_wtf.csrf import validate_csrf, ValidationError
 from hashlib import md5
+from passlib.hash import md5_crypt
 
 #OSCommandInjection-1 - START
 def execute_command():
@@ -82,9 +83,11 @@ def add_user():
             #CompleteOmissionOfHashFunction-1 - END
 
             #WeakHashFunction-1 - START
-            """Vulnerability"""
-            password = md5(password.encode()).hexdigest()
             #WeakHashFunction-1 - END
+
+            #WeakHashFunctionWithSalt-1 - START
+            password = md5_crypt.using(salt_size=8).hash(password)
+            #WeakHashFunctionWithSalt-1 - END  
 
             role_name = request.form.get("add_role")
 
@@ -151,7 +154,7 @@ def update_user():
                 check_if_exists('username', username, 'Username')
                 user.username = username
             if current_email != email:
-                input_validation(email, "Email")
+                email_validation(email)
                 check_if_exists('email', email, 'Email')
                 user.email = email 
             user.first_name = first_name
@@ -168,9 +171,10 @@ def update_user():
                 #CompleteOmissionOfHashFunction-1 - START
                 #CompleteOmissionOfHashFunction-1 - END
                 #WeakHashFunction-1 - START
-                """Vulnerability"""
-                password = md5(password.encode()).hexdigest()
                 #WeakHashFunction-1 - END
+                #WeakHashFunctionWithSalt-1 - START
+                password = md5_crypt.using(salt_size=8).hash(password)
+                #WeakHashFunctionWithSalt-1 - END  
                 user.password = password
                 user.role_id = role
             db.session.commit()

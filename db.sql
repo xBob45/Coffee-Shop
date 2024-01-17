@@ -14,9 +14,14 @@ CREATE TABLE users (
 );
 
 INSERT INTO roles (name) VALUES ('admin'), ('customer');
-INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'admin', 'admin@example.com', 'Admin', 'User', '1234');
-INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(2,'Vojta', 'vojta@example.com', 'Vojta', 'LastName', '1234');
-
+--CompleteOmissionOfHashFunction-3 - START
+--CompleteOmissionOfHashFunction-3 - END
+--WeakHashFunction-3 - START
+--WeakHashFunction-3 - END
+--WeakHashFunctionWithSalt-3 - START
+--Vulnerability
+INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'admin', 'admin@example.com', 'John', 'Doe', '$1$AdJoO/1c$/ofFs1UX.FLnstuVy.UBK0');
+--WeakHashFunctionWithSalt-3 - END
 
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,

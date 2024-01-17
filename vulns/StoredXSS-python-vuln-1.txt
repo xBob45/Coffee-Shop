@@ -19,6 +19,8 @@ def signup():
             #CompleteOmissionOfHashFunction-1 - END
             #WeakHashFunction-1 - START
             #WeakHashFunction-1 - END
+            #WeakHashFunctionWithSalt-1 - START
+            #WeakHashFunctionWithSalt-1 - END  
             check_if_exists('email', email, 'Email')
             check_if_exists('username', username, 'Username')
             user = User(role_id=2, username=username, email=email, first_name=first_name, last_name=last_name, password=password)

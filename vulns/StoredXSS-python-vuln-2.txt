@@ -34,6 +34,8 @@ def update_user():
                 #CompleteOmissionOfHashFunction-1 - END
                 #WeakHashFunction-1 - START
                 #WeakHashFunction-1 - END
+                #WeakHashFunctionWithSalt-1 - START
+                #WeakHashFunctionWithSalt-1 - END  
                 user.password = password
             db.session.commit()
             log_config.logging.info("User %s has been sucessfully updated." % username)

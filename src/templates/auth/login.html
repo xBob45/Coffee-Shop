@@ -61,8 +61,8 @@
             {% else %}
             <div class="alert alert-danger" role="alert" id="alert-danger">
               {# ReflectedXSS-1 - START #}
-              {# Vulnerability #}
-              {{ message | safe}}
+              {# Fix #}
+              {{ message }}
               {# ReflectedXSS-1 - END #}
             </div>
             {% endif %}

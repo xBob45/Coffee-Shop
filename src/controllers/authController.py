@@ -12,66 +12,90 @@ import log_config
 import re
 from flask_wtf.csrf import validate_csrf, ValidationError
 from hashlib import md5
+import secrets
+from passlib.hash import md5_crypt
+from argon2 import PasswordHasher
+import argon2
+ph = PasswordHasher()
 
 #SQLInjection-1 - START
 def login():
-    """Fix"""
+    """Vulnerability"""      
+    #' OR 1=1; DELETE FROM users WHERE id=1; --
     if request.method == 'POST':
         try:
             validate_csrf(request.form.get('csrf_token'))
             username = request.form.get('username')
             password = request.form.get('password')
             remember = True if request.form.get('remember') else False
-            #CompleteOmissionOfHashFunction-1 - START
-            #CompleteOmissionOfHashFunction-1 - END
-            #WeakHashFunction-1 - START
-            """Vulnerability"""
-            password = md5(password.encode()).hexdigest()
-            #WeakHashFunction-1 - END
-            user = User.query.filter_by(username=username).first()
-            if user is None:
+            user_result = db.session.execute(text("SELECT * FROM users WHERE username = '%s'" % (username)))
+            db.session.commit()
+            user = user_result.fetchone()
+            if user is not None:
+                user = User(id=user[0], username=user[2], email= user[3], first_name=user[4], last_name=user[5],password=user[6])
+                db.session.commit()
+                #CompleteOmissionOfHashFunction-2 - START
+                #CompleteOmissionOfHashFunction-2 - END
+                #WeakHashFunction-2 - START
+                #WeakHashFunction-2 - END
+                #WeakHashFunctionWithSalt-2 - START
+                db_passwd = user.password 
+                if (md5_crypt.verify(password, db_passwd)) != True:
+                #WeakHashFunctionWithSalt-2 - END 
+                    #InsertionOfSensitiveInformationIntoLogFile-2 - START
+                    """Vulnerability"""
+                    log_config.logging.info("User %s failed to login! Wrong password entered." % username)
+                    #InsertionOfSensitiveInformationIntoLogFile-2 - END
+                    
+                    #SensitiveInformationDisclosure-1 - START
+                    """Vulnerability"""
+                    flash("Incorrect password.")
+                    #SensitiveInformationDisclosure-1 - END
+                    return redirect(request.referrer)
+
+                else:
+                    # Perform the login action or redirect to the home page
+                    login_user(user, remember=remember)
+
+                    #InsertionOfSensitiveInformationIntoLogFile-1 - START
+                    """Vulnerability"""
+                    log_config.logging.info("User with %s username succesfully logged in with password %s password." % (username, password))
+                    #InsertionOfSensitiveInformationIntoLogFile-1 - END
+
+                    #SensitiveDatawithinCookie-1 - START
+                    """Vulnerability"""
+                    user_role = db.session.query(Role.name).join(User, Role.id == User.role_id).filter(User.id == user.id).first()
+                    session['role'] = user_role[0]
+                    #SensitiveDatawithinCookie-1 - END
+                    return redirect(url_for('home.home'))
+                 
+            else:
+                #ReflectedXSS-1 - START
+                """Fix"""
+                flash("Incorrect credentials, try again.")
+                #ReflectedXSS-1 - END
                 #InsertionOfSensitiveInformationIntoLogFile-3 - START
                 """Vulnerability"""
                 log_config.logging.info("User %s failed to login! Username doesn't exist." % username)
-                #InsertionOfSensitiveInformationIntoLogFile-3 - END
+                #InsertionOfSensitiveInformationIntoLogFile-3 - END   
+                return redirect(request.referrer)
 
-                #ReflectedXSS-1 - START
-                """Vulnerability"""
-                flash("Incorrect credentials for %s." %(username))
-                #ReflectedXSS-1 - END
-
-            elif user.password != password:
-
-                #InsertionOfSensitiveInformationIntoLogFile-2 - START
-                """Vulnerability"""
-                log_config.logging.info("User %s failed to login! Wrong password entered." % username)
-                #InsertionOfSensitiveInformationIntoLogFile-2 - END
-
-                #SensitiveInformationDisclosure-1 - START
-                """Vulnerability"""
-                flash("Incorrect password.")
-                #SensitiveInformationDisclosure-1 - END
-            else:
-                # Perform the login action or redirect to the home page
-                login_user(user, remember=remember)
-
-                #InsertionOfSensitiveInformationIntoLogFile-1 - START
-                """Vulnerability"""
-                log_config.logging.info("User with %s username succesfully logged in with password %s password." % (username, password))
-                #InsertionOfSensitiveInformationIntoLogFile-1 - END
-
-                #SensitiveDatawithinCookie-1 - START
-                """Fix -> Sensitive data as 'role' should not be stored within a cookie."""
-                
-                #SensitiveDatawithinCookie-1 - END
-                
-                return redirect(url_for('home.home'))
         except ValidationError:
             log_config.logging.error("Missing or invalid CSRF token.") 
-        except Exception:
+        except argon2.exceptions.VerifyMismatchError:
+            #InsertionOfSensitiveInformationIntoLogFile-2 - START
+            """Vulnerability"""
+            log_config.logging.info("User %s failed to login! Wrong password entered." % username)
+            #InsertionOfSensitiveInformationIntoLogFile-2 - END
+            #SensitiveInformationDisclosure-1 - START
+            """Vulnerability"""
+            flash("Incorrect password.")
+            #SensitiveInformationDisclosure-1 - END
+        except Exception as e:
+            print(e)
             log_config.logging.info("Error occured, try again")
             flash("Unexpected error. Try again, please.")
-    return render_template('auth/login.html')
+    return render_template('auth/login.html') 
 #SQLInjection-1 - END
 
 #StoredXSS-1 - START
@@ -102,9 +126,11 @@ def signup():
             #CompleteOmissionOfHashFunction-1 - START
             #CompleteOmissionOfHashFunction-1 - END
             #WeakHashFunction-1 - START
-            """Vulnerability"""
-            password = md5(password.encode()).hexdigest()
             #WeakHashFunction-1 - END
+
+            #WeakHashFunctionWithSalt-1 - START
+            password = md5_crypt.using(salt_size=8).hash(password)
+            #WeakHashFunctionWithSalt-1 - END            
             user = User(role_id=2, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
             db.session.add(user)
             db.session.commit()
@@ -129,7 +155,8 @@ def signup():
 def logout():
     """Fix"""
     #SensitiveDatawithinCookie-2 - START
-    """Fix -> Since 'role' is not a part of a session there is no need to do anything at this point."""
+    """Vulnerability"""
+    session.pop('role')
     #SensitiveDatawithinCookie-2 - END
     logout_user()
     log_config.logging.info("User logged out.")
@@ -167,3 +194,14 @@ def email_validation(input):
         log_config.logging.error("Invalid email.")
         flash("Invalid email. Please, use only A-Z/a-z and 0-9 are allowed. Please, try again.")
         raise ValueError
+    
+def md5_salted(password):
+    salt = secrets.token_bytes(16)
+    hashed_password = md5(password.encode() + salt).hexdigest()
+    return "%s:%s" % (salt.hex(), hashed_password)
+
+def md5_salted_verify(salt, password):
+    hashed_password = md5(password.encode() + bytes.fromhex(salt)).hexdigest()
+    return hashed_password
+
+

@@ -2,10 +2,11 @@ from flask import (flash, redirect, render_template, request, abort, url_for, js
 from models.User import User, Role
 from models.User import db
 from flask_login import logout_user, current_user
-from controllers.authController import check_for_password_complexity, check_if_exists, input_validation
+from controllers.authController import check_for_password_complexity, check_if_exists, input_validation, email_validation, ph
 import log_config
 from flask_wtf.csrf import validate_csrf, ValidationError
 from hashlib import md5
+from passlib.hash import md5_crypt
 
 #IDOR-3 - START
 def setting():
@@ -25,7 +26,6 @@ def update_user():
             first_name = request.form.get("edit_fn")
             last_name = request.form.get("edit_ln")
             password = request.form.get("edit_password")
-            
 
             user = User.query.filter_by(id=id).first()
             current_username = user.username
@@ -56,9 +56,10 @@ def update_user():
                 #CompleteOmissionOfHashFunction-1 - START
                 #CompleteOmissionOfHashFunction-1 - END
                 #WeakHashFunction-1 - START
-                """Vulnerability"""
-                password = md5(password.encode()).hexdigest()
                 #WeakHashFunction-1 - END
+                #WeakHashFunctionWithSalt-1 - START
+                password = md5_crypt.using(salt_size=8).hash(password)
+                #WeakHashFunctionWithSalt-1 - END 
                 user.password = password
             db.session.commit()
             log_config.logging.info("User %s has been sucessfully updated." % username)

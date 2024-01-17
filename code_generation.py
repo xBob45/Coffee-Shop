@@ -9,7 +9,8 @@ def copy_function():
                 file = []
                 python_file = 'vulns/%s-python-vuln-%s.txt' % (attack_name,file_number)
                 html_file = 'vulns/%s-html-vuln-%s.txt' % (attack_name,file_number)
-                files = [python_file, html_file]
+                sql_file = 'vulns/%s-sql-vuln-%s.txt' % (attack_name,file_number)
+                files = [python_file, html_file, sql_file]
                 #print(files)
                 for file in files:
                     try:
@@ -48,7 +49,8 @@ def copy_function():
                 #print(attack_name)
                 python_file = 'fixes/%s-python-fix-%s.txt' % (attack_name,file_number)
                 html_file = 'fixes/%s-html-fix-%s.txt' % (attack_name,file_number)
-                files = [python_file, html_file]
+                sql_file = 'fixes/%s-sql-fix-%s.txt' % (attack_name,file_number)
+                files = [python_file, html_file, sql_file]
                 for file in files:
                     try:
                         #This extracts the fix of a vulnerability (those few lines)
@@ -107,6 +109,7 @@ def delete_function():
                          'src/routes/adminRoute.py',
                          'src/templates/public/product.html',
                          'src/templates/public/coffee.html',
+                         'db.sql'
                         ]
     
     for file_name in destination_files:
