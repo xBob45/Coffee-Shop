@@ -2,4 +2,4 @@
 #Vulnerability
 build:
   context: .
-  dockerfile: Dockerfile-db
+  dockerfile: database/Docker/Dockerfile-db

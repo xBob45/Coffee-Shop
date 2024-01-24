@@ -5,10 +5,10 @@ import re
 from urllib.request import urlopen
 from urllib.error import URLError
 from urllib.parse import urlparse
-from models.User import Product, Category, ProductCategory
-from models.User import db
+from src.models.User import Product, Category, ProductCategory
+from src.models.User import db
 from sqlalchemy.sql import text
-import log_config
+import src.log_config as log_config
 
 def home():
     return render_template("public/home.html")

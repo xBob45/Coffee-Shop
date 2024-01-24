@@ -1,6 +1,6 @@
 import functools
-from models.User import User, Role
-from models.User import db
+from src.models.User import User, Role
+from src.models.User import db
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
 from werkzeug.security import check_password_hash, generate_password_hash
 import os
@@ -8,7 +8,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 from sqlalchemy.sql import text
 from psycopg2.errors import UniqueViolation
 from sqlalchemy.exc import IntegrityError
-import log_config
+import src.log_config as log_config
 import re
 from flask_wtf.csrf import validate_csrf, ValidationError
 from hashlib import md5
@@ -20,39 +20,35 @@ ph = PasswordHasher()
 
 #SQLInjection-1 - START
 def login():
-    """Vulnerability"""      
-    #' OR 1=1; DELETE FROM users WHERE id=1; --
+    """Fix"""
     if request.method == 'POST':
         try:
             validate_csrf(request.form.get('csrf_token'))
             username = request.form.get('username')
             password = request.form.get('password')
             remember = True if request.form.get('remember') else False
-            user_result = db.session.execute(text("SELECT * FROM users WHERE username = '%s'" % (username)))
-            db.session.commit()
-            user = user_result.fetchone()
+            user = User.query.filter_by(username=username).first()  
             if user is not None:
-                user = User(id=user[0], username=user[2], email= user[3], first_name=user[4], last_name=user[5],password=user[6])
-                db.session.commit()
                 #CompleteOmissionOfHashFunction-2 - START
                 #CompleteOmissionOfHashFunction-2 - END
                 #WeakHashFunction-2 - START
                 #WeakHashFunction-2 - END
                 #WeakHashFunctionWithSalt-2 - START
+                """Fix"""
                 db_passwd = user.password 
-                if (md5_crypt.verify(password, db_passwd)) != True:
+                if (ph.verify(db_passwd, password)) != True:
+                
                 #WeakHashFunctionWithSalt-2 - END 
                     #InsertionOfSensitiveInformationIntoLogFile-2 - START
                     """Vulnerability"""
                     log_config.logging.info("User %s failed to login! Wrong password entered." % username)
                     #InsertionOfSensitiveInformationIntoLogFile-2 - END
-                    
+
                     #SensitiveInformationDisclosure-1 - START
                     """Vulnerability"""
                     flash("Incorrect password.")
                     #SensitiveInformationDisclosure-1 - END
                     return redirect(request.referrer)
-
                 else:
                     # Perform the login action or redirect to the home page
                     login_user(user, remember=remember)
@@ -68,7 +64,6 @@ def login():
                     session['role'] = user_role[0]
                     #SensitiveDatawithinCookie-1 - END
                     return redirect(url_for('home.home'))
-                 
             else:
                 #ReflectedXSS-1 - START
                 """Fix"""
@@ -79,9 +74,8 @@ def login():
                 log_config.logging.info("User %s failed to login! Username doesn't exist." % username)
                 #InsertionOfSensitiveInformationIntoLogFile-3 - END   
                 return redirect(request.referrer)
-
         except ValidationError:
-            log_config.logging.error("Missing or invalid CSRF token.") 
+            log_config.logging.error("Missing or invalid CSRF token.")
         except argon2.exceptions.VerifyMismatchError:
             #InsertionOfSensitiveInformationIntoLogFile-2 - START
             """Vulnerability"""
@@ -95,30 +89,24 @@ def login():
             print(e)
             log_config.logging.info("Error occured, try again")
             flash("Unexpected error. Try again, please.")
-    return render_template('auth/login.html') 
+    return render_template('auth/login.html')
 #SQLInjection-1 - END
 
 #StoredXSS-1 - START
 def signup():
-    """Fix"""
+    """Vulnerability"""
     if request.method == 'POST':
         try:
             validate_csrf(request.form.get('csrf_token'))
             first_name = request.form.get('first_name')
-            #Function compares user input against allowed pattern.
-            input_validation(first_name, 'First name')
+            #User input is not beeing validated in any way.
             last_name = request.form.get('last_name')
-            #Function compares user input against allowed pattern.
-            input_validation(last_name, 'Last name')
+            #User input is not beeing validated in any way.
             email = request.form.get('email')
-            #Function compares user input against allowed pattern.
-            email_validation(email)
+            #User input is not beeing validated in any way.
             username= request.form.get('username')
-            #Function compares user input against allowed pattern.
-            input_validation(username, 'Username')
+            #User input is not beeing validated in any way.
             password = request.form.get('password')
-            check_if_exists('email', email, 'Email')
-            check_if_exists('username', username, 'Username')
             #WeakPasswordRequirements-1 - START
             """Vulnerability"""
             #There is no check of length and complexity of a password.
@@ -127,10 +115,12 @@ def signup():
             #CompleteOmissionOfHashFunction-1 - END
             #WeakHashFunction-1 - START
             #WeakHashFunction-1 - END
-
             #WeakHashFunctionWithSalt-1 - START
-            password = md5_crypt.using(salt_size=8).hash(password)
-            #WeakHashFunctionWithSalt-1 - END            
+            """Fix"""
+            password = ph.hash(password)
+            #WeakHashFunctionWithSalt-1 - END  
+            check_if_exists('email', email, 'Email')
+            check_if_exists('username', username, 'Username')
             user = User(role_id=2, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
             db.session.add(user)
             db.session.commit()

@@ -19,8 +19,8 @@ INSERT INTO roles (name) VALUES ('admin'), ('customer');
 --WeakHashFunction-3 - START
 --WeakHashFunction-3 - END
 --WeakHashFunctionWithSalt-3 - START
---Vulnerability
-INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'admin', 'admin@example.com', 'John', 'Doe', '$1$AdJoO/1c$/ofFs1UX.FLnstuVy.UBK0');
+--Fix
+INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'admin', 'admin@example.com', 'John', 'Doe', '$argon2id$v=19$m=65536,t=3,p=4$L3jNUzeRVWWiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE');
 --WeakHashFunctionWithSalt-3 - END
 
 CREATE TABLE products (

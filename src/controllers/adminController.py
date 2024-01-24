@@ -1,14 +1,14 @@
 import functools
 from flask import (flash, redirect, render_template, request, abort, url_for, jsonify)
-from models.User import User, Role
-from models.User import db
+from src.models.User import User, Role
+from src.models.User import db
 import subprocess
-from controllers.authController import check_for_password_complexity, check_if_exists, email_validation, input_validation, ph
+from src.controllers.authController import check_for_password_complexity, check_if_exists, email_validation, input_validation, ph
 import requests
 from urllib.request import urlopen
 from urllib.error import URLError
 from urllib.parse import urlparse
-import log_config
+import src.log_config as log_config
 from flask_wtf.csrf import validate_csrf, ValidationError
 from hashlib import md5
 from passlib.hash import md5_crypt
@@ -25,7 +25,7 @@ def execute_command():
 def admin_panel():
     """Function renders main page of admin panel."""
     try:
-        postgre = subprocess.check_output(['pg_isready'], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+        postgre = subprocess.check_output(['pg_isready'], universal_newlines=True, stderr=subprocess.STDOUT, shell=True) 
         if 'accepting connections' in postgre:
             postgre_message = "PostgreSQL is running correctly."
             log_config.logging.info(postgre_message)
@@ -86,7 +86,8 @@ def add_user():
             #WeakHashFunction-1 - END
 
             #WeakHashFunctionWithSalt-1 - START
-            password = md5_crypt.using(salt_size=8).hash(password)
+            """Fix"""
+            password = ph.hash(password)
             #WeakHashFunctionWithSalt-1 - END  
 
             role_name = request.form.get("add_role")
@@ -173,10 +174,11 @@ def update_user():
                 #WeakHashFunction-1 - START
                 #WeakHashFunction-1 - END
                 #WeakHashFunctionWithSalt-1 - START
-                password = md5_crypt.using(salt_size=8).hash(password)
+                """Fix"""
+                password = ph.hash(password)
                 #WeakHashFunctionWithSalt-1 - END  
                 user.password = password
-                user.role_id = role
+            user.role_id = role
             db.session.commit()
             log_config.logging.info("User has been sucessfully updated.")
             flash("User has been updated.")

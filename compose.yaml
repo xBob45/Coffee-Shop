@@ -1,19 +1,20 @@
 services:
-  coffee-shop:
-    build: .
+  apache:
+    build:
+      context: .
+      dockerfile: apache/Docker/Dockerfile-apache
+    ports:
+      - 8080:80
     networks:
       - coffee-shop
-    ports:
-      - 5000:5000
     restart:
       always
-    environment:
-      - SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://postgres:postgres@postgresql:5432/postgres
-      
+
   postgresql:
     #VulnerablePostgreSQL-1 - START
-    #Fix
-    image: postgres
+    build:
+      context: .
+      dockerfile: database/Docker/Dockerfile-db
     #VulnerablePostgreSQL-1 - END
     networks:
       - coffee-shop

@@ -1,0 +1,16 @@
+FROM ubuntu:latest
+
+RUN apt-get update \
+    && apt-get install -y apache2 python3 python3-pip \
+    && a2enmod proxy proxy_http autoindex headers \
+    && apt-get install libapache2-mod-wsgi-py3 -y
+
+COPY apache/Docker/coffee-shop.conf /etc/apache2/sites-enabled/
+COPY . /var/www/html/Coffee-Shop
+RUN pip install -r /var/www/html/Coffee-Shop/requirements.txt
+RUN pip uninstall Werkzeug -y
+RUN pip install Werkzeug==2.3.7
+
+#now start the server
+#CMD ["bash", "-c", "python3 app.py & apachectl -D FOREGROUND"]
+CMD ["apachectl", "-D", "FOREGROUND"]

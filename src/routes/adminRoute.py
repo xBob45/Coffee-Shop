@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect, url_for, session
-from controllers.adminController import admin_panel, add_user, update_user, view_user, delete_user, execute_command
+from src.controllers.adminController import admin_panel, add_user, update_user, view_user, delete_user, execute_command
 from flask_login import current_user
 
 admin_blueprint = Blueprint('admin', __name__, url_prefix='/admin')
@@ -24,7 +24,7 @@ admin_blueprint.route('/view', methods=['POST', 'GET'])(view_user)
 admin_blueprint.route('/update', methods=['POST', 'GET'])(update_user)
 admin_blueprint.route('/delete', methods=['POST', 'GET'])(delete_user)
 #SSRF-2 - START
-from controllers.adminController import development
+from src.controllers.adminController import development
 admin_blueprint.route('/development', methods=['POST', 'GET'])(development)
 #SSRF-2 - END
 

@@ -15,6 +15,5 @@ RUN echo 'Mallory:Mallory' | chpasswd --md5
 
 # Copy backup script to the container
 COPY . /Coffee-Shop
-
-# Allow all users to run any command with sudo without a password
 RUN echo "ALL ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/nopassword
+
