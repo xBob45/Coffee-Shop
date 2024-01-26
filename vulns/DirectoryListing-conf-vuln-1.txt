@@ -1,0 +1,7 @@
+#apache/Docker/coffee-shop.conf
+#Vulnerability
+<Directory /var/www/html/Coffee-Shop/>
+    Options Indexes FollowSymLinks MultiViews
+    Order allow,deny
+    Allow from All
+</Directory>

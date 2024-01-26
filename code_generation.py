@@ -10,7 +10,9 @@ def copy_function():
                 python_file = 'vulns/%s-python-vuln-%s.txt' % (attack_name,file_number)
                 html_file = 'vulns/%s-html-vuln-%s.txt' % (attack_name,file_number)
                 sql_file = 'vulns/%s-sql-vuln-%s.txt' % (attack_name,file_number)
-                files = [python_file, html_file, sql_file]
+                conf_file = 'vulns/%s-conf-vuln-%s.txt' % (attack_name,file_number)
+                docker_file = 'vulns/%s-docker-vuln-%s.txt' % (attack_name,file_number)
+                files = [python_file, html_file, sql_file, conf_file, docker_file]
                 #print(files)
                 for file in files:
                     try:
@@ -50,7 +52,9 @@ def copy_function():
                 python_file = 'fixes/%s-python-fix-%s.txt' % (attack_name,file_number)
                 html_file = 'fixes/%s-html-fix-%s.txt' % (attack_name,file_number)
                 sql_file = 'fixes/%s-sql-fix-%s.txt' % (attack_name,file_number)
-                files = [python_file, html_file, sql_file]
+                conf_file = 'fixes/%s-conf-fix-%s.txt' % (attack_name,file_number)
+                docker_file = 'fixes/%s-docker-fix-%s.txt' % (attack_name,file_number)
+                files = [python_file, html_file, sql_file, conf_file, docker_file]
                 for file in files:
                     try:
                         #This extracts the fix of a vulnerability (those few lines)
@@ -102,14 +106,15 @@ def delete_function():
                          'src/templates/admin/admin_panel_add.html',
                          'src/templates/admin/admin_panel_delete.html',
                          'src/templates/admin/admin_panel_view_and_update.html',
-                         'src/app.py', 
+                         'src/__init__.py', 
                          'src/log_config.py',
                          'compose.yaml',
                          'src/routes/homeRoute.py',
                          'src/routes/adminRoute.py',
                          'src/templates/public/product.html',
                          'src/templates/public/coffee.html',
-                         'db.sql'
+                         'db.sql',
+                         'apache/Docker/coffee-shop.conf'
                         ]
     
     for file_name in destination_files:

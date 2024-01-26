@@ -22,5 +22,7 @@ attacks_config = {
     'SSRF' : False,
     'CompleteOmissionOfHashFunction' : None, 
     'WeakHashFunction' : None, 
-    'WeakHashFunctionWithSalt': False
+    'WeakHashFunctionWithSalt': False,
+    'UnprotectedTransportofCredentials': False,
+    'DirectoryListing':True
 }

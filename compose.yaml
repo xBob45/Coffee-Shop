@@ -3,8 +3,12 @@ services:
     build:
       context: .
       dockerfile: apache/Docker/Dockerfile-apache
+    #UnprotectedTransportofCredentials-1 - START
+    #Fix
     ports:
-      - 8080:80
+      - 8081:80
+      - 8080:443
+    #UnprotectedTransportofCredentials-1 - END
     networks:
       - coffee-shop
     restart:
@@ -12,9 +16,8 @@ services:
 
   postgresql:
     #VulnerablePostgreSQL-1 - START
-    build:
-      context: .
-      dockerfile: database/Docker/Dockerfile-db
+    #Fix
+    image: postgres
     #VulnerablePostgreSQL-1 - END
     networks:
       - coffee-shop

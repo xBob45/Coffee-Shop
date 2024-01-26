@@ -13,6 +13,7 @@ def page_not_found(e):
 
 def create_app():
     app = Flask(__name__)  # flask app object
+    
     app.register_error_handler(404, page_not_found)
     app.config.from_object('src.config')  # Configuring from Python Files
     db.init_app(app)  # Initializing the database
@@ -33,10 +34,8 @@ def create_app():
     #Flask-WTF
 
     #Clickjacking-1 - START
-    """Vulnerability"""
-    """No protective measures are set."""
     #Clickjacking-1 - END
-    app.register_blueprint(auth_blueprint)
+    app.register_blueprint(auth_blueprint, url_prefix='/app')
     app.register_blueprint(home_blueprint)
     app.register_blueprint(account_blueprint)
     app.register_blueprint(admin_blueprint)

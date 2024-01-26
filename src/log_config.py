@@ -9,4 +9,3 @@ werkzeug_log.disabled = True"""
 """Vulnerability"""
 logging.basicConfig(level=logging.DEBUG, filename="../app.log",filemode="a",format="%(levelname)s %(message)s")
 #InsufficientLogging-1 - END
-
