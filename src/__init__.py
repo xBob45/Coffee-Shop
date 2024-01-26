@@ -35,7 +35,7 @@ def create_app():
 
     #Clickjacking-1 - START
     #Clickjacking-1 - END
-    app.register_blueprint(auth_blueprint, url_prefix='/app')
+    app.register_blueprint(auth_blueprint)
     app.register_blueprint(home_blueprint)
     app.register_blueprint(account_blueprint)
     app.register_blueprint(admin_blueprint)

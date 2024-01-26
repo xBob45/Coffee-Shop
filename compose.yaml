@@ -6,7 +6,6 @@ services:
     #UnprotectedTransportofCredentials-1 - START
     #Fix
     ports:
-      - 8081:80
       - 8080:443
     #UnprotectedTransportofCredentials-1 - END
     networks:
