@@ -23,7 +23,7 @@ def guide_reader():
     #FIRST MEASURE OF PROTECTION -> ALLOWED PATTERN
     allowed_pattern = r'^[guide0-9.txt]+$'
     if re.match(allowed_pattern, file_name):
-        guides_dir = os.path.join(os.getcwd(), 'guides')
+        guides_dir = os.path.join(os.getcwd(), 'src', 'guides')
         requested_file = os.path.join(guides_dir, file_name)
         log_config.logging.info("Requested filename: %s" % requested_file)
 

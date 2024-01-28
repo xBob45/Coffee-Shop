@@ -23,6 +23,6 @@ attacks_config = {
     'CompleteOmissionOfHashFunction' : None, 
     'WeakHashFunction' : None, 
     'WeakHashFunctionWithSalt': False,
-    'UnprotectedTransportofCredentials': False,
+    'UnprotectedTransportofCredentials': True,
     'DirectoryListing':True
 }

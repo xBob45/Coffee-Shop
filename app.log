@@ -306,3 +306,19 @@ INFO  * Restarting with stat
 DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
 WARNING  * Debugger is active!
 INFO  * Debugger PIN: 107-916-067
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+INFO User with admin username succesfully logged in with password admin password.
+INFO User with admin username succesfully logged in with password admin password.
+INFO User adminsadfasdf failed to login! Username doesn't exist.
+INFO User with admin username succesfully logged in with password admin password.
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+INFO Error occured, try again
+INFO Error occured, try again
+INFO Error occured, try again
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+INFO Requested filename: guide1.txt
+INFO Opened file: <_io.TextIOWrapper name='/home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt' mode='r' encoding='UTF-8'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
