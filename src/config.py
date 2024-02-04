@@ -17,10 +17,10 @@ os.environ["FLASK_DEBUG"] = "1"
 #CookiesWithoutSecurityAttributes-1 - END
 
 #CSRF-4 - START
-"""Fix"""
-SESSION_COOKIE_SECURE = True
+"""Vulnerability"""
+SESSION_COOKIE_SECURE = True 
 SESSION_COOKIE_HTTPONLY = True
-SESSION_COOKIE_SAMESITE = 'Strict'
+SESSION_COOKIE_SAMESITE = 'None'
 #CSRF-4 - END
 
 # Grabs the folder where the script runs.

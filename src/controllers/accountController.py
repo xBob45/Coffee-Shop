@@ -71,10 +71,9 @@ def update_user():
 
 #CSRF-3 - START
 def delete_user():
-    """ Fix """
-    if request.method == 'POST':
+    """ Vulnerability """
+    if request.method == 'GET':
         try:
-            validate_csrf(request.form.get('csrf_token'))
             id = current_user.id
             print(id)
             user = User.query.filter_by(id=id).first()
@@ -89,9 +88,7 @@ def delete_user():
             else:
                 flash("User doesn't exists.")
                 return redirect(request.referrer)
-        except ValidationError:
-            log_config.logging.error("Missing or invalid CSRF token.")
-        except Exception:
+        except Exception as e:
             flash("Error occureed. Please try again.")
             log_config.logging.error("Error occureed. Please try again.")
     return redirect(request.referrer)

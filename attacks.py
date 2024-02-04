@@ -17,12 +17,13 @@ attacks_config = {
     'InsertionOfSensitiveInformationIntoLogFile' : True,
     'WeakPasswordRequirements' : True,
     'IDOR': False,
-    'CSRF': False, #If 'True' set 'CookiesWithoutSecurityAttributes' to 'None'
+    'CSRF': True, #If 'True' set 'CookiesWithoutSecurityAttributes' to 'None'
     'VulnerablePostgreSQL' : False,
     'SSRF' : False,
     'CompleteOmissionOfHashFunction' : None, 
     'WeakHashFunction' : None, 
     'WeakHashFunctionWithSalt': False,
-    'UnprotectedTransportofCredentials': True,
-    'DirectoryListing':True
+    'UnprotectedTransportofCredentials': False,
+    'DirectoryListing':False,
+    'CustomErrorPages': False
 }

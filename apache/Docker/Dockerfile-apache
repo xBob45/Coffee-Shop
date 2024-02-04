@@ -11,6 +11,7 @@ COPY . /var/www/html/Coffee-Shop
 RUN chmod -R 777 /var/www/html/Coffee-Shop
 WORKDIR /var/www/html/Coffee-Shop
 COPY ssl /etc/apache2/ssl
+COPY src/templates/custom_errors/ /var/www/html/
 RUN cat apache/Docker/coffee-shop.conf > /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 

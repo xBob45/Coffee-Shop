@@ -8,13 +8,8 @@ from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
 import logging
 
-def page_not_found(e):
-  return render_template('404.html'), 404
-
 def create_app():
     app = Flask(__name__)  # flask app object
-    
-    app.register_error_handler(404, page_not_found)
     app.config.from_object('src.config')  # Configuring from Python Files
     db.init_app(app)  # Initializing the database
     #-------------------------Flask-Login-------------------------

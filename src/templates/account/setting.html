@@ -43,11 +43,10 @@
           </form>
     
           <!-- CSRF-1 - START -->
-          <!-- Fix -->
-          <form method="POST" action="{{ url_for('account.delete_user') }}">
+          <!-- Vulnerability -->
+          <form method="GET" action="{{ url_for('account.delete_user') }}">
               <!-- CSRF-2 - START -->
-              <!-- Fix -->
-              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <!-- No CSRF protection. -->
               <!-- CSRF-2 - END -->
               <button type="submit" class="btn btn-outline-danger" id="setting-button-danger">Delete</button>
           </form>

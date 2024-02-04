@@ -4,9 +4,9 @@ services:
       context: .
       dockerfile: apache/Docker/Dockerfile-apache
     #UnprotectedTransportofCredentials-1 - START
-    #Vulnerability
+    #Fix
     ports:
-      - 9090:80
+      - 9090:443
     #UnprotectedTransportofCredentials-1 - END
     networks:
       - coffee-shop
