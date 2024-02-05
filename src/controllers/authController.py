@@ -59,9 +59,6 @@ def login():
                     #InsertionOfSensitiveInformationIntoLogFile-1 - END
 
                     #SensitiveDatawithinCookie-1 - START
-                    """Vulnerability"""
-                    user_role = db.session.query(Role.name).join(User, Role.id == User.role_id).filter(User.id == user.id).first()
-                    session['role'] = user_role[0]
                     #SensitiveDatawithinCookie-1 - END
                     return redirect(url_for('home.home'))
             else:
@@ -145,8 +142,6 @@ def signup():
 def logout():
     """Fix"""
     #SensitiveDatawithinCookie-2 - START
-    """Vulnerability"""
-    session.pop('role')
     #SensitiveDatawithinCookie-2 - END
     logout_user()
     log_config.logging.info("User logged out.")

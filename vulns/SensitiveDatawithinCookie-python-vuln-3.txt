@@ -1,7 +1,15 @@
 #src/routes/adminRoute.py
 @admin_blueprint.before_request
 def check_if_admin():
-    """Vulnerability"""
-    role = session.get('role')
-    if role != 'admin':
-        return redirect(url_for('home.home'))
+    try:
+        """Vulnerability"""
+        if current_user.is_authenticated:
+            role = session.get('role')
+            if role == 'admin':
+                return #If everything is OK, let user proceed.
+            else:
+                return Forbidden()
+        return redirect(url_for('auth.login'))
+    except Exception:
+        log_config.logging.error("Error occurred")
+        return BadRequest()

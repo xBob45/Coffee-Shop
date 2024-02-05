@@ -5,8 +5,8 @@ attacks_config = {
     'ReflectedXSS': False,
     'StoredXSS': True, #<-----
     'InsufficientSessionInvalidation': False,
-    'SensitiveDatawithinCookie': True,  #If 'True' set 'ForcedBrowsing' to 'None'
-    'ForcedBrowsing': None,
+    'SensitiveDatawithinCookie': None,  #If 'True' set 'ForcedBrowsing' to 'None'
+    'ForcedBrowsing': False,
     'HardCodedKey': True,
     'DebugModeON': True,
     'PathTraversal': True,
