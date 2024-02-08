@@ -1,0 +1,6 @@
+#src/controllers/authController.py
+"""Fix"""
+response = request.form.get('g-recaptcha-response')
+verify_response = requests.post(url='%s?secret=%s&response=%s' % (VERIFY_URL, SECRET_KEY, response)).json()
+if verify_response.get('success') != True:
+    return Forbidden()

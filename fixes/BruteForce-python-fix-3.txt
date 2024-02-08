@@ -1,0 +1,3 @@
+#src/controllers/authController.py
+"""Fix"""
+return render_template('auth/login.html', site_key = SITE_KEY)

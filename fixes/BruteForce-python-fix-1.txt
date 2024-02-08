@@ -1,0 +1,6 @@
+#src/controllers/authController.py
+"""Fix"""
+load_dotenv()
+SITE_KEY = os.getenv("CAPTCHA_SITE_KEY")
+SECRET_KEY = os.getenv("CAPTCHA_SECRET_KEY")
+VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify'

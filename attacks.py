@@ -25,5 +25,6 @@ attacks_config = {
     'WeakHashFunctionWithSalt': False,
     'UnprotectedTransportofCredentials': False,
     'DirectoryListing':False,
-    'CustomErrorPages': False
+    'CustomErrorPages': False,
+    'BruteForce': False
 }

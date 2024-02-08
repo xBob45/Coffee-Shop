@@ -4,6 +4,8 @@ def login():
     #' OR 1=1; DELETE FROM users WHERE id=1; --
     if request.method == 'POST':
         try:
+            #BruteForce-2 - START
+            #BruteForce-2 - END
             validate_csrf(request.form.get('csrf_token'))
             username = request.form.get('username')
             password = request.form.get('password')
@@ -56,4 +58,5 @@ def login():
             print(e)
             log_config.logging.info("Error occured, try again")
             flash("Unexpected error. Try again, please.")
-    return render_template('auth/login.html') 
+    #BruteForce-3 - START
+    #BruteForce-3 - END

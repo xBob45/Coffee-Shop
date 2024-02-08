@@ -6,9 +6,9 @@ distinguished_name = dn
 
 [dn]
 C=US
-ST=RandomState
-L=RandomCity
-O=RandomOrganization
-OU=RandomOrganizationUnit
-emailAddress=hello@example.com
-CN = localhost
+ST=CZ
+L=Brno
+O=BUT
+OU=FEEC
+emailAddress=example@example.com
+CN = Coffee Shop

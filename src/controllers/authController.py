@@ -2,8 +2,11 @@ import functools
 from src.models.User import User, Role
 from src.models.User import db
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
+from werkzeug.exceptions import Forbidden
 from werkzeug.security import check_password_hash, generate_password_hash
 import os
+import requests
+from dotenv import load_dotenv
 from flask_login import login_user, logout_user, login_required, current_user
 from sqlalchemy.sql import text
 from psycopg2.errors import UniqueViolation
@@ -18,11 +21,25 @@ from argon2 import PasswordHasher
 import argon2
 ph = PasswordHasher()
 
+#BruteForce-1 - START
+"""Fix"""
+load_dotenv()
+SITE_KEY = os.getenv("CAPTCHA_SITE_KEY")
+SECRET_KEY = os.getenv("CAPTCHA_SECRET_KEY")
+VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify'
+#BruteForce-1 - END
 #SQLInjection-1 - START
 def login():
     """Fix"""
     if request.method == 'POST':
         try:
+            #BruteForce-2 - START
+            """Fix"""
+            response = request.form.get('g-recaptcha-response')
+            verify_response = requests.post(url='%s?secret=%s&response=%s' % (VERIFY_URL, SECRET_KEY, response)).json()
+            if verify_response.get('success') != True:
+                return Forbidden()
+            #BruteForce-2 - END
             validate_csrf(request.form.get('csrf_token'))
             username = request.form.get('username')
             password = request.form.get('password')
@@ -86,7 +103,10 @@ def login():
             print(e)
             log_config.logging.info("Error occured, try again")
             flash("Unexpected error. Try again, please.")
-    return render_template('auth/login.html')
+    #BruteForce-3 - START
+    """Fix"""
+    return render_template('auth/login.html', site_key = SITE_KEY)
+    #BruteForce-3 - END
 #SQLInjection-1 - END
 
 #StoredXSS-1 - START
