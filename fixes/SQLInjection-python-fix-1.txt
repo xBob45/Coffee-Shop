@@ -26,6 +26,7 @@ def login():
                 else:
                     # Perform the login action or redirect to the home page
                     login_user(user, remember=remember)
+                    session['cart'] = {}
 
                     #InsertionOfSensitiveInformationIntoLogFile-1 - START
                     #InsertionOfSensitiveInformationIntoLogFile-1 - END

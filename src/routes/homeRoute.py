@@ -9,5 +9,7 @@ home_blueprint.route('/coffee')(coffee)
 home_blueprint.route('/tea')(tea)
 home_blueprint.route('/accessories')(accessories)
 home_blueprint.route('/product')(product_info)
+
+
 #SSRF-2 - START
 #SSRF-2 - END

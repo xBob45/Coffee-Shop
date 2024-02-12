@@ -3,6 +3,7 @@ def logout():
     """Vulnerability"""
     #SensitiveDatawithinCookie-2 - START
     #SensitiveDatawithinCookie-2 - END
+    session.pop('cart')
     log_config.logging.info("User %s logged out." % username)
     flash("You were logged out.")
     return redirect(url_for("auth.login"))

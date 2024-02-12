@@ -8,11 +8,38 @@
                     <a href="{{ url_for('admin.admin_panel')}}" class="btn btn-outline-danger" role="button" id="admin_button">Admin Panel</a>
                 </li>
             {% endif %}
-            <a href="#">
-                <li class="nav-item">
-                    <i class="bi bi-basket" id="basket"></i>
-                </li>
-            </a>
+            <div class="dropdown">
+              <button class="btn btn-outline-success dropdown-toggle" type="button" id="cart" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-cart"></i>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
+
+
+              
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <li class="nav-item dropdown">
                 <!-- StoredXSS-1 - START -->
                 <!-- Vulnerability -->
@@ -44,12 +71,57 @@
     {% endif %}
 {% endblock %}
 {% block content %}
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <div class="row">
+          <img src="{{ url_for('static', filename='images/coffee-beans.svg') }}" class="d-block w-100" alt="...">
+          <img src="{{ url_for('static', filename='images/products/coffee/coffee3.svg') }}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Coffee</h5>
+          <p>Try our wonderfull coffee. Order online, pick up at our caffee.</p>
+          <a href="{{url_for('home.coffee')}}" class="btn btn-outline-success" role="button" id="add_to_cart_button">Take a look!</a>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <div class="row">
+          <img src="{{ url_for('static', filename='images/tea-leaf-icon.svg') }}" class="d-block w-100" alt="...">
+          <img src="{{ url_for('static', filename='images/products/tea/tea1.svg') }}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Tea</h5>
+          <p>Try our wonderfull tea. Order online, pick up at our caffee.</p>
+          <a href="{{url_for('home.tea')}}" class="btn btn-outline-success" role="button" id="add_to_cart_button">Take a look!</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row">
+          <img src="{{ url_for('static', filename='images/tea-kettle-icon.svg') }}" class="d-block w-100" alt="...">
+          <img src="{{ url_for('static', filename='images/coffee-machine.svg') }}" class="d-block w-100" alt="...">
+          <img src="{{ url_for('static', filename='images/products/accessories/accessory2.svg') }}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Coffee & Tea Accessories</h5>
+          <p>We also offer various of accessory to coffee machines as well as cupes, mugs and kettles.</p>
+          <a href="{{url_for('home.accessories')}}" class="btn btn-outline-success" role="button" id="add_to_cart_button">Take a look!</a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
-Home is going to be hereHome is going to be hereHome is going to be hereHome is going to be hereHome is going to be here
-
-
-
-
-
-
+  
 {% endblock %}

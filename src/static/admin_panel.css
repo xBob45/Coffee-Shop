@@ -64,3 +64,8 @@ border-color: #ff0000a1;
   height: 500px;
 }
 
+#admin_button{
+  margin-right: 10px;
+  margin-left: -6px;
+  height: 39px 
+}

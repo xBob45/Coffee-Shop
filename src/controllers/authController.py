@@ -22,11 +22,8 @@ import argon2
 ph = PasswordHasher()
 
 #BruteForce-1 - START
-"""Fix"""
-load_dotenv()
-SITE_KEY = os.getenv("CAPTCHA_SITE_KEY")
-SECRET_KEY = os.getenv("CAPTCHA_SECRET_KEY")
-VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify'
+"""Vulnerability"""
+"""No reCAPTCHA"""
 #BruteForce-1 - END
 #SQLInjection-1 - START
 def login():
@@ -34,11 +31,8 @@ def login():
     if request.method == 'POST':
         try:
             #BruteForce-2 - START
-            """Fix"""
-            response = request.form.get('g-recaptcha-response')
-            verify_response = requests.post(url='%s?secret=%s&response=%s' % (VERIFY_URL, SECRET_KEY, response)).json()
-            if verify_response.get('success') != True:
-                return Forbidden()
+            """Vulnerability"""
+            """No reCAPTCHA"""
             #BruteForce-2 - END
             validate_csrf(request.form.get('csrf_token'))
             username = request.form.get('username')
@@ -69,6 +63,7 @@ def login():
                 else:
                     # Perform the login action or redirect to the home page
                     login_user(user, remember=remember)
+                    session['cart'] = {}
 
                     #InsertionOfSensitiveInformationIntoLogFile-1 - START
                     """Vulnerability"""
@@ -104,8 +99,8 @@ def login():
             log_config.logging.info("Error occured, try again")
             flash("Unexpected error. Try again, please.")
     #BruteForce-3 - START
-    """Fix"""
-    return render_template('auth/login.html', site_key = SITE_KEY)
+    """Vulnerability"""
+    return render_template('auth/login.html')
     #BruteForce-3 - END
 #SQLInjection-1 - END
 
@@ -163,6 +158,7 @@ def logout():
     """Fix"""
     #SensitiveDatawithinCookie-2 - START
     #SensitiveDatawithinCookie-2 - END
+    session.pop('cart')
     logout_user()
     log_config.logging.info("User logged out.")
     flash("You were logged out.")

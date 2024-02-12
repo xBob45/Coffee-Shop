@@ -69,3 +69,4 @@ def accessories():
     accessories_category_id = db.session.query(Category).filter_by(name='accessories').first().id
     accessory_products = db.session.query(Product).join(ProductCategory).filter_by(category_id=accessories_category_id).all()
     return render_template("public/accessories.html", products=accessory_products)
+

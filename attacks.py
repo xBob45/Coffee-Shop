@@ -26,5 +26,5 @@ attacks_config = {
     'UnprotectedTransportofCredentials': False,
     'DirectoryListing':False,
     'CustomErrorPages': False,
-    'BruteForce': False
+    'BruteForce': True
 }
