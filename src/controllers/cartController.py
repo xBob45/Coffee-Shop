@@ -4,6 +4,7 @@ from flask_wtf.csrf import validate_csrf, ValidationError
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
 from src.models.User import Product, Category, ProductCategory
 
+
 def add_to_cart():
     #session.pop('cart')
     if request.method == 'POST':
@@ -17,6 +18,7 @@ def add_to_cart():
             session['cart'][product_id] = 1
         session.modified = True
         print(session)
+        print(len(session['cart']))
         return redirect(request.referrer)
 
 

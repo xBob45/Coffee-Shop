@@ -11,11 +11,12 @@
             <div class="dropdown">
               <button class="btn btn-outline-success dropdown-toggle" type="button" id="cart" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-cart"></i>
+                <span class="badge rounded-pill badge-notification bg-danger">{{session['cart']|count}}</span>
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                {% for item in session['cart'] %}
+                  <li><a class="dropdown-item">{{item}}</a></li>
+                {% endfor %}
               </ul>
             </div>
 
