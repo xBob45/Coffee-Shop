@@ -4,6 +4,7 @@ from src.routes.homeRoute import home_blueprint
 from src.routes.adminRoute import admin_blueprint
 from src.routes.accountRoute import account_blueprint
 from src.routes.cartRoute import cart_blueprint
+from src.auxiliary.context_processors import utility_processor
 from src.models.User import db, User
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
@@ -37,4 +38,7 @@ def create_app():
     app.register_blueprint(admin_blueprint)
     app.register_blueprint(cart_blueprint)
 
+    app.context_processor(utility_processor)
+
+    
     return app

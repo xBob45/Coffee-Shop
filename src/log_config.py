@@ -3,7 +3,7 @@ from flask import Flask
 
 
 """werkzeug_log = logging.getLogger('werkzeug')
-werkzeug_log.disabled = True"""
+werkzeug_log.disabled = False"""
 
 #InsufficientLogging-1 - START
 """Vulnerability"""

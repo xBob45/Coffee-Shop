@@ -27,6 +27,7 @@ def login():
                     # Perform the login action or redirect to the home page
                     login_user(user, remember=remember)
                     session['cart'] = {}
+                    session['total'] = 0
 
                     #InsertionOfSensitiveInformationIntoLogFile-1 - START
                     #InsertionOfSensitiveInformationIntoLogFile-1 - END

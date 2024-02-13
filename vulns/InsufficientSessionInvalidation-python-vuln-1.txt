@@ -4,6 +4,7 @@ def logout():
     #SensitiveDatawithinCookie-2 - START
     #SensitiveDatawithinCookie-2 - END
     session.pop('cart')
+    session.pop('total')
     log_config.logging.info("User %s logged out." % username)
     flash("You were logged out.")
     return redirect(url_for("auth.login"))

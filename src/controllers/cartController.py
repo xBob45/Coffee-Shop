@@ -10,16 +10,24 @@ def add_to_cart():
     if request.method == 'POST':
         validate_csrf(request.form.get('csrf_token'))
         product_id = request.form.get('product_id')
+        product = db.session.query(Product).filter_by(id=product_id).first()
         if product_id in session['cart'].keys():
-            print(True)
-            print(session['cart'][product_id])
             session['cart'][product_id] = session['cart'][product_id] + 1
         else:
             session['cart'][product_id] = 1
+        
+        session['total'] += product.price
         session.modified = True
         print(session)
         print(len(session['cart']))
         return redirect(request.referrer)
 
-
-    
+def delete_from_cart():
+    if request.method == 'POST':
+        validate_csrf(request.form.get('csrf_token'))
+        product_id = request.form.get('product_id')
+        product = db.session.query(Product).filter_by(id=product_id).first()
+        session['cart'].pop(product_id)
+        session['total'] -= product.price
+        session.modified = True
+        return redirect(request.referrer)

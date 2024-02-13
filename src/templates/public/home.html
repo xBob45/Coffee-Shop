@@ -8,39 +8,40 @@
                     <a href="{{ url_for('admin.admin_panel')}}" class="btn btn-outline-danger" role="button" id="admin_button">Admin Panel</a>
                 </li>
             {% endif %}
-            <div class="dropdown">
+            <div class="dropdown dropdown-cart">
               <button class="btn btn-outline-success dropdown-toggle" type="button" id="cart" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-cart"></i>
-                <span class="badge rounded-pill badge-notification bg-danger">{{session['cart']|count}}</span>
+                  <i class="bi bi-cart"></i>
+                  <span class="badge rounded-pill badge-notification bg-danger">{{ session['cart']|count }}</span>
               </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                {% for item in session['cart'] %}
-                  <li><a class="dropdown-item">{{item}}</a></li>
-                {% endfor %}
+              <ul class="dropdown-menu" aria-labelledby="cart" id="dropdown-menu-cart">
+                  {% if session['cart']|count > 0 %}
+                  {% for item_id, quantity in session['cart'].items() %}
+                  {% set product = get_product_by_id(item_id) %}
+                  {% if product %}
+                  <li class="dropdown-item cart-item">
+                      <span class="item-details">
+                          <span class="item-name">{{ product.name }}</span>
+                          <span class="item-quantity">{{ quantity }}x</span>
+                      </span>
+                      <span class="item-price">${{ product.price }}</span>
+                      <span class="item-cancel">
+                        <form id="delete_from_cart-form" method="POST" action="{{ url_for('cart.delete_from_cart') }}">
+                          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                          <input type="hidden" name="product_id" value="{{ product.id }}">
+                          <button class="btn btn-link" type="submit"><i class="bi bi-x"></i></button>
+                      </form>
+                      </span>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+                  <hr class="solid">
+                  <li class="total">Total: ${{ session['total']|round(2) }}</li>
+                  <li class="text-center"></liclass><button class="btn btn-success checkout-btn">Checkout</button></li>
+                  {% else %}
+                  <li class="text-center"><span class="item-empty">Cart is empty</span></li>
+                  {% endif %}
               </ul>
-            </div>
-
-
-              
-
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          </div>
             <li class="nav-item dropdown">
                 <!-- StoredXSS-1 - START -->
                 <!-- Vulnerability -->
@@ -126,3 +127,5 @@
 
   
 {% endblock %}
+
+<!-- https://marketsplash.com/tutorials/flask/how-to-create-a-shopping-cart-in-flask/ -->

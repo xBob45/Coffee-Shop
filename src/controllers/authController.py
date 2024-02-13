@@ -64,6 +64,7 @@ def login():
                     # Perform the login action or redirect to the home page
                     login_user(user, remember=remember)
                     session['cart'] = {}
+                    session['total'] = 0
 
                     #InsertionOfSensitiveInformationIntoLogFile-1 - START
                     """Vulnerability"""
@@ -159,6 +160,7 @@ def logout():
     #SensitiveDatawithinCookie-2 - START
     #SensitiveDatawithinCookie-2 - END
     session.pop('cart')
+    session.pop('total')
     logout_user()
     log_config.logging.info("User logged out.")
     flash("You were logged out.")

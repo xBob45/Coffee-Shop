@@ -114,4 +114,60 @@ input:checked + .slider.round:before {
   display: block !important;
   margin-bottom: 200px !important;
 }
+.dropdown-cart .cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#dropdown-menu-cart.dropdown-menu[data-bs-popper] {
+  left: -100px !important 
+}
+
+.dropdown-cart .item-details {
+  display: flex;
+  flex-direction: column;
+  width: 200px; /* Adjust the width as needed */
+}
+
+.dropdown-cart .item-name {
+  margin-bottom: 5px;
+}
+
+.dropdown-cart .item-quantity {
+  font-size: 14px;
+  color: #888;
+}
+
+.dropdown-cart .item-price {
+  font-size: 14px;
+  text-align: right; /* Align prices to the right */
+}
+
+.dropdown-cart .total {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.dropdown-cart .checkout-btn {
+  width: 50%;
+  margin-top: 20px;
+}
+
+.item-cancel{
+  margin-left: 20px;
+}
+
+.bi.bi-x {
+  color: red;
+  font-size: 20px;
+}
+
+.solid {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
 
