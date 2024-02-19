@@ -27,7 +27,15 @@ def delete_from_cart():
         validate_csrf(request.form.get('csrf_token'))
         product_id = request.form.get('product_id')
         product = db.session.query(Product).filter_by(id=product_id).first()
+        quantity = session['cart'].get(product_id)
         session['cart'].pop(product_id)
-        session['total'] -= product.price
+        session['total'] -= (product.price*quantity)
         session.modified = True
         return redirect(request.referrer)
+    
+
+def checkout():
+    return render_template("public/checkout.html")
+
+def create_order():
+    pass

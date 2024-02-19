@@ -25,12 +25,13 @@ border-color: #198754f2;
 #cart {
   margin-top: 7px;
   margin-right: 9px;
+  /* height: 39px */
 }
 
 #admin_button{
   margin-right: 10px;
   margin-left: -6px;
-  height: 39px 
+  /* height: 39px  */
 }
 
 .card {
@@ -48,7 +49,7 @@ border-color: #198754f2;
 }
 
 .coffee-section .card-body a, .tea-section .card-body a {
-  margin-top: auto; /* Push the "Read" button to the bottom of the card */
+  margin-top: auto;
 }
 
 #toggler{
@@ -115,14 +116,14 @@ input:checked + .slider.round:before {
   margin-bottom: 200px !important;
 }
 .dropdown-cart .cart-item {
-  display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 }
 
 #dropdown-menu-cart.dropdown-menu[data-bs-popper] {
-  left: -100px !important 
+  left: -130px !important; 
+  min-width: 394px;
 }
 
 .dropdown-cart .item-details {
@@ -135,7 +136,7 @@ input:checked + .slider.round:before {
   margin-bottom: 5px;
 }
 
-.dropdown-cart .item-quantity {
+.dropdown-cart .item-quantity, .item-quantity {
   font-size: 14px;
   color: #888;
 }
@@ -151,7 +152,7 @@ input:checked + .slider.round:before {
   margin-left: 15px;
 }
 
-.dropdown-cart .checkout-btn {
+#checkout_button, #order_button {
   width: 50%;
   margin-top: 20px;
 }
@@ -170,4 +171,29 @@ input:checked + .slider.round:before {
   margin-left: 15px;
 }
 
+.checkout-section{
+  width: 50rem;
+  height: 30rem;
+}
 
+.checkout-section .card-body {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.checkout-section .card-body a {
+  margin-top: auto;
+}
+
+  
+.card.checkout-section{
+  border: none;
+}
+
+.list-group-item{
+  border:none !important;
+}
+
+#list-group-item-total{
+  font-weight: bold !important;
+}
