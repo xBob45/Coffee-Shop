@@ -3,10 +3,9 @@ attacks_config = {
     'SQLInjection2': True,
     'SensitiveInformationDisclosure': True,
     'ReflectedXSS': False,
-    'StoredXSS': True, #<-----
+    'StoredXSS': False, #<-----
     'InsufficientSessionInvalidation': False,
-    'SensitiveDatawithinCookie': None,  #If 'True' set 'ForcedBrowsing' to 'None'
-    'ForcedBrowsing': False,
+    'ForcedBrowsing': None,
     'HardCodedKey': True,
     'DebugModeON': True,
     'PathTraversal': True,
@@ -18,6 +17,7 @@ attacks_config = {
     'WeakPasswordRequirements' : True,
     'IDOR': False,
     'CSRF': True, #If 'True' set 'CookiesWithoutSecurityAttributes' to 'None'
+    'SensitiveDatawithinCookie': True,  #If 'True' set 'ForcedBrowsing' to 'None'
     'VulnerablePostgreSQL' : False,
     'SSRF' : False,
     'CompleteOmissionOfHashFunction' : None, 

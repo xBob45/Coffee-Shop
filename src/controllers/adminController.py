@@ -12,6 +12,7 @@ import src.log_config as log_config
 from flask_wtf.csrf import validate_csrf, ValidationError
 from hashlib import md5
 from passlib.hash import md5_crypt
+from werkzeug.exceptions import Forbidden
 
 #OSCommandInjection-1 - START
 def execute_command():
@@ -31,7 +32,7 @@ def admin_panel():
             log_config.logging.info(postgre_message)
         else:
             postgre_message = "PostgreSQL is not accepting connections."
-            log_config.logging.info(postgre_message)
+            log_config.logging.critical(postgre_message)
     except:
         postgre_message = "PostgreSQL is not accepting connections."
         log_config.logging.info(apache_message)
@@ -42,7 +43,7 @@ def admin_panel():
             log_config.logging.info(apache_message)
         else:
             apache_message = "Apache down"
-            log_config.logging.info(apache_message)
+            log_config.logging.critical(apache_message)
     except:
         apache_message = "Apache is down"
         log_config.logging.info(apache_message)
@@ -99,16 +100,17 @@ def add_user():
             user = User(role_id=role, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
             db.session.add(user)
             db.session.commit()
-            log_config.logging.info("New has been created.")
-            flash("User has sucesfully been added to the database.")
+            log_config.logging.info("New user with username %s has been created." % username)
+            flash("User has sucesfully been created.")
             #This implements the  Post/Redirect/Get (PRG) to prevent data re-insertion when reload.
             return redirect(url_for('admin.add_user'))
         except ValidationError:
-            log_config.logging.error("Missing or invalid CSRF token.")
+            log_config.logging.error("New user has not been created. Missing or invalid CSRF token.")
+            return Forbidden()
         except ValueError:
             return redirect(request.referrer)
         except Exception:
-            log_config.logging.info("Error, new user hasn't been created.")
+            log_config.logging.error("New user has not been created")
             flash("Error occured, try again.")
             redirect(request.referrer)
     return render_template("admin/admin_panel_add.html")
@@ -126,11 +128,12 @@ def view_user():
                 return render_template("admin/admin_panel_view_and_update.html", user=user)
             else:
                 flash("User doesn't exists.")  
+                log_config.logging.error("Failed to view user with username %s. User doesn't exists." % username)  
         except ValidationError:
-            log_config.logging.error("Missing or invalid CSRF token.")
-        except Exception:
-            log_config.logging.error("Error occured.")
-            flash("Error occured.")
+            log_config.logging.error("Failed to view user with username %s. Missing or invalid CSRF token." % username)
+        except Exception as e:
+            log_config.logging.error("Failed to view user with username.\nException: %s" % e)
+            flash("Error occured. Please try again.")
             redirect(request.referrer)
     return render_template("admin/admin_panel_view_and_update.html")
 
@@ -180,14 +183,15 @@ def update_user():
                 user.password = password
             user.role_id = role
             db.session.commit()
-            log_config.logging.info("User has been sucessfully updated.")
+            log_config.logging.info("User with username %s has been sucessfully updated." % username)
             flash("User has been updated.")
         except ValidationError:
-            log_config.logging.error("Missing or invalid CSRF token.")
+            log_config.logging.error("User has not beed updated. Missing or invalid CSRF token.")
+            return Forbidden()
         except ValueError:
             return redirect(request.referrer)
-        except Exception:
-            log_config.logging.info("Error, user has not been updated.")
+        except Exception as e:
+            log_config.logging.error("User has not been sucessfully updated.\nException: %s" % e)
             flash("Error occured, try again.")
             redirect(request.referrer)    
     return render_template("admin/admin_panel_view_and_update.html")
@@ -198,22 +202,22 @@ def delete_user():
         try:
             validate_csrf(request.form.get('csrf_token'))
             username = request.form.get("delete_username")
-            print(username)
             user = User.query.filter_by(username=username).first()
             print(user)
             if user is not None:
                 db.session.delete(user)
                 db.session.commit()
-                log_config.logging.info("User has been deleted.")
+                log_config.logging.info("User with username %s has been deleted." % username)
                 flash("User has been deleted.")
             else:
-                log_config.logging.error("User could not be deleted.")
+                log_config.logging.error("User with username %s has not been deleted due to non-existence." % username)
                 flash("User doesn't exists.")
                 redirect(request.referrer)
         except ValidationError:
-            log_config.logging.error("Missing or invalid CSRF token.")
-        except Exception:
-            log_config.logging.error("Error occured.")
+            log_config.logging.error("User has not beed deleted. Missing or invalid CSRF token.")
+            return Forbidden()
+        except Exception as e:
+            log_config.logging.error("User has not been deleted.\nException: %s" % e)
             flash("Error occured.")
             redirect(request.referrer)
     return render_template("admin/admin_panel_delete.html")
@@ -250,13 +254,13 @@ def development():
             try:
                 if scheme in SCHEMES_ALLOWLIST:
                     if domain in DOMAINS_ALLOWLIST:
-                        log_config.logging.info("URL was opened.")
+                        log_config.logging.info("URL %s has been opened." % url)
                         response = urlopen(url)
                         return response.read()
                 else:
                     raise Exception
             except Exception as e:
-                log_config.logging.error("URL was rejected")
-                return render_template('404.html')
+                log_config.logging.error("URL %s has been rejected" % url)
+                return Forbidden()
     return 'This is the development section.'
 #SSRF-1 - END

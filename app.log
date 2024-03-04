@@ -1,0 +1,49 @@
+INFO User with admin username succesfully logged in with password admin password.
+INFO User 2 has been sucessfully updated.
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+INFO User 2-admin has been sucessfully updated.
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+INFO User with admin username succesfully logged in with password admin password.
+INFO User with username admin added amount of 1 of product into the cart.
+INFO User with username %s logged out.
+INFO User with admin username succesfully logged in with password admin password.
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+INFO User with username admin added amount of 1 of product into the cart.
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+INFO User with username admin added amount of 1 of product into the cart.
+INFO User with username %s logged out.
+INFO User with admin username succesfully logged in with password admin password.
+INFO User with username admin added amount of 1 of product into the cart.
+INFO User with username admin added amount of 1 of product into the cart.
+INFO User with username admin added amount of 1 of product into the cart.
+INFO User with username admin added amount of 1 of product into the cart.
+INFO User with username admin added amount of 1 of product into the cart.
+INFO User with username admin added amount of 1 of product into the cart.
+INFO User with username admin added amount of 4 of product into the cart.
+ passlib.registry DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+ passlib.registry DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+ passlib.registry DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+ root INFO User with username admin logged out.
+ root INFO User with admin username succesfully logged in with password admin password.
+ root INFO User with username admin added amount of 1 of product into the cart.
+ root INFO User with username admin added amount of 1 of product into the cart.
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>
+DEBUG registered 'md5_crypt' handler: <class 'passlib.handlers.md5_crypt.md5_crypt'>

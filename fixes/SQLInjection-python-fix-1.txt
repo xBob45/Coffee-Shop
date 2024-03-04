@@ -42,15 +42,16 @@ def login():
                 #InsertionOfSensitiveInformationIntoLogFile-3 - END   
                 return redirect(request.referrer)
         except ValidationError:
-            log_config.logging.error("Missing or invalid CSRF token.")
+            log_config.logging.error("User has not beed updated. Missing or invalid CSRF token.")
+            return Forbidden()
         except argon2.exceptions.VerifyMismatchError:
             #InsertionOfSensitiveInformationIntoLogFile-2 - START
             #InsertionOfSensitiveInformationIntoLogFile-2 - END
             #SensitiveInformationDisclosure-1 - START
             #SensitiveInformationDisclosure-1 - END
         except Exception as e:
-            print(e)
-            log_config.logging.info("Error occured, try again")
-            flash("Unexpected error. Try again, please.")
+            log_config.logging.error("User has not been sucessfully updated.\nException: %s" % e)
+            flash("Error occured, try again.")
+            return redirect(request.referrer)  
     #BruteForce-3 - START
     #BruteForce-3 - END

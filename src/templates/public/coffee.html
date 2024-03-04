@@ -24,12 +24,26 @@
           <h1 class="fw-light"><img src="{{ url_for('static', filename='images/coffee-beans.svg') }}" width="65" height="47">
             Coffee
             <img src="{{ url_for('static', filename='images/coffee-beans.svg') }}" width="65" height="47"></h1>
-          <p class="lead text-body-secondary">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+          <p class="lead text-body-secondary">Explore our wide range of exquisite coffees sourced from around the world.</p>
+          <p class="note"><i>* We do not offer delivery, all orders must be paid and picked up at our caffee.</i></p>
           {% endblock %}
         </div>
       </div>
     </section>
-  
+    <div class="container animate__animated animate__fadeIn">    
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      <ul class="flash">
+          {% for category, message in messages %}
+            {% if message %}
+              <div class="alert alert-{{ category }} " role="alert" id="alert">
+                {{ message }}
+              </div>
+            {% endif %}
+          {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}</div>
     <div class="album py-5 bg-body-tertiary">
       <div class="container">
   
@@ -51,21 +65,32 @@
                   <p class="card-text-price">Price: ${{ product['price'] }}</p>
                   <p class="card-text-stock">Stock: {{ product['stock'] }}</p>
                 </div>
+                
                 <div class="d-flex justify-content-between align-items-center">
+                  {% if product['stock'] > 0 %}
                   <form id="add_to_cart-form" method="POST" action="{{ url_for('cart.add_to_cart') }}">
-                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                    <input type="hidden" name="product_id" value="{{ product['id'] }}"/>
-                    <button class="btn btn-outline-success w-100 py-2" type="submit" id="button">Add to Cart</button>
+                    <div class="row align-items-center">
+                      <label for="quantity" class="col-auto">Quantity:</label>
+                      <div class="col-auto">
+                        <input type="number" id="quantity" class="form-control" aria-label="Quantity" name="quantity" value="1" max="{{ product['stock'] }}" min="1">
+                      </div>
+                      <div class="col-auto"> <!-- Place the button in the same row -->
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="product_id" value="{{ product['id'] }}">
+                        <button class="btn btn-outline-success" type="submit" id="button">Add to Cart</button>
+                      </div>
+                    </div>
                   </form>
-                  <!-- <small class="text-body-secondary">9 mins</small> -->
+                  {% else %}
+                  <button class="btn btn-danger" type="submit" id="button" disabled>Out of Stock</button>
+                  {% endif %}
                 </div>
               </div>
             </div>
           </div>
           <!-- Product card END-->
           {% endfor %}
+          </div>
+          </div>
   </main>
 {% endblock %}
-
-
-

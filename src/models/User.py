@@ -2,6 +2,15 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 db = SQLAlchemy()
 
+# Define the Role data-model
+class Role(db.Model):
+    __tablename__ = 'roles'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), unique=True, nullable=False)
+    #Defines the relationship with the "User" table/class
+    #Along with 'roles' in 'User' forms bidirectional relationship
+    user = db.relationship('User', back_populates='roles') #'uselist' is not used here as I want multiple user to have 'admin'/'customer' role.
+
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
@@ -12,16 +21,33 @@ class User(UserMixin, db.Model):
     last_name = db.Column(db.String(80), nullable=False)
     password = db.Column(db.String(255), nullable=False)
 
-    # Define the 'roles' relationship with explicit foreign key
-    roles = db.relationship('Role', back_populates='user', uselist=False)  # Assuming one-to-one relationship
-
-# Define the Role data-model
-class Role(db.Model):
-    __tablename__ = 'roles'
+    #Defines the relationship with the "Role" table/class
+    #Along with 'user' in 'Role' forms bidirectional relationship
+    roles = db.relationship('Role', back_populates='user', uselist=False) #'uselist' ensures that each user can have at most one role.
+    orders = db.relationship('Order', back_populates='user')
+    
+class Order(db.Model):
+    __tablename__ = 'orders'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), unique=True, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
+    date = db.Column(db.DateTime, nullable=False)
+    total_price = db.Column(db.Float, nullable=False)
 
-    user = db.relationship('User', back_populates='roles', uselist=False)  # Assuming one-to-one relationship
+    user = db.relationship('User', back_populates='orders', uselist=False) #'uselist' ensures that each order can be associated with only one user.
+    order_items = db.relationship('OrderItems', back_populates='order')
+
+
+class OrderItems(db.Model):
+    __tablename__ = 'order_items'
+    id = db.Column(db.Integer, primary_key=True)
+    product_id = db.Column(db.Integer, db.ForeignKey('products.id'), nullable=False)
+    order_id = db.Column(db.Integer, db.ForeignKey('orders.id', ondelete='CASCADE'), nullable=False)
+    quantity = db.Column(db.Integer, nullable=False)
+    total = db.Column(db.Float, nullable=False)
+
+    product = db.relationship('Product', back_populates='order_items')
+    order = db.relationship('Order', back_populates='order_items')
+
 
 class Product(db.Model):
     __tablename__ = 'products'
@@ -33,8 +59,9 @@ class Product(db.Model):
     image = db.Column(db.String(255), nullable=False)
     includes = db.Column(db.ARRAY(db.String(255)))
 
-    # Define the many-to-many relationship with categories
+    order_items = db.relationship('OrderItems', back_populates='product')
     categories = db.relationship('Category', secondary='product_categories')
+
 
 class Category(db.Model):
     __tablename__ = 'categories'

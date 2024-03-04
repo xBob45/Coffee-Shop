@@ -4,7 +4,7 @@ def update_user():
     if request.method == 'POST':
         try:
             validate_csrf(request.form.get('csrf_token'))
-            id = request.form.get("edit_id")
+            id = current_user.id
             username = request.form.get("edit_username")
             email = request.form.get("edit_email")
             first_name = request.form.get("edit_fn")
@@ -38,11 +38,13 @@ def update_user():
                 #WeakHashFunctionWithSalt-1 - END  
                 user.password = password
             db.session.commit()
-            log_config.logging.info("User %s has been sucessfully updated." % username)
+            log_config.logging.info("User with username %s has been sucessfully updated." % username)
             flash("User has been updated.")
         except ValidationError:
-            log_config.logging.error("Missing or invalid CSRF token.")
-        except Exception:
-            flash("Error occureed. Please try again.")
-            log_config.logging.error("Error occureed. Please try again.")
+            log_config.logging.error("User has not beed updated. Missing or invalid CSRF token.")
+            return Forbidden()
+        except Exception as e:
+            log_config.logging.error("User has not been sucessfully updated.\nException: %s" % e)
+            flash("Error occured, try again.")
+            return redirect(request.referrer)  
     return render_template("account/setting.html")

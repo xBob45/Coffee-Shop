@@ -29,12 +29,12 @@ def development():
             try:
                 if scheme in SCHEMES_ALLOWLIST:
                     if domain in DOMAINS_ALLOWLIST:
-                        log_config.logging.info("URL was opened.")
+                        log_config.logging.info("URL %s has been opened." % url)
                         response = urlopen(url)
                         return response.read()
                 else:
                     raise Exception
             except Exception as e:
-                log_config.logging.error("URL was rejected")
-                return render_template('404.html')
+                log_config.logging.error("URL %s has been rejected" % url)
+                return Forbidden()
     return 'This is the development section.'

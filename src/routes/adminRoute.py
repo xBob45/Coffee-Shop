@@ -7,16 +7,13 @@ admin_blueprint = Blueprint('admin', __name__, url_prefix='/admin')
 
 
 #SensitiveDatawithinCookie-3 - START
-#SensitiveDatawithinCookie-3 - END
-
-#ForcedBrowsing-1 - START
 @admin_blueprint.before_request
 def check_if_admin():
     try:
-        """Fix"""
-        #Only authenticated users with role 'admin' can access admin panel
+        """Vulnerability"""
         if current_user.is_authenticated:
-            if current_user.roles.name == 'admin':
+            role = session.get('role')
+            if role == 'admin':
                 return #If everything is OK, let user proceed.
             else:
                 return Forbidden()
@@ -24,6 +21,9 @@ def check_if_admin():
     except Exception:
         log_config.logging.error("Error occurred")
         return BadRequest()
+#SensitiveDatawithinCookie-3 - END
+
+#ForcedBrowsing-1 - START
 #ForcedBrowsing-1 - END
 
 admin_blueprint.route('', methods=['GET'])(admin_panel)

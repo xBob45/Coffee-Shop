@@ -13,7 +13,7 @@
                   <i class="bi bi-cart"></i>
                   <span class="badge rounded-pill badge-notification bg-danger">{{ session['cart']|count }}</span>
               </button>
-              <ul class="dropdown-menu" aria-labelledby="cart" id="dropdown-menu-cart">
+              <ul class="dropdown-menu dropdown-menu animate__animated animate__fadeInDown" aria-labelledby="cart" id="dropdown-menu-cart">
                   {% if session['cart']|count > 0 %}
                       {% for item_id, quantity in session['cart'].items() %}
                           {% set product = get_product_by_id(item_id) %}
@@ -52,14 +52,15 @@
           
             <li class="nav-item dropdown">
                 <!-- StoredXSS-1 - START -->
-                <!-- Vulnerability -->
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{current_user.username | safe}}</a>
+                <!-- Fix -->
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{ current_user.username }}</a>
                 <!-- StoredXSS-1 - END -->
             <ul class="dropdown-menu">
                 <!-- IDOR-1 - START -->
                 <!-- Fix -->
-                <li><a class="dropdown-item" href="{{ url_for('account.setting') }}">Settings</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('account.setting') }}">Account</a></li>
                 <!-- IDOR-1 - END -->
+                <li><a class="dropdown-item" href="{{ url_for('account.orders') }}">Orders</a></li>
                 </ul>
             </li>
             <li class="nav-item">
@@ -81,6 +82,7 @@
     {% endif %}
 {% endblock %}
 {% block content %}
+<div class="container">
 <div id="carouselExampleDark" class="carousel carousel-dark slide">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -132,7 +134,7 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-
+</div>
   
 {% endblock %}
 

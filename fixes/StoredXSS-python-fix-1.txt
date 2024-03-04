@@ -32,11 +32,12 @@ def signup():
             db.session.add(user)
             db.session.commit()
             db.session.close()
-            log_config.logging.info("User %s has been sucessfully deleted." % username)
+            log_config.logging.info("New user with username %s has been created." % username)
             flash("Account has been sucesfully created.")
             return redirect(url_for("auth.login"))
         except ValidationError:
-            log_config.logging.error("Missing or invalid CSRF token.") 
+            log_config.logging.error("User has not beed created. Missing or invalid CSRF token.")
+            return Forbidden() 
         except ValueError:
             return redirect(request.referrer)
         except Exception:

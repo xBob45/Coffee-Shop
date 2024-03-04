@@ -72,6 +72,9 @@ def login():
                     #InsertionOfSensitiveInformationIntoLogFile-1 - END
 
                     #SensitiveDatawithinCookie-1 - START
+                    """Vulnerability"""
+                    user_role = db.session.query(Role.name).join(User, Role.id == User.role_id).filter(User.id == user.id).first()
+                    session['role'] = user_role[0]
                     #SensitiveDatawithinCookie-1 - END
                     return redirect(url_for('home.home'))
             else:
@@ -81,11 +84,12 @@ def login():
                 #ReflectedXSS-1 - END
                 #InsertionOfSensitiveInformationIntoLogFile-3 - START
                 """Vulnerability"""
-                log_config.logging.info("User %s failed to login! Username doesn't exist." % username)
+                log_config.logging.error("User %s failed to login! Username doesn't exist." % username)
                 #InsertionOfSensitiveInformationIntoLogFile-3 - END   
                 return redirect(request.referrer)
         except ValidationError:
-            log_config.logging.error("Missing or invalid CSRF token.")
+            log_config.logging.error("User has not beed updated. Missing or invalid CSRF token.")
+            return Forbidden()
         except argon2.exceptions.VerifyMismatchError:
             #InsertionOfSensitiveInformationIntoLogFile-2 - START
             """Vulnerability"""
@@ -96,9 +100,9 @@ def login():
             flash("Incorrect password.")
             #SensitiveInformationDisclosure-1 - END
         except Exception as e:
-            print(e)
-            log_config.logging.info("Error occured, try again")
-            flash("Unexpected error. Try again, please.")
+            log_config.logging.error("User has not been sucessfully updated.\nException: %s" % e)
+            flash("Error occured, try again.")
+            return redirect(request.referrer)  
     #BruteForce-3 - START
     """Vulnerability"""
     return render_template('auth/login.html')
@@ -107,19 +111,25 @@ def login():
 
 #StoredXSS-1 - START
 def signup():
-    """Vulnerability"""
+    """Fix"""
     if request.method == 'POST':
         try:
             validate_csrf(request.form.get('csrf_token'))
             first_name = request.form.get('first_name')
-            #User input is not beeing validated in any way.
+            #Function compares user input against allowed pattern.
+            input_validation(first_name, 'First name')
             last_name = request.form.get('last_name')
-            #User input is not beeing validated in any way.
+            #Function compares user input against allowed pattern.
+            input_validation(last_name, 'Last name')
             email = request.form.get('email')
-            #User input is not beeing validated in any way.
+            #Function compares user input against allowed pattern.
+            email_validation(email)
             username= request.form.get('username')
-            #User input is not beeing validated in any way.
+            #Function compares user input against allowed pattern.
+            input_validation(username, 'Username')
             password = request.form.get('password')
+            check_if_exists('email', email, 'Email')
+            check_if_exists('username', username, 'Username')
             #WeakPasswordRequirements-1 - START
             """Vulnerability"""
             #There is no check of length and complexity of a password.
@@ -128,21 +138,21 @@ def signup():
             #CompleteOmissionOfHashFunction-1 - END
             #WeakHashFunction-1 - START
             #WeakHashFunction-1 - END
+
             #WeakHashFunctionWithSalt-1 - START
             """Fix"""
             password = ph.hash(password)
-            #WeakHashFunctionWithSalt-1 - END  
-            check_if_exists('email', email, 'Email')
-            check_if_exists('username', username, 'Username')
+            #WeakHashFunctionWithSalt-1 - END            
             user = User(role_id=2, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
             db.session.add(user)
             db.session.commit()
             db.session.close()
-            log_config.logging.info("User %s has been sucessfully deleted." % username)
+            log_config.logging.info("New user with username %s has been created." % username)
             flash("Account has been sucesfully created.")
             return redirect(url_for("auth.login"))
         except ValidationError:
-            log_config.logging.error("Missing or invalid CSRF token.") 
+            log_config.logging.error("User has not beed created. Missing or invalid CSRF token.")
+            return Forbidden() 
         except ValueError:
             return redirect(request.referrer)
         except Exception:
@@ -158,11 +168,14 @@ def signup():
 def logout():
     """Fix"""
     #SensitiveDatawithinCookie-2 - START
+    """Vulnerability"""
+    session.pop('role')
     #SensitiveDatawithinCookie-2 - END
     session.pop('cart')
     session.pop('total')
+    username = current_user.username
     logout_user()
-    log_config.logging.info("User logged out.")
+    log_config.logging.info("User with username %s logged out." % username)
     flash("You were logged out.")
     return redirect(url_for("auth.login"))
 #InsufficientSessionInvalidation-1 - END
@@ -187,7 +200,7 @@ def input_validation(input, field):
     allowed_pattern = "^[a-zA-Z\-']+$"
     if not re.match(allowed_pattern, input):
         log_config.logging.error("Invalid %s." % field)
-        flash("Invalid %s. Only A-Z/a-z and 0-9 are allowed. Please, try again." % field)
+        flash("Invalid %s. Only A-Z/a-z are allowed. Please, try again." % field)
         raise ValueError
     
 def email_validation(input):

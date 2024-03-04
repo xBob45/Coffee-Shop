@@ -99,3 +99,25 @@ INSERT INTO product_categories (product_id, category_id) VALUES
     (22,3),
     (23,3),
     (24,3);
+
+
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    total_price FLOAT NOT NULL,
+    date TIMESTAMP NOT NULL
+);
+
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price FLOAT NOT NULL
+);
+
+CREATE TABLE order_items (
+    id SERIAL PRIMARY KEY,
+    product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
+    order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
+    quantity INTEGER NOT NULL,
+    total FLOAT NOT NULL
+);
