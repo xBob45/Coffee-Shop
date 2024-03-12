@@ -3,6 +3,11 @@ def signup():
     """Fix"""
     if request.method == 'POST':
         try:
+            response = request.form.get('g-recaptcha-response')
+            verify_response = requests.post(url='%s?secret=%s&response=%s' % (VERIFY_URL, SECRET_KEY, response)).json()
+            if verify_response.get('success') != True:
+                log_config.logging.error("Failed reCAPTCHA.")
+                return Forbidden()
             validate_csrf(request.form.get('csrf_token'))
             first_name = request.form.get('first_name')
             #Function compares user input against allowed pattern.
@@ -32,16 +37,16 @@ def signup():
             db.session.add(user)
             db.session.commit()
             db.session.close()
-            log_config.logging.info("New user with username %s has been created." % username)
+            log_config.logging.info("New user with username %s was successfully created." % username)
             flash("Account has been sucesfully created.")
             return redirect(url_for("auth.login"))
         except ValidationError:
-            log_config.logging.error("User has not beed created. Missing or invalid CSRF token.")
+            log_config.logging.error("User was not created. Missing or invalid CSRF token.")
             return Forbidden() 
         except ValueError:
             return redirect(request.referrer)
-        except Exception:
-            log_config.logging.info("Error occured.")
-            flash("Error occured.")
+        except Exception as e:
+            log_config.logging.error("User was not successfully created. Exception: %s" % e)
+            flash("Error occured, try again.")
             redirect(request.referrer)         
-    return render_template("auth/signup.html")
+    return render_template('auth/signup.html', site_key = SITE_KEY)

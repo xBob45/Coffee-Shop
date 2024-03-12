@@ -22,12 +22,12 @@ def add_to_cart():
             if product_id in session['cart'].keys():
                 if session['cart'][product_id] + int(quantity) > product.stock:
                     session['cart'][product_id] += 0
-                    log_config.logging.error("User with username %s tried to put an invalid amount of %s %s  pinto the cart." % (current_user.username, quantity, product.name))
+                    log_config.logging.error("User with username %s tried to put an invalid amount of %s %s  into the cart." % (current_user.username, quantity, product.name))
                     flash("Invalid amount.", 'danger')
                 else:
                     session['cart'][product_id] += int(quantity)
                     log_config.logging.info("User with username %s added amount of %s of product into the cart." % (current_user.username, quantity))
-                    flash("Product added to cart.", 'success')
+                    flash("Product added to the cart.", 'success')
             else:
                 if int(quantity) > product.stock:
                     session['cart'][product_id] = 0
@@ -36,7 +36,7 @@ def add_to_cart():
                 else:
                     session['cart'][product_id] = int(quantity)
                     log_config.logging.info("User with username %s added amount of %s of product into the cart." % (current_user.username, quantity))
-                    flash("Product added to cart.", 'success')
+                    flash("Product added to the cart.", 'success')
             
             session['total'] += product.price*float(quantity)
             session.modified = True
@@ -90,6 +90,6 @@ def create_order():
             except ValidationError:
                 log_config.logging.error("Missing or invalid CSRF token.")
             except Exception as e:
-                log_config.logging.error("Error occured, try again")
+                log_config.logging.error("Error occured, try again.\nException: %s" % e)
                 return BadRequest()
         return BadRequest()

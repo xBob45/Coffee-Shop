@@ -6,7 +6,6 @@ def delete_user():
             validate_csrf(request.form.get('csrf_token'))
             id = current_user.id
             user = User.query.filter_by(id=id).first()
-            user_id = user.id
             if user is not None:
                 #SensitiveDatawithinCookie-2 - START
                 #SensitiveDatawithinCookie-2 - END
@@ -16,15 +15,15 @@ def delete_user():
                 db.session.delete(user)
                 db.session.commit()
                 db.session.close()
-                log_config.logging.info("User with ID %s has been deleted." % user_id)
+                log_config.logging.info("User with ID %s was deleted." % user.username)
                 return redirect(url_for("auth.login"))
             else:
                 flash("User doesn't exists.")
                 return redirect(request.referrer)
         except ValidationError:
-            log_config.logging.error("User has not been deleted. Missing or invalid CSRF token.")
+            log_config.logging.error("User was not deleted. Missing or invalid CSRF token.")
             return Forbidden()
         except Exception as e:
-            log_config.logging.error("User with ID %s has not been deleted.\nException: %s." % (user_id, e))
+            log_config.logging.error("User with ID %s was not deleted. Exception: %s." % (user.username, e))
             return redirect(request.referrer)
     return redirect(request.referrer)

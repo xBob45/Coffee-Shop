@@ -67,12 +67,12 @@ def update_user():
             log_config.logging.info("User with username %s has been sucessfully updated." % username)
             flash("User has been updated.")
         except ValidationError:
-            log_config.logging.error("User has not beed updated. Missing or invalid CSRF token.")
+            log_config.logging.error("User was not updated. Missing or invalid CSRF token.")
             return Forbidden()
         except ValueError:
             return redirect(request.referrer)
         except Exception as e:
-            log_config.logging.error("User has not been sucessfully updated.\nException: %s" % e)
+            log_config.logging.error("User was not successfully updated. Exception: %s" % e)
             flash("Error occured, try again.")
             return redirect(request.referrer)     
     return render_template("account/setting.html")
@@ -86,7 +86,6 @@ def delete_user():
         try:
             id = current_user.id
             user = User.query.filter_by(id=id).first()
-            user_id = user.id
             if user is not None:
                 #SensitiveDatawithinCookie-2 - START
                 """Vulnerability"""
@@ -98,14 +97,14 @@ def delete_user():
                 db.session.delete(user)
                 db.session.commit()
                 db.session.close()
-                log_config.logging.info("User with username %s has been deleted." % username)
+                log_config.logging.info("User with username %s was deleted." % user.username)
                 return redirect(url_for("auth.login"))
             else:
                 flash("User doesn't exists.")
                 return redirect(request.referrer)
         except Exception as e:
             flash("Error occureed. Please try again.")
-            log_config.logging.error("User with username %s has not been deleted.\nException: %s." % (username, e))
+            log_config.logging.error("User with username %s was not deleted. Exception: %s." % (user.username, e))
             return redirect(request.referrer)
     return redirect(request.referrer)
 #CSRF-3 - END

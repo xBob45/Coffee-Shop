@@ -42,18 +42,15 @@
             </fieldset>
             <button type="submit" class="btn btn-outline-success" id="button-success">Add</button>
         </form>
-        {% with messages = get_flashed_messages() %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
         <ul class="flash">
-            {% for message in messages %}
-                {% if message == 'User has sucesfully been added to the database.' %}
-                    <div class="alert alert-success" role="alert" id="alert-success">
+            {% for category, message in messages %}
+                {% if message %}
+                <div class="alert alert-{{ category }} animate__animated animate__fadeIn " role="alert" id="alert">
                     {{ message }}
-                {% else %}
-                    <div class="alert alert-danger" role="alert" id="alert-danger">
-                    {{ message }} 
-                {% endif %}    
-            </div>
+                </div>
+                {% endif %}
             {% endfor %}
         </ul>
         {% endif %}

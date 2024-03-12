@@ -2,22 +2,14 @@
     --bs-dropdown-link-active-bg: #198754c7 !important;
 }
 
+
+
 .dropdown-menu.show {
   animation: fadeInDown 0.6s ease forwards;
 }
 .dropdown-menu.hide {
   animation: fadeOutUp 0.6s ease forwards;
 }
-
-#button-outline {
-  border-color: #198754c7;
-}
-
-#button-outline:hover {
-background-color: #198754f2;
-border-color: #198754f2;
-}
-
 
 .navbar-nav .nav-item {
   margin: 7px;

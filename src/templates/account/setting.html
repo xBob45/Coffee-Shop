@@ -55,7 +55,7 @@
     
     {% with messages = get_flashed_messages() %}
     {% if messages %}
-    <ul class="flash">
+    <ul class="flash animate__animated animate__fadeIn">
         {% for message in messages %}
         {% if message == 'User has been updated.' %}
             <div class="alert alert-success" role="alert" id="setting-alert">

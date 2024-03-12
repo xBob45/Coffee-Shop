@@ -25,19 +25,21 @@ def guide_reader():
     if re.match(allowed_pattern, file_name):
         guides_dir = os.path.join(os.getcwd(), 'src', 'guides')
         requested_file = os.path.join(guides_dir, file_name)
-        log_config.logging.info("Requested filename: %s" % requested_file)
+        log_config.logging.info("User %s requested: %s" % (current_user.username, requested_file))
 
     #SECOND MEASURE OF PROTECTION -> PATH VALIDATION
         if check_path(guides_dir, requested_file):
             try:
                 with open(requested_file, 'r') as file:
-                    log_config.logging.info("Opened file: %s" % file)
+                    log_config.logging.info("User %s opened: %s" % (current_user.username, requested_file))
                     content = file.read()
                 return render_template("public/guide.html", content=content)
             except FileNotFoundError:
-                abort(404)
+                log_config.logging.error("User %s failed to open: %s." % (current_user.username, requested_file))
+                return NotFound()
         else:
-            abort(404)
+            log_config.logging.error("User %s failed to open: %s" % (current_user.username, requested_file))
+            return BadRequest()
     else:
-        #print("Unallowed pattern")
-        abort(404)
+        log_config.logging.error("User %s failed to open: %s" % (current_user.username, file_name))
+        return BadRequest()

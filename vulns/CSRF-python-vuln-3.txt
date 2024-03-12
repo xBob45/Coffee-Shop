@@ -5,7 +5,6 @@ def delete_user():
         try:
             id = current_user.id
             user = User.query.filter_by(id=id).first()
-            user_id = user.id
             if user is not None:
                 #SensitiveDatawithinCookie-2 - START
                 #SensitiveDatawithinCookie-2 - END
@@ -15,13 +14,13 @@ def delete_user():
                 db.session.delete(user)
                 db.session.commit()
                 db.session.close()
-                log_config.logging.info("User with username %s has been deleted." % username)
+                log_config.logging.info("User with username %s was deleted." % user.username)
                 return redirect(url_for("auth.login"))
             else:
                 flash("User doesn't exists.")
                 return redirect(request.referrer)
         except Exception as e:
             flash("Error occureed. Please try again.")
-            log_config.logging.error("User with username %s has not been deleted.\nException: %s." % (username, e))
+            log_config.logging.error("User with username %s was not deleted. Exception: %s." % (user.username, e))
             return redirect(request.referrer)
     return redirect(request.referrer)

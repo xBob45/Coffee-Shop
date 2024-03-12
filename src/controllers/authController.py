@@ -21,10 +21,13 @@ from argon2 import PasswordHasher
 import argon2
 ph = PasswordHasher()
 
-#BruteForce-1 - START
-"""Vulnerability"""
-"""No reCAPTCHA"""
-#BruteForce-1 - END
+
+load_dotenv()
+SITE_KEY = os.getenv("CAPTCHA_SITE_KEY")
+SECRET_KEY = os.getenv("CAPTCHA_SECRET_KEY")
+VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify'
+
+
 #SQLInjection-1 - START
 def login():
     """Fix"""
@@ -68,7 +71,7 @@ def login():
 
                     #InsertionOfSensitiveInformationIntoLogFile-1 - START
                     """Vulnerability"""
-                    log_config.logging.info("User with %s username succesfully logged in with password %s password." % (username, password))
+                    log_config.logging.info("User with %s username successfully logged in with password %s password." % (username, password))
                     #InsertionOfSensitiveInformationIntoLogFile-1 - END
 
                     #SensitiveDatawithinCookie-1 - START
@@ -88,7 +91,7 @@ def login():
                 #InsertionOfSensitiveInformationIntoLogFile-3 - END   
                 return redirect(request.referrer)
         except ValidationError:
-            log_config.logging.error("User has not beed updated. Missing or invalid CSRF token.")
+            log_config.logging.error("User was not updated. Missing or invalid CSRF token.")
             return Forbidden()
         except argon2.exceptions.VerifyMismatchError:
             #InsertionOfSensitiveInformationIntoLogFile-2 - START
@@ -100,7 +103,7 @@ def login():
             flash("Incorrect password.")
             #SensitiveInformationDisclosure-1 - END
         except Exception as e:
-            log_config.logging.error("User has not been sucessfully updated.\nException: %s" % e)
+            log_config.logging.error("User was not updated. Exception: %s" % e)
             flash("Error occured, try again.")
             return redirect(request.referrer)  
     #BruteForce-3 - START
@@ -114,6 +117,12 @@ def signup():
     """Fix"""
     if request.method == 'POST':
         try:
+            response = request.form.get('g-recaptcha-response')
+            verify_response = requests.post(url='%s?secret=%s&response=%s' % (VERIFY_URL, SECRET_KEY, response)).json()
+            print(verify_response)
+            if verify_response.get('success') != True:
+                log_config.logging.error("Failed reCAPTCHA.")
+                return Forbidden()
             validate_csrf(request.form.get('csrf_token'))
             first_name = request.form.get('first_name')
             #Function compares user input against allowed pattern.
@@ -147,19 +156,19 @@ def signup():
             db.session.add(user)
             db.session.commit()
             db.session.close()
-            log_config.logging.info("New user with username %s has been created." % username)
+            log_config.logging.info("New user with username %s was created." % username)
             flash("Account has been sucesfully created.")
             return redirect(url_for("auth.login"))
         except ValidationError:
-            log_config.logging.error("User has not beed created. Missing or invalid CSRF token.")
+            log_config.logging.error("User was not created. Missing or invalid CSRF token.")
             return Forbidden() 
         except ValueError:
             return redirect(request.referrer)
-        except Exception:
-            log_config.logging.info("Error occured.")
-            flash("Error occured.")
+        except Exception as e:
+            log_config.logging.error("User was not successfully created. Exception: %s" % e)
+            flash("Error occured, try again.")
             redirect(request.referrer)         
-    return render_template("auth/signup.html")
+    return render_template('auth/signup.html', site_key = SITE_KEY)
 
 #StoredXSS-1 - END
 
@@ -192,23 +201,23 @@ def check_if_exists(model_field, value, field):
     exists = User.query.filter_by(**{model_field: value}).first()
     if exists:
         log_config.logging.error("%s already exists." % field)
-        flash("%s already exists. Please try again!" % field)
+        flash("%s already exists. Please try again!" % field, "danger")
         raise ValueError
     
 def input_validation(input, field):
     """Function checks for malicious content in fname, lname and username"""
     allowed_pattern = "^[a-zA-Z\-']+$"
     if not re.match(allowed_pattern, input):
-        log_config.logging.error("Invalid %s." % field)
-        flash("Invalid %s. Only A-Z/a-z are allowed. Please, try again." % field)
+        log_config.logging.error("User entered an invalid %s." % (field))
+        flash("Invalid %s. Only A-Z/a-z are allowed. Please, try again." % field, "danger")
         raise ValueError
     
 def email_validation(input):
     """Function checks for malicious content in fname, lname and username"""
     allowed_pattern = "^[a-zA-Z0-9@.]+$"
     if not re.match(allowed_pattern, input):
-        log_config.logging.error("Invalid email.")
-        flash("Invalid email. Please, use only A-Z/a-z and 0-9 are allowed. Please, try again.")
+        log_config.logging.error("User entered an invalid email.")
+        flash("Invalid email. Please, use only A-Z/a-z and 0-9 are allowed. Please, try again.", "danger")
         raise ValueError
     
 def md5_salted(password):

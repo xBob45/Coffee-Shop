@@ -1,5 +1,6 @@
 import functools
 from flask import (flash, redirect, render_template, request, abort, url_for, jsonify)
+from flask_login import current_user
 from src.models.User import User, Role
 from src.models.User import db
 import subprocess
@@ -12,15 +13,30 @@ import src.log_config as log_config
 from flask_wtf.csrf import validate_csrf, ValidationError
 from hashlib import md5
 from passlib.hash import md5_crypt
-from werkzeug.exceptions import Forbidden
+from werkzeug.exceptions import Forbidden, BadRequest
 
 #OSCommandInjection-1 - START
 def execute_command():
-    """Vulnerability"""
-    command = request.args.get('command')
-    log_config.logging.info("Command: %s." % command)
-    result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
-    return jsonify(result=result)
+    """Fix"""
+    try:
+        command_value = request.args.get('command')
+        if len(command_value) != 1:
+            log_config.logging.error("User %s tried to run command %s and failed." % (current_user.username, command_value))
+            return BadRequest()
+        else:
+            if command_value == '1':
+                command = 'systemctl status apache2'
+            elif command_value == '2':
+                command = 'systemctl status postgresql'
+            else:
+                log_config.logging.error("User %s tried to run command %s->None and failed." % (current_user.username, command_value, command))
+                return BadRequest()
+            result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+            log_config.logging.info("User %s ran %s command" % (current_user.username, command))
+            return jsonify(result=result)
+    except Exception as e:
+        log_config.logging.error("User %s failed to run command %s.\nException: %s" % (current_user.username, command_value, e))
+        return BadRequest()
 #OSCommandInjection-1 - END
 
 def admin_panel():
@@ -48,13 +64,18 @@ def admin_panel():
         apache_message = "Apache is down"
         log_config.logging.info(apache_message)
     try:
-        log_file = "../app.log"
+        log_file = "src/logs/app.log"
         with open(log_file, 'r') as file:
             log_content = file.read()
             file.close()
-    except:
+    except FileNotFoundError:
         log_content = "Error occured while loading the file."
         log_config.logging.info(log_content)
+    except Exception as e:
+            log_config.logging.error("Error occured, try again. Exception: %s" % e)
+            flash("Error occured, try again.","danger")
+            redirect(request.referrer)
+
     return render_template("admin/admin_panel.html", postgre_message=postgre_message, apache_message=apache_message, log_content=log_content)
 
 def add_user():
@@ -100,18 +121,18 @@ def add_user():
             user = User(role_id=role, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
             db.session.add(user)
             db.session.commit()
-            log_config.logging.info("New user with username %s has been created." % username)
-            flash("User has sucesfully been created.")
+            log_config.logging.info("User %s created a new user with username %s." % (current_user.username, username))
+            flash("User has sucesfully been created.","success")
             #This implements the  Post/Redirect/Get (PRG) to prevent data re-insertion when reload.
             return redirect(url_for('admin.add_user'))
         except ValidationError:
-            log_config.logging.error("New user has not been created. Missing or invalid CSRF token.")
+            log_config.logging.error("New user was not created. Missing or invalid CSRF token.")
             return Forbidden()
         except ValueError:
             return redirect(request.referrer)
-        except Exception:
-            log_config.logging.error("New user has not been created")
-            flash("Error occured, try again.")
+        except Exception as e:
+            log_config.logging.error("Failed to create a new user. Exception: %s" % e)
+            flash("Error occured, try again.", "error")
             redirect(request.referrer)
     return render_template("admin/admin_panel_add.html")
 
@@ -122,19 +143,23 @@ def view_user():
         try:
             validate_csrf(request.form.get('csrf_token'))
             username = request.form.get("view_username")
-            user = User.query.filter_by(username=username).first()
-            print(user)
-            if user is not None:
-                return render_template("admin/admin_panel_view_and_update.html", user=user)
+            if username:
+                user = User.query.filter_by(username=username).first()
+                if user is not None:
+                    return render_template("admin/admin_panel_view_and_update.html", user=user)
+                else:
+                    flash("User doesn't exists.", "danger")  
+                    log_config.logging.error("User %s failed to view user with username %s. User doesn't exists." % (current_user.username, username))  
             else:
-                flash("User doesn't exists.")  
-                log_config.logging.error("Failed to view user with username %s. User doesn't exists." % username)  
+                log_config.logging.error("User %s failed to view user. No username supplied." % current_user.user)
+                flash("No username provided, try again.","danger")
+                return redirect(request.referrer)
         except ValidationError:
             log_config.logging.error("Failed to view user with username %s. Missing or invalid CSRF token." % username)
         except Exception as e:
             log_config.logging.error("Failed to view user with username.\nException: %s" % e)
-            flash("Error occured. Please try again.")
-            redirect(request.referrer)
+            flash("Error occured. Please try again.","danger")
+            return redirect(request.referrer)
     return render_template("admin/admin_panel_view_and_update.html")
 
 def update_user():
@@ -142,7 +167,6 @@ def update_user():
         try:
             validate_csrf(request.form.get('csrf_token'))
             id = request.form.get("edit_id")
-            print(id)
             username = request.form.get("edit_username")
             email = request.form.get("edit_email")
             first_name = request.form.get("edit_fn")
@@ -183,16 +207,16 @@ def update_user():
                 user.password = password
             user.role_id = role
             db.session.commit()
-            log_config.logging.info("User with username %s has been sucessfully updated." % username)
-            flash("User has been updated.")
+            log_config.logging.info("User %s succesfully updated user with username %s." % (current_user.username, username))
+            flash("User has been updated.", "success")
         except ValidationError:
-            log_config.logging.error("User has not beed updated. Missing or invalid CSRF token.")
+            log_config.logging.error("User was not. Missing or invalid CSRF token.")
             return Forbidden()
         except ValueError:
             return redirect(request.referrer)
         except Exception as e:
             log_config.logging.error("User has not been sucessfully updated.\nException: %s" % e)
-            flash("Error occured, try again.")
+            flash("Error occured, try again.","danger")
             redirect(request.referrer)    
     return render_template("admin/admin_panel_view_and_update.html")
 
@@ -207,18 +231,18 @@ def delete_user():
             if user is not None:
                 db.session.delete(user)
                 db.session.commit()
-                log_config.logging.info("User with username %s has been deleted." % username)
-                flash("User has been deleted.")
+                log_config.logging.info("User with username %s was deleted." % username)
+                flash("User has been deleted.","danger")
             else:
-                log_config.logging.error("User with username %s has not been deleted due to non-existence." % username)
-                flash("User doesn't exists.")
+                log_config.logging.error("User with username %s could not be deleted due to non-existence." % username)
+                flash("User doesn't exists.","danger")
                 redirect(request.referrer)
         except ValidationError:
-            log_config.logging.error("User has not beed deleted. Missing or invalid CSRF token.")
+            log_config.logging.error("User was not deleted. Missing or invalid CSRF token.")
             return Forbidden()
         except Exception as e:
-            log_config.logging.error("User has not been deleted.\nException: %s" % e)
-            flash("Error occured.")
+            log_config.logging.error("User was not deleted. Exception: %s" % e)
+            flash("Error occured.","danger")
             redirect(request.referrer)
     return render_template("admin/admin_panel_delete.html")
 
@@ -254,13 +278,17 @@ def development():
             try:
                 if scheme in SCHEMES_ALLOWLIST:
                     if domain in DOMAINS_ALLOWLIST:
-                        log_config.logging.info("URL %s has been opened." % url)
+                        log_config.logging.info("User %s successfully opened URL %s." % (current_user.username, url))
                         response = urlopen(url)
                         return response.read()
+                    else:
+                        log_config.logging.error("User %s tried to open URL %s and failed. Provided domain is prohibited." % (current_user.username, url)) 
+                        return Forbidden()
                 else:
-                    raise Exception
+                    log_config.logging.error("User %s tried to open URL %s and failed. Provided scheme is prohibited." % (current_user.username, url))
+                    return Forbidden()
             except Exception as e:
-                log_config.logging.error("URL %s has been rejected" % url)
+                log_config.logging.error("User %s tried to open URL %s and failed. Exception: %s" % (current_user.username, url, e))
                 return Forbidden()
-    return 'This is the development section.'
+    return 'This section is currently under development.'
 #SSRF-1 - END

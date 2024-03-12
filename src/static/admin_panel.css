@@ -1,7 +1,3 @@
-.dropdown-menu{
-    --bs-dropdown-link-active-bg: #198754c7 !important;
-}
-
 .navbar-nav .nav-item {  
     margin: 7px;
   }
@@ -17,15 +13,6 @@
  .row{
   padding-top: 10px;
  }
-
- #button-success {
-  border-color: #198754c7;
-}
-
-#button-success:hover {
-background-color: #198754f2;
-border-color: #198754f2;
-}
 
 #button-danger {
   border-color: #ff000085;
@@ -68,4 +55,8 @@ border-color: #ff0000a1;
   margin-right: 10px;
   margin-left: -6px;
   height: 39px 
+}
+
+.flash {
+  animation: fadeOut 1s ease-in-out 2s forwards;
 }

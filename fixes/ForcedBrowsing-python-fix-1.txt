@@ -10,6 +10,6 @@ def check_if_admin():
             else:
                 return Forbidden()
         return redirect(url_for('auth.login'))
-    except Exception:
-        log_config.logging.error("Error occurred")
+    except Exception as e:
+        log_config.logging.error("Error occurred while trying to access the admin panel. Exception: %s" % e)
         return BadRequest()

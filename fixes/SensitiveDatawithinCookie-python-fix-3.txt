@@ -6,10 +6,12 @@ def check_if_admin():
         #Only authenticated users with role 'admin' can access admin panel
         if current_user.is_authenticated:
             if current_user.roles.name == 'admin':
+                log_config.logging.info("User %s accesed the admin panel." % current_user.username)
                 return #If everything is OK, let user proceed.
             else:
+                log_config.logging.error("User %s tried to access the admin panel and failed as a result of insufficient privileges." % current_user.username)
                 return Forbidden()
         return redirect(url_for('auth.login'))
-    except Exception:
-        log_config.logging.error("Error occurred")
+    except Exception as e:
+        log_config.logging.error("Error occured while accessing admin panel.\nException: %s" % e)
         return BadRequest()

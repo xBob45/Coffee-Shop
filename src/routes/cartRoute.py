@@ -5,13 +5,10 @@ from flask_login import login_required
 
 cart_blueprint = Blueprint('cart', __name__, url_prefix='/cart')
 
-
-
 @cart_blueprint.before_request
 @login_required
 def require_login():
     pass
-
 
 cart_blueprint.route('/add', methods=['POST'])(add_to_cart)
 cart_blueprint.route('/delete', methods=['POST'])(delete_from_cart)

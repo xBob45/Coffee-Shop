@@ -8,9 +8,9 @@ def development():
             print(url)
             try:
                 response = urlopen(url)
-                log_config.logging.info("URL %s has been opened." % url)
+                log_config.logging.info("User %s opened URL %s." % (current_user.username, url))s
                 return response.read()
-            except Exception:
-                log_config.logging.error("URL %s has been rejected" % url)
+            except Exception as e:
+                log_config.logging.error("User %s failed tp open URL %s. Exception: %s" % (current_user.username, url, e))
                 return Forbidden()
-    return 'This is development section.'
+    return 'This section is currently under development.'

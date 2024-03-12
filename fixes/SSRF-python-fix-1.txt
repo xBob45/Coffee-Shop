@@ -29,12 +29,16 @@ def development():
             try:
                 if scheme in SCHEMES_ALLOWLIST:
                     if domain in DOMAINS_ALLOWLIST:
-                        log_config.logging.info("URL %s has been opened." % url)
+                        log_config.logging.info("User %s successfully opened URL %s." % (current_user.username, url))
                         response = urlopen(url)
                         return response.read()
+                    else:
+                        log_config.logging.error("User %s tried to open URL %s and failed. Provided domain is prohibited." % (current_user.username, url)) 
+                        return Forbidden()
                 else:
-                    raise Exception
+                    log_config.logging.error("User %s tried to open URL %s and failed. Provided scheme is prohibited." % (current_user.username, url))
+                    return Forbidden()
             except Exception as e:
-                log_config.logging.error("URL %s has been rejected" % url)
+                log_config.logging.error("User %s tried to open URL %s and failed. Exception: %s" % (current_user.username, url, e))
                 return Forbidden()
-    return 'This is the development section.'
+    return 'This section is currently under development.'

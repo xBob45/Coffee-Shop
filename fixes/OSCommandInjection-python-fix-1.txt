@@ -1,16 +1,22 @@
 #src/controllers/adminController.py
 def execute_command():
     """Fix"""
-    command_value = request.args.get('command')
-    log_config.logging.info("Command: %s." % command)
-    if len(command_value) != 1:
-        abort(404)
-    else:
-        if command_value == '1':
-            command = 'systemctl status apache2'
-        elif command_value == '2':
-            command = 'systemctl status postgresql'
+    try:
+        command_value = request.args.get('command')
+        if len(command_value) != 1:
+            log_config.logging.error("User %s tried to run command %s and failed." % (current_user.username, command_value))
+            return BadRequest()
         else:
-            abort(404)
-        result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
-        return jsonify(result=result)
+            if command_value == '1':
+                command = 'systemctl status apache2'
+            elif command_value == '2':
+                command = 'systemctl status postgresql'
+            else:
+                log_config.logging.error("User %s tried to run command %s->None and failed." % (current_user.username, command_value, command))
+                return BadRequest()
+            result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+            log_config.logging.info("User %s ran %s command" % (current_user.username, command))
+            return jsonify(result=result)
+    except Exception as e:
+        log_config.logging.error("User %s failed to run command %s.\nException: %s" % (current_user.username, command_value, e))
+        return BadRequest()

@@ -79,8 +79,8 @@
               <div class="alert alert-danger mx-auto" role="alert" id="services-alert">{{apache_message}}</div>
           {% endif %}
               <div class="text-center">
-                  {# Vulnerability #}
-                  <button type="button" class="btn btn-link" id="services-button" data-bs-toggle="modal" data-bs-target="#resultModal" onclick="executeCommand('systemctl status apache2')">Show status</button>
+                  {# Fix #}
+                  <button type="button" class="btn btn-link" id="services-button" data-bs-toggle="modal" data-bs-target="#resultModal" onclick="executeCommand('1')">Show status</button>
               </div>
           
           <h4 class="text-center">PostgreSQL</h4>
@@ -90,8 +90,8 @@
               <div class="alert alert-danger mx-auto" role="alert" id="services-alert">{{postgre_message}}</div>
           {% endif %}
               <div class="text-center">
-                  {# Vulnerability #}
-                  <button type="button" class="btn btn-link" id="services-button" data-bs-toggle="modal" data-bs-target="#resultModal" onclick="executeCommand('systemctl status postgresql')">Show status</button>
+                  {# Fix #}
+                  <button type="button" class="btn btn-link" id="services-button" data-bs-toggle="modal" data-bs-target="#resultModal" onclick="executeCommand('2')">Show status</button>
               </div>
           {# OSCommandInjection-1 - END #}
             <!-- Modal -->
@@ -173,6 +173,5 @@
           </div>
         </footer>
     </div>
-
   </body>
 </html>

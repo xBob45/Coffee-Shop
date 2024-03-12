@@ -86,17 +86,6 @@
 
 
 /* ------------------My chnges------------------ */
-
-#button {
-  background-color: #198754c7;
-  border-color: #198754c7;
-}
-
-#button:hover {
-  background-color: #198754f2;
-  border-color: #198754f2;
-}
-
 #check-box:checked {
   background-color: #198754c7;
   border-color: #198754c7;

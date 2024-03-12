@@ -38,13 +38,13 @@ def update_user():
                 #WeakHashFunctionWithSalt-1 - END  
                 user.password = password
             db.session.commit()
-            log_config.logging.info("User with username %s has been sucessfully updated." % username)
+            log_config.logging.info("User with username %s was sucessfully updated." % username)
             flash("User has been updated.")
         except ValidationError:
-            log_config.logging.error("User has not beed updated. Missing or invalid CSRF token.")
+            log_config.logging.error("User was not updated. Missing or invalid CSRF token.")
             return Forbidden()
         except Exception as e:
-            log_config.logging.error("User has not been sucessfully updated.\nException: %s" % e)
+            log_config.logging.error("User was not sucessfully updated. Exception: %s" % e)
             flash("Error occured, try again.")
             return redirect(request.referrer)  
     return render_template("account/setting.html")

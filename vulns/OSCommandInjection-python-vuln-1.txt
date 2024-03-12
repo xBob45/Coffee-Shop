@@ -1,7 +1,11 @@
 #src/controllers/adminController.py
 def execute_command():
     """Vulnerability"""
-    command = request.args.get('command')
-    log_config.logging.info("Command: %s." % command)
-    result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
-    return jsonify(result=result)
+    try:
+        command = request.args.get('command')
+        result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+        log_config.logging.info("User %s ran command %s" % (current_user.username, command))
+        return jsonify(result=result)
+    except Exception as e:
+        log_config.logging.error("User %s failed to run command %s.\nException: %s" % (current_user.username, command, e))
+        return BadRequest()

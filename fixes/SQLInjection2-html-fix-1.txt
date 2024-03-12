@@ -25,19 +25,23 @@
                                 <p class="card-text-stock"><br><b>Stock:</b> {{ product.stock }}</p>
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
+                                {% if product['stock'] > 0 %}
                                 <form id="add_to_cart-form" method="POST" action="{{ url_for('cart.add_to_cart') }}">
-                                    <div class="row align-items-center">
-                                        <label for="quantity" class="col-auto"><b>Quantity:</b></label>
-                                        <div class="col-auto">
-                                            <input type="number" id="quantity" class="form-control" aria-label="Quantity" name="quantity" value="1" max="{{ product['stock'] }}" min="1">
-                                        </div>
-                                        <div class="col-auto"> <!-- Place the button in the same row -->
-                                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                                            <input type="hidden" name="product_id" value="{{ product['id'] }}">
-                                            <button class="btn btn-outline-success" type="submit" id="button">Add to Cart</button>
-                                        </div>
+                                  <div class="row align-items-center">
+                                    <label for="quantity" class="col-auto">Quantity:</label>
+                                    <div class="col-auto">
+                                      <input type="number" id="quantity" class="form-control" aria-label="Quantity" name="quantity" value="1" max="{{ product['stock'] }}" min="1">
                                     </div>
+                                    <div class="col-auto"> <!-- Place the button in the same row -->
+                                      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                      <input type="hidden" name="product_id" value="{{ product['id'] }}">
+                                      <button class="btn btn-outline-success" type="submit" id="button">Add to Cart</button>
+                                    </div>
+                                  </div>
                                 </form>
+                                {% else %}
+                                <button class="btn btn-danger" type="submit" id="button" disabled>Out of Stock</button>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

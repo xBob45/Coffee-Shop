@@ -11,4 +11,5 @@
     margin-top: 10px;
     margin-left: -34px;
     text-align: center;
+    animation: fadeOut 1s ease-in-out 2s forwards;
 }

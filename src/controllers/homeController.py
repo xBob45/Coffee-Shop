@@ -1,6 +1,7 @@
 import functools
 import os
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for, send_file, abort)
+from flask_login import current_user
 import re
 from urllib.request import urlopen
 from urllib.error import URLError
@@ -9,6 +10,7 @@ from src.models.User import Product, Category, ProductCategory
 from src.models.User import db
 from sqlalchemy.sql import text
 import src.log_config as log_config
+from werkzeug.exceptions import BadRequest, NotFound
 
 def home():
     return render_template("public/home.html")
@@ -17,25 +19,50 @@ def tips_and_tricks():
     return render_template("public/tips_and_tricks.html")
 
 #PathTraversal-1 - START
+def check_path(basedir, path, follow_symlinks=True):
+    """Fix"""
+    #Function checks for safety of a given path.
+    # basedir - base dir against which 'path' is compared -> /home/vojta/Bakalarka/Coffee-Shop/src/guides
+    # path - path that subject of control -> /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt[OK] or /etc/passwd[NOT OK]
+    # follow_symlinks - if 'True' function will also resolve symbolic links and checks if it safe.
+    if follow_symlinks:
+        #Resolves the symbolic links if any
+        matchpath = os.path.realpath(path)
+        #print(matchpath)
+    else:
+        matchpath = os.path.abspath(path)
+        #print(matchpath)
+            
+    #Return 'True' or 'False' based on if base directory is the common directory between 'basedir' and 'matchpath'
+    #print(basedir)
+    print(basedir == os.path.commonpath((basedir, matchpath)))
+    return basedir == os.path.commonpath((basedir, matchpath))
+
 def guide_reader():
-    """Vulnerability"""
-    #../../../../../../etc/passwd
-    #Extracts file from 'file_name' parameter
     file_name = request.args.get('file_name')
-    log_config.logging.info("Requested filename: %s" % file_name)
+    #FIRST MEASURE OF PROTECTION -> ALLOWED PATTERN
+    allowed_pattern = r'^[guide0-9.txt]+$'
+    if re.match(allowed_pattern, file_name):
+        guides_dir = os.path.join(os.getcwd(), 'src', 'guides')
+        requested_file = os.path.join(guides_dir, file_name)
+        log_config.logging.info("User %s requested: %s" % (current_user.username, requested_file))
 
-    #Creates a path by concatenating '/home/vojta/Bakalarka/Coffee-Shop/src/' and 'guides'
-    guides_dir = os.path.join(os.getcwd(), 'src', 'guides')
-
-    #Creates path to the requested file by concatenating '/home/vojta/Bakalarka/Coffee-Shop/src/guides' and '<file_name>'
-    requested_file = os.path.join(guides_dir, file_name)
-        
-    #Opens the file located at the location of 'requested_file' for reading ('r')
-    with open(requested_file, 'r') as file:
-        log_config.logging.info("Opened file: %s" % file)
-        content = file.read()
-    
-    return render_template("public/guide.html", content=content)
+    #SECOND MEASURE OF PROTECTION -> PATH VALIDATION
+        if check_path(guides_dir, requested_file):
+            try:
+                with open(requested_file, 'r') as file:
+                    log_config.logging.info("User %s opened: %s" % (current_user.username, requested_file))
+                    content = file.read()
+                return render_template("public/guide.html", content=content)
+            except FileNotFoundError:
+                log_config.logging.error("User %s failed to open: %s." % (current_user.username, requested_file))
+                return NotFound()
+        else:
+            log_config.logging.error("User %s failed to open: %s" % (current_user.username, requested_file))
+            return BadRequest()
+    else:
+        log_config.logging.error("User %s failed to open: %s" % (current_user.username, file_name))
+        return BadRequest()
 #PathTraversal-1 - END
 
 

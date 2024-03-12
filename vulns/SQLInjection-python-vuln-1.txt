@@ -57,7 +57,7 @@ def login():
             #SensitiveInformationDisclosure-1 - END
         except Exception as e:
             print(e)
-            log_config.logging.info("Error occured, try again")
+            log_config.logging.info("Error occured, try again. Exception: %s" % e)
             flash("Unexpected error. Try again, please.")
     #BruteForce-3 - START
     #BruteForce-3 - END
