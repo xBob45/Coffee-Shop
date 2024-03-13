@@ -42,10 +42,23 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    {% set products = get_products_by_order_id(order.id) %}
-                                    {% for product in products %}
-                                        <p>{{ product.name }}</p>
-                                    {% endfor %}
+                                    {% set order_items= get_order_items(order.id) %}
+                                    {% for order_item, product in order_items %}
+                                    <li class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <img src="{{ url_for('static', filename=product.image) }}" class="bd-placeholder-img card-img-top" width="50" height="50" role="img" aria-label="Product Image" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <span class="item-name">{{ product.name }}</span><br>
+                                                <span class="item-quantity">{{ order_item.quantity }}x</span>
+                                            </div>
+                                            <div class="col-auto">
+                                                <span class="item-price">Price: ${{ order_item.total }}</span>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </li>
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>

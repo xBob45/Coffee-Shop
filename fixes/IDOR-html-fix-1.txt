@@ -1,3 +1,4 @@
 #src/templates/public/home.html,src/templates/admin/admin_panel.html
 <!-- Fix -->
 <li><a class="dropdown-item" href="{{ url_for('account.setting') }}">Account</a></li>
+<li><a class="dropdown-item" href="{{ url_for('account.orders') }}">Order</a></li>

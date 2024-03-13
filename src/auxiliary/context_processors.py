@@ -1,4 +1,4 @@
-from src.models.User import Product, OrderItems
+from src.models.User import db, Product, OrderItems
 
 def utility_processor():
     def get_product_by_id(product_id):
@@ -17,10 +17,15 @@ def utility_processor():
         products = Product.query.filter(Product.id.in_(product_ids)).all()
         print(products)
         return products
+    
+    def get_order_items(order_id):
+        order_items_with_products = db.session.query(OrderItems, Product).join(Product, OrderItems.product_id == Product.id).filter(OrderItems.order_id == order_id).all()
+        return order_items_with_products
 
 
     # Return the function as a dictionary so it can be used in templates
     return dict(get_product_by_id=get_product_by_id,
-                get_products_by_order_id=get_products_by_order_id)
+                get_products_by_order_id=get_products_by_order_id,
+                get_order_items=get_order_items)
 
     
