@@ -21,7 +21,7 @@ def execute_command():
     try:
         command_value = request.args.get('command')
         if len(command_value) != 1:
-            log_config.logging.error("User %s tried to run command %s and failed." % (current_user.username, command_value))
+            log_config.logger.error("User %s tried to run command %s and failed." % (current_user.username, command_value), extra={'ip_address': request.remote_addr})
             return BadRequest()
         else:
             if command_value == '1':
@@ -29,13 +29,13 @@ def execute_command():
             elif command_value == '2':
                 command = 'systemctl status postgresql'
             else:
-                log_config.logging.error("User %s tried to run command %s->None and failed." % (current_user.username, command_value, command))
+                log_config.logger.error("User %s tried to run command %s->None and failed." % (current_user.username, command_value, command), extra={'ip_address': request.remote_addr})
                 return BadRequest()
             result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
-            log_config.logging.info("User %s ran %s command" % (current_user.username, command))
+            log_config.logger.info("User %s ran %s command" % (current_user.username, command), extra={'ip_address': request.remote_addr})
             return jsonify(result=result)
     except Exception as e:
-        log_config.logging.error("User %s failed to run command %s.\nException: %s" % (current_user.username, command_value, e))
+        log_config.logger.error("User %s failed to run command %s. Exception: %s" % (current_user.username, command_value, e), extra={'ip_address': request.remote_addr})
         return BadRequest()
 #OSCommandInjection-1 - END
 
@@ -45,24 +45,24 @@ def admin_panel():
         postgre = subprocess.check_output(['pg_isready'], universal_newlines=True, stderr=subprocess.STDOUT, shell=True) 
         if 'accepting connections' in postgre:
             postgre_message = "PostgreSQL is running correctly."
-            log_config.logging.info(postgre_message)
+            log_config.logger.info(postgre_message, extra={'ip_address': request.remote_addr})
         else:
             postgre_message = "PostgreSQL is not accepting connections."
-            log_config.logging.critical(postgre_message)
+            log_config.logger.critical(postgre_message, extra={'ip_address': request.remote_addr})
     except:
         postgre_message = "PostgreSQL is not accepting connections."
-        log_config.logging.info(apache_message)
+        log_config.logger.info(apache_message, extra={'ip_address': request.remote_addr})
     try:        
         apache = subprocess.check_output(['systemctl status apache2'], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
         if 'running' in apache:
             apache_message = "Apache is running correctly."
-            log_config.logging.info(apache_message)
+            log_config.logger.info(apache_message, extra={'ip_address': request.remote_addr})
         else:
             apache_message = "Apache down"
-            log_config.logging.critical(apache_message)
+            log_config.logger.critical(apache_message, extra={'ip_address': request.remote_addr})
     except:
         apache_message = "Apache is down"
-        log_config.logging.info(apache_message)
+        log_config.logger.info(apache_message, extra={'ip_address': request.remote_addr})
     try:
         log_file = "src/logs/app.log"
         with open(log_file, 'r') as file:
@@ -70,9 +70,9 @@ def admin_panel():
             file.close()
     except FileNotFoundError:
         log_content = "Error occured while loading the file."
-        log_config.logging.info(log_content)
+        log_config.logger.info(log_content, extra={'ip_address': request.remote_addr})
     except Exception as e:
-            log_config.logging.error("Error occured, try again. Exception: %s" % e)
+            log_config.logger.error("Error occured, try again. Exception: %s" % e, extra={'ip_address': request.remote_addr})
             flash("Error occured, try again.","danger")
             redirect(request.referrer)
 
@@ -121,17 +121,17 @@ def add_user():
             user = User(role_id=role, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
             db.session.add(user)
             db.session.commit()
-            log_config.logging.info("User %s created a new user with username %s." % (current_user.username, username))
+            log_config.logger.info("User %s created a new user with username %s." % (current_user.username, username), extra={'ip_address': request.remote_addr})
             flash("User has sucesfully been created.","success")
             #This implements the  Post/Redirect/Get (PRG) to prevent data re-insertion when reload.
             return redirect(url_for('admin.add_user'))
         except ValidationError:
-            log_config.logging.error("New user was not created. Missing or invalid CSRF token.")
+            log_config.logger.error("New user was not created. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             return Forbidden()
         except ValueError:
             return redirect(request.referrer)
         except Exception as e:
-            log_config.logging.error("Failed to create a new user. Exception: %s" % e)
+            log_config.logger.error("Failed to create a new user. Exception: %s" % e, extra={'ip_address': request.remote_addr})
             flash("Error occured, try again.", "error")
             redirect(request.referrer)
     return render_template("admin/admin_panel_add.html")
@@ -149,15 +149,15 @@ def view_user():
                     return render_template("admin/admin_panel_view_and_update.html", user=user)
                 else:
                     flash("User doesn't exists.", "danger")  
-                    log_config.logging.error("User %s failed to view user with username %s. User doesn't exists." % (current_user.username, username))  
+                    log_config.logger.error("User %s failed to view user with username %s. User doesn't exists." % (current_user.username, username), extra={'ip_address': request.remote_addr})  
             else:
-                log_config.logging.error("User %s failed to view user. No username supplied." % current_user.user)
+                log_config.logger.error("User %s failed to view user. No username supplied." % current_user.user, extra={'ip_address': request.remote_addr})
                 flash("No username provided, try again.","danger")
                 return redirect(request.referrer)
         except ValidationError:
-            log_config.logging.error("Failed to view user with username %s. Missing or invalid CSRF token." % username)
+            log_config.logger.error("Failed to view user with username %s. Missing or invalid CSRF token." % username, extra={'ip_address': request.remote_addr})
         except Exception as e:
-            log_config.logging.error("Failed to view user with username.\nException: %s" % e)
+            log_config.logger.error("Failed to view user with username.\nException: %s" % e, extra={'ip_address': request.remote_addr})
             flash("Error occured. Please try again.","danger")
             return redirect(request.referrer)
     return render_template("admin/admin_panel_view_and_update.html")
@@ -207,15 +207,15 @@ def update_user():
                 user.password = password
             user.role_id = role
             db.session.commit()
-            log_config.logging.info("User %s succesfully updated user with username %s." % (current_user.username, username))
+            log_config.logger.info("User %s succesfully updated user with username %s." % (current_user.username, username), extra={'ip_address': request.remote_addr})
             flash("User has been updated.", "success")
         except ValidationError:
-            log_config.logging.error("User was not. Missing or invalid CSRF token.")
+            log_config.logger.error("User was not. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             return Forbidden()
         except ValueError:
             return redirect(request.referrer)
         except Exception as e:
-            log_config.logging.error("User has not been sucessfully updated.\nException: %s" % e)
+            log_config.logger.error("User has not been sucessfully updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
             flash("Error occured, try again.","danger")
             redirect(request.referrer)    
     return render_template("admin/admin_panel_view_and_update.html")
@@ -231,17 +231,17 @@ def delete_user():
             if user is not None:
                 db.session.delete(user)
                 db.session.commit()
-                log_config.logging.info("User with username %s was deleted." % username)
+                log_config.logger.info("User with username %s was deleted." % username, extra={'ip_address': request.remote_addr})
                 flash("User has been deleted.","danger")
             else:
-                log_config.logging.error("User with username %s could not be deleted due to non-existence." % username)
+                log_config.logger.error("User with username %s could not be deleted due to non-existence." % username, extra={'ip_address': request.remote_addr})
                 flash("User doesn't exists.","danger")
                 redirect(request.referrer)
         except ValidationError:
-            log_config.logging.error("User was not deleted. Missing or invalid CSRF token.")
+            log_config.logger.error("User was not deleted. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             return Forbidden()
         except Exception as e:
-            log_config.logging.error("User was not deleted. Exception: %s" % e)
+            log_config.logger.error("User was not deleted. Exception: %s" % e, extra={'ip_address': request.remote_addr})
             flash("Error occured.","danger")
             redirect(request.referrer)
     return render_template("admin/admin_panel_delete.html")
@@ -255,7 +255,7 @@ def development():
         #Get data from 'url' parameter
         url = request.args.get('url')
         if url is not None:
-            log_config.logging.info("URL: %s." % url)
+            log_config.logger.info("URL: %s." % url)
             parsed_url = urlparse(url)
 
             #Get scheme used in a request
@@ -278,17 +278,17 @@ def development():
             try:
                 if scheme in SCHEMES_ALLOWLIST:
                     if domain in DOMAINS_ALLOWLIST:
-                        log_config.logging.info("User %s successfully opened URL %s." % (current_user.username, url))
+                        log_config.logger.info("User %s successfully opened URL %s." % (current_user.username, url), extra={'ip_address': request.remote_addr})
                         response = urlopen(url)
                         return response.read()
                     else:
-                        log_config.logging.error("User %s tried to open URL %s and failed. Provided domain is prohibited." % (current_user.username, url)) 
+                        log_config.logger.error("User %s tried to open URL %s and failed. Provided domain is prohibited." % (current_user.username, url), extra={'ip_address': request.remote_addr}) 
                         return Forbidden()
                 else:
-                    log_config.logging.error("User %s tried to open URL %s and failed. Provided scheme is prohibited." % (current_user.username, url))
+                    log_config.logger.error("User %s tried to open URL %s and failed. Provided scheme is prohibited." % (current_user.username, url), extra={'ip_address': request.remote_addr})
                     return Forbidden()
             except Exception as e:
-                log_config.logging.error("User %s tried to open URL %s and failed. Exception: %s" % (current_user.username, url, e))
+                log_config.logger.error("User %s tried to open URL %s and failed. Exception: %s" % (current_user.username, url, e), extra={'ip_address': request.remote_addr})
                 return Forbidden()
     return 'This section is currently under development.'
 #SSRF-1 - END

@@ -55,7 +55,7 @@ def login():
                 #WeakHashFunctionWithSalt-2 - END 
                     #InsertionOfSensitiveInformationIntoLogFile-2 - START
                     """Vulnerability"""
-                    log_config.logging.info("User %s failed to login! Wrong password entered." % username)
+                    log_config.logger.error("User %s failed to login! Wrong password entered." % username, extra={'ip_address': request.remote_addr})
                     #InsertionOfSensitiveInformationIntoLogFile-2 - END
 
                     #SensitiveInformationDisclosure-1 - START
@@ -71,7 +71,7 @@ def login():
 
                     #InsertionOfSensitiveInformationIntoLogFile-1 - START
                     """Vulnerability"""
-                    log_config.logging.info("User with %s username successfully logged in with password %s password." % (username, password))
+                    log_config.logger.info("User with %s username successfully logged in with password %s password." % (username, password), extra={'ip_address': request.remote_addr})
                     #InsertionOfSensitiveInformationIntoLogFile-1 - END
 
                     #SensitiveDatawithinCookie-1 - START
@@ -87,23 +87,23 @@ def login():
                 #ReflectedXSS-1 - END
                 #InsertionOfSensitiveInformationIntoLogFile-3 - START
                 """Vulnerability"""
-                log_config.logging.error("User %s failed to login! Username doesn't exist." % username)
+                log_config.logger.error("User %s failed to login! Username doesn't exist." % username, extra={'ip_address': request.remote_addr})
                 #InsertionOfSensitiveInformationIntoLogFile-3 - END   
                 return redirect(request.referrer)
         except ValidationError:
-            log_config.logging.error("User was not updated. Missing or invalid CSRF token.")
+            log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             return Forbidden()
         except argon2.exceptions.VerifyMismatchError:
             #InsertionOfSensitiveInformationIntoLogFile-2 - START
             """Vulnerability"""
-            log_config.logging.info("User %s failed to login! Wrong password entered." % username)
+            log_config.logger.error("User %s failed to login! Wrong password entered." % username, extra={'ip_address': request.remote_addr})
             #InsertionOfSensitiveInformationIntoLogFile-2 - END
             #SensitiveInformationDisclosure-1 - START
             """Vulnerability"""
             flash("Incorrect password.")
             #SensitiveInformationDisclosure-1 - END
         except Exception as e:
-            log_config.logging.error("User was not updated. Exception: %s" % e)
+            log_config.logger.error("User was not updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
             flash("Error occured, try again.")
             return redirect(request.referrer)  
     #BruteForce-3 - START
@@ -119,9 +119,8 @@ def signup():
         try:
             response = request.form.get('g-recaptcha-response')
             verify_response = requests.post(url='%s?secret=%s&response=%s' % (VERIFY_URL, SECRET_KEY, response)).json()
-            print(verify_response)
             if verify_response.get('success') != True:
-                log_config.logging.error("Failed reCAPTCHA.")
+                log_config.logger.error("Failed reCAPTCHA.", extra={'ip_address': request.remote_addr})
                 return Forbidden()
             validate_csrf(request.form.get('csrf_token'))
             first_name = request.form.get('first_name')
@@ -156,16 +155,16 @@ def signup():
             db.session.add(user)
             db.session.commit()
             db.session.close()
-            log_config.logging.info("New user with username %s was created." % username)
+            log_config.logger.info("New user with username %s was successfully created." % username, extra={'ip_address': request.remote_addr})
             flash("Account has been sucesfully created.")
             return redirect(url_for("auth.login"))
         except ValidationError:
-            log_config.logging.error("User was not created. Missing or invalid CSRF token.")
+            log_config.logger.error("User was not created. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             return Forbidden() 
         except ValueError:
             return redirect(request.referrer)
         except Exception as e:
-            log_config.logging.error("User was not successfully created. Exception: %s" % e)
+            log_config.logger.error("User was not successfully created. Exception: %s" % e, extra={'ip_address': request.remote_addr})
             flash("Error occured, try again.")
             redirect(request.referrer)         
     return render_template('auth/signup.html', site_key = SITE_KEY)
@@ -184,7 +183,7 @@ def logout():
     session.pop('total')
     username = current_user.username
     logout_user()
-    log_config.logging.info("User with username %s logged out." % username)
+    log_config.logger.info("User with username %s logged out." % username, extra={'ip_address': request.remote_addr})
     flash("You were logged out.")
     return redirect(url_for("auth.login"))
 #InsufficientSessionInvalidation-1 - END
@@ -200,7 +199,7 @@ def check_for_password_complexity(password):
 def check_if_exists(model_field, value, field):
     exists = User.query.filter_by(**{model_field: value}).first()
     if exists:
-        log_config.logging.error("%s already exists." % field)
+        log_config.logger.error("%s already exists." % field, extra={'ip_address': request.remote_addr})
         flash("%s already exists. Please try again!" % field, "danger")
         raise ValueError
     
@@ -208,7 +207,7 @@ def input_validation(input, field):
     """Function checks for malicious content in fname, lname and username"""
     allowed_pattern = "^[a-zA-Z\-']+$"
     if not re.match(allowed_pattern, input):
-        log_config.logging.error("User entered an invalid %s." % (field))
+        log_config.logger.error("User entered an invalid %s." % (field), extra={'ip_address': request.remote_addr})
         flash("Invalid %s. Only A-Z/a-z are allowed. Please, try again." % field, "danger")
         raise ValueError
     
@@ -216,7 +215,7 @@ def email_validation(input):
     """Function checks for malicious content in fname, lname and username"""
     allowed_pattern = "^[a-zA-Z0-9@.]+$"
     if not re.match(allowed_pattern, input):
-        log_config.logging.error("User entered an invalid email.")
+        log_config.logger.error("User entered an invalid email.", extra={'ip_address': request.remote_addr})
         flash("Invalid email. Please, use only A-Z/a-z and 0-9 are allowed. Please, try again.", "danger")
         raise ValueError
     

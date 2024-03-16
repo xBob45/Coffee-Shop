@@ -3,14 +3,14 @@ def development():
     """Vulnerability"""
     if request.method == 'GET':
         url = request.args.get('url')
-        log_config.logging.info("URL: %s." % url)
+        log_config.logger.info("URL: %s." % url, extra={'ip_address': request.remote_addr})
         if url is not None:
             print(url)
             try:
                 response = urlopen(url)
-                log_config.logging.info("User %s opened URL %s." % (current_user.username, url))s
+                log_config.logger.info("User %s opened URL %s." % (current_user.username, url), extra={'ip_address': request.remote_addr})s
                 return response.read()
             except Exception as e:
-                log_config.logging.error("User %s failed tp open URL %s. Exception: %s" % (current_user.username, url, e))
+                log_config.logger.error("User %s failed tp open URL %s. Exception: %s" % (current_user.username, url, e), extra={'ip_address': request.remote_addr})
                 return Forbidden()
     return 'This section is currently under development.'

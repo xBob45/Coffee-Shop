@@ -12,7 +12,7 @@ attacks_config = {
     'OSCommandInjection': False,
     'CookiesWithoutSecurityAttributes' : None,
     'Clickjacking' : True,
-    'InsufficientLogging':True,
+    'InsufficientLogging':False,
     'InsertionOfSensitiveInformationIntoLogFile' : True,
     'WeakPasswordRequirements' : True,
     'IDOR': False,

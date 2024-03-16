@@ -1,3 +1,3 @@
 #src/controllers/authController.py
 """Vulnerability"""
-log_config.logging.info("User %s failed to login! Wrong password entered." % username)
+log_config.logger.error("User %s failed to login! Wrong password entered." % username, extra={'ip_address': request.remote_addr})

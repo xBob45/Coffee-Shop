@@ -64,15 +64,15 @@ def update_user():
                 #WeakHashFunctionWithSalt-1 - END 
                 user.password = password
             db.session.commit()
-            log_config.logging.info("User with username %s has been sucessfully updated." % username)
+            log_config.logger.info("User with username %s was sucessfully updated." % username, extra={'ip_address': request.remote_addr})
             flash("User has been updated.")
         except ValidationError:
-            log_config.logging.error("User was not updated. Missing or invalid CSRF token.")
+            log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             return Forbidden()
         except ValueError:
             return redirect(request.referrer)
         except Exception as e:
-            log_config.logging.error("User was not successfully updated. Exception: %s" % e)
+            log_config.logger.error("User was not successfully updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
             flash("Error occured, try again.")
             return redirect(request.referrer)     
     return render_template("account/setting.html")
@@ -97,14 +97,14 @@ def delete_user():
                 db.session.delete(user)
                 db.session.commit()
                 db.session.close()
-                log_config.logging.info("User with username %s was deleted." % user.username)
+                log_config.logger.info("User with username %s was deleted." % user.username, extra={'ip_address': request.remote_addr})
                 return redirect(url_for("auth.login"))
             else:
                 flash("User doesn't exists.")
                 return redirect(request.referrer)
         except Exception as e:
             flash("Error occureed. Please try again.")
-            log_config.logging.error("User with username %s was not deleted. Exception: %s." % (user.username, e))
+            log_config.logger.error("User with username %s was not deleted. Exception: %s." % (user.username, e), extra={'ip_address': request.remote_addr})
             return redirect(request.referrer)
     return redirect(request.referrer)
 #CSRF-3 - END

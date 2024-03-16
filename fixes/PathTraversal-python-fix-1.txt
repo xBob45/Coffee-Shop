@@ -25,21 +25,21 @@ def guide_reader():
     if re.match(allowed_pattern, file_name):
         guides_dir = os.path.join(os.getcwd(), 'src', 'guides')
         requested_file = os.path.join(guides_dir, file_name)
-        log_config.logging.info("User %s requested: %s" % (current_user.username, requested_file))
+        log_config.logger.info("User %s requested: %s" % (current_user.username, requested_file), extra={'ip_address': request.remote_addr})
 
     #SECOND MEASURE OF PROTECTION -> PATH VALIDATION
         if check_path(guides_dir, requested_file):
             try:
                 with open(requested_file, 'r') as file:
-                    log_config.logging.info("User %s opened: %s" % (current_user.username, requested_file))
+                    log_config.logger.info("User %s opened: %s" % (current_user.username, requested_file), extra={'ip_address': request.remote_addr})
                     content = file.read()
                 return render_template("public/guide.html", content=content)
             except FileNotFoundError:
-                log_config.logging.error("User %s failed to open: %s." % (current_user.username, requested_file))
+                log_config.logger.error("User %s failed to open: %s." % (current_user.username, requested_file), extra={'ip_address': request.remote_addr})
                 return NotFound()
         else:
-            log_config.logging.error("User %s failed to open: %s" % (current_user.username, requested_file))
+            log_config.logger.error("User %s failed to open: %s" % (current_user.username, requested_file), extra={'ip_address': request.remote_addr})
             return BadRequest()
     else:
-        log_config.logging.error("User %s failed to open: %s" % (current_user.username, file_name))
+        log_config.logger.error("User %s failed to open: %s" % (current_user.username, file_name), extra={'ip_address': request.remote_addr})
         return BadRequest()

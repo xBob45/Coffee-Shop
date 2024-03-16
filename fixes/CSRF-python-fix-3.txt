@@ -15,15 +15,15 @@ def delete_user():
                 db.session.delete(user)
                 db.session.commit()
                 db.session.close()
-                log_config.logging.info("User with ID %s was deleted." % user.username)
+                log_config.logger.info("User with ID %s was deleted." % user.username, extra={'ip_address': request.remote_addr})
                 return redirect(url_for("auth.login"))
             else:
                 flash("User doesn't exists.")
                 return redirect(request.referrer)
         except ValidationError:
-            log_config.logging.error("User was not deleted. Missing or invalid CSRF token.")
+            log_config.logger.error("User was not deleted. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             return Forbidden()
         except Exception as e:
-            log_config.logging.error("User with ID %s was not deleted. Exception: %s." % (user.username, e))
+            log_config.logger.error("User with ID %s was not deleted. Exception: %s." % (user.username, e), extra={'ip_address': request.remote_addr})
             return redirect(request.referrer)
     return redirect(request.referrer)

@@ -4,8 +4,8 @@ def execute_command():
     try:
         command = request.args.get('command')
         result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
-        log_config.logging.info("User %s ran command %s" % (current_user.username, command))
+        log_config.logger.info("User %s ran command %s" % (current_user.username, command), extra={'ip_address': request.remote_addr})
         return jsonify(result=result)
     except Exception as e:
-        log_config.logging.error("User %s failed to run command %s.\nException: %s" % (current_user.username, command, e))
+        log_config.logger.error("User %s failed to run command %s.\nException: %s" % (current_user.username, command, e), extra={'ip_address': request.remote_addr})
         return BadRequest()

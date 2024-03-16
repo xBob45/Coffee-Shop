@@ -16,26 +16,26 @@ def add_to_cart():
         quantity = request.form.get('quantity')
         product = db.session.query(Product).filter_by(id=product_id).first()
         if int(quantity) <= 0 or int(quantity) > product.stock:
-            log_config.logging.error("User with username %s tried to put an invalid %s amount of product into the cart." % (current_user.username, quantity))
+            log_config.logger.error("User with username %s tried to put an invalid %s amount of product into the cart." % (current_user.username, quantity), extra={'ip_address': request.remote_addr})
             return BadRequest() #This cannot happen unless a user manually tempers with the quantity value via Burp or whatever proxy.
         else:
             if product_id in session['cart'].keys():
                 if session['cart'][product_id] + int(quantity) > product.stock:
                     session['cart'][product_id] += 0
-                    log_config.logging.error("User with username %s tried to put an invalid amount of %s of %s into the cart." % (current_user.username, quantity, product.name))
+                    log_config.logger.error("User with username %s tried to put an invalid amount of %s of %s into the cart." % (current_user.username, quantity, product.name), extra={'ip_address': request.remote_addr})
                     flash("Invalid amount.", 'danger')
                 else:
                     session['cart'][product_id] += int(quantity)
-                    log_config.logging.info("User with username %s added amount of %s of %s into the cart." % (current_user.username, quantity, product.name))
+                    log_config.logger.info("User with username %s added amount of %s of %s into the cart." % (current_user.username, quantity, product.name), extra={'ip_address': request.remote_addr})
                     flash("Product added to the cart.", 'success')
             else:
                 if int(quantity) > product.stock:
                     session['cart'][product_id] = 0
-                    log_config.logging.error("User with username %s tried to put an invalid %s amount of %s into the cart." % (current_user.username, quantity, product.name))
+                    log_config.logger.error("User with username %s tried to put an invalid %s amount of %s into the cart." % (current_user.username, quantity, product.name), extra={'ip_address': request.remote_addr})
                     flash("Invalid amount.", "danger")
                 else:
                     session['cart'][product_id] = int(quantity)
-                    log_config.logging.info("User with username %s added amount of %s of %s into the cart." % (current_user.username, quantity, product.name))
+                    log_config.logger.info("User with username %s added amount of %s of %s into the cart." % (current_user.username, quantity, product.name), extra={'ip_address': request.remote_addr})
                     flash("Product added to the cart.", 'success')
             
             session['total'] += product.price*float(quantity)
@@ -52,7 +52,7 @@ def delete_from_cart():
         session['cart'].pop(product_id)
         session['total'] -= (product.price*float(quantity))
         session.modified = True
-        log_config.logging.info("User with username %s removed a product %s from the cart." % (current_user.username, product.name))
+        log_config.logger.info("User with username %s removed a product %s from the cart." % (current_user.username, product.name), extra={'ip_address': request.remote_addr})
         flash("Product removed from the cart.", 'danger')
         return redirect(request.referrer)
     
@@ -88,8 +88,8 @@ def create_order():
                 session['total'] = 0
                 return redirect(url_for("cart.order_success"))
             except ValidationError:
-                log_config.logging.error("Missing or invalid CSRF token.")
+                log_config.logger.error("Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             except Exception as e:
-                log_config.logging.error("Error occured, try again.\nException: %s" % e)
+                log_config.logger.error("Error occured, try again. Exception: %s" % e, extra={'ip_address': request.remote_addr})
                 return BadRequest()
         return BadRequest()

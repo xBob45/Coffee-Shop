@@ -1,3 +1,3 @@
 #src/controllers/authController.py
 """Fix"""
-log_config.logging.info("User %s failed to login! Wrong credentials." % username)
+log_config.logger.error("User %s failed to login! Wrong credentials." % username, extra={'ip_address': request.remote_addr})
