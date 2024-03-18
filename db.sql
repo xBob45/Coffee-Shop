@@ -108,11 +108,6 @@ CREATE TABLE orders (
     date TIMESTAMP NOT NULL
 );
 
-CREATE TABLE products (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    price FLOAT NOT NULL
-);
 
 CREATE TABLE order_items (
     id SERIAL PRIMARY KEY,

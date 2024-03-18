@@ -25,9 +25,9 @@ def execute_command():
             return BadRequest()
         else:
             if command_value == '1':
-                command = 'systemctl status apache2'
+                command = 'service apache2 status'
             elif command_value == '2':
-                command = 'systemctl status postgresql'
+                command = 'pg_isready -h postgresql'
             else:
                 log_config.logger.error("User %s tried to run command %s->None and failed." % (current_user.username, command_value, command), extra={'ip_address': request.remote_addr})
                 return BadRequest()
@@ -42,7 +42,7 @@ def execute_command():
 def admin_panel():
     """Function renders main page of admin panel."""
     try:
-        postgre = subprocess.check_output(['pg_isready'], universal_newlines=True, stderr=subprocess.STDOUT, shell=True) 
+        postgre = subprocess.check_output(['pg_isready -h postgresql'], universal_newlines=True, stderr=subprocess.STDOUT, shell=True) 
         if 'accepting connections' in postgre:
             postgre_message = "PostgreSQL is running correctly."
             log_config.logger.info(postgre_message, extra={'ip_address': request.remote_addr})
@@ -53,7 +53,7 @@ def admin_panel():
         postgre_message = "PostgreSQL is not accepting connections."
         log_config.logger.info(apache_message, extra={'ip_address': request.remote_addr})
     try:        
-        apache = subprocess.check_output(['systemctl status apache2'], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+        apache = subprocess.check_output(['service apache2 status'], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
         if 'running' in apache:
             apache_message = "Apache is running correctly."
             log_config.logger.info(apache_message, extra={'ip_address': request.remote_addr})
