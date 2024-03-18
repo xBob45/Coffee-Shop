@@ -7,7 +7,7 @@
 {% endif %}
     <div class="text-center">
         {# Vulnerability #}
-        <button type="button" class="btn btn-link" id="services-button" data-bs-toggle="modal" data-bs-target="#resultModal" onclick="executeCommand('systemctl status apache2')">Show status</button>
+        <button type="button" class="btn btn-link" id="services-button" data-bs-toggle="modal" data-bs-target="#resultModal" onclick="executeCommand('service apache2 status')">Show status</button>
     </div>
 
 <h4 class="text-center">PostgreSQL</h4>
@@ -18,5 +18,5 @@
 {% endif %}
     <div class="text-center">
         {# Vulnerability #}
-        <button type="button" class="btn btn-link" id="services-button" data-bs-toggle="modal" data-bs-target="#resultModal" onclick="executeCommand('systemctl status postgresql')">Show status</button>
+        <button type="button" class="btn btn-link" id="services-button" data-bs-toggle="modal" data-bs-target="#resultModal" onclick="executeCommand('pg_isready -h postgresql')">Show status</button>
     </div>

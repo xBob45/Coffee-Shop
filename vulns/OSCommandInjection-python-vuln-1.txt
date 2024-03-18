@@ -7,5 +7,5 @@ def execute_command():
         log_config.logger.info("User %s ran command %s" % (current_user.username, command), extra={'ip_address': request.remote_addr})
         return jsonify(result=result)
     except Exception as e:
-        log_config.logger.error("User %s failed to run command %s.\nException: %s" % (current_user.username, command, e), extra={'ip_address': request.remote_addr})
+        log_config.logger.error("User %s failed to run command %s. Exception: %s" % (current_user.username, command, e), extra={'ip_address': request.remote_addr})
         return BadRequest()
