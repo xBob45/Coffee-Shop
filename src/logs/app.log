@@ -58,3 +58,13 @@
 2024-03-16 19:32:29,247 - IP:127.0.0.1 - ERROR - User admin failed to run command 1. Exception: Command '['systemctl status apache2']' returned non-zero exit status 4.
 2024-03-16 19:33:43,602 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Coffee Portafilter into the cart.
 2024-03-16 19:39:46,099 - IP:127.0.0.1 - INFO - User with username admin logged out.
+2024-03-19 00:09:14,201 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-03-19 00:22:32,078 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-03-19 00:22:39,819 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-03-19 00:22:42,488 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-03-19 00:23:23,778 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-03-19 00:23:23,778 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-03-19 00:31:08,934 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Green Tea into the cart.
+2024-03-19 00:31:13,937 - IP:127.0.0.1 - INFO - User with username admin removed a product Green Tea from the cart.
+2024-03-19 00:31:39,346 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-03-19 00:31:39,347 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt

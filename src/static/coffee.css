@@ -60,9 +60,6 @@
 }
 
 
-.justify-content-between {
-  justify-content: unset !important;
-}
 .card-text-price{
   margin-right: 26px;
 }

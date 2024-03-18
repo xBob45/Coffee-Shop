@@ -34,7 +34,7 @@
 }
 
 .coffee-section .card-body, .tea-section .card-body {
-  height: 300px; /* Adjust the height as needed */
+  height: 300px; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -69,7 +69,7 @@ input{
   background-color: #ccc;
   -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 34px; /* Round the slider */
+  border-radius: 34px;
   }
 
 .slider.round {
@@ -96,16 +96,16 @@ input:checked + .slider.round:before {
   transform: translateX(26px);
 }
 
-.carousel-item.active .row {
+.carousel-item.active .row, .carousel-item .row {
   display: flex;
   justify-content: center;
 }
-
-.carousel-item.active .row img {
-  width: 20% !important; /* Adjust the width as needed */
-  margin: 0 10px !important; /* Adjust the margin as needed */
+.carousel img{
+  width: 240px !important;
+  height: 240px !important;
   display: block !important;
   margin-bottom: 200px !important;
+  
 }
 .dropdown-cart .cart-item {
   justify-content: space-between;
@@ -121,7 +121,7 @@ input:checked + .slider.round:before {
 .dropdown-cart .item-details {
   display: flex;
   flex-direction: column;
-  width: 200px; /* Adjust the width as needed */
+  width: 200px; 
 }
 
 .dropdown-cart .item-name {
@@ -135,7 +135,7 @@ input:checked + .slider.round:before {
 
 .dropdown-cart .item-price {
   font-size: 14px;
-  text-align: right; /* Align prices to the right */
+  text-align: right;
 }
 
 .dropdown-cart .total {
@@ -177,7 +177,6 @@ input:checked + .slider.round:before {
   margin-top: auto;
 }
 
-  
 .card.checkout-section{
   border: none;
 }
@@ -217,4 +216,16 @@ input:checked + .slider.round:before {
   width: 753px;
   margin-left: -41px;
   animation: fadeOut 1s ease-in-out 2s forwards;
+}
+
+
+/* This fixes the footer problem. */
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  margin: auto 0;
 }
