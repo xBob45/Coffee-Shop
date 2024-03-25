@@ -7,7 +7,6 @@ attacks_config = {
     'InsufficientSessionInvalidation': False,
     'ForcedBrowsing': None,
     'HardCodedKey': True,
-    'DebugModeON': True,
     'PathTraversal': False,
     'OSCommandInjection': False,
     'CookiesWithoutSecurityAttributes' : None,
@@ -24,7 +23,8 @@ attacks_config = {
     'WeakHashFunction' : None, 
     'WeakHashFunctionWithSalt': False,
     'UnprotectedTransportofCredentials': False,
-    'DirectoryListing':False,
-    'CustomErrorPages': False,
-    'BruteForce': True
+    'DirectoryListing':True,
+    'CustomErrorPages': True,
+    'DebugModeON': None, #If you set this vunerability to either "True" or "False" set 'CustomErrorPages' to 'None'
+    'BruteForce': True,
 }

@@ -1,58 +1,72 @@
 .
-├── __pycache__
-│   ├── __init__.cpython-310.pyc
-│   ├── app.cpython-310.pyc
-│   ├── attacks.cpython-310.pyc
-│   ├── auth.cpython-310.pyc
-│   └── config.cpython-310.pyc
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── apache
+│   └── Docker
+│       ├── Dockerfile-apache
+│       └── coffee-shop.conf
 ├── app.py
-├── attacks.ini
 ├── attacks.py
-├── config.py
-├── controllers
-│   ├── __init__.py
-│   ├── __pycache__
-│   │   ├── __init__.cpython-310.pyc
-│   │   ├── adminController.cpython-310.pyc
-│   │   ├── authController.cpython-310.pyc
-│   │   └── homeController.cpython-310.pyc
-│   ├── adminController.py
-│   ├── authController.py
-│   └── homeController.py
-├── guides
-│   └── guide1.txt
-├── models
-│   ├── User.py
-│   └── __pycache__
-│       └── User.cpython-310.pyc
-├── routes
-│   ├── __init__.py
-│   ├── __pycache__
-│   │   ├── __init__.cpython-310.pyc
-│   │   ├── adminRoute.cpython-310.pyc
-│   │   ├── authRoute.cpython-310.pyc
-│   │   └── homeRoute.cpython-310.pyc
-│   ├── adminRoute.py
-│   ├── authRoute.py
-│   └── homeRoute.py
-├── static
-│   ├── admin_panel.css
-│   ├── sign-in.css
-│   └── style.css
-├── templates
-│   ├── admin
-│   │   ├── admin_panel.html
-│   │   ├── admin_panel_add.html
-│   │   ├── admin_panel_delete.html
-│   │   └── admin_panel_view_and_update.html
-│   ├── auth
-│   │   ├── login.html
-│   │   └── signup.html
-│   ├── base.html
-│   └── public
-│       ├── guide.html
-│       ├── home.html
-│       └── tips_and_tricks.html
-└── tree.txt
-
-13 directories, 42 files
+├── code_generation.py
+├── compose.yaml
+├── database
+│   ├── Docker
+│   │   └── Dockerfile-db
+│   └── backups
+├── db.sql
+├── exploit.py
+├── fixes
+├── requirements.txt
+├── src
+│   ├── __init__.py
+│   ├── auxiliary
+│   │   ├── __pycache__
+│   │   │   └── context_processors.cpython-310.pyc
+│   │   └── context_processors.py
+│   ├── config.py
+│   ├── controllers
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-310.pyc
+│   │   │   ├── accountController.cpython-310.pyc
+│   │   │   ├── adminController.cpython-310.pyc
+│   │   │   ├── authController.cpython-310.pyc
+│   │   │   ├── cartController.cpython-310.pyc
+│   │   │   ├── homeController.cpython-310.pyc
+│   │   │   └── orderController.cpython-310.pyc
+│   │   ├── accountController.py
+│   │   ├── adminController.py
+│   │   ├── authController.py
+│   │   ├── cartController.py
+│   │   └── homeController.py
+│   ├── guides
+│   │   ├── guide1.txt
+│   │   ├── guide2.txt
+│   │   └── guide3.txt
+│   ├── log_config.py
+│   ├── logs
+│   │   └── app.log
+│   ├── models
+│   │   ├── User.py
+│   │   └── __pycache__
+│   │       └── User.cpython-310.pyc
+│   ├── routes
+│   │   ├── __init__.py
+│   │   ├── accountRoute.py
+│   │   ├── adminRoute.py
+│   │   ├── authRoute.py
+│   │   ├── cartRoute.py
+│   │   └── homeRoute.py
+│   ├── static
+│   ├── templates
+│   └── tree.txt
+├── ssl
+│   ├── rootCA.key
+│   ├── rootCA.pem
+│   ├── server.crt
+│   ├── server.csr
+│   ├── server.csr.cnf
+│   ├── server.key
+│   └── v3.ext
+└── vulns

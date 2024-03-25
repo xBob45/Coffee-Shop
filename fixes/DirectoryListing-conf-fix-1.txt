@@ -1,7 +1,6 @@
 #apache/Docker/coffee-shop.conf
 #Fix
-<Directory /var/www/html/Coffee-Shop/>
-    Options FollowSymLinks MultiViews
-    Order allow,deny
-    Allow from All
-</Directory>
+Alias /listing /var/www/html/Coffee-Shop
+    <Directory /var/www/html/Coffee-Shop>
+        Options -Indexes
+    </Directory>

@@ -9,8 +9,6 @@ SECRET_KEY = 'iamsecret'
 #HardCodedKey-1 - END
 
 #DebugModeON-1 - START
-"""Vulnerability"""
-os.environ["FLASK_DEBUG"] = "1"
 #DebugModeON-1 - END
 
 #CookiesWithoutSecurityAttributes-1 - START

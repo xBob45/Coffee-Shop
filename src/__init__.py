@@ -9,9 +9,14 @@ from src.models.User import db, User
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
 import logging
+from werkzeug.exceptions import Forbidden, BadRequest, NotFound, InternalServerError, HTTPVersionNotSupported
+from src.auxiliary.custom_error_responses import *
+from werkzeug.debug import DebuggedApplication
+
 
 def create_app():
     app = Flask(__name__)  # flask app object
+    app.debug = True
     app.config.from_object('src.config')  # Configuring from Python Files
     db.init_app(app)  # Initializing the database
     #-------------------------Flask-Login-------------------------
@@ -23,7 +28,6 @@ def create_app():
     def load_user(user_id):
         return User.query.get(int(user_id))
     #-------------------------Flask-Login-------------------------
-
 
     #Flask-WTF
     csrf = CSRFProtect()
@@ -40,5 +44,10 @@ def create_app():
 
     app.context_processor(utility_processor)
 
+    #CustomErrorPages-2 - START
+    """Vulnerability"""
+    #CustomErrorPages-2 - END
     
+    #DebugModeON-3 - START
+    #DebugModeON-3 - END
     return app
