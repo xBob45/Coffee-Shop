@@ -1,0 +1,12 @@
+2024-03-27 12:01:01,121 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-03-27 12:02:38,050 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-03-27 12:02:41,989 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-03-27 12:03:03,137 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-03-27 13:55:35,691 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
+2024-03-27 13:55:37,374 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
+2024-03-27 13:56:07,909 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
+2024-03-27 13:56:14,585 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
+2024-03-27 13:56:21,809 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
+2024-03-27 13:57:15,538 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.

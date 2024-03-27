@@ -16,7 +16,6 @@ from werkzeug.debug import DebuggedApplication
 
 def create_app():
     app = Flask(__name__)  # flask app object
-    app.debug = True
     app.config.from_object('src.config')  # Configuring from Python Files
     db.init_app(app)  # Initializing the database
     #-------------------------Flask-Login-------------------------
