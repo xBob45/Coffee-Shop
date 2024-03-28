@@ -9,6 +9,9 @@ SECRET_KEY = 'iamsecret'
 #HardCodedKey-1 - END
 
 #DebugModeON-1 - START
+"""Vulnerability"""
+DEBUG = True
+os.environ['WERKZEUG_DEBUG_PIN'] = 'off'
 #DebugModeON-1 - END
 
 #CookiesWithoutSecurityAttributes-1 - START

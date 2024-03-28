@@ -10,3 +10,5 @@
 2024-03-27 13:56:14,585 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
 2024-03-27 13:56:21,809 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
 2024-03-27 13:57:15,538 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
+2024-03-28 16:16:06,753 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-03-28 16:16:28,050 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.

@@ -24,7 +24,7 @@ attacks_config = {
     'WeakHashFunctionWithSalt': False,
     'UnprotectedTransportofCredentials': False,
     'DirectoryListing':True,
-    'CustomErrorPages': True,
-    'DebugModeON': None, #If you set this vunerability to either "True" or "False" set 'CustomErrorPages' to 'None'
+    'CustomErrorPages': None,
+    'DebugModeON': True, #If you set this vunerability to either "True" or "False" set 'CustomErrorPages' to 'None'
     'BruteForce': True,
 }

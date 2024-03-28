@@ -20,6 +20,7 @@ class User(UserMixin, db.Model):
     first_name = db.Column(db.String(80), nullable=False)
     last_name = db.Column(db.String(80), nullable=False)
     password = db.Column(db.String(255), nullable=False)
+    profile_picture = db.Column(db.String(255), nullable=True)
 
     #Defines the relationship with the "Role" table/class
     #Along with 'user' in 'Role' forms bidirectional relationship

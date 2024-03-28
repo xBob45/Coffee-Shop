@@ -1,6 +1,7 @@
 from flask import (flash, redirect, render_template, request, abort, url_for, jsonify, session)
 from src.models.User import User, Role, Order, OrderItems, Product
 from src.models.User import db
+from dotenv import load_dotenv
 from flask_login import logout_user, current_user
 from src.controllers.authController import check_for_password_complexity, check_if_exists, input_validation, email_validation, ph
 import src.log_config as log_config
@@ -8,6 +9,11 @@ from flask_wtf.csrf import validate_csrf, ValidationError
 from hashlib import md5
 from passlib.hash import md5_crypt
 from werkzeug.exceptions import Forbidden
+import uuid
+import os
+
+load_dotenv()
+UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER")
 
 #IDOR-3 - START
 def setting():
@@ -116,4 +122,15 @@ def orders():
     return render_template("account/orders.html", orders=order)
 
 def upload_picture():
-    pass
+    if request.method == 'POST':
+        id = current_user.id
+        user = User.query.filter_by(id=id).first()
+        picture = request.files['profile_picture']
+        picture_uuid = str(uuid.uuid1())+"_"+ picture.filename
+        upload_path = os.path.join(UPLOAD_FOLDER,picture_uuid)
+        picture.save(upload_path)
+        user.profile_picture = picture_uuid
+        db.session.commit()
+        return redirect(request.referrer)
+    
+    

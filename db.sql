@@ -10,7 +10,8 @@ CREATE TABLE users (
     email VARCHAR(80) UNIQUE,
     first_name VARCHAR(80) NOT NULL,
     last_name VARCHAR(80) NOT NULL,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    profile_picture VARCHAR(255)
 );
 
 INSERT INTO roles (name) VALUES ('admin'), ('customer');

@@ -13,3 +13,8 @@
     text-align: center;
     animation: fadeOut 1s ease-in-out 2s forwards;
 }
+
+#customFile2 {
+    display: block;
+    width: 40%;
+}

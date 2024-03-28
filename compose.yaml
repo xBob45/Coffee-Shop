@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: apache/Docker/Dockerfile-apache
+    environment:
+      - FLASK_DEBUG=True
     #UnprotectedTransportofCredentials-1 - START
     #Fix
     ports:

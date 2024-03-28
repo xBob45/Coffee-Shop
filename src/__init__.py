@@ -44,9 +44,14 @@ def create_app():
     app.context_processor(utility_processor)
 
     #CustomErrorPages-2 - START
-    """Vulnerability"""
     #CustomErrorPages-2 - END
     
     #DebugModeON-3 - START
+    """Vulnerability"""
+    app.register_error_handler(NotFound, handle_400)
+    app.register_error_handler(Forbidden, handle_403)
+    app.register_error_handler(BadRequest, handle_404)
+    app.register_error_handler(InternalServerError, handle_500)
+    app.register_error_handler(HTTPVersionNotSupported, handle_505)
     #DebugModeON-3 - END
     return app
