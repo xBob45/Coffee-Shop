@@ -1,0 +1,59 @@
+#src/controllers/accountController.py
+"""Fix"""
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'svg'}
+
+def check_extension(filename):
+    """Function returns True if extension is all right, and False if otherwise."""
+    filename_split = filename.split('.')
+    if len(filename_split) != 2:
+        return False
+    else:
+        extension = filename_split[-1]
+        if extension in ALLOWED_EXTENSIONS:
+            return True
+        else:
+            return False
+
+def upload_picture():
+    if request.method == 'POST':
+        try:
+            validate_csrf(request.form.get('csrf_token'))
+            id = current_user.id
+            user = User.query.filter_by(id=id).first()
+            # check if the post request has the file part
+            if 'profile_picture' not in request.files:
+                flash('No file part')
+                print('No file part')
+                return redirect(request.url)
+            picture = request.files['profile_picture']
+            #print("Filename: ", picture.filename)
+            # If the user does not select a file, the browser submits an
+            # empty file without a filename.
+            if picture.filename == '':
+                flash('No selected file')
+                print('No selected file')
+                return redirect(request.url)
+            filename_sanitized = secure_filename(picture.filename)
+            print("Sanitized: ", filename_sanitized)
+            if picture and check_extension(filename_sanitized):
+                file_to_store = str(uuid.uuid1())+filename_sanitized
+                if user.profile_picture:
+                    original_picture = user.profile_picture
+                    print(original_picture)
+                    path_to_original_picture = os.path.join(UPLOAD_FOLDER,original_picture)
+                    print(path_to_original_picture)
+                    os.remove(path_to_original_picture)
+                user.profile_picture = file_to_store
+                db.session.commit()
+                upload_path = os.path.join(UPLOAD_FOLDER,file_to_store)
+                picture.save(upload_path)
+                return redirect(request.referrer)
+            else:
+                return BadRequest()
+        except ValidationError:
+            log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
+            return Forbidden()
+        except Exception as e:
+            flash("Error occureed. Please try again.")
+            log_config.logger.error("User was not successfully updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
+            return redirect(request.referrer) 

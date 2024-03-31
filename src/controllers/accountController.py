@@ -8,9 +8,12 @@ import src.log_config as log_config
 from flask_wtf.csrf import validate_csrf, ValidationError
 from hashlib import md5
 from passlib.hash import md5_crypt
-from werkzeug.exceptions import Forbidden
+from werkzeug.exceptions import Forbidden, BadRequest
+from werkzeug.utils import secure_filename
 import uuid
 import os
+
+
 
 load_dotenv()
 UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER")
@@ -121,16 +124,37 @@ def orders():
     order = Order.query.filter_by(user_id=id).all()
     return render_template("account/orders.html", orders=order)
 
+
+#MaliciousFileUpload-1 - START  
+"""Vulnerability"""
 def upload_picture():
     if request.method == 'POST':
-        id = current_user.id
-        user = User.query.filter_by(id=id).first()
-        picture = request.files['profile_picture']
-        picture_uuid = str(uuid.uuid1())+"_"+ picture.filename
-        upload_path = os.path.join(UPLOAD_FOLDER,picture_uuid)
-        picture.save(upload_path)
-        user.profile_picture = picture_uuid
-        db.session.commit()
-        return redirect(request.referrer)
+        try:
+            validate_csrf(request.form.get('csrf_token'))
+            id = current_user.id
+            user = User.query.filter_by(id=id).first()
+            picture = request.files['profile_picture']
+            picture_uuid = str(uuid.uuid1())+ picture.filename
+            if user.profile_picture:
+                    original_picture = user.profile_picture
+                    print(original_picture)
+                    path_to_original_picture = os.path.join(UPLOAD_FOLDER,original_picture)
+                    print(path_to_original_picture)
+                    os.remove(path_to_original_picture)
+            user.profile_picture = picture_uuid
+            db.session.commit()
+            upload_path = os.path.join(UPLOAD_FOLDER,picture_uuid)
+            picture.save(upload_path)
+            log_config.logger.info("User %s successfully updated his profile picture." % user.username, extra={'ip_address': request.remote_addr})
+            return redirect(request.referrer)
+        except ValidationError:
+            log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
+            return Forbidden()
+        except Exception as e:
+            flash("Error occureed. Please try again.")
+            log_config.logger.error("User was not successfully updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
+            return redirect(request.referrer)  
+#MaliciousFileUpload-1 - END  
+
     
     

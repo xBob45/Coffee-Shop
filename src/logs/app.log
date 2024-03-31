@@ -12,3 +12,29 @@
 2024-03-27 13:57:15,538 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
 2024-03-28 16:16:06,753 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
 2024-03-28 16:16:28,050 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-03-30 13:19:02,527 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-03-30 13:21:27,434 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: not enough arguments for format string
+2024-03-30 13:30:08,788 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-03-30 13:31:42,004 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-03-30 13:35:10,836 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: not enough arguments for format string
+2024-03-30 13:37:36,302 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-03-30 13:37:36,302 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-03-30 14:23:49,825 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-03-30 14:24:33,083 - IP:127.0.0.1 - ERROR - User  failed to login! Username doesn't exist.
+2024-03-30 14:24:38,170 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-03-30 14:25:45,164 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: not enough arguments for format string
+2024-03-30 14:31:12,896 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: not enough arguments for format string
+2024-03-30 14:31:32,120 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-03-30 14:33:34,480 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: not enough arguments for format string
+2024-03-30 14:48:21,460 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: not enough arguments for format string
+2024-03-30 17:48:10,876 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-03-30 17:48:21,387 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Green Tea into the cart.
+2024-03-30 19:59:42,162 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-03-30 23:31:02,774 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-03-30 23:31:02,775 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-03-30 23:31:13,728 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-03-30 23:31:13,729 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-03-30 23:31:15,582 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-03-30 23:31:35,344 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Mug into the cart.
+2024-03-30 23:31:48,038 - IP:127.0.0.1 - INFO - User with username admin removed a product Mug from the cart.
+2024-03-30 23:40:57,231 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.

@@ -85,7 +85,7 @@ def copy_function():
                                         destination.write(line)
                         
                     except FileNotFoundError as e:
-                        print(file + "-> NOT FIND")
+                        print(file + "-> NOT FOUND")
                         continue
           
         elif attack_name == None:
