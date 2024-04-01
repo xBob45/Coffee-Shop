@@ -22,17 +22,17 @@ def upload_picture():
             user = User.query.filter_by(id=id).first()
             # check if the post request has the file part
             if 'profile_picture' not in request.files:
-                flash('No file part')
+                flash('No file part', 'danger')
                 print('No file part')
-                return redirect(request.url)
+                return redirect(request.referrer)
             picture = request.files['profile_picture']
             #print("Filename: ", picture.filename)
             # If the user does not select a file, the browser submits an
             # empty file without a filename.
             if picture.filename == '':
-                flash('No selected file')
+                flash('No selected file', 'danger')
                 print('No selected file')
-                return redirect(request.url)
+                return redirect(request.referrer)
             filename_sanitized = secure_filename(picture.filename)
             print("Sanitized: ", filename_sanitized)
             if picture and check_extension(filename_sanitized):
@@ -47,6 +47,8 @@ def upload_picture():
                 db.session.commit()
                 upload_path = os.path.join(UPLOAD_FOLDER,file_to_store)
                 picture.save(upload_path)
+                flash('Profile picture has been updated.', 'success')
+                log_config.logger.info("User %s successfully updated his profile picture." % user.username, extra={'ip_address': request.remote_addr})
                 return redirect(request.referrer)
             else:
                 return BadRequest()
@@ -54,6 +56,6 @@ def upload_picture():
             log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             return Forbidden()
         except Exception as e:
-            flash("Error occureed. Please try again.")
+            flash("Error occureed. Please try again.",'danger')
             log_config.logger.error("User was not successfully updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
             return redirect(request.referrer) 

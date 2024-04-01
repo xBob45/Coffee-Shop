@@ -60,7 +60,7 @@ def login():
 
                     #SensitiveInformationDisclosure-1 - START
                     """Vulnerability"""
-                    flash("Incorrect password.")
+                    flash("Incorrect password.", 'danger')
                     #SensitiveInformationDisclosure-1 - END
                     return redirect(request.referrer)
                 else:
@@ -83,7 +83,7 @@ def login():
             else:
                 #ReflectedXSS-1 - START
                 """Fix"""
-                flash("Incorrect credentials, try again.")
+                flash("Incorrect credentials, try again.", 'danger')
                 #ReflectedXSS-1 - END
                 #InsertionOfSensitiveInformationIntoLogFile-3 - START
                 """Vulnerability"""
@@ -100,11 +100,11 @@ def login():
             #InsertionOfSensitiveInformationIntoLogFile-2 - END
             #SensitiveInformationDisclosure-1 - START
             """Vulnerability"""
-            flash("Incorrect password.")
+            flash("Incorrect password.", 'danger')
             #SensitiveInformationDisclosure-1 - END
         except Exception as e:
             log_config.logger.error("User was not updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
-            flash("Error occured, try again.")
+            flash("Error occured, try again.", 'danger')
             return redirect(request.referrer)  
     #BruteForce-3 - START
     """Vulnerability"""
@@ -156,7 +156,7 @@ def signup():
             db.session.commit()
             db.session.close()
             log_config.logger.info("New user with username %s was successfully created." % username, extra={'ip_address': request.remote_addr})
-            flash("Account has been sucesfully created.")
+            flash("Account has been sucesfully created.", 'success')
             return redirect(url_for("auth.login"))
         except ValidationError:
             log_config.logger.error("User was not created. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
@@ -165,7 +165,7 @@ def signup():
             return redirect(request.referrer)
         except Exception as e:
             log_config.logger.error("User was not successfully created. Exception: %s" % e, extra={'ip_address': request.remote_addr})
-            flash("Error occured, try again.")
+            flash("Error occured, try again.", 'danger')
             redirect(request.referrer)         
     return render_template('auth/signup.html', site_key = SITE_KEY)
 
@@ -184,7 +184,7 @@ def logout():
     username = current_user.username
     logout_user()
     log_config.logger.info("User with username %s logged out." % username, extra={'ip_address': request.remote_addr})
-    flash("You were logged out.")
+    flash("You were logged out.", 'success')
     return redirect(url_for("auth.login"))
 #InsufficientSessionInvalidation-1 - END
 

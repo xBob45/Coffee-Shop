@@ -33,7 +33,7 @@ def signup():
             db.session.commit()
             db.session.close()
             log_config.logger.info("User %s was sucessfully created." % username, extra={'ip_address': request.remote_addr})
-            flash("Account has been sucesfully created.")
+            flash("Account has been successfully created.", 'success')
             return redirect(url_for("auth.login"))
         except ValidationError:
             log_config.logger.error("User was not successfully created. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr}) 
@@ -41,6 +41,6 @@ def signup():
             return redirect(request.referrer)
         except Exception as e:
             log_config.logger.error("User was not successfully created. Exception: %s" % e, extra={'ip_address': request.remote_addr})
-            flash("Error occured, try again.")
+            flash("Error occured, try again.", 'danger')
             redirect(request.referrer)         
     return render_template('auth/signup.html', site_key = SITE_KEY)

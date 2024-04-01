@@ -9,8 +9,8 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon_and_logo/favicon_and_logo.svg') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">   <!-- Icons-->
-    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap_customization.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='sign-in.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap_customization.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sign-in.css') }}">
 
 
 </head>
@@ -58,26 +58,19 @@
         {# BruteForce-1 - END #}
       </div>
       <button class="btn btn-success w-100 py-2" type="submit" id="button">Sign in</button>
-      {% with messages = get_flashed_messages() %}
-      {% if messages %}
-      <ul class="flash">
-          {% for message in messages %}
-            {% if message == 'Account has been sucesfully created.' %}
-              <div class="alert alert-success" role="alert" id="alert-danger">
-                {{ message }}
-              </div>
-            {% else %}
-            <div class="alert alert-danger" role="alert" id="alert-danger">
-              {# ReflectedXSS-1 - START #}
-              {# Fix #}
-              {{ message }}
-              {# ReflectedXSS-1 - END #}
-            </div>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <ul class="flash">
+                {% for category, message in messages %}
+                  {% if message %}
+                    <div class="alert alert-{{ category }} " role="alert" id="alert">
+                      {{ message }}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+            </ul>
             {% endif %}
-          {% endfor %}
-      </ul>
-      {% endif %}
-      {% endwith %}
+            {% endwith %}
     </form>
 {% endblock %}
 </main>

@@ -74,7 +74,7 @@ def update_user():
                 user.password = password
             db.session.commit()
             log_config.logger.info("User with username %s was sucessfully updated." % username, extra={'ip_address': request.remote_addr})
-            flash("User has been updated.")
+            flash("User has been updated.", 'success')
         except ValidationError:
             log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             return Forbidden()
@@ -82,7 +82,7 @@ def update_user():
             return redirect(request.referrer)
         except Exception as e:
             log_config.logger.error("User was not successfully updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
-            flash("Error occured, try again.")
+            flash("Error occured, try again.", 'danger')
             return redirect(request.referrer)     
     return render_template("account/setting.html")
 #StoredXSS-2 - END
@@ -107,12 +107,13 @@ def delete_user():
                 db.session.commit()
                 db.session.close()
                 log_config.logger.info("User with username %s was deleted." % user.username, extra={'ip_address': request.remote_addr})
+                flash("User has been deleted.", 'danger')
                 return redirect(url_for("auth.login"))
             else:
-                flash("User doesn't exists.")
+                flash("User doesn't exists.", 'danger')
                 return redirect(request.referrer)
         except Exception as e:
-            flash("Error occureed. Please try again.")
+            flash("Error occureed. Please try again.", 'danger')
             log_config.logger.error("User with username %s was not deleted. Exception: %s." % (user.username, e), extra={'ip_address': request.remote_addr})
             return redirect(request.referrer)
     return redirect(request.referrer)
@@ -133,7 +134,17 @@ def upload_picture():
             validate_csrf(request.form.get('csrf_token'))
             id = current_user.id
             user = User.query.filter_by(id=id).first()
+            # check if the post request has the file part
+            if 'profile_picture' not in request.files:
+                flash('No file part', 'danger')
+                return redirect(request.referrer)
             picture = request.files['profile_picture']
+            #print("Filename: ", picture.filename)
+            # If the user does not select a file, the browser submits an
+            # empty file without a filename.
+            if picture.filename == '':
+                flash('No selected file', 'danger')
+                return redirect(request.referrer)
             picture_uuid = str(uuid.uuid1())+ picture.filename
             if user.profile_picture:
                     original_picture = user.profile_picture
@@ -145,15 +156,16 @@ def upload_picture():
             db.session.commit()
             upload_path = os.path.join(UPLOAD_FOLDER,picture_uuid)
             picture.save(upload_path)
+            flash('Profile picture has been updated.', 'success')
             log_config.logger.info("User %s successfully updated his profile picture." % user.username, extra={'ip_address': request.remote_addr})
             return redirect(request.referrer)
         except ValidationError:
             log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             return Forbidden()
         except Exception as e:
-            flash("Error occureed. Please try again.")
+            flash("Error occureed. Please try again.", 'danger')
             log_config.logger.error("User was not successfully updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
-            return redirect(request.referrer)  
+            return redirect(request.referrer) 
 #MaliciousFileUpload-1 - END  
 
     

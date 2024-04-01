@@ -39,12 +39,12 @@ def update_user():
                 user.password = password
             db.session.commit()
             log_config.logger.info("User with username %s was sucessfully updated." % username, extra={'ip_address': request.remote_addr})
-            flash("User has been updated.")
+            flash("User has been updated.", 'success')
         except ValidationError:
             log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             return Forbidden()
         except Exception as e:
             log_config.logger.error("User was not sucessfully updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
-            flash("Error occured, try again.")
+            flash("Error occured, try again.", 'danger')
             return redirect(request.referrer)  
     return render_template("account/setting.html")

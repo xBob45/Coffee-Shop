@@ -15,12 +15,13 @@ def delete_user():
                 db.session.commit()
                 db.session.close()
                 log_config.logger.info("User with username %s was deleted." % user.username, extra={'ip_address': request.remote_addr})
+                flash("User has been deleted.", 'danger')
                 return redirect(url_for("auth.login"))
             else:
-                flash("User doesn't exists.")
+                flash("User doesn't exists.", 'danger')
                 return redirect(request.referrer)
         except Exception as e:
-            flash("Error occureed. Please try again.")
+            flash("Error occureed. Please try again.", 'danger')
             log_config.logger.error("User with username %s was not deleted. Exception: %s." % (user.username, e), extra={'ip_address': request.remote_addr})
             return redirect(request.referrer)
     return redirect(request.referrer)

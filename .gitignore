@@ -1,3 +1,6 @@
 venv/
 __pycache__/
 instance/
+*.log
+*.jpg
+*.php

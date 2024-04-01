@@ -38,3 +38,133 @@
 2024-03-30 23:31:35,344 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Mug into the cart.
 2024-03-30 23:31:48,038 - IP:127.0.0.1 - INFO - User with username admin removed a product Mug from the cart.
 2024-03-30 23:40:57,231 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
+2024-04-01 12:41:50,631 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-04-01 12:42:04,484 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-04-01 12:42:14,266 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-04-01 12:43:34,163 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-04-01 12:43:40,209 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+2024-04-01 12:43:44,167 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+2024-04-01 12:43:47,974 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+2024-04-01 12:43:52,012 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+2024-04-01 12:44:04,544 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Coffee Portafilter into the cart.
+2024-04-01 12:44:10,631 - IP:127.0.0.1 - INFO - User with username admin removed a product Coffee Portafilter from the cart.
+2024-04-01 12:44:12,842 - IP:127.0.0.1 - INFO - User with username admin removed a product Cappuccino from the cart.
+2024-04-01 12:44:32,035 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: [Errno 2] No such file or directory: 'src/static/profile_pictures/930f3f45-eee6-11ee-8f44-00155df0546dphp-reverse-shell.php'
+2024-04-01 12:48:51,923 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
+2024-04-01 12:52:51,445 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
+2024-04-01 12:57:08,670 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
+2024-04-01 12:57:19,075 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
+2024-04-01 12:57:44,073 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
+2024-04-01 13:00:51,187 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
+2024-04-01 13:01:40,327 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
+2024-04-01 13:09:01,291 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
+2024-04-01 13:36:13,203 - IP:127.0.0.1 - INFO - User with username admin logged out.
+2024-04-01 13:38:22,901 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-04-01 13:38:24,136 - IP:127.0.0.1 - INFO - User with username admin logged out.
+2024-04-01 13:39:03,773 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-04-01 13:39:04,631 - IP:127.0.0.1 - INFO - User with username admin logged out.
+2024-04-01 13:39:12,424 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-04-01 13:39:16,662 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+2024-04-01 13:39:18,792 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Flat White into the cart.
+2024-04-01 13:39:22,089 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+2024-04-01 13:39:25,091 - IP:127.0.0.1 - INFO - User with username admin removed a product Cappuccino from the cart.
+2024-04-01 13:39:32,233 - IP:127.0.0.1 - INFO - User with username admin removed a product Flat White from the cart.
+2024-04-01 13:39:41,658 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
+2024-04-01 13:39:52,888 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
+2024-04-01 13:39:56,489 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
+2024-04-01 13:41:55,694 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Coffee Portafilter into the cart.
+2024-04-01 13:42:17,653 - IP:127.0.0.1 - INFO - User with username admin removed a product Coffee Portafilter from the cart.
+2024-04-01 13:42:29,346 - IP:127.0.0.1 - INFO - User with username admin logged out.
+2024-04-01 13:42:31,628 - IP:127.0.0.1 - ERROR - User af failed to login! Username doesn't exist.
+2024-04-01 13:42:34,031 - IP:127.0.0.1 - ERROR - User admin failed to login! Wrong password entered.
+2024-04-01 13:42:41,039 - IP:127.0.0.1 - ERROR - User admin failed to login! Wrong password entered.
+2024-04-01 13:44:56,839 - IP:127.0.0.1 - ERROR - User admin failed to login! Wrong password entered.
+2024-04-01 13:44:59,269 - IP:127.0.0.1 - ERROR - User adminadsfasdf failed to login! Username doesn't exist.
+2024-04-01 13:45:01,139 - IP:127.0.0.1 - ERROR - User admin failed to login! Wrong password entered.
+2024-04-01 13:45:02,862 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-04-01 13:45:04,015 - IP:127.0.0.1 - INFO - User with username admin logged out.
+2024-04-01 13:45:05,272 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-04-01 13:46:00,550 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-04-01 13:46:09,883 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-04-01 13:46:11,499 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-04-01 13:46:11,500 - IP:127.0.0.1 - ERROR - User entered an invalid email.
+2024-04-01 13:46:11,518 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-04-01 13:46:15,156 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-04-01 13:46:18,293 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-04-01 13:46:20,114 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-04-01 13:46:20,210 - IP:127.0.0.1 - INFO - User admin succesfully updated user with username admin.
+2024-04-01 13:46:22,837 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-04-01 13:46:25,354 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-04-01 13:46:28,529 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-04-01 13:48:23,609 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-04-01 13:48:33,235 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:48:33,236 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:48:35,184 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:48:35,185 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:48:37,123 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:48:37,124 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:48:38,898 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:48:38,899 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:48:48,922 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:48:48,923 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:49:34,971 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 13:49:34,972 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 13:49:37,671 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:49:37,672 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:49:39,946 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 13:49:39,947 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 13:49:43,354 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:49:43,355 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:56:20,531 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 13:56:20,532 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 13:56:47,731 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 13:56:47,732 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 13:57:28,123 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 13:57:28,123 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 13:58:32,696 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 13:58:32,697 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 13:59:03,707 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 13:59:03,707 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 13:59:19,550 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:59:19,550 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 13:59:31,290 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 13:59:31,290 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:00:31,799 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:00:31,800 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:00:48,665 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:00:48,666 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:00:55,561 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:00:55,561 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:01:08,515 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:01:08,516 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:01:27,392 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:01:27,393 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:02:02,226 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 14:02:02,230 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 14:02:12,415 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:02:12,416 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:02:23,019 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:02:23,019 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:04:39,627 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:04:39,628 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:04:52,605 - IP:127.0.0.1 - ERROR - User admin failed to open: ../../../../../../etc/passwd
+2024-04-01 14:05:42,416 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 14:05:42,417 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 14:05:44,134 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 14:05:44,134 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 14:05:46,834 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:05:46,835 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:05:47,810 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 14:05:47,810 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-04-01 14:05:49,132 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:05:49,132 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:07:38,130 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:07:38,131 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-01 14:07:45,513 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-04-01 14:07:47,394 - IP:127.0.0.1 - INFO - User with username admin logged out.

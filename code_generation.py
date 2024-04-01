@@ -28,7 +28,7 @@ def copy_function():
                             locations = [l.strip('\n') for l in locations]
                         for file in locations: 
                             with open(file, 'r+') as destination:
-                                print(file + "-> FOUND")
+                                #print(file + "-> FOUND")
                                 lines = destination.readlines()
                                 destination.seek(0)  # This moves file pointer back to the beginning
                                 mark = '%s-%s - START' % (attack_name,file_number)
@@ -42,7 +42,7 @@ def copy_function():
                                         destination.write(line)
                         
                     except FileNotFoundError:
-                        print(file + "-> NOT FOUND")
+                        #print(file + "-> NOT FOUND")
                         continue
             
         elif attack_value == False:
@@ -70,7 +70,7 @@ def copy_function():
                             #print(locations)
                         for file in locations: 
                             with open(file, 'r+') as destination:
-                                print(file + "-> FOUND")
+                                #print(file + "-> FOUND")
                                 lines = destination.readlines()
                                 destination.seek(0)  # This moves file pointer back to the beginning
 
@@ -85,7 +85,7 @@ def copy_function():
                                         destination.write(line)
                         
                     except FileNotFoundError as e:
-                        print(file + "-> NOT FOUND")
+                        #print(file + "-> NOT FOUND")
                         continue
           
         elif attack_name == None:

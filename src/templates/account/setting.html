@@ -1,7 +1,7 @@
 {% extends "public/home.html" %} 
 {% block title %}Account{% endblock %}
 {% block content %}
-<link rel="stylesheet" href="{{ url_for('static', filename='setting.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/setting.css') }}">
 <div class="container">
     <div class="col-12">
         <div class="d-flex justify-content-center">
@@ -82,25 +82,21 @@
         </div>
 
 
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul class="flash animate__animated animate__fadeIn">
-            {% for message in messages %}
-            {% if message == 'User has been updated.' %}
-                <div class="alert alert-success" role="alert" id="setting-alert">
-                {{ message}}
-                </div>
-            {% else %}
-                <div class="alert alert-danger" role="alert" id="setting-alert">
-                {{ message}}
-                </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <ul class="flash animate__animated animate__fadeIn">
+                {% for category, message in messages %}
+                  {% if message %}
+                    <div class="alert alert-{{ category }} " role="alert" id="alert">
+                      {{ message }}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+            </ul>
             {% endif %}
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
+            {% endwith %}
+    </div>
 </div>
-
       <script>
         function togglePasswordVisibility() {
             const passwordInput = document.querySelector('#edit_password');

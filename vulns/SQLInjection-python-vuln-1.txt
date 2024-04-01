@@ -58,6 +58,6 @@ def login():
         except Exception as e:
             print(e)
             log_config.logger.info("Error occured, try again. Exception: %s" % e, extra={'ip_address': request.remote_addr})
-            flash("Unexpected error. Try again, please.")
+            flash("Unexpected error. Try again, please.", 'danger')
     #BruteForce-3 - START
     #BruteForce-3 - END
