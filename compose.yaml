@@ -15,6 +15,20 @@ services:
     restart:
       always
 
+  #FunctionalityFromUntrustedSource-1 - START
+  #Vulnerability
+  apache-js:
+      image: httpd:alpine
+      ports:
+        - "9091:80"
+      volumes:
+        - ./src/static/js/:/usr/local/apache2/htdocs
+        - ./apache/Docker/apache-js.conf:/usr/local/apache2/conf/apache-js.conf
+      networks:
+        - coffee-shop
+      restart: always
+  #FunctionalityFromUntrustedSource-1 - END
+  
   postgresql:
     #VulnerablePostgreSQL-1 - START
     #Fix
@@ -32,18 +46,6 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
-
-  pgadmin:
-    image: dpage/pgadmin4
-    networks:
-      - coffee-shop
-    ports:
-      - 81:80
-    restart:
-      always
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@pgadmin.com
-      - PGADMIN_DEFAULT_PASSWORD=admin
 
 networks:
   coffee-shop:

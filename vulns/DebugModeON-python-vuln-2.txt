@@ -4,6 +4,8 @@ def handle_400(e):
     pass
 def handle_403(e):
     pass
+def handle_413(e):
+    pass
 def handle_404(e):
     pass
 def handle_500(e):

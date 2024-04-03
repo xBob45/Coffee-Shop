@@ -9,14 +9,14 @@ from src.models.User import db, User
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
 import logging
-from werkzeug.exceptions import Forbidden, BadRequest, NotFound, InternalServerError, HTTPVersionNotSupported
+from werkzeug.exceptions import Forbidden, BadRequest, NotFound, InternalServerError, HTTPVersionNotSupported, RequestEntityTooLarge
 from src.auxiliary.custom_error_responses import *
 from werkzeug.debug import DebuggedApplication
 
 
 def create_app():
     app = Flask(__name__)  # flask app object
-    app.config.from_object('src.config')  # Configuring from Python Files
+    app.config.from_object('src.config.Config')  # Configuring from Python Files
     db.init_app(app)  # Initializing the database
     #-------------------------Flask-Login-------------------------
     login_manager = LoginManager()
@@ -50,6 +50,7 @@ def create_app():
     """Vulnerability"""
     app.register_error_handler(NotFound, handle_400)
     app.register_error_handler(Forbidden, handle_403)
+    app.register_error_handler(RequestEntityTooLarge, handle_413)
     app.register_error_handler(BadRequest, handle_404)
     app.register_error_handler(InternalServerError, handle_500)
     app.register_error_handler(HTTPVersionNotSupported, handle_505)

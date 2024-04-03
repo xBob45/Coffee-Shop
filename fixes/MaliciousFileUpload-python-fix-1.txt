@@ -1,6 +1,7 @@
 #src/controllers/accountController.py
 """Fix"""
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'svg'}
+ALLOWED_MIME = {'image/png','image/jpg','image/jpeg', 'image/svg+xml'}
 
 def check_extension(filename):
     """Function returns True if extension is all right, and False if otherwise."""
@@ -13,6 +14,12 @@ def check_extension(filename):
             return True
         else:
             return False
+
+def check_mime(picture):
+    if mimetypes.guess_type(picture.filename)[0] in ALLOWED_MIME:
+        return True
+    else:
+        return False
 
 def upload_picture():
     if request.method == 'POST':
@@ -35,7 +42,7 @@ def upload_picture():
                 return redirect(request.referrer)
             filename_sanitized = secure_filename(picture.filename)
             print("Sanitized: ", filename_sanitized)
-            if picture and check_extension(filename_sanitized):
+            if picture and check_extension(filename_sanitized) and check_mime(picture):
                 file_to_store = str(uuid.uuid1())+filename_sanitized
                 if user.profile_picture:
                     original_picture = user.profile_picture

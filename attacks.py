@@ -27,5 +27,7 @@ attacks_config = {
     'CustomErrorPages': None,
     'DebugModeON': True, #If you set this vunerability to either "True" or "False" set 'CustomErrorPages' to 'None'
     'BruteForce': True,
-    'MaliciousFileUpload':True,
+    'MaliciousFileUpload':False,
+    'HardCodedCredentials':False,
+    'FunctionalityFromUntrustedSource':True
 }

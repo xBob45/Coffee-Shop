@@ -115,7 +115,8 @@ def delete_function():
                          'src/templates/public/coffee.html',
                          'db.sql',
                          'apache/Docker/coffee-shop.conf',
-                         'src/auxiliary/custom_error_responses.py'
+                         'src/auxiliary/custom_error_responses.py',
+                         'src/templates/order/order_success.html'
                         ]
     
     for file_name in destination_files:

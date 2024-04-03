@@ -168,3 +168,29 @@
 2024-04-01 14:07:38,131 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
 2024-04-01 14:07:45,513 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
 2024-04-01 14:07:47,394 - IP:127.0.0.1 - INFO - User with username admin logged out.
+2024-04-02 15:26:42,381 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-04-02 15:26:46,545 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-04-03 12:46:40,919 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-04-03 12:47:42,423 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-04-03 12:48:27,956 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-04-03 13:14:05,376 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Green Tea into the cart.
+2024-04-03 14:34:31,449 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+2024-04-03 18:24:37,807 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Coffee Portafilter into the cart.
+2024-04-03 18:26:31,169 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Flat White into the cart.
+2024-04-03 18:51:20,420 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
+2024-04-03 19:12:23,736 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: '_io.BytesIO' object has no attribute 'mimetypes'
+2024-04-03 19:12:48,230 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: '_io.BytesIO' object has no attribute 'mimetypes'
+2024-04-03 19:13:05,869 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
+2024-04-03 19:14:16,931 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
+2024-04-03 19:14:47,237 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
+2024-04-03 19:21:01,996 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
+2024-04-03 19:25:00,775 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
+2024-04-03 19:50:38,077 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-04-03 19:52:43,382 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-04-03 19:54:09,124 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-04-03 19:55:51,061 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-04-03 19:57:56,609 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.

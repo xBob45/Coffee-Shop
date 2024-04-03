@@ -8,7 +8,9 @@ from src.models.User import db
 from src.models.User import Product, Category, ProductCategory, Order, OrderItems
 import src.log_config as log_config
 from werkzeug.exceptions import Forbidden, BadRequest
+from flask_login import login_required
 
+@login_required
 def add_to_cart():
     if request.method == 'POST':
         validate_csrf(request.form.get('csrf_token'))
@@ -43,6 +45,7 @@ def add_to_cart():
             print(session)
             return redirect(request.referrer)
 
+@login_required
 def delete_from_cart():
     if request.method == 'POST':
         validate_csrf(request.form.get('csrf_token'))
@@ -56,13 +59,15 @@ def delete_from_cart():
         flash("Product removed from the cart.", 'danger')
         return redirect(request.referrer)
     
-
+@login_required
 def checkout():
     return render_template("order/cart.html")
 
+@login_required
 def order_success():
     return render_template('order/order_success.html')
 
+@login_required
 def create_order():
     if request.method == 'POST':
         print(len(session['cart']))
