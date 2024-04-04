@@ -34,6 +34,11 @@ def create_app():
     #Flask-WTF
 
     #Clickjacking-1 - START
+    @app.after_request
+    def security_measures(response):
+        """Fix"""
+        response.headers['X-Frame-Options'] = 'DENY'
+        return response
     #Clickjacking-1 - END
     app.register_blueprint(auth_blueprint)
     app.register_blueprint(home_blueprint)
@@ -45,11 +50,11 @@ def create_app():
 
     #CustomErrorPages-2 - START
     """Fix"""
-    app.register_error_handler(400, handle_400)
-    app.register_error_handler(403, handle_403)
-    app.register_error_handler(404, handle_404)
-    app.register_error_handler(500, handle_500)
-    app.register_error_handler(505, handle_505)
+    app.register_error_handler(NotFound, handle_400)
+    app.register_error_handler(Forbidden, handle_403)
+    app.register_error_handler(BadRequest, handle_404)
+    app.register_error_handler(InternalServerError, handle_500)
+    app.register_error_handler(HTTPVersionNotSupported, handle_505)
     #CustomErrorPages-2 - END
     
     #DebugModeON-3 - START

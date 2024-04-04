@@ -219,3 +219,29 @@
 2024-04-03 21:06:08,653 - IP:127.0.0.1 - INFO - User with username admin logged out.
 2024-04-03 21:26:57,746 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
 2024-04-03 21:30:02,031 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
+2024-04-04 17:17:11,942 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-04 17:17:42,107 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-04 17:20:48,326 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-04 17:34:08,473 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-04 17:35:06,966 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-04 17:35:09,907 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-04 17:35:34,187 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-04 17:39:31,257 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-04 17:39:31,259 - IP:127.0.0.1 - ERROR - User was not successfully created. Exception: 403 Forbidden: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
+2024-04-04 17:39:34,131 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-04 17:39:34,133 - IP:127.0.0.1 - ERROR - User was not successfully created. Exception: 403 Forbidden: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
+2024-04-04 17:39:40,177 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-04 17:39:40,178 - IP:127.0.0.1 - ERROR - User was not successfully created. Exception: 403 Forbidden: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
+2024-04-04 17:45:18,289 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-04 17:45:18,290 - IP:127.0.0.1 - ERROR - User was not successfully created. Exception: 403 Forbidden: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
+2024-04-04 17:45:35,765 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-04 17:45:35,767 - IP:127.0.0.1 - ERROR - User was not successfully created. Exception: 403 Forbidden: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
+2024-04-04 17:45:42,762 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-04 17:46:17,242 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-04 17:46:40,787 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-04 17:47:38,942 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-04-04 17:47:39,347 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)

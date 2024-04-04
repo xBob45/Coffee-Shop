@@ -5,18 +5,18 @@ attacks_config = {
     'ReflectedXSS': False,
     'StoredXSS': False, #<-----
     'InsufficientSessionInvalidation': False,
-    'ForcedBrowsing': None,
+    'ForcedBrowsing': None, #If you set this vulnerability to either "True" or "False" set "SensitiveDatawithinCookie" to "None"
     'HardCodedKey': True,
     'PathTraversal': True,
     'OSCommandInjection': False,
-    'CookiesWithoutSecurityAttributes' : None,
-    'Clickjacking' : True,
+    'CookiesWithoutSecurityAttributes' : None, # Set to 'None' if you're going to set 'CSRF', 'SensitiveDatawithinCookie'
+    'Clickjacking' : False,
     'InsufficientLogging':False,
     'InsertionOfSensitiveInformationIntoLogFile' : True,
     'WeakPasswordRequirements' : True,
     'IDOR': False,
     'CSRF': True, #If 'True' set 'CookiesWithoutSecurityAttributes' to 'None'
-    'SensitiveDatawithinCookie': True,  #If 'True' set 'ForcedBrowsing' to 'None'
+    'SensitiveDatawithinCookie': True,  #If you set this vulnerability to either "True" or "False" set "ForcedBrowsing" to "None"
     'VulnerablePostgreSQL' : False,
     'SSRF' : False,
     'CompleteOmissionOfHashFunction' : None, 
