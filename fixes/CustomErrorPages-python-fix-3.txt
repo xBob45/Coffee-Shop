@@ -1,3 +1,0 @@
-#apache/Docker/coffee-shop.conf
-#Fix
-WSGIErrorOverride Off

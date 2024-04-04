@@ -1,6 +1,8 @@
 #apache/Docker/coffee-shop.conf
 #Fix
 Alias /listing /var/www/html/Coffee-Shop
-    <Directory /var/www/html/Coffee-Shop>
-        Options -Indexes
-    </Directory>
+<Directory /var/www/html/Coffee-Shop>
+    Options -Indexes
+    AllowOverride None
+    Require all granted
+</Directory>

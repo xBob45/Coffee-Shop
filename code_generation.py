@@ -116,7 +116,8 @@ def delete_function():
                          'db.sql',
                          'apache/Docker/coffee-shop.conf',
                          'src/auxiliary/custom_error_responses.py',
-                         'src/templates/order/order_success.html'
+                         'src/templates/order/order_success.html',
+                         '.env'
                         ]
     
     for file_name in destination_files:

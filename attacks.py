@@ -7,7 +7,7 @@ attacks_config = {
     'InsufficientSessionInvalidation': False,
     'ForcedBrowsing': None,
     'HardCodedKey': True,
-    'PathTraversal': False,
+    'PathTraversal': True,
     'OSCommandInjection': False,
     'CookiesWithoutSecurityAttributes' : None,
     'Clickjacking' : True,
@@ -23,11 +23,11 @@ attacks_config = {
     'WeakHashFunction' : None, 
     'WeakHashFunctionWithSalt': False,
     'UnprotectedTransportofCredentials': False,
-    'DirectoryListing':True,
-    'CustomErrorPages': None,
-    'DebugModeON': True, #If you set this vunerability to either "True" or "False" set 'CustomErrorPages' to 'None'
+    'DirectoryListing': False,
+    'CustomErrorPages': False, #If you set this vunerability to either "True" or "False" set 'DebugModeON' to 'None'
+    'DebugModeON': None, #If you set this vunerability to either "True" or 'False' set 'CustomErrorPages' to 'None'. Also, in order to exploit this set 'UnprotectedTransportofCredentials' to 'False'
     'BruteForce': True,
-    'MaliciousFileUpload':False,
+    'MaliciousFileUpload':False, #For exploitation, set 'DirectoryListing' to 'True'
     'HardCodedCredentials':False,
     'FunctionalityFromUntrustedSource':True
 }

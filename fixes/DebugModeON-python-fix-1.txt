@@ -1,4 +1,3 @@
 #src/config.py
 """Fix"""
-DEBUG = False
-os.environ['WERKZEUG_DEBUG_PIN'] = 'off'
+os.environ['WERKZEUG_DEBUG_PIN'] = 'on'
