@@ -17,7 +17,7 @@ services:
 
   #FunctionalityFromUntrustedSource-1 - START
   #Vulnerability
-  apache-js:
+  compromised_service:
       image: httpd:alpine
       ports:
         - "9091:80"

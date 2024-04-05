@@ -20,7 +20,7 @@ def guide_reader():
         return render_template("public/guide.html", content=content)
     except FileNotFoundError:
         log_config.logger.error("User failed open: %s. File not found." % file_name, extra={'ip_address': request.remote_addr})
-        return NotFound()
+        abort(404)
     except Exception as e:
         log_config.logger.error("User failed open: %s" % file_name, extra={'ip_address': request.remote_addr})
-        return BadRequest()
+        abort(400)

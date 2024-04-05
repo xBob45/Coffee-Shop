@@ -18,11 +18,13 @@ def check_if_admin():
                 return #If everything is OK, let user proceed.
             else:
                 log_config.logger.error("User %s tried to access the admin panel and was blocked due to insufficient privileges." % current_user.username, extra={'ip_address': request.remote_addr})
-                return Forbidden()
+                raise Forbidden()
         return redirect(url_for('auth.login'))
+    except Forbidden:
+        abort(403)
     except Exception as e:
         log_config.logger.error("Error occured while accessing the admin panel. Exception: %s" % e, extra={'ip_address': request.remote_addr})
-        return BadRequest()
+        abort(400)
 #SensitiveDatawithinCookie-3 - END
 
 #ForcedBrowsing-1 - START

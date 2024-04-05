@@ -1,8 +1,8 @@
 import functools
 from src.models.User import User, Role
 from src.models.User import db
-from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
-from werkzeug.exceptions import Forbidden
+from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for, abort)
+from werkzeug.exceptions import Forbidden, BadRequest
 from werkzeug.security import check_password_hash, generate_password_hash
 import os
 import requests
@@ -92,7 +92,10 @@ def login():
                 return redirect(request.referrer)
         except ValidationError:
             log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
-            return Forbidden()
+            abort(400)
+        except BadRequest:
+            log_config.logger.error("Failed reCAPTCHA.", extra={'ip_address': request.remote_addr})
+            abort(400)
         except argon2.exceptions.VerifyMismatchError:
             #InsertionOfSensitiveInformationIntoLogFile-2 - START
             """Vulnerability"""
@@ -120,8 +123,7 @@ def signup():
             response = request.form.get('g-recaptcha-response')
             verify_response = requests.post(url='%s?secret=%s&response=%s' % (VERIFY_URL, SECRET_KEY, response)).json()
             if verify_response.get('success') != True:
-                log_config.logger.error("Failed reCAPTCHA.", extra={'ip_address': request.remote_addr})
-                return Forbidden()
+                raise BadRequest()
             validate_csrf(request.form.get('csrf_token'))
             first_name = request.form.get('first_name')
             #Function compares user input against allowed pattern.
@@ -160,9 +162,12 @@ def signup():
             return redirect(url_for("auth.login"))
         except ValidationError:
             log_config.logger.error("User was not created. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
-            return Forbidden() 
+            abort(400)
         except ValueError:
             return redirect(request.referrer)
+        except BadRequest:
+            log_config.logger.error("Failed reCAPTCHA.", extra={'ip_address': request.remote_addr})
+            abort(400)
         except Exception as e:
             log_config.logger.error("User was not successfully created. Exception: %s" % e, extra={'ip_address': request.remote_addr})
             flash("Error occured, try again.", 'danger')

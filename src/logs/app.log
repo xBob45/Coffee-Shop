@@ -245,3 +245,8 @@
 2024-04-04 17:47:39,347 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
 
 (Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-04-05 13:35:24,151 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-04-05 13:37:12,971 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-05 13:37:12,971 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-04-05 13:37:18,259 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide8.txt
+2024-04-05 13:37:18,259 - IP:127.0.0.1 - ERROR - User failed to open: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide8.txt.

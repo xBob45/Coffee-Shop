@@ -42,7 +42,7 @@ def update_user():
             flash("User has been updated.", 'success')
         except ValidationError:
             log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
-            return Forbidden()
+            abort(400)
         except Exception as e:
             log_config.logger.error("User was not sucessfully updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
             flash("Error occured, try again.", 'danger')

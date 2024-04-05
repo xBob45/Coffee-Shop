@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, abort
 from src.controllers.authController import login, logout, signup
 
 auth_blueprint = Blueprint('auth', __name__)

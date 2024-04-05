@@ -1,6 +1,6 @@
 #compose.yaml
 #Vulnerability
-apache-js:
+compromised_service:
     image: httpd:alpine
     ports:
       - "9091:80"

@@ -8,7 +8,7 @@ import src.log_config as log_config
 from flask_wtf.csrf import validate_csrf, ValidationError
 from hashlib import md5
 from passlib.hash import md5_crypt
-from werkzeug.exceptions import Forbidden, BadRequest
+from werkzeug.exceptions import Forbidden, BadRequest, RequestEntityTooLarge, UnsupportedMediaType
 from werkzeug.utils import secure_filename
 import uuid
 import os
@@ -78,7 +78,7 @@ def update_user():
             flash("User has been updated.", 'success')
         except ValidationError:
             log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
-            return Forbidden()
+            abort(400)
         except ValueError:
             return redirect(request.referrer)
         except Exception as e:
@@ -128,28 +128,7 @@ def orders():
 
 
 #MaliciousFileUpload-1 - START  
-"""Fix"""
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'svg'}
-ALLOWED_MIME = {'image/png','image/jpg','image/jpeg', 'image/svg+xml'}
-
-def check_extension(filename):
-    """Function returns True if extension is all right, and False if otherwise."""
-    filename_split = filename.split('.')
-    if len(filename_split) != 2:
-        return False
-    else:
-        extension = filename_split[-1]
-        if extension in ALLOWED_EXTENSIONS:
-            return True
-        else:
-            return False
-
-def check_mime(picture):
-    if mimetypes.guess_type(picture.filename)[0] in ALLOWED_MIME:
-        return True
-    else:
-        return False
-
+"""Vulnerability"""
 def upload_picture():
     if request.method == 'POST':
         try:
@@ -159,7 +138,6 @@ def upload_picture():
             # check if the post request has the file part
             if 'profile_picture' not in request.files:
                 flash('No file part', 'danger')
-                print('No file part')
                 return redirect(request.referrer)
             picture = request.files['profile_picture']
             #print("Filename: ", picture.filename)
@@ -167,32 +145,26 @@ def upload_picture():
             # empty file without a filename.
             if picture.filename == '':
                 flash('No selected file', 'danger')
-                print('No selected file')
                 return redirect(request.referrer)
-            filename_sanitized = secure_filename(picture.filename)
-            print("Sanitized: ", filename_sanitized)
-            if picture and check_extension(filename_sanitized) and check_mime(picture):
-                file_to_store = str(uuid.uuid1())+filename_sanitized
-                if user.profile_picture:
+            picture_uuid = str(uuid.uuid1())+ picture.filename
+            if user.profile_picture:
                     original_picture = user.profile_picture
                     print(original_picture)
                     path_to_original_picture = os.path.join(UPLOAD_FOLDER,original_picture)
                     print(path_to_original_picture)
                     os.remove(path_to_original_picture)
-                user.profile_picture = file_to_store
-                db.session.commit()
-                upload_path = os.path.join(UPLOAD_FOLDER,file_to_store)
-                picture.save(upload_path)
-                flash('Profile picture has been updated.', 'success')
-                log_config.logger.info("User %s successfully updated his profile picture." % user.username, extra={'ip_address': request.remote_addr})
-                return redirect(request.referrer)
-            else:
-                return BadRequest()
+            user.profile_picture = picture_uuid
+            db.session.commit()
+            upload_path = os.path.join(UPLOAD_FOLDER,picture_uuid)
+            picture.save(upload_path)
+            flash('Profile picture has been updated.', 'success')
+            log_config.logger.info("User %s successfully updated his profile picture." % user.username, extra={'ip_address': request.remote_addr})
+            return redirect(request.referrer)
         except ValidationError:
             log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
-            return Forbidden()
+            abort(400)
         except Exception as e:
-            flash("Error occureed. Please try again.",'danger')
+            flash("Error occureed. Please try again.", 'danger')
             log_config.logger.error("User was not successfully updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
             return redirect(request.referrer) 
 #MaliciousFileUpload-1 - END  

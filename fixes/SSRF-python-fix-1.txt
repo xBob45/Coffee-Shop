@@ -34,11 +34,13 @@ def development():
                         return response.read()
                     else:
                         log_config.logger.error("User %s tried to open URL %s and failed. Provided domain is prohibited." % (current_user.username, url), extra={'ip_address': request.remote_addr}) 
-                        return Forbidden()
+                        raise Forbidden()
                 else:
                     log_config.logger.error("User %s tried to open URL %s and failed. Provided scheme is prohibited." % (current_user.username, url), extra={'ip_address': request.remote_addr})
-                    return Forbidden()
+                    raise Forbidden()
+            except Forbidden:
+                abort(403)
             except Exception as e:
                 log_config.logger.error("User %s tried to open URL %s and failed. Exception: %s" % (current_user.username, url, e), extra={'ip_address': request.remote_addr})
-                return Forbidden()
+                abort(400)
     return 'This section is currently under development.'

@@ -3,7 +3,7 @@ from flask import session, request
 from flask_login import  current_user
 from src.models.User import db
 from flask_wtf.csrf import validate_csrf, ValidationError
-from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
+from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for, abort)
 from src.models.User import db
 from src.models.User import Product, Category, ProductCategory, Order, OrderItems
 import src.log_config as log_config
@@ -19,7 +19,7 @@ def add_to_cart():
         product = db.session.query(Product).filter_by(id=product_id).first()
         if int(quantity) <= 0 or int(quantity) > product.stock:
             log_config.logger.error("User with username %s tried to put an invalid %s amount of product into the cart." % (current_user.username, quantity), extra={'ip_address': request.remote_addr})
-            return BadRequest() #This cannot happen unless a user manually tempers with the quantity value via Burp or whatever proxy.
+            abort(400) #This cannot happen unless a user manually tempers with the quantity value via Burp or whatever proxy.
         else:
             if product_id in session['cart'].keys():
                 if session['cart'][product_id] + int(quantity) > product.stock:
@@ -48,16 +48,25 @@ def add_to_cart():
 @login_required
 def delete_from_cart():
     if request.method == 'POST':
-        validate_csrf(request.form.get('csrf_token'))
-        product_id = request.form.get('product_id')
-        product = db.session.query(Product).filter_by(id=product_id).first()
-        quantity = session['cart'].get(product_id)
-        session['cart'].pop(product_id)
-        session['total'] -= (product.price*float(quantity))
-        session.modified = True
-        log_config.logger.info("User with username %s removed a product %s from the cart." % (current_user.username, product.name), extra={'ip_address': request.remote_addr})
-        flash("Product removed from the cart.", 'danger')
-        return redirect(request.referrer)
+        try:
+            validate_csrf(request.form.get('csrf_token'))
+            product_id = request.form.get('product_id')
+            product = db.session.query(Product).filter_by(id=product_id).first()
+            quantity = session['cart'].get(product_id)
+            session['cart'].pop(product_id)
+            session['total'] -= (product.price*float(quantity))
+            session.modified = True
+            log_config.logger.info("User with username %s removed a product %s from the cart." % (current_user.username, product.name), extra={'ip_address': request.remote_addr})
+            flash("Product removed from the cart.", 'danger')
+            return redirect(request.referrer)
+        except ValidationError:
+            log_config.logger.error("Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
+            abort(400)
+        except Exception as e:
+            flash("Error occured, try again.", 'danger')
+            return redirect(request.referrer) 
+            
+
     
 @login_required
 def checkout():
@@ -94,7 +103,8 @@ def create_order():
                 return redirect(url_for("cart.order_success"))
             except ValidationError:
                 log_config.logger.error("Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
+                abort(400)
             except Exception as e:
                 log_config.logger.error("Error occured, try again. Exception: %s" % e, extra={'ip_address': request.remote_addr})
-                return BadRequest()
-        return BadRequest()
+                abort(400)
+        abort(400)

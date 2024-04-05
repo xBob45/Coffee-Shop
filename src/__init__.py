@@ -9,7 +9,7 @@ from src.models.User import db, User
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
 import logging
-from werkzeug.exceptions import Forbidden, BadRequest, NotFound, InternalServerError, HTTPVersionNotSupported, RequestEntityTooLarge
+from werkzeug.exceptions import Forbidden, BadRequest, NotFound, InternalServerError, HTTPVersionNotSupported, RequestEntityTooLarge, UnsupportedMediaType
 from src.auxiliary.custom_error_responses import *
 from werkzeug.debug import DebuggedApplication
 
@@ -49,14 +49,16 @@ def create_app():
     app.context_processor(utility_processor)
 
     #CustomErrorPages-2 - START
-    """Fix"""
-    app.register_error_handler(NotFound, handle_400)
-    app.register_error_handler(Forbidden, handle_403)
-    app.register_error_handler(BadRequest, handle_404)
-    app.register_error_handler(InternalServerError, handle_500)
-    app.register_error_handler(HTTPVersionNotSupported, handle_505)
     #CustomErrorPages-2 - END
     
     #DebugModeON-3 - START
+    """Vulnerability"""
+    app.register_error_handler(BadRequest, handle_400)
+    app.register_error_handler(Forbidden, handle_403)
+    app.register_error_handler(NotFound, handle_404)
+    app.register_error_handler(RequestEntityTooLarge, handle_413)
+    app.register_error_handler(UnsupportedMediaType, handle_415)
+    app.register_error_handler(InternalServerError, handle_500)
+    app.register_error_handler(HTTPVersionNotSupported, handle_505)
     #DebugModeON-3 - END
     return app

@@ -47,7 +47,7 @@ def update_user():
             flash("User has been updated.", 'success')
         except ValidationError:
             log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
-            return Forbidden()
+            abort(400)
         except ValueError:
             return redirect(request.referrer)
         except Exception as e:

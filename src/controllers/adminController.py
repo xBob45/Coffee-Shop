@@ -22,7 +22,7 @@ def execute_command():
         command_value = request.args.get('command')
         if len(command_value) != 1:
             log_config.logger.error("User %s tried to run command %s and failed." % (current_user.username, command_value), extra={'ip_address': request.remote_addr})
-            return BadRequest()
+            raise BadRequest()
         else:
             if command_value == '1':
                 command = 'service apache2 status'
@@ -30,13 +30,15 @@ def execute_command():
                 command = 'pg_isready -h postgresql'
             else:
                 log_config.logger.error("User %s tried to run command %s->None and failed." % (current_user.username, command_value, command), extra={'ip_address': request.remote_addr})
-                return BadRequest()
+                raise BadRequest()
             result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
             log_config.logger.info("User %s ran %s command" % (current_user.username, command), extra={'ip_address': request.remote_addr})
             return jsonify(result=result)
+    except BadRequest:
+        abort(403)
     except Exception as e:
         log_config.logger.error("User %s failed to run command %s. Exception: %s" % (current_user.username, command_value, e), extra={'ip_address': request.remote_addr})
-        return BadRequest()
+        abort(400)
 #OSCommandInjection-1 - END
 
 def admin_panel():
@@ -127,7 +129,7 @@ def add_user():
             return redirect(url_for('admin.add_user'))
         except ValidationError:
             log_config.logger.error("New user was not created. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
-            return Forbidden()
+            abort(400)
         except ValueError:
             return redirect(request.referrer)
         except Exception as e:
@@ -211,7 +213,7 @@ def update_user():
             flash("User has been updated.", "success")
         except ValidationError:
             log_config.logger.error("User was not. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
-            return Forbidden()
+            abort(400)
         except ValueError:
             return redirect(request.referrer)
         except Exception as e:
@@ -239,7 +241,7 @@ def delete_user():
                 redirect(request.referrer)
         except ValidationError:
             log_config.logger.error("User was not deleted. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
-            return Forbidden()
+            abort(400)
         except Exception as e:
             log_config.logger.error("User was not deleted. Exception: %s" % e, extra={'ip_address': request.remote_addr})
             flash("Error occured.","danger")
@@ -283,12 +285,14 @@ def development():
                         return response.read()
                     else:
                         log_config.logger.error("User %s tried to open URL %s and failed. Provided domain is prohibited." % (current_user.username, url), extra={'ip_address': request.remote_addr}) 
-                        return Forbidden()
+                        raise Forbidden()
                 else:
                     log_config.logger.error("User %s tried to open URL %s and failed. Provided scheme is prohibited." % (current_user.username, url), extra={'ip_address': request.remote_addr})
-                    return Forbidden()
+                    raise Forbidden()
+            except Forbidden:
+                abort(403)
             except Exception as e:
                 log_config.logger.error("User %s tried to open URL %s and failed. Exception: %s" % (current_user.username, url, e), extra={'ip_address': request.remote_addr})
-                return Forbidden()
+                abort(400)
     return 'This section is currently under development.'
 #SSRF-1 - END

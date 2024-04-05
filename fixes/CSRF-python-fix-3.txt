@@ -23,7 +23,7 @@ def delete_user():
                 return redirect(request.referrer)
         except ValidationError:
             log_config.logger.error("User was not deleted. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
-            return Forbidden()
+            abort(400)
         except Exception as e:
             flash("Error occureed. Please try again.", 'danger')
             log_config.logger.error("User with ID %s was not deleted. Exception: %s." % (user.username, e), extra={'ip_address': request.remote_addr})

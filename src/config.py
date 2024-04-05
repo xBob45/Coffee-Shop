@@ -6,8 +6,6 @@ import datetime
 load_dotenv()
 class Config(object):
     #MaliciousFileUpload-2 - START
-    """Fix"""
-    MAX_CONTENT_LENGTH = 400 * 1024 #Accept max 400KB
     #MaliciousFileUpload-2 - END
 
     #HardCodedKey-1 - START
@@ -16,6 +14,8 @@ class Config(object):
     #HardCodedKey-1 - END
 
     #DebugModeON-1 - START
+    """Vulnerability"""
+    os.environ['WERKZEUG_DEBUG_PIN'] = 'off'
     #DebugModeON-1 - END
 
     #CookiesWithoutSecurityAttributes-1 - START

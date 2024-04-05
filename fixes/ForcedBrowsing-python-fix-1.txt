@@ -8,8 +8,10 @@ def check_if_admin():
             if current_user.roles.name == 'admin':
                 return #If everything is OK, let user proceed.
             else:
-                return Forbidden()
+                raise Forbidden()
         return redirect(url_for('auth.login'))
+    except Forbidden:
+        abort(403)
     except Exception as e:
         log_config.logger.error("Error occurred while trying to access the admin panel. Exception: %s" % e, extra={'ip_address': request.remote_addr})
-        return BadRequest()
+        abort(400)

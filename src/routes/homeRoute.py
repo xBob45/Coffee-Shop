@@ -1,5 +1,5 @@
 from flask import Blueprint
-from src.controllers.homeController import home, tips_and_tricks, guide_reader, coffee, tea, accessories, product_info
+from src.controllers.homeController import home, tips_and_tricks, guide_reader, coffee, tea, accessories, product_info, abort
 
 home_blueprint = Blueprint('home', __name__,)
 home_blueprint.route('/')(home)
