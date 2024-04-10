@@ -1,3 +1,0 @@
-#src/templates/account/setting.html
-<!-- Vulnerability -->
-<input type="hidden" name="edit_id" value="{{user.id}}">

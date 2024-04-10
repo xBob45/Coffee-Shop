@@ -3,7 +3,7 @@ attacks_config = {
     'SQLInjection2': True,
     'SensitiveInformationDisclosure': True,
     'ReflectedXSS': False,
-    'StoredXSS': True, #<-----
+    'StoredXSS': False, #<-----
     'InsufficientSessionInvalidation': False,
     'ForcedBrowsing': None, #If you set this vulnerability to either "True" or "False" set "SensitiveDatawithinCookie" to "None"
     'HardCodedKey': True,
@@ -26,7 +26,7 @@ attacks_config = {
     'DirectoryListing': True,
     'CustomErrorPages': None, #If you set this vunerability to either "True" or "False" set 'DebugModeON' to 'None'
     'DebugModeON': False, #If you set this vunerability to either "True" or 'False' set 'CustomErrorPages' to 'None'. Also, in order to exploit this set 'UnprotectedTransportofCredentials' to 'False'
-    'BruteForce': False,
+    'BruteForce': True,
     'MaliciousFileUpload':True, #For exploitation, set 'DirectoryListing' to 'True'
     'HardCodedCredentials':False,
     'FunctionalityFromUntrustedSource':True

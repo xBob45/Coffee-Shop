@@ -34,11 +34,8 @@ def login():
     if request.method == 'POST':
         try:
             #BruteForce-2 - START
-            """Fix"""
-            response = request.form.get('g-recaptcha-response')
-            verify_response = requests.post(url='%s?secret=%s&response=%s' % (VERIFY_URL, SECRET_KEY, response)).json()
-            if verify_response.get('success') != True:
-                raise BadRequest()
+            """Vulnerability"""
+            """No reCAPTCHA"""
             #BruteForce-2 - END
             validate_csrf(request.form.get('csrf_token'))
             username = request.form.get('username')
@@ -113,14 +110,14 @@ def login():
             flash("Error occured, try again.", 'danger')
             return redirect(request.referrer)  
     #BruteForce-3 - START
-    """Fix"""
-    return render_template('auth/login.html', site_key = SITE_KEY)
+    """Vulnerability"""
+    return render_template('auth/login.html')
     #BruteForce-3 - END
 #SQLInjection-1 - END
 
 #StoredXSS-1 - START
 def signup():
-    """Vulnerability"""
+    """Fix"""
     if request.method == 'POST':
         try:
             response = request.form.get('g-recaptcha-response')
@@ -129,14 +126,20 @@ def signup():
                 raise BadRequest()
             validate_csrf(request.form.get('csrf_token'))
             first_name = request.form.get('first_name')
-            #User input is not beeing validated in any way.
+            #Function compares user input against allowed pattern.
+            input_validation(first_name, 'First name')
             last_name = request.form.get('last_name')
-            #User input is not beeing validated in any way.
+            #Function compares user input against allowed pattern.
+            input_validation(last_name, 'Last name')
             email = request.form.get('email')
-            #User input is not beeing validated in any way.
+            #Function compares user input against allowed pattern.
+            email_validation(email)
             username= request.form.get('username')
-            #User input is not beeing validated in any way.
+            #Function compares user input against allowed pattern.
+            input_validation(username, 'Username')
             password = request.form.get('password')
+            check_if_exists('email', email, 'Email')
+            check_if_exists('username', username, 'Username')
             #WeakPasswordRequirements-1 - START
             """Vulnerability"""
             #There is no check of length and complexity of a password.
@@ -145,21 +148,20 @@ def signup():
             #CompleteOmissionOfHashFunction-1 - END
             #WeakHashFunction-1 - START
             #WeakHashFunction-1 - END
+
             #WeakHashFunctionWithSalt-1 - START
             """Fix"""
             password = ph.hash(password)
-            #WeakHashFunctionWithSalt-1 - END  
-            check_if_exists('email', email, 'Email')
-            check_if_exists('username', username, 'Username')
+            #WeakHashFunctionWithSalt-1 - END            
             user = User(role_id=2, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
             db.session.add(user)
             db.session.commit()
             db.session.close()
-            log_config.logger.info("User %s was sucessfully created." % username, extra={'ip_address': request.remote_addr})
-            flash("Account has been successfully created.", 'success')
+            log_config.logger.info("New user with username %s was successfully created." % username, extra={'ip_address': request.remote_addr})
+            flash("Account has been sucesfully created.", 'success')
             return redirect(url_for("auth.login"))
         except ValidationError:
-            log_config.logger.error("User was not successfully created. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr}) 
+            log_config.logger.error("User was not created. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             abort(400)
         except ValueError:
             return redirect(request.referrer)

@@ -104,3 +104,32 @@ INFO - User with username sixq was sucessfully updated.
 INFO - User with username adminchanged was sucessfully updated.
 INFO - User with username admin was sucessfully updated.
 INFO - User with username admin logged out.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User admin successfully updated his profile picture.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username sixqa was sucessfully updated.
+ERROR - User  failed to login! Username doesn't exist.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username ijustchangedthis was sucessfully updated.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username adminwww was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin logged out.
+ERROR - User admin failed to login! Wrong password entered.
+INFO - User with admin username successfully logged in with password 1234 password.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username ijustchangedthisqqqq was sucessfully updated.
+INFO - User admin successfully updated his profile picture.
+INFO - User with username admin added amount of 1 of Coffee Portafilter into the cart.
+INFO - User with username admin added amount of 1 of Coffee Machine into the cart.
+INFO - User with username admin logged out.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username adminqqqqqqqqq was sucessfully updated.
+INFO - User adminqqqqqqqqq successfully updated his profile picture.

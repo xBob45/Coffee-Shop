@@ -52,8 +52,8 @@
           
             <li class="nav-item dropdown">
                 <!-- StoredXSS-1 - START -->
-                <!-- Vulnerability -->
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{current_user.username | safe}}</a>
+                <!-- Fix -->
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{ current_user.username }}</a>
                 <!-- StoredXSS-1 - END -->
             <ul class="dropdown-menu">
                 <!-- IDOR-1 - START -->
