@@ -52,13 +52,13 @@
           
             <li class="nav-item dropdown">
                 <!-- StoredXSS-1 - START -->
-                <!-- Fix -->
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{ current_user.username }}</a>
+                <!-- Vulnerability -->
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{current_user.username | safe}}</a>
                 <!-- StoredXSS-1 - END -->
             <ul class="dropdown-menu">
                 <!-- IDOR-1 - START -->
-                <!-- Fix -->
-                <li><a class="dropdown-item" href="{{ url_for('account.setting') }}">Account</a></li>
+                <!-- Vulnerability -->
+                <li><a class="dropdown-item" href="{{ url_for('account.setting', id=current_user.id) }}">Account</a></li>
                 <!-- IDOR-1 - END -->
                 <li><a class="dropdown-item" href="{{ url_for('account.orders') }}">Orders</a></li>
                 </ul>

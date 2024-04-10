@@ -14,8 +14,8 @@ class Config(object):
     #HardCodedKey-1 - END
 
     #DebugModeON-1 - START
-    """Vulnerability"""
-    os.environ['WERKZEUG_DEBUG_PIN'] = 'off'
+    """Fix"""
+    os.environ['WERKZEUG_DEBUG_PIN'] = 'on'
     #DebugModeON-1 - END
 
     #CookiesWithoutSecurityAttributes-1 - START

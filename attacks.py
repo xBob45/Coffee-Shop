@@ -3,7 +3,7 @@ attacks_config = {
     'SQLInjection2': True,
     'SensitiveInformationDisclosure': True,
     'ReflectedXSS': False,
-    'StoredXSS': False, #<-----
+    'StoredXSS': True, #<-----
     'InsufficientSessionInvalidation': False,
     'ForcedBrowsing': None, #If you set this vulnerability to either "True" or "False" set "SensitiveDatawithinCookie" to "None"
     'HardCodedKey': True,
@@ -11,10 +11,10 @@ attacks_config = {
     'OSCommandInjection': False,
     'CookiesWithoutSecurityAttributes' : None, # Set to 'None' if you're going to set 'CSRF', 'SensitiveDatawithinCookie'
     'Clickjacking' : False,
-    'InsufficientLogging':False,
+    'InsufficientLogging':True,
     'InsertionOfSensitiveInformationIntoLogFile' : True,
     'WeakPasswordRequirements' : True,
-    'IDOR': False,
+    'IDOR': True,
     'CSRF': True, #If 'True' set 'CookiesWithoutSecurityAttributes' to 'None'
     'SensitiveDatawithinCookie': True,  #If you set this vulnerability to either "True" or "False" set "ForcedBrowsing" to "None"
     'VulnerablePostgreSQL' : False,
@@ -25,8 +25,8 @@ attacks_config = {
     'UnprotectedTransportofCredentials': False,
     'DirectoryListing': True,
     'CustomErrorPages': None, #If you set this vunerability to either "True" or "False" set 'DebugModeON' to 'None'
-    'DebugModeON': True, #If you set this vunerability to either "True" or 'False' set 'CustomErrorPages' to 'None'. Also, in order to exploit this set 'UnprotectedTransportofCredentials' to 'False'
-    'BruteForce': True,
+    'DebugModeON': False, #If you set this vunerability to either "True" or 'False' set 'CustomErrorPages' to 'None'. Also, in order to exploit this set 'UnprotectedTransportofCredentials' to 'False'
+    'BruteForce': False,
     'MaliciousFileUpload':True, #For exploitation, set 'DirectoryListing' to 'True'
     'HardCodedCredentials':False,
     'FunctionalityFromUntrustedSource':True

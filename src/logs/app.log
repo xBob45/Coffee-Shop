@@ -1,252 +1,90 @@
-2024-03-27 12:01:01,121 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2024-03-27 12:02:38,050 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-03-27 12:02:41,989 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-03-27 12:03:03,137 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-03-27 13:55:35,691 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
-2024-03-27 13:55:37,374 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
-2024-03-27 13:56:07,909 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
-2024-03-27 13:56:14,585 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
-2024-03-27 13:56:21,809 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
-2024-03-27 13:57:15,538 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
-2024-03-28 16:16:06,753 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-03-28 16:16:28,050 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-03-30 13:19:02,527 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-03-30 13:21:27,434 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: not enough arguments for format string
-2024-03-30 13:30:08,788 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-03-30 13:31:42,004 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-03-30 13:35:10,836 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: not enough arguments for format string
-2024-03-30 13:37:36,302 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-03-30 13:37:36,302 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-03-30 14:23:49,825 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-03-30 14:24:33,083 - IP:127.0.0.1 - ERROR - User  failed to login! Username doesn't exist.
-2024-03-30 14:24:38,170 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-03-30 14:25:45,164 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: not enough arguments for format string
-2024-03-30 14:31:12,896 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: not enough arguments for format string
-2024-03-30 14:31:32,120 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-03-30 14:33:34,480 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: not enough arguments for format string
-2024-03-30 14:48:21,460 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: not enough arguments for format string
-2024-03-30 17:48:10,876 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-03-30 17:48:21,387 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Green Tea into the cart.
-2024-03-30 19:59:42,162 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-03-30 23:31:02,774 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-03-30 23:31:02,775 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-03-30 23:31:13,728 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-03-30 23:31:13,729 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-03-30 23:31:15,582 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-03-30 23:31:35,344 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Mug into the cart.
-2024-03-30 23:31:48,038 - IP:127.0.0.1 - INFO - User with username admin removed a product Mug from the cart.
-2024-03-30 23:40:57,231 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
-2024-04-01 12:41:50,631 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2024-04-01 12:42:04,484 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2024-04-01 12:42:14,266 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2024-04-01 12:43:34,163 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-01 12:43:40,209 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-2024-04-01 12:43:44,167 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-2024-04-01 12:43:47,974 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-2024-04-01 12:43:52,012 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-2024-04-01 12:44:04,544 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Coffee Portafilter into the cart.
-2024-04-01 12:44:10,631 - IP:127.0.0.1 - INFO - User with username admin removed a product Coffee Portafilter from the cart.
-2024-04-01 12:44:12,842 - IP:127.0.0.1 - INFO - User with username admin removed a product Cappuccino from the cart.
-2024-04-01 12:44:32,035 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: [Errno 2] No such file or directory: 'src/static/profile_pictures/930f3f45-eee6-11ee-8f44-00155df0546dphp-reverse-shell.php'
-2024-04-01 12:48:51,923 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
-2024-04-01 12:52:51,445 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
-2024-04-01 12:57:08,670 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
-2024-04-01 12:57:19,075 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
-2024-04-01 12:57:44,073 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
-2024-04-01 13:00:51,187 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
-2024-04-01 13:01:40,327 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
-2024-04-01 13:09:01,291 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
-2024-04-01 13:36:13,203 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-01 13:38:22,901 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-01 13:38:24,136 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-01 13:39:03,773 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-01 13:39:04,631 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-01 13:39:12,424 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-01 13:39:16,662 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-2024-04-01 13:39:18,792 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Flat White into the cart.
-2024-04-01 13:39:22,089 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-2024-04-01 13:39:25,091 - IP:127.0.0.1 - INFO - User with username admin removed a product Cappuccino from the cart.
-2024-04-01 13:39:32,233 - IP:127.0.0.1 - INFO - User with username admin removed a product Flat White from the cart.
-2024-04-01 13:39:41,658 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
-2024-04-01 13:39:52,888 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
-2024-04-01 13:39:56,489 - IP:127.0.0.1 - INFO - User with username admin was sucessfully updated.
-2024-04-01 13:41:55,694 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Coffee Portafilter into the cart.
-2024-04-01 13:42:17,653 - IP:127.0.0.1 - INFO - User with username admin removed a product Coffee Portafilter from the cart.
-2024-04-01 13:42:29,346 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-01 13:42:31,628 - IP:127.0.0.1 - ERROR - User af failed to login! Username doesn't exist.
-2024-04-01 13:42:34,031 - IP:127.0.0.1 - ERROR - User admin failed to login! Wrong password entered.
-2024-04-01 13:42:41,039 - IP:127.0.0.1 - ERROR - User admin failed to login! Wrong password entered.
-2024-04-01 13:44:56,839 - IP:127.0.0.1 - ERROR - User admin failed to login! Wrong password entered.
-2024-04-01 13:44:59,269 - IP:127.0.0.1 - ERROR - User adminadsfasdf failed to login! Username doesn't exist.
-2024-04-01 13:45:01,139 - IP:127.0.0.1 - ERROR - User admin failed to login! Wrong password entered.
-2024-04-01 13:45:02,862 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-01 13:45:04,015 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-01 13:45:05,272 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-01 13:46:00,550 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-04-01 13:46:09,883 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-04-01 13:46:11,499 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-04-01 13:46:11,500 - IP:127.0.0.1 - ERROR - User entered an invalid email.
-2024-04-01 13:46:11,518 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-04-01 13:46:15,156 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-04-01 13:46:18,293 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-04-01 13:46:20,114 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-04-01 13:46:20,210 - IP:127.0.0.1 - INFO - User admin succesfully updated user with username admin.
-2024-04-01 13:46:22,837 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-04-01 13:46:25,354 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-04-01 13:46:28,529 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-04-01 13:48:23,609 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-04-01 13:48:33,235 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:48:33,236 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:48:35,184 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:48:35,185 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:48:37,123 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:48:37,124 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:48:38,898 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:48:38,899 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:48:48,922 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:48:48,923 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:49:34,971 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 13:49:34,972 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 13:49:37,671 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:49:37,672 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:49:39,946 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 13:49:39,947 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 13:49:43,354 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:49:43,355 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:56:20,531 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 13:56:20,532 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 13:56:47,731 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 13:56:47,732 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 13:57:28,123 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 13:57:28,123 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 13:58:32,696 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 13:58:32,697 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 13:59:03,707 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 13:59:03,707 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 13:59:19,550 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:59:19,550 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 13:59:31,290 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 13:59:31,290 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:00:31,799 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:00:31,800 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:00:48,665 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:00:48,666 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:00:55,561 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:00:55,561 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:01:08,515 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:01:08,516 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:01:27,392 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:01:27,393 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:02:02,226 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 14:02:02,230 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 14:02:12,415 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:02:12,416 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:02:23,019 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:02:23,019 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:04:39,627 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:04:39,628 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:04:52,605 - IP:127.0.0.1 - ERROR - User admin failed to open: ../../../../../../etc/passwd
-2024-04-01 14:05:42,416 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 14:05:42,417 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 14:05:44,134 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 14:05:44,134 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 14:05:46,834 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:05:46,835 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:05:47,810 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 14:05:47,810 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
-2024-04-01 14:05:49,132 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:05:49,132 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:07:38,130 - IP:127.0.0.1 - INFO - User admin requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:07:38,131 - IP:127.0.0.1 - INFO - User admin opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-01 14:07:45,513 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-04-01 14:07:47,394 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-02 15:26:42,381 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-02 15:26:46,545 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
-2024-04-03 12:46:40,919 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2024-04-03 12:47:42,423 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2024-04-03 12:48:27,956 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 13:14:05,376 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Green Tea into the cart.
-2024-04-03 14:34:31,449 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-2024-04-03 18:24:37,807 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Coffee Portafilter into the cart.
-2024-04-03 18:26:31,169 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Flat White into the cart.
-2024-04-03 18:51:20,420 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
-2024-04-03 19:12:23,736 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: '_io.BytesIO' object has no attribute 'mimetypes'
-2024-04-03 19:12:48,230 - IP:127.0.0.1 - ERROR - User was not successfully updated. Exception: '_io.BytesIO' object has no attribute 'mimetypes'
-2024-04-03 19:13:05,869 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
-2024-04-03 19:14:16,931 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
-2024-04-03 19:14:47,237 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
-2024-04-03 19:21:01,996 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
-2024-04-03 19:25:00,775 - IP:127.0.0.1 - INFO - User admin successfully updated his profile picture.
-2024-04-03 19:50:38,077 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 19:52:43,382 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 19:54:09,124 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 19:55:51,061 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 19:57:56,609 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 20:51:19,204 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 20:51:21,177 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-03 20:52:27,387 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-03 20:52:44,112 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 20:52:49,512 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-03 20:55:10,158 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 20:55:11,131 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-03 20:55:18,298 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 20:55:20,019 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-03 20:57:58,951 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 20:58:00,160 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-03 20:59:23,947 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 20:59:25,237 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-03 20:59:26,450 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 20:59:27,540 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-03 21:00:43,445 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 21:00:44,350 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-03 21:04:04,136 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 21:04:05,343 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-03 21:04:06,399 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 21:04:07,923 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-03 21:04:58,280 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 21:06:08,653 - IP:127.0.0.1 - INFO - User with username admin logged out.
-2024-04-03 21:26:57,746 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-03 21:30:02,031 - IP:127.0.0.1 - INFO - User with admin username successfully logged in with password admin password.
-2024-04-04 17:17:11,942 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-04 17:17:42,107 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-04 17:20:48,326 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-04 17:34:08,473 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-04 17:35:06,966 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-04 17:35:09,907 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-04 17:35:34,187 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-04 17:39:31,257 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-04 17:39:31,259 - IP:127.0.0.1 - ERROR - User was not successfully created. Exception: 403 Forbidden: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
-2024-04-04 17:39:34,131 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-04 17:39:34,133 - IP:127.0.0.1 - ERROR - User was not successfully created. Exception: 403 Forbidden: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
-2024-04-04 17:39:40,177 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-04 17:39:40,178 - IP:127.0.0.1 - ERROR - User was not successfully created. Exception: 403 Forbidden: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
-2024-04-04 17:45:18,289 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-04 17:45:18,290 - IP:127.0.0.1 - ERROR - User was not successfully created. Exception: 403 Forbidden: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
-2024-04-04 17:45:35,765 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-04 17:45:35,767 - IP:127.0.0.1 - ERROR - User was not successfully created. Exception: 403 Forbidden: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
-2024-04-04 17:45:42,762 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-04 17:46:17,242 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-04 17:46:40,787 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-04 17:47:38,942 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2024-04-04 17:47:39,347 - IP:127.0.0.1 - ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2024-04-05 13:35:24,151 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
-2024-04-05 13:37:12,971 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-05 13:37:12,971 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
-2024-04-05 13:37:18,259 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide8.txt
-2024-04-05 13:37:18,259 - IP:127.0.0.1 - ERROR - User failed to open: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide8.txt.
+ERROR - Failed reCAPTCHA.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User admin accessed the admin panel.
+INFO - User with username admin added amount of 1 of Green Tea into the cart.
+INFO - User with username admin added amount of 1 of Yellow Tea into the cart.
+INFO - User with username admin removed a product Yellow Tea from the cart.
+INFO - User with username admin removed a product Green Tea from the cart.
+ERROR - User entered an invalid Username.
+ERROR - Email already exists.
+ERROR - Username already exists.
+ERROR - Username already exists.
+ERROR - Username already exists.
+ERROR - User entered an invalid Username.
+ERROR - Email already exists.
+ERROR - Username already exists.
+INFO - User with username adminqas was sucessfully updated.
+INFO - User with username adminqas was sucessfully updated.
+INFO - User with username adminqas was deleted.
+INFO - New user with username admin was successfully created.
+ERROR - Failed reCAPTCHA.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username adminqaz was sucessfully updated.
+INFO - User with username adminqaz was sucessfully updated.
+INFO - User with username adminqaz was sucessfully updated.
+INFO - User with username adminqaz was sucessfully updated.
+INFO - User with username adminqaz was deleted.
+ERROR - Failed reCAPTCHA.
+ERROR - Email already exists.
+INFO - New user with username admin was successfully created.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username adminwww was sucessfully updated.
+INFO - User with username adminwww was sucessfully updated.
+INFO - User with username adminwww was sucessfully updated.
+INFO - User with username adminwww was sucessfully updated.
+INFO - User with username adminwww was sucessfully updated.
+ERROR - Failed reCAPTCHA.
+ERROR - User admin failed to login! Username doesn't exist.
+INFO - New user with username admin was successfully created.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+ERROR - User entered an invalid First Name.
+INFO - User with username admin was sucessfully updated.
+ERROR - User entered an invalid Username.
+INFO - User with username adminrrrrr was sucessfully updated.
+ERROR - User admin failed to login! Username doesn't exist.
+INFO - User with adminrrrrr username successfully logged in with password admin password.
+INFO - User with username adminrrrrr was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+ERROR - User entered an invalid Last Name.
+INFO - User with username admin was sucessfully updated.
+ERROR - User entered an invalid Username.
+INFO - User with username admin was sucessfully updated.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username <script>alert(1)</script> was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin<<>> was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin logged out.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin was deleted.
+INFO - User admin was sucessfully created.
+INFO - User with admin username successfully logged in with password admin password.
+ERROR - Email already exists.
+ERROR - Username already exists.
+ERROR - Username already exists.
+INFO - User with username admin was deleted.
+ERROR - Failed reCAPTCHA.
+ERROR - Email already exists.
+INFO - User admin was sucessfully created.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username adminqq was sucessfully updated.

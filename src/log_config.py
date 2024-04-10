@@ -7,9 +7,8 @@ werkzeug_log = logging.getLogger('werkzeug')
 werkzeug_log.disabled = False
 
 #InsufficientLogging-1 - START
-"""Fix"""
-log_format = '%(asctime)s - IP:%(ip_address)s - %(levelname)s - %(message)s'
-
+"""Vulnerability"""
+log_format = '%(levelname)s - %(message)s'
 #InsufficientLogging-1 - END
 
 formatter = logging.Formatter(log_format)
