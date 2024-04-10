@@ -14,8 +14,8 @@ attacks_config = {
     'InsufficientLogging':True,
     'InsertionOfSensitiveInformationIntoLogFile' : True,
     'WeakPasswordRequirements' : True,
-    'IDOR': True,
-    'CSRF': True, #If 'True' set 'CookiesWithoutSecurityAttributes' to 'None'
+    'CSRF': False, #If 'True' set 'CookiesWithoutSecurityAttributes' to 'None'
+    'IDOR': False,
     'SensitiveDatawithinCookie': True,  #If you set this vulnerability to either "True" or "False" set "ForcedBrowsing" to "None"
     'VulnerablePostgreSQL' : False,
     'SSRF' : False,

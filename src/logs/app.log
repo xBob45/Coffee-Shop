@@ -88,3 +88,19 @@ ERROR - Email already exists.
 INFO - User admin was sucessfully created.
 INFO - User with admin username successfully logged in with password admin password.
 INFO - User with username adminqq was sucessfully updated.
+INFO - User admin was sucessfully created.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin was sucessfully updated.
+ERROR - Username already exists.
+ERROR - Username already exists.
+ERROR - Username already exists.
+ERROR - Username already exists.
+INFO - User with username Davis was sucessfully updated.
+ERROR - Username already exists.
+INFO - User with username thishasbeenchanged was sucessfully updated.
+INFO - User with username vojtathechanged was sucessfully updated.
+INFO - User with username six was sucessfully updated.
+INFO - User with username sixq was sucessfully updated.
+INFO - User with username adminchanged was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin logged out.

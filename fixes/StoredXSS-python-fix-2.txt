@@ -5,7 +5,8 @@ def update_user():
     if request.method == 'POST':
         try:
             validate_csrf(request.form.get('csrf_token'))
-            id = current_user.id
+            #IDOR-4 - START
+            #IDOR-4 - END
             username = request.form.get("edit_username")
             email = request.form.get("edit_email")
             first_name = request.form.get("edit_fn")

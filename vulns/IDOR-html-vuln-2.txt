@@ -32,6 +32,3 @@
       </div>
       <button type="submit" class="btn btn-outline-success" id="button-success">Update</button>
       </form>
-
-      <!-- CSRF-1 - START -->
-      <!-- CSRF-1 - END -->

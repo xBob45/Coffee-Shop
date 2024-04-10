@@ -22,10 +22,10 @@ class Config(object):
     #CookiesWithoutSecurityAttributes-1 - END
 
     #CSRF-4 - START
-    """Vulnerability"""
-    SESSION_COOKIE_SECURE = True 
+    """Fix"""
+    SESSION_COOKIE_SECURE = True
     SESSION_COOKIE_HTTPONLY = True
-    SESSION_COOKIE_SAMESITE = 'None'
+    SESSION_COOKIE_SAMESITE = 'Strict'
     #CSRF-4 - END
 
     # Grabs the folder where the script runs.

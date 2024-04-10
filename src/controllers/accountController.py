@@ -21,10 +21,8 @@ UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER")
 
 #IDOR-3 - START
 def setting():
-    """Vulnerability"""
-    id = request.args.get("id")
-    user = User.query.filter_by(id=id).first()
-    return render_template("account/setting.html", user=user)
+    """Fix"""
+    return render_template("account/setting.html")
 #IDOR-3 - END
 
 #StoredXSS-2 - START
@@ -34,9 +32,11 @@ def update_user():
     if request.method == 'POST':
         try:
             validate_csrf(request.form.get('csrf_token'))
+            #IDOR-4 - START
+            """Fix"""
             id = current_user.id
+            #IDOR-4 - END
             username = request.form.get("edit_username")
-            print("Username",username)
             email = request.form.get("edit_email")
             first_name = request.form.get("edit_fn")
             last_name = request.form.get("edit_ln")
@@ -91,9 +91,10 @@ def update_user():
 
 #CSRF-3 - START
 def delete_user():
-    """ Vulnerability """
-    if request.method == 'GET':
+    """ Fix """
+    if request.method == 'POST':
         try:
+            validate_csrf(request.form.get('csrf_token'))
             id = current_user.id
             user = User.query.filter_by(id=id).first()
             if user is not None:
@@ -107,15 +108,18 @@ def delete_user():
                 db.session.delete(user)
                 db.session.commit()
                 db.session.close()
-                log_config.logger.info("User with username %s was deleted." % user.username, extra={'ip_address': request.remote_addr})
+                log_config.logger.info("User with ID %s was deleted." % user.username, extra={'ip_address': request.remote_addr})
                 flash("User has been deleted.", 'danger')
                 return redirect(url_for("auth.login"))
             else:
                 flash("User doesn't exists.", 'danger')
                 return redirect(request.referrer)
+        except ValidationError:
+            log_config.logger.error("User was not deleted. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
+            abort(400)
         except Exception as e:
             flash("Error occureed. Please try again.", 'danger')
-            log_config.logger.error("User with username %s was not deleted. Exception: %s." % (user.username, e), extra={'ip_address': request.remote_addr})
+            log_config.logger.error("User with ID %s was not deleted. Exception: %s." % (user.username, e), extra={'ip_address': request.remote_addr})
             return redirect(request.referrer)
     return redirect(request.referrer)
 #CSRF-3 - END
