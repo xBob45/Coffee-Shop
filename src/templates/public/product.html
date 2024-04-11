@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/product.css') }}">
 {% endblock %}
-<!-- SQLInjection2-1 - START -->
+{# SQLInjection2-1 - START #}
 {# Status: Vulnerable #}
 {#Description:  CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html #}
 {% block content %}
@@ -20,12 +20,12 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name | safe }}</h5>
                         <p class="card-text">{{ product.description | safe }}</p>
-                        <h6 class="card-subtitle mb-2">Includes</h6>
-                        {% for ingredient in product.includes %}
-                            {% if 'None' not in ingredient %}
-                            <li>{{ ingredient }}</li>
-                            {% endif %}
-                        {% endfor %}
+                        {% if product.details %}
+                        <h6 class="card-subtitle mb-2">Details</h6>
+                          {% for key, value in product.details.items() %}
+                            <li>{{ key }}: {{ value }}</li>
+                          {% endfor %}
+                        {% endif %}
                         <div class="d-flex flex-column">
                             <div class="d-flex">
                                 <p class="card-text-price"><br><b>Price:</b> ${{ product.price | safe}}</p>
@@ -78,6 +78,6 @@
       </div>
 </div>
 {% endblock %}
-<!-- SQLInjection2-1 - END -->
+{# SQLInjection2-1 - END #}
 
 

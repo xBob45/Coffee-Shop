@@ -97,8 +97,9 @@ def update_user():
 
 
 #CSRF-3 - START
+"""Status: Fixed"""
+#Description: CWE-352: Cross-Site Request Forgery -> https://cwe.mitre.org/data/definitions/352.html
 def delete_user():
-    """ Fix """
     if request.method == 'POST':
         try:
             validate_csrf(request.form.get('csrf_token'))

@@ -1,2 +1,2 @@
 #src/templates/account/setting.html
-<!-- No CSRF protection. -->
+{# No CSRF protection. #}

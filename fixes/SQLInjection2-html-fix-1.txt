@@ -5,19 +5,18 @@
         <div class="col">
         </div>
         <div class="col-6">
-            {% for product in product %}
             <div class="d-flex justify-content-center">
                 <div class="card" style="width: 25rem; height: 30rem;">
                     <img src="{{ url_for('static', filename=product.image) }}" class="bd-placeholder-img card-img-top" width="150" height="150" role="img" aria-label="Product Image" preserveAspectRatio="xMidYMid slice" focusable="false">
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name | safe }}</h5>
                         <p class="card-text">{{ product.description | safe }}</p>
-                        <h6 class="card-subtitle mb-2">Includes</h6>
-                        {% for ingredient in product.includes %}
-                            {% if 'None' not in ingredient %}
-                            <li>{{ ingredient }}</li>
-                            {% endif %}
-                        {% endfor %}
+                        {% if product.details %}
+                        <h6 class="card-subtitle mb-2">Details</h6>
+                          {% for key, value in product.details.items() %}
+                            <li>{{ key }}: {{ value }}</li>
+                          {% endfor %}
+                        {% endif %}
                         <div class="d-flex flex-column">
                             <div class="d-flex">
                                 <p class="card-text-price"><br><b>Price:</b> ${{ product.price }}</p>
@@ -31,7 +30,7 @@
                                     <div class="col-auto">
                                       <input type="number" id="quantity" class="form-control" aria-label="Quantity" name="quantity" value="1" max="{{ product['stock'] }}" min="1">
                                     </div>
-                                    <div class="col-auto"> <!-- Place the button in the same row -->
+                                    <div class="col-auto">
                                       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                       <input type="hidden" name="product_id" value="{{ product['id'] }}">
                                       <button class="btn btn-outline-success" type="submit" id="button">Add to Cart</button>
@@ -46,7 +45,6 @@
                     </div>
                 </div>
             </div>
-            {% endfor %}
         </div>
         <div class="col">
         </div>

@@ -24,7 +24,8 @@ class Config(object):
     #CookiesWithoutSecurityAttributes-1 - END
 
     #CSRF-4 - START
-    """Fix"""
+    """Status: Fixed"""
+    #Description: CWE-352: Cross-Site Request Forgery -> https://cwe.mitre.org/data/definitions/352.html
     SESSION_COOKIE_SECURE = True
     SESSION_COOKIE_HTTPONLY = True
     SESSION_COOKIE_SAMESITE = 'Strict'

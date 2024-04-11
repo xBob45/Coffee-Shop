@@ -1,6 +1,6 @@
 vulnerabilities:
   SQLInjection: 
-    enabled: False #<-----
+    enabled: False
     description: "CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html"
   SQLInjection2: 
     enabled: True
@@ -41,7 +41,7 @@ vulnerabilities:
   WeakPasswordRequirements: 
     enabled: True
     description: "CWE-521: Weak Password Requirements -> https://cwe.mitre.org/data/definitions/521.html"
-  CSRF': 
+  CSRF: 
     enabled: False
     description: "CWE-352: Cross-Site Request Forgery -> https://cwe.mitre.org/data/definitions/352.html"
   IDOR: 

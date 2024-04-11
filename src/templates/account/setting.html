@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
           <div class="col">
-          <!-- IDOR-2 - START -->
+          {# IDOR-2 - START #}
           {# Status: Vulnerable #}
           {#Description:  CWE-639: Authorization Bypass Through User-Controlled Key -> https://cwe.mitre.org/data/definitions/639.html #}
           <form method="POST" action="{{ url_for('account.update_user') }}">
@@ -48,18 +48,20 @@
                 <button type="submit" class="btn btn-outline-success" id="button-success">Update</button>
                 </form>
           
-          <!-- IDOR-2 - END -->
+          {# IDOR-2 - END #}
 
-          <!-- CSRF-1 - START -->
-          <!-- Fix -->
+          {# CSRF-1 - START #}
+          {# Status: Fixed #}
+          {# Description: CWE-352: Cross-Site Request Forgery -> https://cwe.mitre.org/data/definitions/352.html #}
           <form method="POST" action="{{ url_for('account.delete_user') }}">
-              <!-- CSRF-2 - START -->
-              <!-- Fix -->
+              {# CSRF-2 - START #}
+              {# Status: Fixed #}
+              {# Description: CWE-352: Cross-Site Request Forgery -> https://cwe.mitre.org/data/definitions/352.html #}
               <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-              <!-- CSRF-2 - END -->
+              {# CSRF-2 - END #}
               <button type="submit" class="btn btn-outline-danger" id="setting-button-danger">Delete</button>
           </form>
-          <!-- CSRF-1 - END -->
+          {# CSRF-1 - END #}
           
       
         </div>

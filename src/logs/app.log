@@ -184,3 +184,7 @@ INFO - User with username admin added amount of 1 of Cappuccino into the cart.
 INFO - User with username admin removed a product Cappuccino from the cart.
 INFO - User with username admin added amount of 5 of Flat White into the cart.
 INFO - User with username admin logged out.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin added amount of 1 of Cappuccino into the cart.

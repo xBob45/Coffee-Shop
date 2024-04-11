@@ -1,3 +1,4 @@
+from sqlalchemy.dialects.postgresql import JSONB
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 db = SQLAlchemy()
@@ -58,7 +59,7 @@ class Product(db.Model):
     price = db.Column(db.Float, nullable=False)
     description = db.Column(db.String(255), nullable=False)
     image = db.Column(db.String(255), nullable=False)
-    includes = db.Column(db.ARRAY(db.String(255)))
+    details = db.Column(JSONB)
 
     order_items = db.relationship('OrderItems', back_populates='product')
     categories = db.relationship('Category', secondary='product_categories')
