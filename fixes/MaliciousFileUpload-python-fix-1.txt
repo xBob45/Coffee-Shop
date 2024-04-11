@@ -1,5 +1,4 @@
 #src/controllers/accountController.py
-"""Fix"""
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'svg'}
 ALLOWED_MIME = {'image/png','image/jpg','image/jpeg', 'image/svg+xml'}
 

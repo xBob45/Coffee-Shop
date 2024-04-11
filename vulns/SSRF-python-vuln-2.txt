@@ -1,4 +1,3 @@
 #src/routes/homeRoute.py
-"""Vulnerability"""
 from src.controllers.adminController import development
 home_blueprint.route('/development', methods=['POST', 'GET'])(development)

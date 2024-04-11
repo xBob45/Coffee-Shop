@@ -1,6 +1,5 @@
 #src/controllers/authController.py
 def logout():
-    """Fix"""
     #SensitiveDatawithinCookie-2 - START
     #SensitiveDatawithinCookie-2 - END
     session.pop('cart')

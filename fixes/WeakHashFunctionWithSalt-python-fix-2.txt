@@ -1,4 +1,3 @@
 #src/controllers/authController.py
-"""Fix"""
 db_passwd = user.password 
 if (ph.verify(db_passwd, password)) != True:

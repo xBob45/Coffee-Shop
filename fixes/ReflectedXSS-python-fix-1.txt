@@ -1,3 +1,2 @@
 #src/controllers/authController.py
-"""Fix"""
 flash("Incorrect credentials, try again.", 'danger')

@@ -16,28 +16,16 @@ from passlib.hash import md5_crypt
 from werkzeug.exceptions import Forbidden, BadRequest
 
 #OSCommandInjection-1 - START
+"""Status: Vulnerable"""
+#Description: CWE-78: OS Command Injection -> https://cwe.mitre.org/data/definitions/78.html
 def execute_command():
-    """Fix"""
     try:
-        command_value = request.args.get('command')
-        if len(command_value) != 1:
-            log_config.logger.error("User %s tried to run command %s and failed." % (current_user.username, command_value), extra={'ip_address': request.remote_addr})
-            raise BadRequest()
-        else:
-            if command_value == '1':
-                command = 'service apache2 status'
-            elif command_value == '2':
-                command = 'pg_isready -h postgresql'
-            else:
-                log_config.logger.error("User %s tried to run command %s->None and failed." % (current_user.username, command_value, command), extra={'ip_address': request.remote_addr})
-                raise BadRequest()
-            result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
-            log_config.logger.info("User %s ran %s command" % (current_user.username, command), extra={'ip_address': request.remote_addr})
-            return jsonify(result=result)
-    except BadRequest:
-        abort(403)
+        command = request.args.get('command')
+        result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+        log_config.logger.info("User %s ran command %s" % (current_user.username, command), extra={'ip_address': request.remote_addr})
+        return jsonify(result=result)
     except Exception as e:
-        log_config.logger.error("User %s failed to run command %s. Exception: %s" % (current_user.username, command_value, e), extra={'ip_address': request.remote_addr})
+        log_config.logger.error("User %s failed to run command %s. Exception: %s" % (current_user.username, command, e), extra={'ip_address': request.remote_addr})
         abort(400)
 #OSCommandInjection-1 - END
 
@@ -99,7 +87,8 @@ def add_user():
 
             password = request.form.get("add_pass")
             #WeakPasswordRequirements-1 - START
-            """Vulnerability"""
+            """Status: Vulnerable"""
+            #Description: CWE-521: Weak Password Requirements -> https://cwe.mitre.org/data/definitions/521.html
             #There is no check of length and complexity of a password.
             #WeakPasswordRequirements-1 - END
 
@@ -110,7 +99,8 @@ def add_user():
             #WeakHashFunction-1 - END
 
             #WeakHashFunctionWithSalt-1 - START
-            """Fix"""
+            """Status: Fixed"""
+            #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
             password = ph.hash(password)
             #WeakHashFunctionWithSalt-1 - END  
 
@@ -195,7 +185,8 @@ def update_user():
                 pass
             else:
                 #WeakPasswordRequirements-4 - START
-                """Vulnerability"""
+                """Status: Vulnerable"""
+                #Description: CWE-521: Weak Password Requirements -> https://cwe.mitre.org/data/definitions/521.html
                 #There is no check of length and complexity of a password.
                 #WeakPasswordRequirements-4 - END
                 #CompleteOmissionOfHashFunction-1 - START
@@ -203,7 +194,8 @@ def update_user():
                 #WeakHashFunction-1 - START
                 #WeakHashFunction-1 - END
                 #WeakHashFunctionWithSalt-1 - START
-                """Fix"""
+                """Status: Fixed"""
+                #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
                 password = ph.hash(password)
                 #WeakHashFunctionWithSalt-1 - END  
                 user.password = password
@@ -250,8 +242,9 @@ def delete_user():
 
 
 #SSRF-1 - START
+"""Status: Fixed"""
+#Description: CWE-918: Server-Side Request Forgery -> https://cwe.mitre.org/data/definitions/918.html
 def development():
-    """Fix"""
     if request.method == 'GET':
 
         #Get data from 'url' parameter

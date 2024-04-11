@@ -1,6 +1,5 @@
 #src/controllers/accountController.py
 def delete_user():
-    """ Fix """
     if request.method == 'POST':
         try:
             validate_csrf(request.form.get('csrf_token'))

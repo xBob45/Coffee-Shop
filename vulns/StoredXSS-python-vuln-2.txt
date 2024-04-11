@@ -1,6 +1,5 @@
 #src/controllers/accountController.py
 def update_user():
-    """Vulnerability"""
     #referrer_url = request.referrer
     if request.method == 'POST':
         try:

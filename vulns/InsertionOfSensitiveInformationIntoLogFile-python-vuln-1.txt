@@ -1,3 +1,2 @@
 #src/controllers/authController.py
-"""Vulnerability"""
 log_config.logger.info("User with %s username successfully logged in with password %s password." % (username, password), extra={'ip_address': request.remote_addr})

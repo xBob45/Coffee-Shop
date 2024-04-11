@@ -1,5 +1,4 @@
 #compose.yaml
-#Vulnerability
 compromised_service:
     image: httpd:alpine
     ports:

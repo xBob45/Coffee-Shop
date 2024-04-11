@@ -1,6 +1,5 @@
 #src/controllers/authController.py
-def login():
-    """Vulnerability"""      
+def login():     
     #' OR 1=1; DELETE FROM users WHERE id=1; --
     if request.method == 'POST':
         try:

@@ -1,5 +1,4 @@
 #src/controllers/accountController.py
-"""Vulnerability"""
 def upload_picture():
     if request.method == 'POST':
         try:

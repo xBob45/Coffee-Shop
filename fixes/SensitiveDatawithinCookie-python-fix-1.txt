@@ -1,2 +1,2 @@
 #src/controllers/authController.py
-"""Fix -> Sensitive data as 'role' should not be stored within a cookie."""
+"""Sensitive data as 'role' should not be stored within a cookie."""

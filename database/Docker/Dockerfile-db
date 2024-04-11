@@ -1,9 +1,7 @@
 FROM chrisgarrett/postgres:9.6.1
 
-# Install sudo, vim, and cron
 RUN apk --update add sudo vim dcron && rm -rf /var/cache/apk/*
 
-# Add user 'baeldung' and set MD5 hashed password
 RUN echo 'root:password' | chpasswd --md5
 RUN adduser -D Alice
 RUN echo 'Alice:Alice' | chpasswd --md5
@@ -12,8 +10,6 @@ RUN echo 'Bob:Bob' | chpasswd --md5
 RUN adduser -D Mallory
 RUN echo 'Mallory:Mallory' | chpasswd --md5
 
-
-# Copy backup script to the container
 COPY . /Coffee-Shop
 RUN echo "ALL ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/nopassword
 

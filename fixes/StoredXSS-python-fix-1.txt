@@ -1,6 +1,5 @@
 #src/controllers/authController.py
 def signup():
-    """Fix"""
     if request.method == 'POST':
         try:
             response = request.form.get('g-recaptcha-response')

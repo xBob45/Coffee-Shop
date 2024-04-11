@@ -1,3 +1,2 @@
 #src/templates/public/coffee.html
-<!-- Vulnerability -->
 <h5 class="card-title">{{ product['name'] |safe }}</h5>

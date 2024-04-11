@@ -1,3 +1,2 @@
 #src/config.py
-"""Vulnerability"""
 SECRET_KEY = 'iamsecret'

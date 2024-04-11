@@ -1,3 +1,2 @@
 #src/templates/auth/login.html
-{# Vulnerability #}
 {{ message | safe}}

@@ -1,3 +1,2 @@
 #src/config.py
-"""Vulnerability"""
 os.environ['WERKZEUG_DEBUG_PIN'] = 'off'

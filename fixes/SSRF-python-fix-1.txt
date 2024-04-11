@@ -1,6 +1,5 @@
 #src/controllers/adminController.py
 def development():
-    """Fix"""
     if request.method == 'GET':
 
         #Get data from 'url' parameter

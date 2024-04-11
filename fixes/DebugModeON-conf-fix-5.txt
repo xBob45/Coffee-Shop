@@ -1,5 +1,4 @@
 #apache/Docker/coffee-shop.conf
-#Fix
 ErrorDocument 400 /400.html
 ErrorDocument 403 /403.html
 ErrorDocument 404 /404.html

@@ -7,7 +7,8 @@ werkzeug_log = logging.getLogger('werkzeug')
 werkzeug_log.disabled = False
 
 #InsufficientLogging-1 - START
-"""Vulnerability"""
+"""Status: Vulnerable"""
+#Description: CWE-778: Insufficient Logging -> https://cwe.mitre.org/data/definitions/778.html
 log_format = '%(levelname)s - %(message)s'
 #InsufficientLogging-1 - END
 

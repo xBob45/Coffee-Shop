@@ -1,3 +1,2 @@
 #src/templates/account/setting.html
-<!-- Fix -->
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>

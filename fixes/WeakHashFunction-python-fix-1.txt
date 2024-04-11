@@ -1,3 +1,2 @@
 #src/controllers/authController.py,src/controllers/adminController.py,src/controllers/accountController.py
-"""Fix"""
 password = ph.hash(password)

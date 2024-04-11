@@ -1,3 +1,2 @@
 #src/controllers/authController.py
-"""Vulnerability"""
 """No reCAPTCHA"""

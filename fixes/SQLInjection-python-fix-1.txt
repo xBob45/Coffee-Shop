@@ -1,6 +1,5 @@
 #src/controllers/authController.py
 def login():
-    """Fix"""
     if request.method == 'POST':
         try:
             #BruteForce-2 - START

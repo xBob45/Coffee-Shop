@@ -1,6 +1,5 @@
 #src/controllers/homeController.py
 def guide_reader():
-    """Vulnerability"""
     #../../../../../../etc/passwd
     #Extracts file from 'file_name' parameter
     try:

@@ -1,3 +1,2 @@
 #src/controllers/authController.py,src/controllers/accountController.py
-"""Vulnerability"""
 session.pop('role')

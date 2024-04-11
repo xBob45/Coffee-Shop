@@ -1,3 +1,2 @@
 #src/controllers/authController.py
-"""Vulnerability"""
 return render_template('auth/login.html')

@@ -1,5 +1,4 @@
 #src/templates/account/setting.html
-<!-- Vulnerability -->
 <form method="GET" action="{{ url_for('account.delete_user') }}">
     <!-- CSRF-2 - START -->
     <!-- CSRF-2 - END -->

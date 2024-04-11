@@ -1,5 +1,4 @@
 #src/templates/public/product.html
-<!-- Fix -->
 {% block content %}
 <div class="container">
     <div class="row">

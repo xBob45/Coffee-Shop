@@ -1,6 +1,5 @@
 #src/controllers/adminController.py
 def execute_command():
-    """Vulnerability"""
     try:
         command = request.args.get('command')
         result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)

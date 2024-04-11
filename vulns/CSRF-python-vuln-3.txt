@@ -1,6 +1,5 @@
 #src/controllers/accountController.py
 def delete_user():
-    """ Vulnerability """
     if request.method == 'GET':
         try:
             id = current_user.id

@@ -1,6 +1,5 @@
 #src/controllers/adminController.py
 def execute_command():
-    """Fix"""
     try:
         command_value = request.args.get('command')
         if len(command_value) != 1:

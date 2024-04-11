@@ -5,7 +5,8 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/product.css') }}">
 {% endblock %}
 <!-- SQLInjection2-1 - START -->
-<!-- Vulnerability -->
+{# Status: Vulnerable #}
+{#Description:  CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html #}
 {% block content %}
 <div class="container">
     <div class="row">

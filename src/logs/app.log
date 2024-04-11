@@ -133,3 +133,54 @@ INFO - User with admin username successfully logged in with password admin passw
 INFO - User with username admin was sucessfully updated.
 INFO - User with username adminqqqqqqqqq was sucessfully updated.
 INFO - User adminqqqqqqqqq successfully updated his profile picture.
+ERROR - User admin failed to login! Username doesn't exist.
+INFO - New user with username admin was successfully created.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin was sucessfully updated.
+ERROR - Username already exists.
+INFO - User with username adminxxx was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+ERROR - Username already exists.
+INFO - User with username zmena was sucessfully updated.
+INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+INFO - User with username admin removed a product Cappuccino from the cart.
+INFO - User with username admin added amount of 1 of Coffee Portafilter into the cart.
+INFO - User with username admin logged out.
+ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+INFO - User with username admin logged out.
+ERROR - User <script>alert(1)</script> failed to login! Username doesn't exist.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin added amount of 1 of Green Tea into the cart.
+INFO - User with username admin added amount of 1 of Yellow Tea into the cart.
+INFO - User with username admin removed a product Green Tea from the cart.
+INFO - User with username admin added amount of 1 of Coffee Portafilter into the cart.
+INFO - User with username admin removed a product Yellow Tea from the cart.
+INFO - User requested: guide1.txt
+INFO - User opened: guide1.txt
+INFO - User requested: ../../../../../../etc/passwd
+INFO - User opened: ../../../../../../etc/passwd
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+INFO - User with username admin added amount of 1 of Flat White into the cart.
+INFO - User with username admin removed a product Cappuccino from the cart.
+INFO - User with username admin added amount of 1 of Caramel Latte into the cart.
+INFO - User with username admin12 was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+INFO - User with username admin removed a product Cappuccino from the cart.
+INFO - User with username admin added amount of 5 of Flat White into the cart.
+INFO - User with username admin logged out.

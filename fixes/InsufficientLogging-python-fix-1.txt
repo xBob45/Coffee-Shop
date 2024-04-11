@@ -1,3 +1,2 @@
 #src/log_config.py
-"""Fix"""
 log_format = '%(asctime)s - IP:%(ip_address)s - %(levelname)s - %(message)s'

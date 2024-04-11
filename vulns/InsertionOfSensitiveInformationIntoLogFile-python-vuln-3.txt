@@ -1,3 +1,2 @@
 #src/controllers/authController.py
-"""Vulnerability"""
 log_config.logger.error("User %s failed to login! Username doesn't exist." % username, extra={'ip_address': request.remote_addr})

@@ -1,5 +1,4 @@
 #src/auxiliary/custom_error_responses.py
-"""Vulnerability"""
 def handle_400(e):
     pass
 def handle_403(e):

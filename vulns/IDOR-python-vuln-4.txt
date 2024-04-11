@@ -1,3 +1,2 @@
 #src/controllers/accountController.py
-"""Vulnerability"""
 id = request.form.get("edit_id")

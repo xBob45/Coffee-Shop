@@ -1,5 +1,4 @@
 #src/__init__.py
-"""Vulnerability"""
 app.register_error_handler(BadRequest, handle_400)
 app.register_error_handler(Forbidden, handle_403)
 app.register_error_handler(NotFound, handle_404)

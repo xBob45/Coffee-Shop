@@ -1,3 +1,2 @@
 #src/templates/public/coffee.html
-<!-- Fix -->
 <h5 class="card-title">{{ product['name'] }}</h5>

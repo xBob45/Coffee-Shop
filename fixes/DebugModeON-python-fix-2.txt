@@ -1,5 +1,4 @@
 #src/auxiliary/custom_error_responses.py
-"""Fix"""
 def handle_400(e):
     return render_template("custom_errors/400.html")
 def handle_403(e):

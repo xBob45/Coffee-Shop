@@ -19,49 +19,31 @@ def tips_and_tricks():
     return render_template("public/tips_and_tricks.html")
 
 #PathTraversal-1 - START
-def check_path(basedir, path, follow_symlinks=True):
-    """Fix"""
-    #Function checks for safety of a given path.
-    # basedir - base dir against which 'path' is compared -> /home/vojta/Bakalarka/Coffee-Shop/src/guides
-    # path - path that subject of control -> /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt[OK] or /etc/passwd[NOT OK]
-    # follow_symlinks - if 'True' function will also resolve symbolic links and checks if it safe.
-    if follow_symlinks:
-        #Resolves the symbolic links if any
-        matchpath = os.path.realpath(path)
-        #print(matchpath)
-    else:
-        matchpath = os.path.abspath(path)
-        #print(matchpath)
-            
-    #Return 'True' or 'False' based on if base directory is the common directory between 'basedir' and 'matchpath'
-    #print(basedir)
-    print(basedir == os.path.commonpath((basedir, matchpath)))
-    return basedir == os.path.commonpath((basedir, matchpath))
-
+"""Status: Vulnerable"""
+#Description: CWE-35: Path Traversal -> https://cwe.mitre.org/data/definitions/35.html
 def guide_reader():
-    file_name = request.args.get('file_name')
-    #FIRST MEASURE OF PROTECTION -> ALLOWED PATTERN
-    allowed_pattern = r'^[guide0-9.txt]+$'
-    if re.match(allowed_pattern, file_name):
-        guides_dir = os.path.join(os.getcwd(), 'src', 'guides')
-        requested_file = os.path.join(guides_dir, file_name)
-        log_config.logger.info("User requested: %s" % requested_file, extra={'ip_address': request.remote_addr})
+    #../../../../../../etc/passwd
+    #Extracts file from 'file_name' parameter
+    try:
+        file_name = request.args.get('file_name')
+        log_config.logger.info("User requested: %s" % file_name, extra={'ip_address': request.remote_addr})
 
-    #SECOND MEASURE OF PROTECTION -> PATH VALIDATION
-        if check_path(guides_dir, requested_file):
-            try:
-                with open(requested_file, 'r') as file:
-                    log_config.logger.info("User opened: %s" % requested_file, extra={'ip_address': request.remote_addr})
-                    content = file.read()
-                return render_template("public/guide.html", content=content)
-            except FileNotFoundError:
-                log_config.logger.error("User failed to open: %s." % requested_file, extra={'ip_address': request.remote_addr})
-                abort(404)
-        else:
-            log_config.logger.error("User failed to open: %s" % requested_file, extra={'ip_address': request.remote_addr})
-            abort(400)
-    else:
-        log_config.logger.error("User failed to open: %s" % file_name, extra={'ip_address': request.remote_addr})
+        #Creates a path by concatenating '/home/vojta/Bakalarka/Coffee-Shop/src/' and 'guides'
+        guides_dir = os.path.join(os.getcwd(), 'src', 'guides')
+
+        #Creates path to the requested file by concatenating '/home/vojta/Bakalarka/Coffee-Shop/src/guides' and '<file_name>'
+        requested_file = os.path.join(guides_dir, file_name)
+            
+        #Opens the file located at the location of 'requested_file' for reading ('r')
+        with open(requested_file, 'r') as file:
+            log_config.logger.info("User opened: %s" % file_name, extra={'ip_address': request.remote_addr})
+            content = file.read()
+        return render_template("public/guide.html", content=content)
+    except FileNotFoundError:
+        log_config.logger.error("User failed open: %s. File not found." % file_name, extra={'ip_address': request.remote_addr})
+        abort(404)
+    except Exception as e:
+        log_config.logger.error("User failed open: %s" % file_name, extra={'ip_address': request.remote_addr})
         abort(400)
 #PathTraversal-1 - END
 
@@ -74,7 +56,8 @@ def product_info():
     #SQLi#2 - http://127.0.0.1:5000/product?id=1'; UPDATE products SET price = 0.01 WHERE id = 1; --
     #StoredXSS - http://127.0.0.1:5000/product?id=1'; UPDATE products SET name = '<script>alert(1)Cappuccino</script>' WHERE id = 1; --
     #SQLInjection2-1 - START
-    """Vulnerability"""
+    """Status: Vulnerable"""
+    #Description: CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html
     product = db.session.execute(text("SELECT * FROM products WHERE id = '%s'" % (product_id)))
     #SQLInjection2-1 - END
     db.session.commit()

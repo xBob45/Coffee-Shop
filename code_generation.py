@@ -1,17 +1,25 @@
-from attacks import attacks_config
+#from attacks import attacks_config
+import yaml
+
+
+with open('vulnerabilities.yaml', 'r') as vulnerabilities:
+    data = yaml.safe_load(vulnerabilities)
+    #for name, details in data['vulnerabilities'].items():
+        #print("Vuln:", name)
+        #print("Status:",details['enabled'])
+    
 
 def copy_function():
-    for item in attacks_config.items():
-        attack_name, attack_value = item
+    for vuln_name, details in data['vulnerabilities'].items():
 
-        if attack_value == True:
+        if details['enabled'] == True:
             for file_number in range(1,6):
                 file = []
-                python_file = 'vulns/%s-python-vuln-%s.txt' % (attack_name,file_number)
-                html_file = 'vulns/%s-html-vuln-%s.txt' % (attack_name,file_number)
-                sql_file = 'vulns/%s-sql-vuln-%s.txt' % (attack_name,file_number)
-                conf_file = 'vulns/%s-conf-vuln-%s.txt' % (attack_name,file_number)
-                docker_file = 'vulns/%s-docker-vuln-%s.txt' % (attack_name,file_number)
+                python_file = 'vulns/%s-python-vuln-%s.txt' % (vuln_name,file_number)
+                html_file = 'vulns/%s-html-vuln-%s.txt' % (vuln_name,file_number)
+                sql_file = 'vulns/%s-sql-vuln-%s.txt' % (vuln_name,file_number)
+                conf_file = 'vulns/%s-conf-vuln-%s.txt' % (vuln_name,file_number)
+                docker_file = 'vulns/%s-docker-vuln-%s.txt' % (vuln_name,file_number)
                 files = [python_file, html_file, sql_file, conf_file, docker_file]
                 #print(files)
                 for file in files:
@@ -28,16 +36,31 @@ def copy_function():
                             locations = [l.strip('\n') for l in locations]
                         for file in locations: 
                             with open(file, 'r+') as destination:
-                                print(file + "-> FOUND")
+                                extension = file.split('.')[-1]
+                                #print(file + "-> FOUND")
                                 lines = destination.readlines()
                                 destination.seek(0)  # This moves file pointer back to the beginning
-                                mark = '%s-%s - START' % (attack_name,file_number)
+                                mark = '%s-%s - START' % (vuln_name,file_number)
 
                                 for line in lines:
+                                        
                                     if mark in line:
                                         indentation = len(line) - len(line.lstrip())
+                                        if extension == 'py':
+                                            status = ' ' * indentation + '"""Status: Vulnerable"""\n'
+                                            description = ' ' * indentation + '#Description: '+details['description']+'\n'
+                                        elif extension == 'html':
+                                            status = ' ' * indentation + '{# Status: Vulnerable #}\n'
+                                            description = ' ' * indentation + f'{{#Description:  {details["description"]} #}}\n'
+                                        elif extension == 'sql':
+                                            status = ' ' * indentation + '--Status: Vulnerable\n'
+                                            description = ' ' * indentation + '--Description: '+details['description']+'\n'
+                                        else:
+                                            status = ' ' * indentation + '#Status: Vulnerable\n'
+                                            description = ' ' * indentation + '#Description: '+details['description']+'\n'
+                                            
                                         indented_function = '\n'.join([' ' * (indentation) + l for l in vulnerability.split('\n')])
-                                        destination.writelines([line, indented_function + '\n'])
+                                        destination.writelines([line, status, description ,indented_function + '\n'])
                                     else:
                                         destination.write(line)
                         
@@ -45,15 +68,15 @@ def copy_function():
                         #print(file + "-> NOT FOUND")
                         continue
             
-        elif attack_value == False:
+        elif details['enabled'] == False:
             for file_number in range(1,6):
                 file = []
                 #print(attack_name)
-                python_file = 'fixes/%s-python-fix-%s.txt' % (attack_name,file_number)
-                html_file = 'fixes/%s-html-fix-%s.txt' % (attack_name,file_number)
-                sql_file = 'fixes/%s-sql-fix-%s.txt' % (attack_name,file_number)
-                conf_file = 'fixes/%s-conf-fix-%s.txt' % (attack_name,file_number)
-                docker_file = 'fixes/%s-docker-fix-%s.txt' % (attack_name,file_number)
+                python_file = 'fixes/%s-python-fix-%s.txt' % (vuln_name,file_number)
+                html_file = 'fixes/%s-html-fix-%s.txt' % (vuln_name,file_number)
+                sql_file = 'fixes/%s-sql-fix-%s.txt' % (vuln_name,file_number)
+                conf_file = 'fixes/%s-conf-fix-%s.txt' % (vuln_name,file_number)
+                docker_file = 'fixes/%s-docker-fix-%s.txt' % (vuln_name,file_number)
                 files = [python_file, html_file, sql_file, conf_file, docker_file]
                 for file in files:
                     try:
@@ -70,17 +93,32 @@ def copy_function():
                             #print(locations)
                         for file in locations: 
                             with open(file, 'r+') as destination:
+                                extension = file.split('.')[-1]
+                                #print(extension)
                                 #print(file + "-> FOUND")
                                 lines = destination.readlines()
                                 destination.seek(0)  # This moves file pointer back to the beginning
 
                                 for line in lines:
-                                    mark = '%s-%s - START' % (attack_name,file_number)
+                                    mark = '%s-%s - START' % (vuln_name,file_number)
 
                                     if mark in line:
                                         indentation = len(line) - len(line.lstrip())
+                                        if extension == 'py':
+                                            status = ' ' * indentation + '"""Status: Fixed"""\n'
+                                            description = ' ' * indentation + '#Description: '+details['description']+'\n'
+                                        elif extension == 'html':
+                                            status = ' ' * indentation + '{# Status: Fixed #}\n'
+                                            description = ' ' * indentation + f'{{# Description: {details["description"]} #}}\n'
+                                        elif extension == 'sql':
+                                            status = ' ' * indentation + '--Status: Fixed\n'
+                                            description = ' ' * indentation + '--Description: '+details['description']+'\n'
+                                        else:
+                                            status = ' ' * indentation + '#Status: Fixed\n'
+                                            description = ' ' * indentation + '#Description: '+details['description']+'\n'
+
                                         indented_function = '\n'.join([' ' * (indentation) + l for l in fix.split('\n')])
-                                        destination.writelines([line, indented_function + '\n'])
+                                        destination.writelines([line, status, description, indented_function + '\n'])
                                     else:
                                         destination.write(line)
                         
@@ -88,7 +126,7 @@ def copy_function():
                         #print(file + "-> NOT FOUND")
                         continue
           
-        elif attack_name == None:
+        elif details['enabled'] == None:
             continue        
 
 def delete_function():
@@ -113,7 +151,7 @@ def delete_function():
                          'src/routes/adminRoute.py',
                          'src/templates/public/product.html',
                          'src/templates/public/coffee.html',
-                         'db.sql',
+                         'database/db.sql',
                          'apache/Docker/coffee-shop.conf',
                          'src/auxiliary/custom_error_responses.py',
                          'src/templates/order/order_success.html',
@@ -121,7 +159,7 @@ def delete_function():
                         ]
     
     for file_name in destination_files:
-        for attac_name in attacks_config.keys():
+        for vuln_name, details in data['vulnerabilities'].items():
             for file_number in range(1,6):
                 with open(file_name, 'r+') as file:
                     content = file.readlines()
@@ -130,8 +168,8 @@ def delete_function():
                     delete_block = False  # 'Switch' that turn DELETE ON/OFF
                     
                     for line in content:
-                        beginning = '%s-%s - START' % (attac_name,file_number)
-                        end =  '%s-%s - END' % (attac_name,file_number)
+                        beginning = '%s-%s - START' % (vuln_name,file_number)
+                        end =  '%s-%s - END' % (vuln_name,file_number)
                         if beginning in line:
                             delete_block = True
                             file.write(line)

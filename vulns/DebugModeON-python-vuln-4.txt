@@ -1,3 +1,2 @@
 #.env
-#Vulnerability
 DEBUG=True

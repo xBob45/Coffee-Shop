@@ -3,10 +3,9 @@ services:
     build:
       context: .
       dockerfile: apache/Docker/Dockerfile-apache
-    environment:
-      - FLASK_DEBUG=True
     #UnprotectedTransportofCredentials-1 - START
-    #Fix
+    #Status: Fixed
+    #Description: CWE-523: Unprotected Transport of Credentials -> https://cwe.mitre.org/data/definitions/523.html
     ports:
       - 9090:443
     #UnprotectedTransportofCredentials-1 - END
@@ -16,7 +15,8 @@ services:
       always
 
   #FunctionalityFromUntrustedSource-1 - START
-  #Vulnerability
+  #Status: Vulnerable
+  #Description: CWE-830: Inclusion of Web Functionality from an Untrusted Source -> https://cwe.mitre.org/data/definitions/830.html
   compromised_service:
       image: httpd:alpine
       ports:
@@ -31,7 +31,8 @@ services:
   
   postgresql:
     #VulnerablePostgreSQL-1 - START
-    #Fix
+    #Status: Fixed
+    #Description: CWE-1035: Using Components with Known Vulnerabilities -> https://cwe.mitre.org/data/definitions/1035.html
     image: postgres
     #VulnerablePostgreSQL-1 - END
     networks:
@@ -42,7 +43,7 @@ services:
       always
     volumes:
       - postgresql-data:/var/lib/postgresql/data
-      - ./db.sql:/docker-entrypoint-initdb.d/db.sql
+      - ./database/db.sql:/docker-entrypoint-initdb.d/db.sql
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres

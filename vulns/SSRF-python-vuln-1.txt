@@ -1,6 +1,5 @@
 #src/controllers/homeController.py
 def development():
-    """Vulnerability"""
     if request.method == 'GET':
         url = request.args.get('url')
         log_config.logger.info("URL: %s." % url, extra={'ip_address': request.remote_addr})

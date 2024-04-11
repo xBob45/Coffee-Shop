@@ -1,5 +1,4 @@
 #src/templates/account/setting.html
-<!-- Vulnerability -->
 <form method="POST" action="{{ url_for('account.update_user') }}">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <div class="mb-3">

@@ -1,3 +1,2 @@
 #src/__init__.py
-"""Vulnerability"""
 """No protective measures are set."""
