@@ -49,6 +49,22 @@ def guide_reader():
 
 
 #SSRF-1 - START
+"""Status: Vulnerable"""
+#Description: CWE-918: Server-Side Request Forgery -> https://cwe.mitre.org/data/definitions/918.html
+def development():
+    if request.method == 'GET':
+        url = request.args.get('url')
+        log_config.logger.info("URL: %s." % url, extra={'ip_address': request.remote_addr})
+        if url is not None:
+            print(url)
+            try:
+                response = urlopen(url)
+                log_config.logger.info("User opened URL %s." % url, extra={'ip_address': request.remote_addr})
+                return response.read()
+            except Exception as e:
+                log_config.logger.error("User failed tp open URL %s. Exception: %s" % (url, e), extra={'ip_address': request.remote_addr})
+                abort(400)
+    return 'This section is currently under development.'
 #SSRF-1 - END
 
 def product_info():

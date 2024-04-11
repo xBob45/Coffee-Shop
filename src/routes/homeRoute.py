@@ -12,4 +12,8 @@ home_blueprint.route('/product')(product_info)
 
 
 #SSRF-2 - START
+"""Status: Vulnerable"""
+#Description: CWE-918: Server-Side Request Forgery -> https://cwe.mitre.org/data/definitions/918.html
+from src.controllers.homeController import development
+home_blueprint.route('/development', methods=['POST', 'GET'])(development)
 #SSRF-2 - END

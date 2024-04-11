@@ -21,9 +21,9 @@ def development():
             print(path)
             
             #Unused URL schemas (file, ftp, . . .) are disabled
-            SCHEMES_ALLOWLIST = ['http']  #TODO <-- Adjust before deployment.
+            SCHEMES_ALLOWLIST = ['http', 'https']
             #Whitelist only IPs and DNS names that the application requires access to.
-            DOMAINS_ALLOWLIST = ['127.0.0.1:5000', 'localhost:5000'] #TODO <-- Adjust before deployment.
+            DOMAINS_ALLOWLIST = ['127.0.0.1:5000', 'localhost:5000','127.0.0.1:9090', 'localhost:9090']
 
             try:
                 if scheme in SCHEMES_ALLOWLIST:

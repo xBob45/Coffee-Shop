@@ -188,3 +188,13 @@ INFO - User with admin username successfully logged in with password admin passw
 INFO - User with username admin added amount of 1 of Cappuccino into the cart.
 INFO - User with admin username successfully logged in with password admin password.
 INFO - User with username admin added amount of 1 of Cappuccino into the cart.
+ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+INFO - URL: None.
+INFO - URL: file://etc/shadow.
+ERROR - User failed tp open URL file://etc/shadow. Exception: <urlopen error [Errno 2] No such file or directory: '/shadow'>
+INFO - URL: file:///etc/shadow.
+ERROR - User failed tp open URL file:///etc/shadow. Exception: <urlopen error [Errno 13] Permission denied: '/etc/shadow'>
+INFO - URL: file:///etc/passwd.
+INFO - User opened URL file:///etc/passwd.
