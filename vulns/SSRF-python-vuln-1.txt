@@ -1,6 +1,7 @@
 #src/controllers/homeController.py
 def development():
     #http://127.0.0.1:5000/development?url=file:///etc/passwd
+    #http://127.0.0.1:5000/development?url=http://scanme.nmap.org:22
     if request.method == 'GET':
         url = request.args.get('url')
         log_config.logger.info("URL: %s." % url, extra={'ip_address': request.remote_addr})
@@ -11,6 +12,4 @@ def development():
                 log_config.logger.info("User opened URL %s." % url, extra={'ip_address': request.remote_addr})
                 return response.read()
             except Exception as e:
-                log_config.logger.error("User failed tp open URL %s. Exception: %s" % (url, e), extra={'ip_address': request.remote_addr})
-                abort(400)
-    return 'This section is currently under development.'
+                return str(e)

@@ -57,9 +57,9 @@ def login():
                 
                 #WeakHashFunctionWithSalt-2 - END 
                     #InsertionOfSensitiveInformationIntoLogFile-2 - START
-                    """Status: Vulnerable"""
+                    """Status: Fixed"""
                     #Description: CWE-532: Insertion of Sensitive Information into Log File -> https://cwe.mitre.org/data/definitions/532.html
-                    log_config.logger.error("User %s failed to login! Wrong password entered." % username, extra={'ip_address': request.remote_addr})
+                    log_config.logger.error("User %s failed to login! Wrong credentials." % username, extra={'ip_address': request.remote_addr})
                     #InsertionOfSensitiveInformationIntoLogFile-2 - END
 
                     #SensitiveInformationDisclosure-1 - START
@@ -75,12 +75,16 @@ def login():
                     session['total'] = 0
 
                     #InsertionOfSensitiveInformationIntoLogFile-1 - START
-                    """Status: Vulnerable"""
+                    """Status: Fixed"""
                     #Description: CWE-532: Insertion of Sensitive Information into Log File -> https://cwe.mitre.org/data/definitions/532.html
-                    log_config.logger.info("User with %s username successfully logged in with password %s password." % (username, password), extra={'ip_address': request.remote_addr})
+                    log_config.logger.info("User %s successfully logged in." % username, extra={'ip_address': request.remote_addr}) 
                     #InsertionOfSensitiveInformationIntoLogFile-1 - END
 
                     #SensitiveDatawithinCookie-1 - START
+                    """Status: Fixed"""
+                    #Description: Cookie containes user's role in the application. Via cookie manipulation an attacker can elevate it's privileges.
+                    """Sensitive data as 'role' should not be stored within a cookie."""
+                    
                     #SensitiveDatawithinCookie-1 - END
                     return redirect(url_for('home.home'))
             else:
@@ -90,9 +94,9 @@ def login():
                 flash("Incorrect credentials, try again.", 'danger')
                 #ReflectedXSS-1 - END
                 #InsertionOfSensitiveInformationIntoLogFile-3 - START
-                """Status: Vulnerable"""
+                """Status: Fixed"""
                 #Description: CWE-532: Insertion of Sensitive Information into Log File -> https://cwe.mitre.org/data/definitions/532.html
-                log_config.logger.error("User %s failed to login! Username doesn't exist." % username, extra={'ip_address': request.remote_addr})
+                log_config.logger.error("User %s failed to login! Wrong credentials." % username, extra={'ip_address': request.remote_addr})
                 #InsertionOfSensitiveInformationIntoLogFile-3 - END   
                 return redirect(request.referrer)
         except ValidationError:
@@ -103,9 +107,9 @@ def login():
             abort(400)
         except argon2.exceptions.VerifyMismatchError:
             #InsertionOfSensitiveInformationIntoLogFile-2 - START
-            """Status: Vulnerable"""
+            """Status: Fixed"""
             #Description: CWE-532: Insertion of Sensitive Information into Log File -> https://cwe.mitre.org/data/definitions/532.html
-            log_config.logger.error("User %s failed to login! Wrong password entered." % username, extra={'ip_address': request.remote_addr})
+            log_config.logger.error("User %s failed to login! Wrong credentials." % username, extra={'ip_address': request.remote_addr})
             #InsertionOfSensitiveInformationIntoLogFile-2 - END
             #SensitiveInformationDisclosure-1 - START
             """Status: Fixed"""
@@ -150,9 +154,9 @@ def signup():
             check_if_exists('email', email, 'Email')
             check_if_exists('username', username, 'Username')
             #WeakPasswordRequirements-1 - START
-            """Status: Vulnerable"""
+            """Status: Fixed"""
             #Description: CWE-521: Weak Password Requirements -> https://cwe.mitre.org/data/definitions/521.html
-            #There is no check of length and complexity of a password.
+            check_for_password_complexity(password)
             #WeakPasswordRequirements-1 - END
             #CompleteOmissionOfHashFunction-1 - START
             #CompleteOmissionOfHashFunction-1 - END
@@ -193,6 +197,9 @@ def signup():
 #Description: CWE-613: Insufficient Session Expiration -> https://cwe.mitre.org/data/definitions/613.html
 def logout():
     #SensitiveDatawithinCookie-2 - START
+    """Status: Fixed"""
+    #Description: Cookie containes user's role in the application. Via cookie manipulation an attacker can elevate it's privileges.
+    """Since 'role' is not a part of a session, there is no need to do anything at this point."""
     #SensitiveDatawithinCookie-2 - END
     session.pop('cart')
     session.pop('total')
@@ -205,11 +212,14 @@ def logout():
 
 
 #WeakPasswordRequirements-2 - START
-"""Status: Vulnerable"""
+"""Status: Fixed"""
 #Description: CWE-521: Weak Password Requirements -> https://cwe.mitre.org/data/definitions/521.html
 def check_for_password_complexity(password):
-    #There is no check of length and complexity of a password.
-    pass
+    password_pattern = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+    if not re.match(password_pattern, password):
+        log_config.logger.error("User entered password which lacked complexity and was rejected.", extra={'ip_address': request.remote_addr})
+        flash("Insufficiently complex password!\nPlease try again!\nRemeber password has to be at least 8 characters long and contains some special cahracters\n!#$%&*_^ and digits.", "danger")
+        raise ValueError
 #WeakPasswordRequirements-2 - END
 
 def check_if_exists(model_field, value, field):

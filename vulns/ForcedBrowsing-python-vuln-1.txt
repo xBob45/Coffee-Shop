@@ -1,2 +1,2 @@
 #src/routes/adminRoute.py
-"""Application doesn't perform any kind of check whether or not user who's tring to access these endpoints has 'admin' role."""
+"""Application doesn't perform any kind of check whether or not user who's trying to access these endpoints has 'admin' role."""

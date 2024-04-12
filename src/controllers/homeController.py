@@ -19,53 +19,55 @@ def tips_and_tricks():
     return render_template("public/tips_and_tricks.html")
 
 #PathTraversal-1 - START
-"""Status: Vulnerable"""
+"""Status: Fixed"""
 #Description: CWE-35: Path Traversal -> https://cwe.mitre.org/data/definitions/35.html
-def guide_reader():
-    #../../../../../../etc/passwd
-    #Extracts file from 'file_name' parameter
-    try:
-        file_name = request.args.get('file_name')
-        log_config.logger.info("User requested: %s" % file_name, extra={'ip_address': request.remote_addr})
-
-        #Creates a path by concatenating '/home/vojta/Bakalarka/Coffee-Shop/src/' and 'guides'
-        guides_dir = os.path.join(os.getcwd(), 'src', 'guides')
-
-        #Creates path to the requested file by concatenating '/home/vojta/Bakalarka/Coffee-Shop/src/guides' and '<file_name>'
-        requested_file = os.path.join(guides_dir, file_name)
+def check_path(basedir, path, follow_symlinks=True):
+    #Function checks for safety of a given path.
+    # basedir - base dir against which 'path' is compared -> /home/vojta/Bakalarka/Coffee-Shop/src/guides
+    # path - path that subject of control -> /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt[OK] or /etc/passwd[NOT OK]
+    # follow_symlinks - if 'True' function will also resolve symbolic links and checks if it safe.
+    if follow_symlinks:
+        #Resolves the symbolic links if any
+        matchpath = os.path.realpath(path)
+        #print(matchpath)
+    else:
+        matchpath = os.path.abspath(path)
+        #print(matchpath)
             
-        #Opens the file located at the location of 'requested_file' for reading ('r')
-        with open(requested_file, 'r') as file:
-            log_config.logger.info("User opened: %s" % file_name, extra={'ip_address': request.remote_addr})
-            content = file.read()
-        return render_template("public/guide.html", content=content)
-    except FileNotFoundError:
-        log_config.logger.error("User failed open: %s. File not found." % file_name, extra={'ip_address': request.remote_addr})
-        abort(404)
-    except Exception as e:
-        log_config.logger.error("User failed open: %s" % file_name, extra={'ip_address': request.remote_addr})
+    #Return 'True' or 'False' based on if base directory is the common directory between 'basedir' and 'matchpath'
+    #print(basedir)
+    print(basedir == os.path.commonpath((basedir, matchpath)))
+    return basedir == os.path.commonpath((basedir, matchpath))
+
+def guide_reader():
+    file_name = request.args.get('file_name')
+    #FIRST MEASURE OF PROTECTION -> ALLOWED PATTERN
+    allowed_pattern = r'^[guide0-9.txt]+$'
+    if re.match(allowed_pattern, file_name):
+        guides_dir = os.path.join(os.getcwd(), 'src', 'guides')
+        requested_file = os.path.join(guides_dir, file_name)
+        log_config.logger.info("User requested: %s" % requested_file, extra={'ip_address': request.remote_addr})
+
+    #SECOND MEASURE OF PROTECTION -> PATH VALIDATION
+        if check_path(guides_dir, requested_file):
+            try:
+                with open(requested_file, 'r') as file:
+                    log_config.logger.info("User opened: %s" % requested_file, extra={'ip_address': request.remote_addr})
+                    content = file.read()
+                return render_template("public/guide.html", content=content)
+            except FileNotFoundError:
+                log_config.logger.error("User failed to open: %s." % requested_file, extra={'ip_address': request.remote_addr})
+                abort(404)
+        else:
+            log_config.logger.error("User failed to open: %s" % requested_file, extra={'ip_address': request.remote_addr})
+            abort(400)
+    else:
+        log_config.logger.error("User failed to open: %s" % file_name, extra={'ip_address': request.remote_addr})
         abort(400)
 #PathTraversal-1 - END
 
 
 #SSRF-1 - START
-"""Status: Vulnerable"""
-#Description: CWE-918: Server-Side Request Forgery -> https://cwe.mitre.org/data/definitions/918.html
-def development():
-    #http://127.0.0.1:5000/development?url=file:///etc/passwd
-    if request.method == 'GET':
-        url = request.args.get('url')
-        log_config.logger.info("URL: %s." % url, extra={'ip_address': request.remote_addr})
-        if url is not None:
-            print(url)
-            try:
-                response = urlopen(url)
-                log_config.logger.info("User opened URL %s." % url, extra={'ip_address': request.remote_addr})
-                return response.read()
-            except Exception as e:
-                log_config.logger.error("User failed tp open URL %s. Exception: %s" % (url, e), extra={'ip_address': request.remote_addr})
-                abort(400)
-    return 'This section is currently under development.'
 #SSRF-1 - END
 
 def product_info():

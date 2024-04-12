@@ -9,27 +9,24 @@ class Config(object):
     #MaliciousFileUpload-2 - END
 
     #HardCodedKey-1 - START
-    """Status: Vulnerable"""
+    """Status: Fixed"""
     #Description: CWE-321: Use of Hard-coded Cryptographic Key -> https://cwe.mitre.org/data/definitions/321.html
-    SECRET_KEY = 'iamsecret'
+    SECRET_KEY = os.environ.get('SECRET_KEY')
     #HardCodedKey-1 - END
 
     #DebugModeON-1 - START
-    """Status: Vulnerable"""
+    """Status: Fixed"""
     #Description: CWE-489: Active Debug Code -> https://cwe.mitre.org/data/definitions/489.html
-    os.environ['WERKZEUG_DEBUG_PIN'] = 'off'
+    os.environ['WERKZEUG_DEBUG_PIN'] = 'on'
     #DebugModeON-1 - END
 
-    #CookiesWithoutSecurityAttributes-1 - START
-    #CookiesWithoutSecurityAttributes-1 - END
-
-    #CSRF-4 - START
-    """Status: Fixed"""
-    #Description: CWE-352: Cross-Site Request Forgery -> https://cwe.mitre.org/data/definitions/352.html
-    SESSION_COOKIE_SECURE = True
+    #SensitiveCookiewithImproperSameSiteAttribute-1 - START
+    """Status: Vulnerable"""
+    #Description: CWE-1275: Sensitive Cookie with Improper SameSite Attribute -> https://cwe.mitre.org/data/definitions/1275.html
+    SESSION_COOKIE_SECURE = True 
     SESSION_COOKIE_HTTPONLY = True
-    SESSION_COOKIE_SAMESITE = 'Strict'
-    #CSRF-4 - END
+    SESSION_COOKIE_SAMESITE = 'None'
+    #SensitiveCookiewithImproperSameSiteAttribute-1 - END
 
     # Grabs the folder where the script runs.
     basedir = os.path.abspath(os.path.dirname(__file__))

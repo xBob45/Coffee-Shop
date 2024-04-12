@@ -49,9 +49,9 @@
                       {# StoredXSS-1 - END #}
                       <ul class="dropdown-menu animate__animated animate__fadeInDown">
                       {# IDOR-1 - START #}
-                      {# Status: Vulnerable #}
-                      {#Description:  CWE-639: Authorization Bypass Through User-Controlled Key -> https://cwe.mitre.org/data/definitions/639.html #}
-                      <li><a class="dropdown-item" href="{{ url_for('account.setting', id=current_user.id) }}">Account</a></li>
+                      {# Status: Fixed #}
+                      {# Description: CWE-639: Authorization Bypass Through User-Controlled Key -> https://cwe.mitre.org/data/definitions/639.html #}
+                      <li><a class="dropdown-item" href="{{ url_for('account.setting') }}">Account</a></li>
                       {# IDOR-1 - END #}
                       <li><a class="dropdown-item" href="{{ url_for('account.orders') }}">Order</a></li>
                       </ul>
@@ -77,8 +77,8 @@
       <div class="row">
         <div class="col-md-6" id="Services">
           {# OSCommandInjection-1 - START #}
-          {# Status: Vulnerable #}
-          {#Description:  CWE-78: OS Command Injection -> https://cwe.mitre.org/data/definitions/78.html #}
+          {# Status: Fixed #}
+          {# Description: CWE-78: OS Command Injection -> https://cwe.mitre.org/data/definitions/78.html #}
           <h4 class="text-center">Apache</h4>
           {% if apache_message == "Apache is running correctly."%}
               <div class="alert alert-success mx-auto" role="alert" id="services-alert">{{apache_message}}</div>
@@ -86,8 +86,8 @@
               <div class="alert alert-danger mx-auto" role="alert" id="services-alert">{{apache_message}}</div>
           {% endif %}
               <div class="text-center">
-                  {# Vulnerability #}
-                  <button type="button" class="btn btn-link" id="services-button" data-bs-toggle="modal" data-bs-target="#resultModal" onclick="executeCommand('service apache2 status')">Show status</button>
+                  {# Fix #}
+                  <button type="button" class="btn btn-link" id="services-button" data-bs-toggle="modal" data-bs-target="#resultModal" onclick="executeCommand('1')">Show status</button>
               </div>
           
           <h4 class="text-center">PostgreSQL</h4>
@@ -97,8 +97,8 @@
               <div class="alert alert-danger mx-auto" role="alert" id="services-alert">{{postgre_message}}</div>
           {% endif %}
               <div class="text-center">
-                  {# Vulnerability #}
-                  <button type="button" class="btn btn-link" id="services-button" data-bs-toggle="modal" data-bs-target="#resultModal" onclick="executeCommand('pg_isready -h postgresql')">Show status</button>
+                  {# Fix #}
+                  <button type="button" class="btn btn-link" id="services-button" data-bs-toggle="modal" data-bs-target="#resultModal" onclick="executeCommand('2')">Show status</button>
               </div>
           {# OSCommandInjection-1 - END #}
             <!-- Modal -->

@@ -18,43 +18,48 @@ vulnerabilities:
     enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-613: Insufficient Session Expiration -> https://cwe.mitre.org/data/definitions/613.html"
   ForcedBrowsing: #Vuln: Checked; Fix: Checked
-    enabled: False #If you set this vulnerability to either "True" or "False" set "SensitiveDatawithinCookie" to "null"
+    enabled: null #If you set this vulnerability to either "True" or "False" set "SensitiveDatawithinCookie" to "null"
     description: "CWE-425: Forced Browsings -> https://cwe.mitre.org/data/definitions/425.html"
   HardCodedKey: 
-    enabled: True
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-321: Use of Hard-coded Cryptographic Key -> https://cwe.mitre.org/data/definitions/321.html"
   PathTraversal: 
-    enabled: True
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-35: Path Traversal -> https://cwe.mitre.org/data/definitions/35.html"
   OSCommandInjection: 
-    enabled: True
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-78: OS Command Injection -> https://cwe.mitre.org/data/definitions/78.html"
+  SensitiveCookiewithImproperSameSiteAttribute: #Vuln: Checked; Fix: Checked
+    enabled: True # In case you want to exploit "Clickjacking" and "CSRF" set this to "True"
+    description: "CWE-1275: Sensitive Cookie with Improper SameSite Attribute -> https://cwe.mitre.org/data/definitions/1275.html"
   Clickjacking: 
-    enabled: False
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-1021: Improper Restriction of Rendered UI Layers or Frames -> https://cwe.mitre.org/data/definitions/1021.html"
   InsufficientLogging: 
-    enabled: True
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-778: Insufficient Logging -> https://cwe.mitre.org/data/definitions/778.html"
   InsertionOfSensitiveInformationIntoLogFile : 
-    enabled: True
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-532: Insertion of Sensitive Information into Log File -> https://cwe.mitre.org/data/definitions/532.html"
   WeakPasswordRequirements: 
-    enabled: True
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-521: Weak Password Requirements -> https://cwe.mitre.org/data/definitions/521.html"
   CSRF: 
-    enabled: False
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-352: Cross-Site Request Forgery -> https://cwe.mitre.org/data/definitions/352.html"
   IDOR: 
-    enabled: True
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-639: Authorization Bypass Through User-Controlled Key -> https://cwe.mitre.org/data/definitions/639.html"
-  SensitiveDatawithinCookie: 
-    enabled: null  #If you set this vulnerability to either "True" or "False" set "ForcedBrowsing" to "null". In order to exploit this vulnerability set 'HardCodedKey' to 'True'
+  SensitiveDatawithinCookie: #Vuln: Checked; Fix: Checked
+    enabled: False  #If you set this vulnerability to either "True" or "False" set "ForcedBrowsing" to "null". In order to exploit this vulnerability set 'HardCodedKey' to 'True'
     description: "Cookie containes user's role in the application. Via cookie manipulation an attacker can elevate it's privileges."
+  
+  
   VulnerablePostgreSQL: 
     enabled: False
     description: "CWE-1035: Using Components with Known Vulnerabilities -> https://cwe.mitre.org/data/definitions/1035.html"
   SSRF: 
-    enabled: True
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-918: Server-Side Request Forgery -> https://cwe.mitre.org/data/definitions/918.html"
   CompleteOmissionOfHashFunction: 
     enabled: null
@@ -75,7 +80,7 @@ vulnerabilities:
     enabled: null #If you set this vunerability to either "True" or "False" set 'DebugModeON' to 'null'
     description: "CWE-756: Missing Custom Error Page -> https://cwe.mitre.org/data/definitions/756.html"
   DebugModeON: 
-    enabled: True #If you set this vunerability to either "True" or 'False' set 'CustomErrorPages' to 'null'. Also, in order to exploit this set 'UnprotectedTransportofCredentials' to 'False'
+    enabled: False #If you set this vunerability to either "True" or 'False' set 'CustomErrorPages' to 'null'. Also, in order to exploit this set 'UnprotectedTransportofCredentials' to 'False'
     description: "CWE-489: Active Debug Code -> https://cwe.mitre.org/data/definitions/489.html"
   BruteForce: 
     enabled: True

@@ -20,12 +20,10 @@ load_dotenv()
 UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER")
 
 #IDOR-3 - START
-"""Status: Vulnerable"""
+"""Status: Fixed"""
 #Description: CWE-639: Authorization Bypass Through User-Controlled Key -> https://cwe.mitre.org/data/definitions/639.html
 def setting():
-    id = request.args.get("id")
-    user = User.query.filter_by(id=id).first()
-    return render_template("account/setting.html", user=user)
+    return render_template("account/setting.html")
 #IDOR-3 - END
 
 #StoredXSS-2 - START
@@ -36,9 +34,9 @@ def update_user():
         try:
             validate_csrf(request.form.get('csrf_token'))
             #IDOR-4 - START
-            """Status: Vulnerable"""
+            """Status: Fixed"""
             #Description: CWE-639: Authorization Bypass Through User-Controlled Key -> https://cwe.mitre.org/data/definitions/639.html
-            id = request.form.get("edit_id")
+            id = current_user.id
             #IDOR-4 - END
             username = request.form.get("edit_username")
             email = request.form.get("edit_email")
@@ -69,9 +67,9 @@ def update_user():
                 pass
             else:
                 #WeakPasswordRequirements-3 - START
-                """Status: Vulnerable"""
+                """Status: Fixed"""
                 #Description: CWE-521: Weak Password Requirements -> https://cwe.mitre.org/data/definitions/521.html
-                #There is no check of length and complexity of a password.
+                check_for_password_complexity(password)
                 #WeakPasswordRequirements-3 - END
                 #CompleteOmissionOfHashFunction-1 - START
                 #CompleteOmissionOfHashFunction-1 - END
@@ -111,6 +109,9 @@ def delete_user():
             user = User.query.filter_by(id=id).first()
             if user is not None:
                 #SensitiveDatawithinCookie-2 - START
+                """Status: Fixed"""
+                #Description: Cookie containes user's role in the application. Via cookie manipulation an attacker can elevate it's privileges.
+                """Since 'role' is not a part of a session, there is no need to do anything at this point."""
                 #SensitiveDatawithinCookie-2 - END
                 session.pop('cart')
                 session.pop('total')

@@ -1,302 +1,52 @@
-ERROR - Failed reCAPTCHA.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User admin accessed the admin panel.
-INFO - User with username admin added amount of 1 of Green Tea into the cart.
-INFO - User with username admin added amount of 1 of Yellow Tea into the cart.
-INFO - User with username admin removed a product Yellow Tea from the cart.
-INFO - User with username admin removed a product Green Tea from the cart.
-ERROR - User entered an invalid Username.
-ERROR - Email already exists.
-ERROR - Username already exists.
-ERROR - Username already exists.
-ERROR - Username already exists.
-ERROR - User entered an invalid Username.
-ERROR - Email already exists.
-ERROR - Username already exists.
-INFO - User with username adminqas was sucessfully updated.
-INFO - User with username adminqas was sucessfully updated.
-INFO - User with username adminqas was deleted.
-INFO - New user with username admin was successfully created.
-ERROR - Failed reCAPTCHA.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username adminqaz was sucessfully updated.
-INFO - User with username adminqaz was sucessfully updated.
-INFO - User with username adminqaz was sucessfully updated.
-INFO - User with username adminqaz was sucessfully updated.
-INFO - User with username adminqaz was deleted.
-ERROR - Failed reCAPTCHA.
-ERROR - Email already exists.
-INFO - New user with username admin was successfully created.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username adminwww was sucessfully updated.
-INFO - User with username adminwww was sucessfully updated.
-INFO - User with username adminwww was sucessfully updated.
-INFO - User with username adminwww was sucessfully updated.
-INFO - User with username adminwww was sucessfully updated.
-ERROR - Failed reCAPTCHA.
-ERROR - User admin failed to login! Username doesn't exist.
-INFO - New user with username admin was successfully created.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-ERROR - User entered an invalid First Name.
-INFO - User with username admin was sucessfully updated.
-ERROR - User entered an invalid Username.
-INFO - User with username adminrrrrr was sucessfully updated.
-ERROR - User admin failed to login! Username doesn't exist.
-INFO - User with adminrrrrr username successfully logged in with password admin password.
-INFO - User with username adminrrrrr was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-ERROR - User entered an invalid Last Name.
-INFO - User with username admin was sucessfully updated.
-ERROR - User entered an invalid Username.
-INFO - User with username admin was sucessfully updated.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username <script>alert(1)</script> was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin<<>> was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin logged out.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin was deleted.
-INFO - User admin was sucessfully created.
-INFO - User with admin username successfully logged in with password admin password.
-ERROR - Email already exists.
-ERROR - Username already exists.
-ERROR - Username already exists.
-INFO - User with username admin was deleted.
-ERROR - Failed reCAPTCHA.
-ERROR - Email already exists.
-INFO - User admin was sucessfully created.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username adminqq was sucessfully updated.
-INFO - User admin was sucessfully created.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin was sucessfully updated.
-ERROR - Username already exists.
-ERROR - Username already exists.
-ERROR - Username already exists.
-ERROR - Username already exists.
-INFO - User with username Davis was sucessfully updated.
-ERROR - Username already exists.
-INFO - User with username thishasbeenchanged was sucessfully updated.
-INFO - User with username vojtathechanged was sucessfully updated.
-INFO - User with username six was sucessfully updated.
-INFO - User with username sixq was sucessfully updated.
-INFO - User with username adminchanged was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin logged out.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User admin successfully updated his profile picture.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username sixqa was sucessfully updated.
-ERROR - User  failed to login! Username doesn't exist.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username ijustchangedthis was sucessfully updated.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username adminwww was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin logged out.
-ERROR - User admin failed to login! Wrong password entered.
-INFO - User with admin username successfully logged in with password 1234 password.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username ijustchangedthisqqqq was sucessfully updated.
-INFO - User admin successfully updated his profile picture.
-INFO - User with username admin added amount of 1 of Coffee Portafilter into the cart.
-INFO - User with username admin added amount of 1 of Coffee Machine into the cart.
-INFO - User with username admin logged out.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username adminqqqqqqqqq was sucessfully updated.
-INFO - User adminqqqqqqqqq successfully updated his profile picture.
-ERROR - User admin failed to login! Username doesn't exist.
-INFO - New user with username admin was successfully created.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin was sucessfully updated.
-ERROR - Username already exists.
-INFO - User with username adminxxx was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-ERROR - Username already exists.
-INFO - User with username zmena was sucessfully updated.
-INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-INFO - User with username admin removed a product Cappuccino from the cart.
-INFO - User with username admin added amount of 1 of Coffee Portafilter into the cart.
-INFO - User with username admin logged out.
-ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-INFO - User with username admin logged out.
-ERROR - User <script>alert(1)</script> failed to login! Username doesn't exist.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin added amount of 1 of Green Tea into the cart.
-INFO - User with username admin added amount of 1 of Yellow Tea into the cart.
-INFO - User with username admin removed a product Green Tea from the cart.
-INFO - User with username admin added amount of 1 of Coffee Portafilter into the cart.
-INFO - User with username admin removed a product Yellow Tea from the cart.
-INFO - User requested: guide1.txt
-INFO - User opened: guide1.txt
-INFO - User requested: ../../../../../../etc/passwd
-INFO - User opened: ../../../../../../etc/passwd
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-INFO - User with username admin added amount of 1 of Flat White into the cart.
-INFO - User with username admin removed a product Cappuccino from the cart.
-INFO - User with username admin added amount of 1 of Caramel Latte into the cart.
-INFO - User with username admin12 was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-INFO - User with username admin removed a product Cappuccino from the cart.
-INFO - User with username admin added amount of 5 of Flat White into the cart.
-INFO - User with username admin logged out.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin added amount of 1 of Cappuccino into the cart.
-ERROR - User was not updated. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-INFO - URL: None.
-INFO - URL: file://etc/shadow.
-ERROR - User failed tp open URL file://etc/shadow. Exception: <urlopen error [Errno 2] No such file or directory: '/shadow'>
-INFO - URL: file:///etc/shadow.
-ERROR - User failed tp open URL file:///etc/shadow. Exception: <urlopen error [Errno 13] Permission denied: '/etc/shadow'>
-INFO - URL: file:///etc/passwd.
-INFO - User opened URL file:///etc/passwd.
-INFO - Error occured, try again. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
-
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin12 was sucessfully updated.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin logged out.
-INFO - Error occured, try again. Exception: (psycopg2.errors.SyntaxError) unterminated quoted string at or near "'"
-LINE 1: ...WiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE');'
-                                                                      ^
-
-[SQL: SELECT * FROM users WHERE username = '' OR 1=1; INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'vojta', 'vojta@example.com', 'Vojta', 'M', '$argon2id$v=19$m=65536,t=3,p=4$L3jNUzeRVWWiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE');']
-(Background on this error at: https://sqlalche.me/e/20/f405)
-INFO - Error occured, try again. Exception: (psycopg2.errors.SyntaxError) unterminated quoted string at or near "'"
-LINE 1: ...WiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE');'
-                                                                      ^
-
-[SQL: SELECT * FROM users WHERE username = 'admin' OR 1=1; INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'vojta', 'vojta@example.com', 'Vojta', 'M', '$argon2id$v=19$m=65536,t=3,p=4$L3jNUzeRVWWiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE');']
-(Background on this error at: https://sqlalche.me/e/20/f405)
-INFO - Error occured, try again. Exception: This result object does not return rows. It has been closed automatically.
-INFO - User with vojta username successfully logged in with password admin password.
-INFO - User vojta accessed the admin panel.
-INFO - User with username vojta added amount of 1 of Coffee Brew into the cart.
-INFO - User with username vojta added amount of 1 of <script>alert(1)Cappuccino</script> into the cart.
-INFO - User with username vojta removed a product <script>alert(1)Cappuccino</script> from the cart.
-INFO - User with username vojta added amount of 1 of <script>alert(2)Cappuccino</script> into the cart.
-INFO - User with vojta username successfully logged in with password admin password.
-ERROR - User admin failed to login! Wrong password entered.
-INFO - User with vojta username successfully logged in with password admin password.
-INFO - Error occured, try again. Exception: This result object does not return rows. It has been closed automatically.
-INFO - User with vojta username successfully logged in with password admin password.
-ERROR - User ' OR 1=1; INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'vojta', 'vojta@example.com', 'Vojta', 'M', '$argon2id$v=19$m=65536,t=3,p=4$L3jNUzeRVWWiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE'); -- failed to login! Username doesn't exist.
-ERROR - User admin' OR 1=1; INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'vojta', 'vojta@example.com', 'Vojta', 'M', '$argon2id$v=19$m=65536,t=3,p=4$L3jNUzeRVWWiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE'); -- failed to login! Username doesn't exist.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin logged out.
-ERROR - User admin' OR 1=1; INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'vojta', 'vojta@example.com', 'Vojta', 'M', '$argon2id$v=19$m=65536,t=3,p=4$L3jNUzeRVWWiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE'); -- failed to login! Username doesn't exist.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username admin logged out.
-ERROR - User admin failed to login! Wrong password entered.
-ERROR - User admin failed to login! Wrong password entered.
-ERROR - User vjota failed to login! Username doesn't exist.
-ERROR - User vojta failed to login! Username doesn't exist.
-ERROR - User vojta failed to login! Username doesn't exist.
-ERROR - User admin failed to login! Wrong password entered.
-ERROR - User admin failed to login! Wrong password entered.
-ERROR - User <script>alert(1)</script> failed to login! Username doesn't exist.
-ERROR - User admin failed to login! Wrong password entered.
-ERROR - User admin failed to login! Wrong password entered.
-ERROR - User vojta failed to login! Username doesn't exist.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User with username <script>alert(1)</script> was sucessfully updated.
-INFO - User <script>alert(1)</script> logged out.
-ERROR - Username already exists.
-INFO - User <script>alert(2)</script> was sucessfully created.
-INFO - User with <script>alert(2)</script> username successfully logged in with password 123422##11 password.
-INFO - User <script>alert(2)</script> logged out.
-ERROR - User entered an invalid Username.
-ERROR - Failed reCAPTCHA.
-ERROR - User entered an invalid First name.
-ERROR - User admin failed to login! Username doesn't exist.
-ERROR - User <script>alert(1)</script> failed to login! Wrong password entered.
-INFO - User with <script>alert(1)</script> username successfully logged in with password 123422##11 password.
-INFO - User with username admin was sucessfully updated.
-ERROR - User entered an invalid Username.
-INFO - User with username admin was sucessfully updated.
-INFO - User with username admin logged out.
-INFO - User with admin username successfully logged in with password admin password.
-INFO - User admin accessed the admin panel.
-INFO - User admin accessed the admin panel.
-INFO - User admin accessed the admin panel.
-INFO - User admin accessed the admin panel.
-INFO - User admin accessed the admin panel.
-INFO - User admin accessed the admin panel.
-INFO - User admin succesfully updated user with username vojta.
-INFO - User admin accessed the admin panel.
-INFO - User admin accessed the admin panel.
-ERROR - User entered an invalid Username.
-INFO - User admin accessed the admin panel.
-INFO - User admin accessed the admin panel.
-INFO - User admin accessed the admin panel.
-INFO - User admin succesfully updated user with username vojta.
-INFO - User with username admin logged out.
-ERROR - Failed to create a new user. Exception: 'AnonymousUserMixin' object has no attribute 'username'
-INFO - User with vojta username successfully logged in with password vojta password.
-INFO - User vojta ran command cat /etc/passwd
-ERROR - Username already exists.
-INFO - User with username vojta logged out.
-ERROR - User has not been sucessfully updated. Exception: 'AnonymousUserMixin' object has no attribute 'username'
-ERROR - User has not been sucessfully updated. Exception: 'AnonymousUserMixin' object has no attribute 'username'
-ERROR - User has not been sucessfully updated. Exception: 'AnonymousUserMixin' object has no attribute 'username'
-ERROR - User has not been sucessfully updated. Exception: 'AnonymousUserMixin' object has no attribute 'username'
-ERROR - User has not been sucessfully updated. Exception: 'AnonymousUserMixin' object has no attribute 'username'
-ERROR - User has not been sucessfully updated. Exception: 'AnonymousUserMixin' object has no attribute 'username'
-ERROR - User has not been sucessfully updated. Exception: 'AnonymousUserMixin' object has no attribute 'username'
-ERROR - Failed to create a new user. Exception: 'AnonymousUserMixin' object has no attribute 'username'
-ERROR - User vojta failed to login! Wrong password entered.
-INFO - User with vojta username successfully logged in with password vojta password.
-ERROR - User vojta failed to view user with username add. User doesn't exists.
-ERROR - User vojta failed to view user with username new. User doesn't exists.
-INFO - User vojta succesfully updated user with username new.
-INFO - User with username new was deleted.
-INFO - User with vojta username successfully logged in with password vojta password.
+2024-04-12 16:55:13,581 - IP:127.0.0.1 - ERROR - User vojta failed to login! Wrong credentials.
+2024-04-12 16:55:29,340 - IP:127.0.0.1 - INFO - User admin successfully logged in.
+2024-04-12 16:55:34,760 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:55:42,660 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:55:56,894 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:55:57,377 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:00,210 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:04,202 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:04,209 - IP:127.0.0.1 - ERROR - User entered password which lacked complexity and was rejected.
+2024-04-12 16:56:04,236 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:07,900 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:16,812 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:16,816 - IP:127.0.0.1 - ERROR - User entered password which lacked complexity and was rejected.
+2024-04-12 16:56:16,834 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:17,694 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:17,697 - IP:127.0.0.1 - ERROR - User entered password which lacked complexity and was rejected.
+2024-04-12 16:56:17,720 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:18,612 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:18,614 - IP:127.0.0.1 - ERROR - User entered password which lacked complexity and was rejected.
+2024-04-12 16:56:18,636 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:19,763 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:19,766 - IP:127.0.0.1 - ERROR - User entered password which lacked complexity and was rejected.
+2024-04-12 16:56:19,791 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:21,211 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:21,214 - IP:127.0.0.1 - ERROR - User entered password which lacked complexity and was rejected.
+2024-04-12 16:56:21,237 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:30,116 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:32,518 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:56:32,538 - IP:127.0.0.1 - INFO - User admin succesfully updated user with username vojta.
+2024-04-12 16:57:13,773 - IP:127.0.0.1 - INFO - User admin successfully logged in.
+2024-04-12 16:57:15,068 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:57:17,486 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:57:19,843 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:57:23,213 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:57:29,623 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:57:29,710 - IP:127.0.0.1 - INFO - User admin succesfully updated user with username vojta.
+2024-04-12 16:57:35,661 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:57:48,795 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:57:49,045 - IP:127.0.0.1 - INFO - User admin succesfully updated user with username vojta.
+2024-04-12 16:57:50,841 - IP:127.0.0.1 - INFO - User with username admin logged out.
+2024-04-12 16:57:54,332 - IP:127.0.0.1 - INFO - User vojta successfully logged in.
+2024-04-12 16:57:57,414 - IP:127.0.0.1 - ERROR - User tried to access the admin panel and failed as a result of insufficient privileges.
+2024-04-12 16:58:00,713 - IP:127.0.0.1 - ERROR - User tried to access the admin panel and failed as a result of insufficient privileges.
+2024-04-12 16:58:13,457 - IP:127.0.0.1 - INFO - User admin successfully logged in.
+2024-04-12 16:58:17,266 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:58:20,334 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:58:35,456 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:58:35,472 - IP:127.0.0.1 - ERROR - User admin tried to open URL file:///etc/passwd and failed. Provided scheme is prohibited.
+2024-04-12 16:59:52,632 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 16:59:52,634 - IP:127.0.0.1 - ERROR - User admin tried to open URL 127.0.0.1:5000 and failed. Provided scheme is prohibited.
+2024-04-12 17:00:02,001 - IP:127.0.0.1 - INFO - User accesed the admin panel.
+2024-04-12 17:00:02,003 - IP:127.0.0.1 - INFO - User admin successfully opened URL http://127.0.0.1:5000.
