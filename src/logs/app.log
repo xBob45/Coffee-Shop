@@ -198,3 +198,105 @@ INFO - URL: file:///etc/shadow.
 ERROR - User failed tp open URL file:///etc/shadow. Exception: <urlopen error [Errno 13] Permission denied: '/etc/shadow'>
 INFO - URL: file:///etc/passwd.
 INFO - User opened URL file:///etc/passwd.
+INFO - Error occured, try again. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: No address associated with hostname
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin12 was sucessfully updated.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin logged out.
+INFO - Error occured, try again. Exception: (psycopg2.errors.SyntaxError) unterminated quoted string at or near "'"
+LINE 1: ...WiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE');'
+                                                                      ^
+
+[SQL: SELECT * FROM users WHERE username = '' OR 1=1; INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'vojta', 'vojta@example.com', 'Vojta', 'M', '$argon2id$v=19$m=65536,t=3,p=4$L3jNUzeRVWWiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE');']
+(Background on this error at: https://sqlalche.me/e/20/f405)
+INFO - Error occured, try again. Exception: (psycopg2.errors.SyntaxError) unterminated quoted string at or near "'"
+LINE 1: ...WiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE');'
+                                                                      ^
+
+[SQL: SELECT * FROM users WHERE username = 'admin' OR 1=1; INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'vojta', 'vojta@example.com', 'Vojta', 'M', '$argon2id$v=19$m=65536,t=3,p=4$L3jNUzeRVWWiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE');']
+(Background on this error at: https://sqlalche.me/e/20/f405)
+INFO - Error occured, try again. Exception: This result object does not return rows. It has been closed automatically.
+INFO - User with vojta username successfully logged in with password admin password.
+INFO - User vojta accessed the admin panel.
+INFO - User with username vojta added amount of 1 of Coffee Brew into the cart.
+INFO - User with username vojta added amount of 1 of <script>alert(1)Cappuccino</script> into the cart.
+INFO - User with username vojta removed a product <script>alert(1)Cappuccino</script> from the cart.
+INFO - User with username vojta added amount of 1 of <script>alert(2)Cappuccino</script> into the cart.
+INFO - User with vojta username successfully logged in with password admin password.
+ERROR - User admin failed to login! Wrong password entered.
+INFO - User with vojta username successfully logged in with password admin password.
+INFO - Error occured, try again. Exception: This result object does not return rows. It has been closed automatically.
+INFO - User with vojta username successfully logged in with password admin password.
+ERROR - User ' OR 1=1; INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'vojta', 'vojta@example.com', 'Vojta', 'M', '$argon2id$v=19$m=65536,t=3,p=4$L3jNUzeRVWWiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE'); -- failed to login! Username doesn't exist.
+ERROR - User admin' OR 1=1; INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'vojta', 'vojta@example.com', 'Vojta', 'M', '$argon2id$v=19$m=65536,t=3,p=4$L3jNUzeRVWWiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE'); -- failed to login! Username doesn't exist.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin logged out.
+ERROR - User admin' OR 1=1; INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'vojta', 'vojta@example.com', 'Vojta', 'M', '$argon2id$v=19$m=65536,t=3,p=4$L3jNUzeRVWWiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE'); -- failed to login! Username doesn't exist.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username admin logged out.
+ERROR - User admin failed to login! Wrong password entered.
+ERROR - User admin failed to login! Wrong password entered.
+ERROR - User vjota failed to login! Username doesn't exist.
+ERROR - User vojta failed to login! Username doesn't exist.
+ERROR - User vojta failed to login! Username doesn't exist.
+ERROR - User admin failed to login! Wrong password entered.
+ERROR - User admin failed to login! Wrong password entered.
+ERROR - User <script>alert(1)</script> failed to login! Username doesn't exist.
+ERROR - User admin failed to login! Wrong password entered.
+ERROR - User admin failed to login! Wrong password entered.
+ERROR - User vojta failed to login! Username doesn't exist.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User with username <script>alert(1)</script> was sucessfully updated.
+INFO - User <script>alert(1)</script> logged out.
+ERROR - Username already exists.
+INFO - User <script>alert(2)</script> was sucessfully created.
+INFO - User with <script>alert(2)</script> username successfully logged in with password 123422##11 password.
+INFO - User <script>alert(2)</script> logged out.
+ERROR - User entered an invalid Username.
+ERROR - Failed reCAPTCHA.
+ERROR - User entered an invalid First name.
+ERROR - User admin failed to login! Username doesn't exist.
+ERROR - User <script>alert(1)</script> failed to login! Wrong password entered.
+INFO - User with <script>alert(1)</script> username successfully logged in with password 123422##11 password.
+INFO - User with username admin was sucessfully updated.
+ERROR - User entered an invalid Username.
+INFO - User with username admin was sucessfully updated.
+INFO - User with username admin logged out.
+INFO - User with admin username successfully logged in with password admin password.
+INFO - User admin accessed the admin panel.
+INFO - User admin accessed the admin panel.
+INFO - User admin accessed the admin panel.
+INFO - User admin accessed the admin panel.
+INFO - User admin accessed the admin panel.
+INFO - User admin accessed the admin panel.
+INFO - User admin succesfully updated user with username vojta.
+INFO - User admin accessed the admin panel.
+INFO - User admin accessed the admin panel.
+ERROR - User entered an invalid Username.
+INFO - User admin accessed the admin panel.
+INFO - User admin accessed the admin panel.
+INFO - User admin accessed the admin panel.
+INFO - User admin succesfully updated user with username vojta.
+INFO - User with username admin logged out.
+ERROR - Failed to create a new user. Exception: 'AnonymousUserMixin' object has no attribute 'username'
+INFO - User with vojta username successfully logged in with password vojta password.
+INFO - User vojta ran command cat /etc/passwd
+ERROR - Username already exists.
+INFO - User with username vojta logged out.
+ERROR - User has not been sucessfully updated. Exception: 'AnonymousUserMixin' object has no attribute 'username'
+ERROR - User has not been sucessfully updated. Exception: 'AnonymousUserMixin' object has no attribute 'username'
+ERROR - User has not been sucessfully updated. Exception: 'AnonymousUserMixin' object has no attribute 'username'
+ERROR - User has not been sucessfully updated. Exception: 'AnonymousUserMixin' object has no attribute 'username'
+ERROR - User has not been sucessfully updated. Exception: 'AnonymousUserMixin' object has no attribute 'username'
+ERROR - User has not been sucessfully updated. Exception: 'AnonymousUserMixin' object has no attribute 'username'
+ERROR - User has not been sucessfully updated. Exception: 'AnonymousUserMixin' object has no attribute 'username'
+ERROR - Failed to create a new user. Exception: 'AnonymousUserMixin' object has no attribute 'username'
+ERROR - User vojta failed to login! Wrong password entered.
+INFO - User with vojta username successfully logged in with password vojta password.
+ERROR - User vojta failed to view user with username add. User doesn't exists.
+ERROR - User vojta failed to view user with username new. User doesn't exists.
+INFO - User vojta succesfully updated user with username new.
+INFO - User with username new was deleted.
+INFO - User with vojta username successfully logged in with password vojta password.

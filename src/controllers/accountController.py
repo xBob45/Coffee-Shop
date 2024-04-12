@@ -29,10 +29,9 @@ def setting():
 #IDOR-3 - END
 
 #StoredXSS-2 - START
-"""Status: Vulnerable"""
+"""Status: Fixed"""
 #Description: CWE-79: Cross-site Scripting -> https://cwe.mitre.org/data/definitions/79.html
 def update_user():
-    #referrer_url = request.referrer
     if request.method == 'POST':
         try:
             validate_csrf(request.form.get('csrf_token'))
@@ -46,21 +45,26 @@ def update_user():
             first_name = request.form.get("edit_fn")
             last_name = request.form.get("edit_ln")
             password = request.form.get("edit_password")
+
             user = User.query.filter_by(id=id).first()
             current_username = user.username
             current_email = user.email
             if current_username != username:
-                #User input is not beeing validated in any way.
+                #Function compares user input against allowed pattern.
+                input_validation(username, "Username")
                 check_if_exists('username', username, 'Username')
                 user.username = username
             if current_email != email:
-                #User input is not beeing validated in any way.
+                #Function compares user input against allowed pattern.
+                email_validation(email)
                 check_if_exists('email', email, 'Email')
                 user.email = email 
-            #User input is not beeing validated in any way.     
             user.first_name = first_name
-            #User input is not beeing validated in any way.
+            #Function compares user input against allowed pattern.
+            input_validation(user.first_name, "First Name")
             user.last_name = last_name
+            #Function compares user input against allowed pattern.
+            input_validation(user.last_name, "Last Name")
             if password == '':
                 pass
             else:
@@ -77,22 +81,22 @@ def update_user():
                 """Status: Fixed"""
                 #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
                 password = ph.hash(password)
-                #WeakHashFunctionWithSalt-1 - END  
+                #WeakHashFunctionWithSalt-1 - END 
                 user.password = password
             db.session.commit()
             log_config.logger.info("User with username %s was sucessfully updated." % username, extra={'ip_address': request.remote_addr})
             flash("User has been updated.", 'success')
-            return redirect(request.referrer)  
+            return redirect(request.referrer)
         except ValidationError:
             log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             abort(400)
         except ValueError:
             return redirect(request.referrer)
         except Exception as e:
-            log_config.logger.error("User was not sucessfully updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
+            log_config.logger.error("User was not successfully updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
             flash("Error occured, try again.", 'danger')
-            return redirect(request.referrer)
-    return redirect(request.referrer)
+            return redirect(request.referrer)     
+    return redirect(request.referrer)  
 #StoredXSS-2 - END
 
 
@@ -107,9 +111,6 @@ def delete_user():
             user = User.query.filter_by(id=id).first()
             if user is not None:
                 #SensitiveDatawithinCookie-2 - START
-                """Status: Vulnerable"""
-                #Description: Cookie containes user's role in the application. Via cookie manipulation an attacker can elevate it's privileges.
-                session.pop('role')
                 #SensitiveDatawithinCookie-2 - END
                 session.pop('cart')
                 session.pop('total')

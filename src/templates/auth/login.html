@@ -66,9 +66,9 @@
                   {% if message %}
                     <div class="alert alert-{{ category }} " role="alert" id="alert">
                       {# ReflectedXSS-1 - START #}
-                      {# Status: Vulnerable #}
-                      {#Description:  CWE-79: Cross-site Scripting -> https://cwe.mitre.org/data/definitions/79.html #}
-                      {{ message | safe}}
+                      {# Status: Fixed #}
+                      {# Description: CWE-79: Cross-site Scripting -> https://cwe.mitre.org/data/definitions/79.html #}
+                      {{ message }}
                       {# ReflectedXSS-1 - END #}
                     </div>
                   {% endif %}

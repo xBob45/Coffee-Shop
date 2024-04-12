@@ -66,15 +66,15 @@
         
 
         <fieldset class="row mb-3">
-            <label for="formGroupExampleInput" class="form-label">Privileges</label>
+            <legend class="col-form-label">Privileges</legend>
             <div class="col-sm-10">
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="edit_role" id="gridRadios1" value="1" {% if user.roles.name == 'admin' %}checked{% endif %}>
                     <label class="form-check-label" for="gridRadios1">Admin</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="edit_role" id="gridRadios1" value="2" {% if user.roles.name == 'customer' %}checked{% endif %}>
-                    <label class="form-check-label" for="gridRadios1">Customer</label>
+                    <input class="form-check-input" type="radio" name="edit_role" id="gridRadios2" value="2" {% if user.roles.name == 'customer' %}checked{% endif %}>
+                    <label class="form-check-label" for="gridRadios2">Customer</label>
                 </div>
             </div>
         </fieldset>

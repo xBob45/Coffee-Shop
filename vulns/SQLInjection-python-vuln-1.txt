@@ -1,6 +1,7 @@
 #src/controllers/authController.py
 def login():     
     #' OR 1=1; DELETE FROM users WHERE id=1; --
+    #' OR 1=1; INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'vojta', 'vojta@example.com', 'Vojta', 'M', '$argon2id$v=19$m=65536,t=3,p=4$L3jNUzeRVWWiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE'); --
     if request.method == 'POST':
         try:
             #BruteForce-2 - START

@@ -63,9 +63,9 @@ def login():
                     #InsertionOfSensitiveInformationIntoLogFile-2 - END
 
                     #SensitiveInformationDisclosure-1 - START
-                    """Status: Vulnerable"""
+                    """Status: Fixed"""
                     #Description: CWE-209: Generation of Error Message Containing Sensitive Information -> https://cwe.mitre.org/data/definitions/209.html
-                    flash("Incorrect password.", 'danger')
+                    flash("Incorrect credentials, try again.", 'danger')
                     #SensitiveInformationDisclosure-1 - END
                     return redirect(request.referrer)
                 else:
@@ -81,17 +81,13 @@ def login():
                     #InsertionOfSensitiveInformationIntoLogFile-1 - END
 
                     #SensitiveDatawithinCookie-1 - START
-                    """Status: Vulnerable"""
-                    #Description: Cookie containes user's role in the application. Via cookie manipulation an attacker can elevate it's privileges.
-                    user_role = db.session.query(Role.name).join(User, Role.id == User.role_id).filter(User.id == user.id).first()
-                    session['role'] = user_role[0]
                     #SensitiveDatawithinCookie-1 - END
                     return redirect(url_for('home.home'))
             else:
                 #ReflectedXSS-1 - START
-                """Status: Vulnerable"""
+                """Status: Fixed"""
                 #Description: CWE-79: Cross-site Scripting -> https://cwe.mitre.org/data/definitions/79.html
-                flash("Incorrect credentials for %s." % username, 'danger')
+                flash("Incorrect credentials, try again.", 'danger')
                 #ReflectedXSS-1 - END
                 #InsertionOfSensitiveInformationIntoLogFile-3 - START
                 """Status: Vulnerable"""
@@ -112,9 +108,9 @@ def login():
             log_config.logger.error("User %s failed to login! Wrong password entered." % username, extra={'ip_address': request.remote_addr})
             #InsertionOfSensitiveInformationIntoLogFile-2 - END
             #SensitiveInformationDisclosure-1 - START
-            """Status: Vulnerable"""
+            """Status: Fixed"""
             #Description: CWE-209: Generation of Error Message Containing Sensitive Information -> https://cwe.mitre.org/data/definitions/209.html
-            flash("Incorrect password.", 'danger')
+            flash("Incorrect credentials, try again.", 'danger')
             #SensitiveInformationDisclosure-1 - END
         except Exception as e:
             log_config.logger.error("User was not updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
@@ -128,7 +124,7 @@ def login():
 #SQLInjection-1 - END
 
 #StoredXSS-1 - START
-"""Status: Vulnerable"""
+"""Status: Fixed"""
 #Description: CWE-79: Cross-site Scripting -> https://cwe.mitre.org/data/definitions/79.html
 def signup():
     if request.method == 'POST':
@@ -139,14 +135,20 @@ def signup():
                 raise BadRequest()
             validate_csrf(request.form.get('csrf_token'))
             first_name = request.form.get('first_name')
-            #User input is not beeing validated in any way.
+            #Function compares user input against allowed pattern.
+            input_validation(first_name, 'First name')
             last_name = request.form.get('last_name')
-            #User input is not beeing validated in any way.
+            #Function compares user input against allowed pattern.
+            input_validation(last_name, 'Last name')
             email = request.form.get('email')
-            #User input is not beeing validated in any way.
+            #Function compares user input against allowed pattern.
+            email_validation(email)
             username= request.form.get('username')
-            #User input is not beeing validated in any way.
+            #Function compares user input against allowed pattern.
+            input_validation(username, 'Username')
             password = request.form.get('password')
+            check_if_exists('email', email, 'Email')
+            check_if_exists('username', username, 'Username')
             #WeakPasswordRequirements-1 - START
             """Status: Vulnerable"""
             #Description: CWE-521: Weak Password Requirements -> https://cwe.mitre.org/data/definitions/521.html
@@ -156,22 +158,21 @@ def signup():
             #CompleteOmissionOfHashFunction-1 - END
             #WeakHashFunction-1 - START
             #WeakHashFunction-1 - END
+
             #WeakHashFunctionWithSalt-1 - START
             """Status: Fixed"""
             #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
             password = ph.hash(password)
-            #WeakHashFunctionWithSalt-1 - END  
-            check_if_exists('email', email, 'Email')
-            check_if_exists('username', username, 'Username')
+            #WeakHashFunctionWithSalt-1 - END            
             user = User(role_id=2, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
             db.session.add(user)
             db.session.commit()
             db.session.close()
-            log_config.logger.info("User %s was sucessfully created." % username, extra={'ip_address': request.remote_addr})
-            flash("Account has been successfully created.", 'success')
+            log_config.logger.info("New user with username %s was successfully created." % username, extra={'ip_address': request.remote_addr})
+            flash("Account has been sucesfully created.", 'success')
             return redirect(url_for("auth.login"))
         except ValidationError:
-            log_config.logger.error("User was not successfully created. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr}) 
+            log_config.logger.error("User was not created. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             abort(400)
         except ValueError:
             return redirect(request.referrer)
@@ -192,9 +193,6 @@ def signup():
 #Description: CWE-613: Insufficient Session Expiration -> https://cwe.mitre.org/data/definitions/613.html
 def logout():
     #SensitiveDatawithinCookie-2 - START
-    """Status: Vulnerable"""
-    #Description: Cookie containes user's role in the application. Via cookie manipulation an attacker can elevate it's privileges.
-    session.pop('role')
     #SensitiveDatawithinCookie-2 - END
     session.pop('cart')
     session.pop('total')

@@ -1,24 +1,24 @@
 vulnerabilities:
   SQLInjection: 
-    enabled: False
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html"
   SQLInjection2: 
-    enabled: True
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html"
   SensitiveInformationDisclosure: 
-    enabled: True
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-209: Generation of Error Message Containing Sensitive Information -> https://cwe.mitre.org/data/definitions/209.html"
   ReflectedXSS: 
-    enabled: True
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-79: Cross-site Scripting -> https://cwe.mitre.org/data/definitions/79.html"
   StoredXSS: 
-    enabled: True
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-79: Cross-site Scripting -> https://cwe.mitre.org/data/definitions/79.html"
   InsufficientSessionInvalidation: 
-    enabled: False
+    enabled: False #Vuln: Checked; Fix: Checked
     description: "CWE-613: Insufficient Session Expiration -> https://cwe.mitre.org/data/definitions/613.html"
-  ForcedBrowsing: 
-    enabled: null #If you set this vulnerability to either "True" or "False" set "SensitiveDatawithinCookie" to "null"
+  ForcedBrowsing: #Vuln: Checked; Fix: Checked
+    enabled: False #If you set this vulnerability to either "True" or "False" set "SensitiveDatawithinCookie" to "null"
     description: "CWE-425: Forced Browsings -> https://cwe.mitre.org/data/definitions/425.html"
   HardCodedKey: 
     enabled: True
@@ -48,7 +48,7 @@ vulnerabilities:
     enabled: True
     description: "CWE-639: Authorization Bypass Through User-Controlled Key -> https://cwe.mitre.org/data/definitions/639.html"
   SensitiveDatawithinCookie: 
-    enabled: True  #If you set this vulnerability to either "True" or "False" set "ForcedBrowsing" to "null". In order to exploit this vulnerability set 'HardCodedKey' to 'True'
+    enabled: null  #If you set this vulnerability to either "True" or "False" set "ForcedBrowsing" to "null". In order to exploit this vulnerability set 'HardCodedKey' to 'True'
     description: "Cookie containes user's role in the application. Via cookie manipulation an attacker can elevate it's privileges."
   VulnerablePostgreSQL: 
     enabled: False

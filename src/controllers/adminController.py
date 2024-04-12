@@ -124,7 +124,7 @@ def add_user():
             return redirect(request.referrer)
         except Exception as e:
             log_config.logger.error("Failed to create a new user. Exception: %s" % e, extra={'ip_address': request.remote_addr})
-            flash("Error occured, try again.", "error")
+            flash("Error occured, try again.", "danger")
             redirect(request.referrer)
     return render_template("admin/admin_panel_add.html")
 
@@ -148,6 +148,7 @@ def view_user():
                 return redirect(request.referrer)
         except ValidationError:
             log_config.logger.error("Failed to view user with username %s. Missing or invalid CSRF token." % username, extra={'ip_address': request.remote_addr})
+            abort(400)
         except Exception as e:
             log_config.logger.error("Failed to view user with username.\nException: %s" % e, extra={'ip_address': request.remote_addr})
             flash("Error occured. Please try again.","danger")
