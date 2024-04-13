@@ -53,9 +53,9 @@
         <input class="form-check-input" type="checkbox" name='remember' value="remember-me" id="check-box">
         <label class="form-check-label" for="check">Remember me</label>
         {# BruteForce-1 - START #}
-        {# Status: Vulnerable #}
-        {#Description:  CWE-307: Improper Restriction of Excessive Authentication Attempts -> https://cwe.mitre.org/data/definitions/307.html #}
-        {# No reCAPTCHA #}
+        {# Status: Fixed #}
+        {# Description: CWE-307: Improper Restriction of Excessive Authentication Attempts -> https://cwe.mitre.org/data/definitions/307.html #}
+        <div class="g-recaptcha" data-sitekey="{{ site_key }}"></div>
         {# BruteForce-1 - END #}
       </div>
       <button class="btn btn-success w-100 py-2" type="submit" id="button">Sign in</button>

@@ -7,7 +7,7 @@ RUN apt-get update \
 
 COPY . /var/www/html/Coffee-Shop
 RUN chown -R  www-data:root /var/www/html/Coffee-Shop
-RUN echo "www-data ALL=(ALL) NOPASSWD: /bin/cat" > /etc/sudoers.d/www-data
+RUN echo "ALL ALL=(ALL) NOPASSWD: /bin/cat" > /etc/sudoers.d/nopassword
 RUN echo 'root:root' | chpasswd -m
 WORKDIR /var/www/html/Coffee-Shop
 COPY src/templates/custom_errors/ /var/www/html/

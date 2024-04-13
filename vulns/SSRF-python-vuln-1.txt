@@ -13,3 +13,4 @@ def development():
                 return response.read()
             except Exception as e:
                 return str(e)
+    return "This section is currently under development!"

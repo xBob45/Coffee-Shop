@@ -35,9 +35,12 @@ def login():
     if request.method == 'POST':
         try:
             #BruteForce-2 - START
-            """Status: Vulnerable"""
+            """Status: Fixed"""
             #Description: CWE-307: Improper Restriction of Excessive Authentication Attempts -> https://cwe.mitre.org/data/definitions/307.html
-            """No reCAPTCHA"""
+            response = request.form.get('g-recaptcha-response')
+            verify_response = requests.post(url='%s?secret=%s&response=%s' % (VERIFY_URL, SECRET_KEY, response)).json()
+            if verify_response.get('success') != True:
+                raise BadRequest()
             #BruteForce-2 - END
             validate_csrf(request.form.get('csrf_token'))
             username = request.form.get('username')
@@ -46,15 +49,15 @@ def login():
             user = User.query.filter_by(username=username).first()  
             if user is not None:
                 #CompleteOmissionOfHashFunction-2 - START
+                """Status: Fixed"""
+                #Description: Application does not use any hash function for users password.
+                db_passwd = user.password 
+                if (ph.verify(db_passwd, password)) != True:
+                
                 #CompleteOmissionOfHashFunction-2 - END
                 #WeakHashFunction-2 - START
                 #WeakHashFunction-2 - END
                 #WeakHashFunctionWithSalt-2 - START
-                """Status: Fixed"""
-                #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
-                db_passwd = user.password 
-                if (ph.verify(db_passwd, password)) != True:
-                
                 #WeakHashFunctionWithSalt-2 - END 
                     #InsertionOfSensitiveInformationIntoLogFile-2 - START
                     """Status: Fixed"""
@@ -121,9 +124,9 @@ def login():
             flash("Error occured, try again.", 'danger')
             return redirect(request.referrer)  
     #BruteForce-3 - START
-    """Status: Vulnerable"""
+    """Status: Fixed"""
     #Description: CWE-307: Improper Restriction of Excessive Authentication Attempts -> https://cwe.mitre.org/data/definitions/307.html
-    return render_template('auth/login.html')
+    return render_template('auth/login.html', site_key = SITE_KEY)
     #BruteForce-3 - END
 #SQLInjection-1 - END
 
@@ -159,14 +162,14 @@ def signup():
             check_for_password_complexity(password)
             #WeakPasswordRequirements-1 - END
             #CompleteOmissionOfHashFunction-1 - START
+            """Status: Fixed"""
+            #Description: Application does not use any hash function for users password.
+            password = ph.hash(password)
             #CompleteOmissionOfHashFunction-1 - END
             #WeakHashFunction-1 - START
             #WeakHashFunction-1 - END
 
             #WeakHashFunctionWithSalt-1 - START
-            """Status: Fixed"""
-            #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
-            password = ph.hash(password)
             #WeakHashFunctionWithSalt-1 - END            
             user = User(role_id=2, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
             db.session.add(user)

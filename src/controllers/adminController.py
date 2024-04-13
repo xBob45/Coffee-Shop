@@ -106,15 +106,15 @@ def add_user():
             #WeakPasswordRequirements-1 - END
 
             #CompleteOmissionOfHashFunction-1 - START
+            """Status: Fixed"""
+            #Description: Application does not use any hash function for users password.
+            password = ph.hash(password)
             #CompleteOmissionOfHashFunction-1 - END
 
             #WeakHashFunction-1 - START
             #WeakHashFunction-1 - END
 
             #WeakHashFunctionWithSalt-1 - START
-            """Status: Fixed"""
-            #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
-            password = ph.hash(password)
             #WeakHashFunctionWithSalt-1 - END  
 
             role_name = request.form.get("add_role")
@@ -204,13 +204,13 @@ def update_user():
                 check_for_password_complexity(password)
                 #WeakPasswordRequirements-4 - END
                 #CompleteOmissionOfHashFunction-1 - START
+                """Status: Fixed"""
+                #Description: Application does not use any hash function for users password.
+                password = ph.hash(password)
                 #CompleteOmissionOfHashFunction-1 - END
                 #WeakHashFunction-1 - START
                 #WeakHashFunction-1 - END
                 #WeakHashFunctionWithSalt-1 - START
-                """Status: Fixed"""
-                #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
-                password = ph.hash(password)
                 #WeakHashFunctionWithSalt-1 - END  
                 user.password = password
             user.role_id = role

@@ -1,11 +1,8 @@
 from flask import render_template, abort
 
 #CustomErrorPages-1 - START
-#CustomErrorPages-1 - END
-
-#DebugModeON-2 - START
 """Status: Fixed"""
-#Description: CWE-489: Active Debug Code -> https://cwe.mitre.org/data/definitions/489.html
+#Description: CWE-756: Missing Custom Error Page -> https://cwe.mitre.org/data/definitions/756.html
 def handle_400(e):
     return render_template("custom_errors/400.html")
 def handle_403(e):
@@ -20,4 +17,7 @@ def handle_500(e):
     return render_template("custom_errors/50x.html")
 def handle_505(e):
     return render_template("custom_errors/50x.html")
+#CustomErrorPages-1 - END
+
+#DebugModeON-2 - START
 #DebugModeON-2 - END
