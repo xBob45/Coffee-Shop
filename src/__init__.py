@@ -34,12 +34,9 @@ def create_app():
     #Flask-WTF
 
     #Clickjacking-1 - START
-    """Status: Fixed"""
+    """Status: Vulnerable"""
     #Description: CWE-1021: Improper Restriction of Rendered UI Layers or Frames -> https://cwe.mitre.org/data/definitions/1021.html
-    @app.after_request
-    def security_measures(response):
-        response.headers['X-Frame-Options'] = 'DENY'
-        return response
+    """No protective measures are set."""
     #Clickjacking-1 - END
     app.register_blueprint(auth_blueprint)
     app.register_blueprint(home_blueprint)
@@ -50,8 +47,11 @@ def create_app():
     app.context_processor(utility_processor)
 
     #CustomErrorPages-2 - START
-    """Status: Fixed"""
-    #Description: CWE-756: Missing Custom Error Page -> https://cwe.mitre.org/data/definitions/756.html
+    #CustomErrorPages-2 - END
+    
+    #DebugModeON-3 - START
+    """Status: Vulnerable"""
+    #Description: CWE-489: Active Debug Code -> https://cwe.mitre.org/data/definitions/489.html
     app.register_error_handler(BadRequest, handle_400)
     app.register_error_handler(Forbidden, handle_403)
     app.register_error_handler(NotFound, handle_404)
@@ -59,8 +59,5 @@ def create_app():
     app.register_error_handler(UnsupportedMediaType, handle_415)
     app.register_error_handler(InternalServerError, handle_500)
     app.register_error_handler(HTTPVersionNotSupported, handle_505)
-    #CustomErrorPages-2 - END
-    
-    #DebugModeON-3 - START
     #DebugModeON-3 - END
     return app

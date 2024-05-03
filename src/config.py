@@ -6,18 +6,18 @@ import datetime
 load_dotenv()
 class Config(object):
     #MaliciousFileUpload-2 - START
-    """Status: Fixed"""
-    #Description: CWE-434: Unrestricted Upload of File with Dangerous Type -> https://cwe.mitre.org/data/definitions/434.html
-    MAX_CONTENT_LENGTH = 400 * 1024 #Accept max 400KB
     #MaliciousFileUpload-2 - END
 
     #HardCodedKey-1 - START
-    """Status: Fixed"""
+    """Status: Vulnerable"""
     #Description: CWE-321: Use of Hard-coded Cryptographic Key -> https://cwe.mitre.org/data/definitions/321.html
-    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SECRET_KEY = 'iamsecret'
     #HardCodedKey-1 - END
 
     #DebugModeON-1 - START
+    """Status: Vulnerable"""
+    #Description: CWE-489: Active Debug Code -> https://cwe.mitre.org/data/definitions/489.html
+    os.environ['WERKZEUG_DEBUG_PIN'] = 'off'
     #DebugModeON-1 - END
 
     #SensitiveCookiewithImproperSameSiteAttribute-1 - START
@@ -32,9 +32,9 @@ class Config(object):
     basedir = os.path.abspath(os.path.dirname(__file__))
 
     #HardCodedCredentials-1 - START
-    """Status: Fixed"""
+    """Status: Vulnerable"""
     #Description: CWE-798: Use of Hard-coded Credentials -> https://cwe.mitre.org/data/definitions/798.html
-    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:postgres@127.0.0.1:5432/postgres'
     #HardCodedCredentials-1 - END
     
 

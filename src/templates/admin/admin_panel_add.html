@@ -2,7 +2,7 @@
 {% block title %}Admin Panel - Add{% endblock %}
 {% block content %}
 <div class="d-flex justify-content-center">
-    <div class="col-md-3 ">
+    <div class="col-md-3 " id="add_user_box">
         <h4>Add User</h4>
         <hr class="hr" />
         <form method="POST" action="{{ url_for('admin.add_user') }}">
@@ -40,7 +40,10 @@
                 </div>
                 </div>
             </fieldset>
-            <button type="submit" class="btn btn-outline-success" id="button-success">Add</button>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-outline-success" id="button-success">Add</button>
+            </div>
+            
         </form>
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}

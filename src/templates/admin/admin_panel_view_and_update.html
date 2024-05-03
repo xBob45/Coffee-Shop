@@ -12,7 +12,9 @@
               <label for="view_username" class="form-label">Username</label>
               <input type="username" class="form-control" id="view_username" placeholder="Enter username" name="view_username">
           </div>
-          <button type="submit" class="btn btn-outline-danger" id="admin_button">Search</button>
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-outline-danger" id="admin_button">Search</button>
+        </div>
       </form>
       {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
@@ -78,8 +80,9 @@
                 </div>
             </div>
         </fieldset>
-        
-          <button type="submit" class="btn btn-outline-danger" id="update_button">Update</button>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-outline-danger" id="update_button">Update</button>
+        </div>
       </form>
   </div>
   {%else%}
