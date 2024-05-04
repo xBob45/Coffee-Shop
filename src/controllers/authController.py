@@ -19,6 +19,7 @@ import secrets
 from passlib.hash import md5_crypt
 from argon2 import PasswordHasher
 import argon2
+import bleach
 ph = PasswordHasher()
 
 
@@ -65,7 +66,7 @@ def login():
                     #InsertionOfSensitiveInformationIntoLogFile-2 - START
                     """Status: Vulnerable"""
                     #Description: CWE-532: Insertion of Sensitive Information into Log File -> https://cwe.mitre.org/data/definitions/532.html
-                    log_config.logger.error("User %s failed to login! Wrong password entered." % log_sanitizer(username) , extra={'ip_address': request.remote_addr})
+                    log_config.logger.error("User %s failed to login! Wrong password entered." %  bleach.clean(username), extra={'ip_address': request.remote_addr})
                     #InsertionOfSensitiveInformationIntoLogFile-2 - END
                     
                     #SensitiveInformationDisclosure-1 - START
@@ -83,7 +84,7 @@ def login():
                     #InsertionOfSensitiveInformationIntoLogFile-1 - START
                     """Status: Vulnerable"""
                     #Description: CWE-532: Insertion of Sensitive Information into Log File -> https://cwe.mitre.org/data/definitions/532.html
-                    log_config.logger.info("User with %s username successfully logged in with password %s password." % (log_sanitizer(username), password), extra={'ip_address': request.remote_addr})
+                    log_config.logger.info("User with %s username successfully logged in with password %s password." % (bleach.clean(username), password), extra={'ip_address': request.remote_addr})
                     #InsertionOfSensitiveInformationIntoLogFile-1 - END
 
                     #SensitiveDatawithinCookie-1 - START
@@ -99,7 +100,7 @@ def login():
                 #InsertionOfSensitiveInformationIntoLogFile-3 - START
                 """Status: Vulnerable"""
                 #Description: CWE-532: Insertion of Sensitive Information into Log File -> https://cwe.mitre.org/data/definitions/532.html
-                log_config.logger.error("User %s failed to login! Username doesn't exist." % log_sanitizer(username), extra={'ip_address': request.remote_addr})
+                log_config.logger.error("User %s failed to login! Username doesn't exist." %  bleach.clean(username), extra={'ip_address': request.remote_addr})
                 #InsertionOfSensitiveInformationIntoLogFile-3 - END   
                 return redirect(request.referrer)
 
@@ -113,7 +114,7 @@ def login():
             #InsertionOfSensitiveInformationIntoLogFile-2 - START
             """Status: Vulnerable"""
             #Description: CWE-532: Insertion of Sensitive Information into Log File -> https://cwe.mitre.org/data/definitions/532.html
-            log_config.logger.error("User %s failed to login! Wrong password entered." % username, extra={'ip_address': request.remote_addr})
+            log_config.logger.error("User %s failed to login! Wrong password entered." %  bleach.clean(username), extra={'ip_address': request.remote_addr})
             #InsertionOfSensitiveInformationIntoLogFile-2 - END
             #SensitiveInformationDisclosure-1 - START
             """Status: Vulnerable"""
@@ -171,7 +172,7 @@ def signup():
             db.session.add(user)
             db.session.commit()
             db.session.close()
-            log_config.logger.info("User %s was sucessfully created." % username, extra={'ip_address': request.remote_addr})
+            log_config.logger.info("User %s was sucessfully created." % bleach.clean(username), extra={'ip_address': request.remote_addr})
             flash("Account has been successfully created.", 'success')
             return redirect(url_for("auth.login"))
         except ValidationError:
@@ -200,7 +201,7 @@ def logout():
     session.pop('cart')
     session.pop('total')
     username = current_user.username
-    log_config.logger.info("User %s logged out." % username, extra={'ip_address': request.remote_addr})
+    log_config.logger.info("User %s logged out." %  bleach.clean(username), extra={'ip_address': request.remote_addr})
     flash("You were logged out.", 'success')
     return redirect(url_for("auth.login"))
 #InsufficientSessionInvalidation-1 - END
@@ -237,18 +238,11 @@ def email_validation(input):
         flash("Invalid email. Please, use only A-Z/a-z and 0-9 are allowed. Please, try again.", "danger")
         raise ValueError
     
-def md5_salted(password):
-    salt = secrets.token_bytes(16)
-    hashed_password = md5(password.encode() + salt).hexdigest()
-    return "%s:%s" % (salt.hex(), hashed_password)
-
-def md5_salted_verify(salt, password):
-    hashed_password = md5(password.encode() + bytes.fromhex(salt)).hexdigest()
-    return hashed_password
-
 def log_sanitizer(string):
-    BLACKLIST = ['\r\n', '\n', '<', '>', '&', '<script>', '</script>', '{', '}', '[', ']', '(', ')','$', '%', '^', '#', '*', '?','--', '/*', '*/',':', '=']
+    BLACKLIST = ['\r\n', '\n', '<', '>', '&', '<script>', '</script>', '{', '}', '[', ']', '(', ')','$', '%', '^', '#', '*', '?','--', '/*', '*/','/']
     for item in BLACKLIST:
+        if item == '/':
+            string = string.replace(item,'//')
         string = string.replace(item, ' ')
     return string
     

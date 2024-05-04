@@ -16,6 +16,9 @@ CREATE TABLE users (
 
 INSERT INTO roles (name) VALUES ('admin'), ('customer');
 --CompleteOmissionOfHashFunction-3 - START
+--Status: Fixed
+--Description: Application does not use any hash function for users password.
+INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'admin', 'admin@example.com', 'John', 'Doe', '$argon2id$v=19$m=65536,t=3,p=4$L3jNUzeRVWWiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE');
 --CompleteOmissionOfHashFunction-3 - END
 --WeakHashFunction-3 - START
 --WeakHashFunction-3 - END
@@ -27,40 +30,39 @@ CREATE TABLE products (
     name VARCHAR(255) UNIQUE NOT NULL,
     stock INTEGER NOT NULL,
     price FLOAT NOT NULL,
-    description VARCHAR(255) NOT NULL,
     image VARCHAR(255) NOT NULL,
     details JSONB
 );
 
-INSERT INTO products (name, stock, price, description, image, details) VALUES
-    ('Cappuccino', 100, 7.99, 'Description for Product 1', 'images/products/coffee/coffee1.svg', '{"Coffee": "1 shot", "Milk": "Semi-Skimmed"}'),
-    ('Flat White', 100, 9.99, 'Description for Product 2', 'images/products/coffee/coffee2.svg', '{"Coffee": "2 shots", "Milk":"Semi-Skimmed"}'),
-    ('Caramel Latte', 100, 6.99, 'Description for Product 3', 'images/products/coffee/coffee3.svg', '{"Coffee": "1 shot", "Milk": "Semi-Skimmed"}'),
-    ('Pistachio Latte', 100, 5.99, 'Description for Product 4', 'images/products/coffee/coffee4.svg', '{"Coffee": "1 shot", "Milk": "Regular Foam"}'),
-    ('Macchiato', 100, 9.99, 'Description for Product 5', 'images/products/coffee/coffee5.svg', '{"Coffee": "1 shot", "Milk": "Regular Foam"}'),
-    ('Caffé Mocha', 100, 4.99, 'Description for Product 6', 'images/products/coffee/coffee6.svg', '{"Coffee": "2 shots", "Milk": "Regular Foam"}'),
-    ('Matcha Latte', 100, 2.99, 'Description for Product 7', 'images/products/coffee/coffee7.svg', '{"Coffee": "2 shots", "Milk": "Semi-Skimmed"}'),
-    ('Caturra', 100, 82.99, 'Description for Product 8', 'images/products/coffee/coffee8.svg', '{"Weight": "1000mg"}'),
-    ('Castillo', 18, 92.99, 'Description for Product 9', 'images/products/coffee/coffee8.svg', '{"Weight": "1000mg"}'),
-    ('Bourbon', 18, 122.99, 'Description for Product 10', 'images/products/coffee/coffee8.svg', '{"Weight": "1000mg"}'),
-    ('Catimor', 18, 75.99, 'Description for Product 11', 'images/products/coffee/coffee8.svg', '{"Weight": "1000mg"}'),
+INSERT INTO products (name, stock, price, image, details) VALUES
+    ('Cappuccino', 100, 7.99, 'images/products/coffee/coffee1.svg', '{"Coffee": "1 shot", "Milk": "Semi-Skimmed"}'),
+    ('Flat White', 100, 9.99, 'images/products/coffee/coffee2.svg', '{"Coffee": "2 shots", "Milk":"Semi-Skimmed"}'),
+    ('Caramel Latte', 100, 6.99, 'images/products/coffee/coffee3.svg', '{"Coffee": "1 shot", "Milk": "Semi-Skimmed"}'),
+    ('Pistachio Latte', 100, 5.99, 'images/products/coffee/coffee4.svg', '{"Coffee": "1 shot", "Milk": "Regular Foam"}'),
+    ('Macchiato', 100, 9.99, 'images/products/coffee/coffee5.svg', '{"Coffee": "1 shot", "Milk": "Regular Foam"}'),
+    ('Caffé Mocha', 100, 4.99, 'images/products/coffee/coffee6.svg', '{"Coffee": "2 shots", "Milk": "Regular Foam"}'),
+    ('Matcha Latte', 100, 2.99, 'images/products/coffee/coffee7.svg', '{"Coffee": "2 shots", "Milk": "Semi-Skimmed"}'),
+    ('Caturra', 100, 82.99, 'images/products/coffee/coffee8.svg', '{"Weight": "1000mg"}'),
+    ('Castillo', 18, 92.99, 'images/products/coffee/coffee8.svg', '{"Weight": "1000mg"}'),
+    ('Bourbon', 18, 122.99, 'images/products/coffee/coffee8.svg', '{"Weight": "1000mg"}'),
+    ('Catimor', 18, 75.99, 'images/products/coffee/coffee8.svg', '{"Weight": "1000mg"}'),
     --Teas
-    ('Green Tea', 18, 75.99, 'Description for Product 12', 'images/products/tea/tea1.svg', '{"Caffeine": "30-50 mg"}'),
-    ('Yellow Tea', 18, 75.99, 'Description for Product 13', 'images/products/tea/tea2.svg', '{"Caffeine": "18-47 mg"}'),
-    ('Earl Grey', 18, 75.99, 'Description for Product 14', 'images/products/tea/tea3.svg', '{"Caffeine": "22-58 mg"}'),
-    ('Ginger Tea', 18, 75.99, 'Description for Product 15', 'images/products/tea/tea5.svg', '{"Caffeine": "0 mg"}'),
-    ('Green Tea (Loose leaf)', 18, 75.99, 'Description for Product 16', 'images/products/tea/tea6.svg', '{"Caffeine": "30-50 mg"}'),
-    ('Yellow Tea (Loose leaf)', 18, 75.99, 'Description for Product 17', 'images/products/tea/tea6.svg', '{"Caffeine": "30-50 mg"}'),
-    ('Earl Grey (Loose leaf)', 18, 75.99, 'Description for Product 18', 'images/products/tea/tea6.svg', '{"Caffeine": "30-50 mg"}');
+    ('Green Tea', 18, 75.99, 'images/products/tea/tea1.svg', '{"Caffeine": "30-50 mg"}'),
+    ('Yellow Tea', 18, 75.99, 'images/products/tea/tea2.svg', '{"Caffeine": "18-47 mg"}'),
+    ('Earl Grey', 18, 75.99, 'images/products/tea/tea3.svg', '{"Caffeine": "22-58 mg"}'),
+    ('Ginger Tea', 18, 75.99, 'images/products/tea/tea5.svg', '{"Caffeine": "0 mg"}'),
+    ('Green Tea (Loose leaf)', 18, 75.99, 'images/products/tea/tea6.svg', '{"Caffeine": "30-50 mg"}'),
+    ('Yellow Tea (Loose leaf)', 18, 75.99, 'images/products/tea/tea6.svg', '{"Caffeine": "30-50 mg"}'),
+    ('Earl Grey (Loose leaf)', 18, 75.99, 'images/products/tea/tea6.svg', '{"Caffeine": "30-50 mg"}');
     
-INSERT INTO products (name, stock, price, description, image) VALUES
+INSERT INTO products (name, stock, price, image) VALUES
     --Accessories
-    ('Coffee Brew', 18, 75.99, 'Description for Product 12', 'images/products/accessories/accessory1.svg'),
-    ('Coffee Portafilter', 18, 75.99, 'Description for Product 12', 'images/products/accessories/accessory2.svg'),
-    ('Coffee Machine', 18, 75.99, 'Description for Product 12', 'images/products/accessories/accessory3.svg'),
-    ('Tea Pot', 18, 75.99, 'Description for Product 12', 'images/products/accessories/accessory4.svg'),
-    ('Mug', 18, 75.99, 'Description for Product 12', 'images/products/accessories/accessory5.svg'),
-    ('Coffee Cup', 18, 75.99, 'Description for Product 12', 'images/products/accessories/accessory6.svg');
+    ('Coffee Brew', 18, 75.99, 'images/products/accessories/accessory1.svg'),
+    ('Coffee Portafilter', 18, 75.99, 'images/products/accessories/accessory2.svg'),
+    ('Coffee Machine', 18, 75.99, 'images/products/accessories/accessory3.svg'),
+    ('Tea Pot', 18, 75.99, 'images/products/accessories/accessory4.svg'),
+    ('Mug', 18, 75.99,'images/products/accessories/accessory5.svg'),
+    ('Coffee Cup', 18, 75.99, 'images/products/accessories/accessory6.svg');
 
 CREATE TABLE categories (
     id SERIAL PRIMARY KEY,

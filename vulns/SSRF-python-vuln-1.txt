@@ -9,7 +9,7 @@ def development():
             print(url)
             try:
                 response = urlopen(url)
-                log_config.logger.info("User opened URL %s." % url, extra={'ip_address': request.remote_addr})
+                log_config.logger.info("User opened URL %s." % bleach.clean(url), extra={'ip_address': request.remote_addr})
                 return response.read()
             except Exception as e:
                 return str(e)

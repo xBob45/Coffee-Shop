@@ -5,10 +5,10 @@ def check_if_admin():
         if current_user.is_authenticated:
             role = session.get('role')
             if role == 'admin':
-                log_config.logger.info("User %s accessed the admin panel." % current_user.username, extra={'ip_address': request.remote_addr})
+                log_config.logger.info("User %s accessed the admin panel." % bleach.clean(current_user.username), extra={'ip_address': request.remote_addr})
                 return #If everything is OK, let user proceed.
             else:
-                log_config.logger.error("User %s tried to access the admin panel and was blocked due to insufficient privileges." % current_user.username, extra={'ip_address': request.remote_addr})
+                log_config.logger.error("User %s tried to access the admin panel and was blocked due to insufficient privileges." % bleach.clean(current_user.username), extra={'ip_address': request.remote_addr})
                 raise Forbidden()
         return redirect(url_for('auth.login'))
     except Forbidden:

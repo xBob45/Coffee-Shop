@@ -19,7 +19,6 @@
                     <img src="{{ url_for('static', filename=product.image) }}" class="bd-placeholder-img card-img-top" width="150" height="150" role="img" aria-label="Product Image" preserveAspectRatio="xMidYMid slice" focusable="false">
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name | safe }}</h5>
-                        <p class="card-text">{{ product.description | safe }}</p>
                         {% if product.details %}
                         <h6 class="card-subtitle mb-2">Details</h6>
                           {% for key, value in product.details.items() %}

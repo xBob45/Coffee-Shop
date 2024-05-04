@@ -11,6 +11,7 @@ from src.models.User import db
 from sqlalchemy.sql import text
 import src.log_config as log_config
 from werkzeug.exceptions import BadRequest, NotFound
+import bleach
 
 def home():
     return render_template("public/home.html")
@@ -26,7 +27,7 @@ def guide_reader():
     #Extracts file from 'file_name' parameter
     try:
         file_name = request.args.get('file_name')
-        log_config.logger.info("User requested: %s" % file_name, extra={'ip_address': request.remote_addr})
+        log_config.logger.info("User requested: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
 
         #Creates a path by concatenating '/home/vojta/Bakalarka/Coffee-Shop/src/' and 'guides'
         guides_dir = os.path.join(os.getcwd(), 'src', 'guides')
@@ -36,14 +37,14 @@ def guide_reader():
             
         #Opens the file located at the location of 'requested_file' for reading ('r')
         with open(requested_file, 'r') as file:
-            log_config.logger.info("User opened: %s" % file_name, extra={'ip_address': request.remote_addr})
+            log_config.logger.info("User opened: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
             content = file.read()
         return render_template("public/guide.html", content=content)
     except FileNotFoundError:
-        log_config.logger.error("User failed open: %s. File not found." % file_name, extra={'ip_address': request.remote_addr})
+        log_config.logger.error("User failed open: %s. File not found." % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
         abort(404)
     except Exception as e:
-        log_config.logger.error("User failed open: %s" % file_name, extra={'ip_address': request.remote_addr})
+        log_config.logger.error("User failed open: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
         abort(400)
 #PathTraversal-1 - END
 
@@ -61,7 +62,7 @@ def development():
             print(url)
             try:
                 response = urlopen(url)
-                log_config.logger.info("User opened URL %s." % url, extra={'ip_address': request.remote_addr})
+                log_config.logger.info("User opened URL %s." % bleach.clean(url), extra={'ip_address': request.remote_addr})
                 return response.read()
             except Exception as e:
                 return str(e)

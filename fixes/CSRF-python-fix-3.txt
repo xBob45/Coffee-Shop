@@ -14,7 +14,7 @@ def delete_user():
                 db.session.delete(user)
                 db.session.commit()
                 db.session.close()
-                log_config.logger.info("User with ID %s was deleted." % user.username, extra={'ip_address': request.remote_addr})
+                log_config.logger.info("User with ID %s was deleted." % bleach.clean(user.username), extra={'ip_address': request.remote_addr})
                 flash("User has been deleted.", 'danger')
                 return redirect(url_for("auth.login"))
             else:
@@ -25,6 +25,6 @@ def delete_user():
             abort(400)
         except Exception as e:
             flash("Error occureed. Please try again.", 'danger')
-            log_config.logger.error("User with ID %s was not deleted. Exception: %s." % (user.username, e), extra={'ip_address': request.remote_addr})
+            log_config.logger.error("User with ID %s was not deleted. Exception: %s." % (bleach.clean(user.username), e), extra={'ip_address': request.remote_addr})
             return redirect(request.referrer)
     return redirect(request.referrer)

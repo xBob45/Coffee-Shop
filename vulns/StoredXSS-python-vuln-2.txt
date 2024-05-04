@@ -39,7 +39,7 @@ def update_user():
                 #WeakHashFunctionWithSalt-1 - END  
                 user.password = password
             db.session.commit()
-            log_config.logger.info("User with username %s was sucessfully updated." % username, extra={'ip_address': request.remote_addr})
+            log_config.logger.info("User with username %s was sucessfully updated." % bleach.clean(username), extra={'ip_address': request.remote_addr})
             flash("User has been updated.", 'success')
             return redirect(request.referrer)  
         except ValidationError:

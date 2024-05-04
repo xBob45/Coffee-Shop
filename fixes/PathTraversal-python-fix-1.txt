@@ -24,21 +24,21 @@ def guide_reader():
     if re.match(allowed_pattern, file_name):
         guides_dir = os.path.join(os.getcwd(), 'src', 'guides')
         requested_file = os.path.join(guides_dir, file_name)
-        log_config.logger.info("User requested: %s" % requested_file, extra={'ip_address': request.remote_addr})
+        log_config.logger.info("User requested: %s" % bleach.clean(requested_file), extra={'ip_address': request.remote_addr})
 
     #SECOND MEASURE OF PROTECTION -> PATH VALIDATION
         if check_path(guides_dir, requested_file):
             try:
                 with open(requested_file, 'r') as file:
-                    log_config.logger.info("User opened: %s" % requested_file, extra={'ip_address': request.remote_addr})
+                    log_config.logger.info("User opened: %s" % bleach.clean(requested_file), extra={'ip_address': request.remote_addr})
                     content = file.read()
                 return render_template("public/guide.html", content=content)
             except FileNotFoundError:
-                log_config.logger.error("User failed to open: %s." % requested_file, extra={'ip_address': request.remote_addr})
+                log_config.logger.error("User failed to open: %s." % bleach.clean(requested_file), extra={'ip_address': request.remote_addr})
                 abort(404)
         else:
-            log_config.logger.error("User failed to open: %s" % requested_file, extra={'ip_address': request.remote_addr})
+            log_config.logger.error("User failed to open: %s" % bleach.clean(requested_file) extra={'ip_address': request.remote_addr})
             abort(400)
     else:
-        log_config.logger.error("User failed to open: %s" % file_name, extra={'ip_address': request.remote_addr})
+        log_config.logger.error("User failed to open: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
         abort(400)

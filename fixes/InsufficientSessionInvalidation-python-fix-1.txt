@@ -6,6 +6,6 @@ def logout():
     session.pop('total')
     username = current_user.username
     logout_user()
-    log_config.logger.info("User with username %s logged out." % username, extra={'ip_address': request.remote_addr})
+    log_config.logger.info("User with username %s logged out." % bleach.clean(username), extra={'ip_address': request.remote_addr})
     flash("You were logged out.", 'success')
     return redirect(url_for("auth.login"))

@@ -35,7 +35,7 @@ def signup():
             db.session.add(user)
             db.session.commit()
             db.session.close()
-            log_config.logger.info("New user with username %s was successfully created." % username, extra={'ip_address': request.remote_addr})
+            log_config.logger.info("New user with username %s was successfully created." %  bleach.clean(username), extra={'ip_address': request.remote_addr})
             flash("Account has been sucesfully created.", 'success')
             return redirect(url_for("auth.login"))
         except ValidationError:

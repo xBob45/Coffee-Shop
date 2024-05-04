@@ -13,6 +13,7 @@ from werkzeug.utils import secure_filename
 import uuid
 import os
 import mimetypes
+import bleach
 
 
 
@@ -80,7 +81,7 @@ def update_user():
                 #WeakHashFunctionWithSalt-1 - END  
                 user.password = password
             db.session.commit()
-            log_config.logger.info("User with username %s was sucessfully updated." % username, extra={'ip_address': request.remote_addr})
+            log_config.logger.info("User with username %s was sucessfully updated." % bleach.clean(username), extra={'ip_address': request.remote_addr})
             flash("User has been updated.", 'success')
             return redirect(request.referrer)  
         except ValidationError:
@@ -113,7 +114,7 @@ def delete_user():
                 db.session.delete(user)
                 db.session.commit()
                 db.session.close()
-                log_config.logger.info("User with username %s was deleted." % user.username, extra={'ip_address': request.remote_addr})
+                log_config.logger.info("User with username %s was deleted." %  bleach.clean(user.username), extra={'ip_address': request.remote_addr})
                 flash("User has been deleted.", 'danger')
                 return redirect(url_for("auth.login"))
             else:
@@ -121,7 +122,7 @@ def delete_user():
                 return redirect(request.referrer)
         except Exception as e:
             flash("Error occureed. Please try again.", 'danger')
-            log_config.logger.error("User with username %s was not deleted. Exception: %s." % (user.username, e), extra={'ip_address': request.remote_addr})
+            log_config.logger.error("User with username %s was not deleted. Exception: %s." % (bleach.clean(user.username), e), extra={'ip_address': request.remote_addr})
             return redirect(request.referrer)
     return redirect(request.referrer)
 #CSRF-3 - END
@@ -165,7 +166,7 @@ def upload_picture():
             upload_path = os.path.join(UPLOAD_FOLDER,picture_uuid)
             picture.save(upload_path)
             flash('Profile picture has been updated.', 'success')
-            log_config.logger.info("User %s successfully updated his profile picture." % user.username, extra={'ip_address': request.remote_addr})
+            log_config.logger.info("User %s successfully updated his profile picture." %  bleach.clean(user.username), extra={'ip_address': request.remote_addr})
             return redirect(request.referrer)
         except ValidationError:
             log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})

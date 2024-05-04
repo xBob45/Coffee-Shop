@@ -57,7 +57,6 @@ class Product(db.Model):
     name = db.Column(db.String(255), unique=True, nullable=False)
     stock = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Float, nullable=False)
-    description = db.Column(db.String(255), nullable=False)
     image = db.Column(db.String(255), nullable=False)
     details = db.Column(JSONB)
 
