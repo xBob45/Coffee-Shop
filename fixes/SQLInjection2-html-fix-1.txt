@@ -6,7 +6,7 @@
         </div>
         <div class="col-6">
             <div class="d-flex justify-content-center">
-                <div class="card" style="width: 25rem; height: 30rem;">
+                <div class="card" style="width: 25rem; height: 26rem;">
                     <img src="{{ url_for('static', filename=product.image) }}" class="bd-placeholder-img card-img-top" width="150" height="150" role="img" aria-label="Product Image" preserveAspectRatio="xMidYMid slice" focusable="false">
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name | safe }}</h5>

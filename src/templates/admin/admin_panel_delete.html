@@ -3,7 +3,14 @@
 {% block content %}
 <div class="d-flex justify-content-center">
     <div class="col-md-3" id="delete_user_box">
-        <h4>Delete User</h4>
+        <div class="row">
+            <div class="col-auto">
+                <img src="{{ url_for('static', filename='images/admin_panel/delete.svg') }}" class="bd-placeholder-img card-img-top mr-1" width="30" height="30" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+            </div>
+            <div class="col-auto">
+                <h4>Delete User</h4>
+            </div>
+        </div>
         <form method="POST" action="{{ url_for('admin.delete_user') }}">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <hr class="hr" />

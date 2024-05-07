@@ -1,9 +1,17 @@
 {% extends "auth/login.html" %} 
 {% block title %}Sign Up{% endblock %}
 
-<main class="form-signin w-100 m-auto">
+
     {% block form%}
-      <h1>Sign Up</h1>
+    <main class="form-signup w-100 m-auto">
+      <div class="row">
+        <div class="col-auto">
+          <img class="mb-4 mx-auto d-block" src="{{ url_for('static', filename='images/favicon_and_logo/favicon_and_logo.svg') }}" id="coffee-shop-icon" alt="" width="55" height="55">
+        </div>
+        <div class="col-auto">
+            <h4>Sign Up</h4>
+        </div>
+      </div>
       <form id="signup-form" method="POST" action="{{ url_for('auth.signup') }}">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <div class="mb-3">
@@ -47,7 +55,8 @@
             </ul>
             {% endif %}
             {% endwith %}
+          </main>
     {% endblock %}
-</main>
+
 
 

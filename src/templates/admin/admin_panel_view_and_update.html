@@ -4,7 +4,14 @@
 
 <div class="d-flex justify-content-center">
   <div class="col-md-3" id="view_user_box">
-      <h4>View User</h4>
+    <div class="row">
+        <div class="col-auto">
+            <img src="{{ url_for('static', filename='images/admin_panel/search.svg') }}" class="bd-placeholder-img card-img-top mr-1" width="30" height="30" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+        <div class="col-auto">
+            <h4>Search User</h4>
+        </div>
+    </div>
       <hr class="hr" />
       <form method="POST" action="{{ url_for('admin.view_user') }}">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
@@ -33,7 +40,14 @@
 
 {%if user %}
   <div class="col-md-3 animate__animated animate__bounceInLeft" id="update_user_box">
-      <h4>Update User</h4>
+    <div class="row">
+        <div class="col-auto">
+            <img src="{{ url_for('static', filename='images/admin_panel/update.svg') }}" class="bd-placeholder-img card-img-top mr-1" width="30" height="30" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+        <div class="col-auto">
+            <h4>Update User</h4>
+        </div>
+    </div>
       <hr class="hr" />
       <form method="POST" action="{{ url_for('admin.update_user') }}">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>

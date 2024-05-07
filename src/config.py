@@ -34,7 +34,7 @@ class Config(object):
     #HardCodedCredentials-1 - START
     """Status: Vulnerable"""
     #Description: CWE-798: Use of Hard-coded Credentials -> https://cwe.mitre.org/data/definitions/798.html
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:postgres@postgresql:5432/postgres'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:postgres@127.0.0.1:5432/postgres'
     #HardCodedCredentials-1 - END
     
 

@@ -3,7 +3,14 @@
 {% block content %}
 <div class="d-flex justify-content-center">
     <div class="col-md-3 " id="add_user_box">
-        <h4>Add User</h4>
+        <div class="row">
+            <div class="col-auto">
+                <img src="{{ url_for('static', filename='images/admin_panel/add.svg') }}" class="bd-placeholder-img card-img-top mr-1" width="30" height="30" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+            </div>
+            <div class="col-auto">
+                <h4>Add User</h4>
+            </div>
+        </div>
         <hr class="hr" />
         <form method="POST" action="{{ url_for('admin.add_user') }}">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
@@ -17,11 +24,11 @@
             </div>
             <div class="mb-3">
                 <label for="add_fname" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="add_fname" placeholder="First Name" name="add_fname">
+                <input type="text" class="form-control" id="add_fname" placeholder="Enter First Name" name="add_fname">
             </div>
             <div class="mb-3">
                 <label for="add_lname" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="add_lname" placeholder="Lasy Name" name="add_lname">
+                <input type="text" class="form-control" id="add_lname" placeholder="Enter Last Name" name="add_lname">
             </div>
             <div class="mb-3">
                 <label for="add_pass" class="form-label">Password</label>
