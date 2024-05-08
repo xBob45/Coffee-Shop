@@ -4,10 +4,10 @@ services:
       context: .
       dockerfile: apache/Docker/Dockerfile-apache
     #UnprotectedTransportofCredentials-1 - START
-    #Status: Vulnerable
+    #Status: Fixed
     #Description: CWE-523: Unprotected Transport of Credentials -> https://cwe.mitre.org/data/definitions/523.html
     ports:
-      - 9090:80
+      - 9090:443
     #UnprotectedTransportofCredentials-1 - END
     networks:
       - coffee-shop
@@ -15,27 +15,13 @@ services:
       always
 
   #FunctionalityFromUntrustedSource-1 - START
-  #Status: Vulnerable
-  #Description: CWE-830: Inclusion of Web Functionality from an Untrusted Source -> https://cwe.mitre.org/data/definitions/830.html
-  compromised_service:
-      image: httpd:alpine
-      ports:
-        - "9091:80"
-      volumes:
-        - ./src/static/js/:/usr/local/apache2/htdocs
-        - ./apache/Docker/apache-js.conf:/usr/local/apache2/conf/apache-js.conf
-      networks:
-        - coffee-shop
-      restart: always
   #FunctionalityFromUntrustedSource-1 - END
   
   postgresql:
     #VulnerablePostgreSQL-1 - START
-    #Status: Vulnerable
+    #Status: Fixed
     #Description: CWE-1035: Using Components with Known Vulnerabilities -> https://cwe.mitre.org/data/definitions/1035.html
-    build:
-      context: .
-      dockerfile: database/Docker/Dockerfile-db
+    image: postgres
     #VulnerablePostgreSQL-1 - END
     networks:
       - coffee-shop

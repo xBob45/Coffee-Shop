@@ -37,7 +37,7 @@ def guide_reader():
                 log_config.logger.error("User failed to open: %s." % bleach.clean(requested_file), extra={'ip_address': request.remote_addr})
                 abort(404)
         else:
-            log_config.logger.error("User failed to open: %s" % bleach.clean(requested_file) extra={'ip_address': request.remote_addr})
+            log_config.logger.error("User failed to open: %s" % bleach.clean(requested_file), extra={'ip_address': request.remote_addr})
             abort(400)
     else:
         log_config.logger.error("User failed to open: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})

@@ -17,7 +17,7 @@ def execute_command():
             log_config.logger.info("User %s ran %s command" % (bleach.clean(current_user.username), bleach.clean(command)), extra={'ip_address': request.remote_addr})
             return jsonify(result=result)
     except BadRequest:
-        abort(403)
+        abort(400)
     except Exception as e:
         log_config.logger.error("User %s failed to run command %s. Exception: %s" % (bleach.clean(current_user.username), bleach.clean(command_value), e), extra={'ip_address': request.remote_addr})
         abort(400)

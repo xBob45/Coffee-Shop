@@ -34,9 +34,12 @@ def create_app():
     #Flask-WTF
 
     #Clickjacking-1 - START
-    """Status: Vulnerable"""
+    """Status: Fixed"""
     #Description: CWE-1021: Improper Restriction of Rendered UI Layers or Frames -> https://cwe.mitre.org/data/definitions/1021.html
-    """No protective measures are set."""
+    @app.after_request
+    def security_measures(response):
+        response.headers['X-Frame-Options'] = 'DENY'
+        return response
     #Clickjacking-1 - END
     app.register_blueprint(auth_blueprint)
     app.register_blueprint(home_blueprint)
@@ -50,7 +53,7 @@ def create_app():
     #CustomErrorPages-2 - END
     
     #DebugModeON-3 - START
-    """Status: Vulnerable"""
+    """Status: Fixed"""
     #Description: CWE-489: Active Debug Code -> https://cwe.mitre.org/data/definitions/489.html
     app.register_error_handler(BadRequest, handle_400)
     app.register_error_handler(Forbidden, handle_403)
