@@ -110,6 +110,9 @@ def delete_user():
             user = User.query.filter_by(id=id).first()
             if user is not None:
                 #SensitiveDatawithinCookie-2 - START
+                """Status: Vulnerable"""
+                #Description: Cookie containes user's role in the application. Via cookie manipulation an attacker can elevate it's privileges.
+                session.pop('role')
                 #SensitiveDatawithinCookie-2 - END
                 session.pop('cart')
                 session.pop('total')

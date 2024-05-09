@@ -50,11 +50,8 @@ def create_app():
     app.context_processor(utility_processor)
 
     #CustomErrorPages-2 - START
-    #CustomErrorPages-2 - END
-    
-    #DebugModeON-3 - START
     """Status: Fixed"""
-    #Description: CWE-489: Active Debug Code -> https://cwe.mitre.org/data/definitions/489.html
+    #Description: CWE-756: Missing Custom Error Page -> https://cwe.mitre.org/data/definitions/756.html
     app.register_error_handler(BadRequest, handle_400)
     app.register_error_handler(Forbidden, handle_403)
     app.register_error_handler(NotFound, handle_404)
@@ -62,5 +59,8 @@ def create_app():
     app.register_error_handler(UnsupportedMediaType, handle_415)
     app.register_error_handler(InternalServerError, handle_500)
     app.register_error_handler(HTTPVersionNotSupported, handle_505)
+    #CustomErrorPages-2 - END
+    
+    #DebugModeON-3 - START
     #DebugModeON-3 - END
     return app

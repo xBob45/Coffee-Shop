@@ -85,6 +85,10 @@ def login():
                     #InsertionOfSensitiveInformationIntoLogFile-1 - END
 
                     #SensitiveDatawithinCookie-1 - START
+                    """Status: Vulnerable"""
+                    #Description: Cookie containes user's role in the application. Via cookie manipulation an attacker can elevate it's privileges.
+                    user_role = db.session.query(Role.name).join(User, Role.id == User.role_id).filter(User.id == user.id).first()
+                    session['role'] = user_role[0]
                     #SensitiveDatawithinCookie-1 - END
                     return redirect(url_for('home.home'))
             else:
@@ -197,6 +201,9 @@ def signup():
 #Description: CWE-613: Insufficient Session Expiration -> https://cwe.mitre.org/data/definitions/613.html
 def logout():
     #SensitiveDatawithinCookie-2 - START
+    """Status: Vulnerable"""
+    #Description: Cookie containes user's role in the application. Via cookie manipulation an attacker can elevate it's privileges.
+    session.pop('role')
     #SensitiveDatawithinCookie-2 - END
     session.pop('cart')
     session.pop('total')
