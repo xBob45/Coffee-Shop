@@ -1,4 +1,4 @@
-![Coffee Shop](src/static/images/favicon_and_logo/favicon_and_logo.svg)
+<img src="src/static/images/favicon_and_logo/favicon_and_logo.svg" alt="Coffee Shop Logo" width="30" height="30" style="display:block; margin:auto;" />
 # Coffee Shop
 
 
