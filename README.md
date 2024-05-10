@@ -1,9 +1,9 @@
-<div style="display: flex; align-items: center;">
-  <img src="src/static/images/favicon_and_logo/favicon_and_logo.svg" alt="Coffee Shop Logo" width="30" height="30" style="margin-right: 10px;" />
-  <h2>Coffee Shop</h2>
+<div style="text-align: center;">
+  <img src="src/static/images/favicon_and_logo/favicon_and_logo.svg" alt="Coffee Shop Logo" width="60" height="60" />
 </div>
 
 
+## Coffee Shop
 
 ## Bachelor's Project Assignment
 
