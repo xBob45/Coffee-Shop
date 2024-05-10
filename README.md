@@ -1,6 +1,7 @@
-<img src="src/static/images/favicon_and_logo/favicon_and_logo.svg" alt="Coffee Shop Logo" width="30" height="30" style="display:block; margin:auto;" />
-
-## Coffee Shop
+<div style="display: flex; align-items: center;">
+  <img src="src/static/images/favicon_and_logo/favicon_and_logo.svg" alt="Coffee Shop Logo" width="30" height="30" style="margin-right: 10px;" />
+  <h2>Coffee Shop</h2>
+</div>
 
 
 
