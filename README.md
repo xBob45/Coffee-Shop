@@ -1,7 +1,6 @@
-<div style="text-align: center;">
+<p align="center">
   <img src="src/static/images/favicon_and_logo/favicon_and_logo.svg" alt="Coffee Shop Logo" width="60" height="60" />
-</div>
-
+</p>
 
 ## Coffee Shop
 
