@@ -1,9 +1,4 @@
-<p align="center">
-  <img src="src/static/images/favicon_and_logo/favicon_and_logo.svg" alt="Coffee Shop Logo" width="120" height="120" />
-</p>
-
-<p align="center"><h2><i>Coffee Shop</i></h2></p>
-
+## Coffee Shop
 
 ## Bachelor's Project Assignment
 
