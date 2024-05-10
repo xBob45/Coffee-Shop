@@ -1,3 +1,4 @@
+![Coffee Shop](src/static/images/favicon_and_logo/favicon_and_logo.svg)
 # Coffee Shop
 
 
