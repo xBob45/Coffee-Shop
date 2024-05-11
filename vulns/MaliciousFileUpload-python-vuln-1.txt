@@ -16,9 +16,9 @@ def upload_picture():
             if picture.filename == '':
                 flash('No selected file', 'danger')
                 return redirect(request.referrer)
-            picture_uuid = str(uuid.uuid1())+ picture.filename
+            picture_uuid = str(uuid.uuid1())+ secure_filename(picture.filename)
             if user.profile_picture:
-                    original_picture = user.profile_picture
+                    original_picture = secure_filename(user.profile_picture)
                     print(original_picture)
                     path_to_original_picture = os.path.join(UPLOAD_FOLDER,original_picture)
                     print(path_to_original_picture)
