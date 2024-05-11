@@ -57,7 +57,6 @@ def development():
     #http://127.0.0.1:5000/development?url=http://scanme.nmap.org:22
     if request.method == 'GET':
         url = request.args.get('url')
-        log_config.logger.info("URL: %s." % bleach.clean(url), extra={'ip_address': request.remote_addr})
         if url is not None:
             print(url)
             try:
