@@ -144,11 +144,11 @@ def view_user():
                     flash("User doesn't exists.", "danger")  
                     log_config.logger.error("User %s failed to view user with username %s. User doesn't exists." % (bleach.clean(current_user.username), bleach.clean(username)), extra={'ip_address': request.remote_addr})  
             else:
-                log_config.logger.error("Failed to view user. No username supplied." % bleach.clean(current_user.username), extra={'ip_address': request.remote_addr})
+                log_config.logger.error("User %s failed to view user. No username supplied." % bleach.clean(current_user.username), extra={'ip_address': request.remote_addr})
                 flash("No username provided, try again.","danger")
                 return redirect(request.referrer)
         except ValidationError:
-            log_config.logger.error("Failed to view user with username %s. Missing or invalid CSRF token." % bleach.clean(current_user.username), extra={'ip_address': request.remote_addr})
+            log_config.logger.error("Failed to view user with username %s. Missing or invalid CSRF token." % bleach.clean(username), extra={'ip_address': request.remote_addr})
             abort(400)
         except Exception as e:
             log_config.logger.error("Failed to view user with username.\nException: %s" % e, extra={'ip_address': request.remote_addr})
@@ -206,12 +206,12 @@ def update_user():
             log_config.logger.info("User %s succesfully updated user with username %s." % (bleach.clean(current_user.username), bleach.clean(username)), extra={'ip_address': request.remote_addr})
             flash("User has been updated.", "success")
         except ValidationError:
-            log_config.logger.error("User was not. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
+            log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             abort(400)
         except ValueError:
             return redirect(request.referrer)
         except Exception as e:
-            log_config.logger.error("User has not been sucessfully updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
+            log_config.logger.error("User was not updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
             flash("Error occured, try again.","danger")
             redirect(request.referrer)    
     return render_template("admin/admin_panel_view_and_update.html")
@@ -227,7 +227,7 @@ def delete_user():
             if user is not None:
                 db.session.delete(user)
                 db.session.commit()
-                log_config.logger.info("User with username %s was deleted." % bleach.clean(username), extra={'ip_address': request.remote_addr})
+                log_config.logger.info("User with username %s was deleted." %  bleach.clean(username), extra={'ip_address': request.remote_addr})
                 flash("User has been deleted.","danger")
             else:
                 log_config.logger.error("User with username %s could not be deleted due to non-existence." % bleach.clean(username), extra={'ip_address': request.remote_addr})
