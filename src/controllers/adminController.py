@@ -94,12 +94,12 @@ def add_user():
             #WeakPasswordRequirements-1 - END
 
             #CompleteOmissionOfHashFunction-1 - START
-            """Status: Vulnerable"""
-            #Description: Application does not use any hash function for users password.
-            """Password is not hashes."""
             #CompleteOmissionOfHashFunction-1 - END
 
             #WeakHashFunction-1 - START
+            """Status: Vulnerable"""
+            #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
+            password = md5(password.encode()).hexdigest()
             #WeakHashFunction-1 - END
 
             #WeakHashFunctionWithSalt-1 - START
@@ -114,7 +114,7 @@ def add_user():
             user = User(role_id=role, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
             db.session.add(user)
             db.session.commit()
-            log_config.logger.info("User %s created a new user with username %s." % (current_user.username, username), extra={'ip_address': request.remote_addr})
+            log_config.logger.info("User %s created a new user with username %s." % (bleach.clean(current_user.username), bleach.clean(username)), extra={'ip_address': request.remote_addr})
             flash("User has sucesfully been created.","success")
             #This implements the  Post/Redirect/Get (PRG) to prevent data re-insertion when reload.
             return redirect(url_for('admin.add_user'))
@@ -142,13 +142,13 @@ def view_user():
                     return render_template("admin/admin_panel_view_and_update.html", user=user)
                 else:
                     flash("User doesn't exists.", "danger")  
-                    log_config.logger.error("User %s failed to view user with username %s. User doesn't exists." % (current_user.username, username), extra={'ip_address': request.remote_addr})  
+                    log_config.logger.error("User %s failed to view user with username %s. User doesn't exists." % (bleach.clean(current_user.username), bleach.clean(username)), extra={'ip_address': request.remote_addr})  
             else:
-                log_config.logger.error("User %s failed to view user. No username supplied." % current_user.user, extra={'ip_address': request.remote_addr})
+                log_config.logger.error("Failed to view user. No username supplied." % bleach.clean(current_user.username), extra={'ip_address': request.remote_addr})
                 flash("No username provided, try again.","danger")
                 return redirect(request.referrer)
         except ValidationError:
-            log_config.logger.error("Failed to view user with username %s. Missing or invalid CSRF token." % username, extra={'ip_address': request.remote_addr})
+            log_config.logger.error("Failed to view user with username %s. Missing or invalid CSRF token." % bleach.clean(current_user.username), extra={'ip_address': request.remote_addr})
             abort(400)
         except Exception as e:
             log_config.logger.error("Failed to view user with username.\nException: %s" % e, extra={'ip_address': request.remote_addr})
@@ -192,18 +192,18 @@ def update_user():
                 #There is no check of length and complexity of a password.
                 #WeakPasswordRequirements-4 - END
                 #CompleteOmissionOfHashFunction-1 - START
-                """Status: Vulnerable"""
-                #Description: Application does not use any hash function for users password.
-                """Password is not hashes."""
                 #CompleteOmissionOfHashFunction-1 - END
                 #WeakHashFunction-1 - START
+                """Status: Vulnerable"""
+                #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
+                password = md5(password.encode()).hexdigest()
                 #WeakHashFunction-1 - END
                 #WeakHashFunctionWithSalt-1 - START
                 #WeakHashFunctionWithSalt-1 - END  
                 user.password = password
             user.role_id = role
             db.session.commit()
-            log_config.logger.info("User %s succesfully updated user with username %s." % (current_user.username, username), extra={'ip_address': request.remote_addr})
+            log_config.logger.info("User %s succesfully updated user with username %s." % (bleach.clean(current_user.username), bleach.clean(username)), extra={'ip_address': request.remote_addr})
             flash("User has been updated.", "success")
         except ValidationError:
             log_config.logger.error("User was not. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
@@ -227,10 +227,10 @@ def delete_user():
             if user is not None:
                 db.session.delete(user)
                 db.session.commit()
-                log_config.logger.info("User with username %s was deleted." % username, extra={'ip_address': request.remote_addr})
+                log_config.logger.info("User with username %s was deleted." % bleach.clean(username), extra={'ip_address': request.remote_addr})
                 flash("User has been deleted.","danger")
             else:
-                log_config.logger.error("User with username %s could not be deleted due to non-existence." % username, extra={'ip_address': request.remote_addr})
+                log_config.logger.error("User with username %s could not be deleted due to non-existence." % bleach.clean(username), extra={'ip_address': request.remote_addr})
                 flash("User doesn't exists.","danger")
                 redirect(request.referrer)
         except ValidationError:

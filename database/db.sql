@@ -16,11 +16,11 @@ CREATE TABLE users (
 
 INSERT INTO roles (name) VALUES ('admin'), ('customer');
 --CompleteOmissionOfHashFunction-3 - START
---Status: Vulnerable
---Description: Application does not use any hash function for users password.
-INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'admin', 'admin@example.com', 'John', 'Doe', 'admin');
 --CompleteOmissionOfHashFunction-3 - END
 --WeakHashFunction-3 - START
+--Status: Vulnerable
+--Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
+INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'admin', 'admin@example.com', 'John', 'Doe', '21232f297a57a5a743894a0e4a801fc3');
 --WeakHashFunction-3 - END
 --WeakHashFunctionWithSalt-3 - START
 --WeakHashFunctionWithSalt-3 - END

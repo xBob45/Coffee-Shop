@@ -71,11 +71,11 @@ def update_user():
                 #There is no check of length and complexity of a password.
                 #WeakPasswordRequirements-3 - END
                 #CompleteOmissionOfHashFunction-1 - START
-                """Status: Vulnerable"""
-                #Description: Application does not use any hash function for users password.
-                """Password is not hashes."""
                 #CompleteOmissionOfHashFunction-1 - END
                 #WeakHashFunction-1 - START
+                """Status: Vulnerable"""
+                #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
+                password = md5(password.encode()).hexdigest()
                 #WeakHashFunction-1 - END
                 #WeakHashFunctionWithSalt-1 - START
                 #WeakHashFunctionWithSalt-1 - END  

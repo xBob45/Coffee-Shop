@@ -53,13 +53,15 @@ def login():
                 user = User(id=user[0], username=user[2], email= user[3], first_name=user[4], last_name=user[5],password=user[6])
                 db.session.commit()
                 #CompleteOmissionOfHashFunction-2 - START
-                """Status: Vulnerable"""
-                #Description: Application does not use any hash function for users password.
-                db_passwd = user.password 
-                if (password == db_passwd) != True:
-                
                 #CompleteOmissionOfHashFunction-2 - END
                 #WeakHashFunction-2 - START
+                """Status: Vulnerable"""
+                #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
+                db_passwd = user.password 
+                password = md5(password.encode()).hexdigest()
+                if (db_passwd == password) != True:
+                
+                
                 #WeakHashFunction-2 - END
                 #WeakHashFunctionWithSalt-2 - START
                 #WeakHashFunctionWithSalt-2 - END 
@@ -158,11 +160,11 @@ def signup():
             #There is no check of length and complexity of a password.
             #WeakPasswordRequirements-1 - END
             #CompleteOmissionOfHashFunction-1 - START
-            """Status: Vulnerable"""
-            #Description: Application does not use any hash function for users password.
-            """Password is not hashes."""
             #CompleteOmissionOfHashFunction-1 - END
             #WeakHashFunction-1 - START
+            """Status: Vulnerable"""
+            #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
+            password = md5(password.encode()).hexdigest()
             #WeakHashFunction-1 - END
             #WeakHashFunctionWithSalt-1 - START
             #WeakHashFunctionWithSalt-1 - END  
@@ -237,12 +239,4 @@ def email_validation(input):
         log_config.logger.error("User entered an invalid email.", extra={'ip_address': request.remote_addr})
         flash("Invalid email. Please, use only A-Z/a-z and 0-9 are allowed. Please, try again.", "danger")
         raise ValueError
-    
-def log_sanitizer(string):
-    BLACKLIST = ['\r\n', '\n', '<', '>', '&', '<script>', '</script>', '{', '}', '[', ']', '(', ')','$', '%', '^', '#', '*', '?','--', '/*', '*/','/']
-    for item in BLACKLIST:
-        if item == '/':
-            string = string.replace(item,'//')
-        string = string.replace(item, ' ')
-    return string
     

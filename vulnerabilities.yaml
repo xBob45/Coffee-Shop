@@ -60,10 +60,10 @@ vulnerabilities:
     enabled: True 
     description: "CWE-918: Server-Side Request Forgery -> https://cwe.mitre.org/data/definitions/918.html"
   CompleteOmissionOfHashFunction:  
-    enabled: True
+    enabled: null
     description: "Application does not use any hash function for users password."
   WeakHashFunction: 
-    enabled: null 
+    enabled: True 
     description: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html"
   WeakHashFunctionWithSalt: 
     enabled: null
