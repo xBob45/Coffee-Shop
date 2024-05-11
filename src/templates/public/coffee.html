@@ -49,9 +49,9 @@
               <div class="card-body">
                 <a href="{{ url_for('home.product_info', id=product['id']) }}" class="card-link">
                   {# SQLInjection2-2 - START #}
-                  {# Status: Fixed #}
-                  {# Description: CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html #}
-                  <h5 class="card-title">{{ product['name'] }}</h5>
+                  {# Status: Vulnerable #}
+                  {#Description:  CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html #}
+                  <h5 class="card-title">{{ product['name'] |safe }}</h5>
                   {# SQLInjection2-2 - END #}
                 </a>
                 <div class="d-flex">

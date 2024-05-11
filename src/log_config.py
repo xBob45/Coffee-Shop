@@ -7,10 +7,9 @@ werkzeug_log = logging.getLogger('werkzeug')
 werkzeug_log.disabled = False
 
 #InsufficientLogging-1 - START
-"""Status: Fixed"""
+"""Status: Vulnerable"""
 #Description: CWE-778: Insufficient Logging -> https://cwe.mitre.org/data/definitions/778.html
-log_format = '%(asctime)s - IP:%(ip_address)s - %(levelname)s - %(message)s'
-
+log_format = '%(levelname)s - %(message)s'
 #InsufficientLogging-1 - END
 
 formatter = logging.Formatter(log_format)

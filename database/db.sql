@@ -16,13 +16,13 @@ CREATE TABLE users (
 
 INSERT INTO roles (name) VALUES ('admin'), ('customer');
 --CompleteOmissionOfHashFunction-3 - START
+--Status: Vulnerable
+--Description: Application does not use any hash function for users password.
+INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'admin', 'admin@example.com', 'John', 'Doe', 'admin');
 --CompleteOmissionOfHashFunction-3 - END
 --WeakHashFunction-3 - START
 --WeakHashFunction-3 - END
 --WeakHashFunctionWithSalt-3 - START
---Status: Fixed
---Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
-INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'admin', 'admin@example.com', 'John', 'Doe', '$argon2id$v=19$m=65536,t=3,p=4$L3jNUzeRVWWiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE');
 --WeakHashFunctionWithSalt-3 - END
 
 CREATE TABLE products (
