@@ -6,9 +6,6 @@ import datetime
 load_dotenv()
 class Config(object):
     #MaliciousFileUpload-2 - START
-    """Status: Fixed"""
-    #Description: CWE-434: Unrestricted Upload of File with Dangerous Type -> https://cwe.mitre.org/data/definitions/434.html
-    MAX_CONTENT_LENGTH = 400 * 1024 #Accept max 400KB
     #MaliciousFileUpload-2 - END
 
     #HardCodedKey-1 - START

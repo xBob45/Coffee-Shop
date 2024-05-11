@@ -7,7 +7,7 @@ vulnerabilities:
     description: "CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html"
   SensitiveInformationDisclosure: 
     enabled: True
-    description: "CWE-209: Generation of Error Message Containing Sensitive Information -> https://cwe.mitre.org/data/definitions/209.html"
+    description: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> https://cwe.mitre.org/data/definitions/200.html"
   ReflectedXSS: 
     enabled: True
     description: "CWE-79: Cross-site Scripting -> https://cwe.mitre.org/data/definitions/79.html"
@@ -52,7 +52,7 @@ vulnerabilities:
     description: "CWE-639: Authorization Bypass Through User-Controlled Key -> https://cwe.mitre.org/data/definitions/639.html"
   SensitiveDatawithinCookie: 
     enabled: null  #If you set this vulnerability to either "True" or "False" set "ForcedBrowsing" to "null". In order to exploit this vulnerability set 'HardCodedKey' to 'True'
-    description: "Cookie containes user's role in the application. Via cookie manipulation an attacker can elevate it's privileges."
+    description: "CWE-315: Cleartext Storage of Sensitive Information in a Cookie -> https://cwe.mitre.org/data/definitions/315.html"
   VulnerablePostgreSQL: 
     enabled: True
     description: "CWE-1035: Using Components with Known Vulnerabilities -> https://cwe.mitre.org/data/definitions/1035.html"
@@ -61,7 +61,7 @@ vulnerabilities:
     description: "CWE-918: Server-Side Request Forgery -> https://cwe.mitre.org/data/definitions/918.html"
   CompleteOmissionOfHashFunction:  
     enabled: null
-    description: "Application does not use any hash function for users password."
+    description: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html"
   WeakHashFunction: 
     enabled: True 
     description: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html"
@@ -84,7 +84,7 @@ vulnerabilities:
     enabled: True
     description: "CWE-307: Improper Restriction of Excessive Authentication Attempts -> https://cwe.mitre.org/data/definitions/307.html"
   MaliciousFileUpload:
-    enabled: False #For exploitation, set 'DirectoryListing' to 'True'
+    enabled: True #For exploitation, set 'DirectoryListing' to 'True'
     description: "CWE-434: Unrestricted Upload of File with Dangerous Type -> https://cwe.mitre.org/data/definitions/434.html"
   HardCodedCredentials: 
     enabled: True

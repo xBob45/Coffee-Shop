@@ -73,7 +73,7 @@ def login():
                     
                     #SensitiveInformationDisclosure-1 - START
                     """Status: Vulnerable"""
-                    #Description: CWE-209: Generation of Error Message Containing Sensitive Information -> https://cwe.mitre.org/data/definitions/209.html
+                    #Description: CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> https://cwe.mitre.org/data/definitions/200.html
                     flash("Incorrect password.", 'danger')
                     #SensitiveInformationDisclosure-1 - END
                     return redirect(request.referrer)
@@ -120,7 +120,7 @@ def login():
             #InsertionOfSensitiveInformationIntoLogFile-2 - END
             #SensitiveInformationDisclosure-1 - START
             """Status: Vulnerable"""
-            #Description: CWE-209: Generation of Error Message Containing Sensitive Information -> https://cwe.mitre.org/data/definitions/209.html
+            #Description: CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> https://cwe.mitre.org/data/definitions/200.html
             flash("Incorrect password.", 'danger')
             #SensitiveInformationDisclosure-1 - END
         except Exception as e:
