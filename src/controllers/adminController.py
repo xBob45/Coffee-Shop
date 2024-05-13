@@ -17,16 +17,29 @@ from werkzeug.exceptions import Forbidden, BadRequest
 import bleach
 
 #OSCommandInjection-1 - START
-"""Status: Vulnerable"""
+"""Status: Fixed"""
 #Description: CWE-78: OS Command Injection -> https://cwe.mitre.org/data/definitions/78.html
 def execute_command():
     try:
-        command = request.args.get('command')
-        result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
-        log_config.logger.info("User %s ran command %s" % (bleach.clean(current_user.username), bleach.clean(command)), extra={'ip_address': request.remote_addr})
-        return jsonify(result=result)
+        command_value = request.args.get('command')
+        if len(command_value) != 1:
+            log_config.logger.error("User %s tried to run command %s and failed." % (bleach.clean(current_user.username), bleach.clean(command_value)), extra={'ip_address': request.remote_addr})
+            raise BadRequest()
+        else:
+            if command_value == '1':
+                command = 'service apache2 status'
+            elif command_value == '2':
+                command = 'pg_isready -h postgresql'
+            else:
+                log_config.logger.error("User %s tried to run command %s->None and failed." % (bleach.clean(current_user.username), bleach.clean(command_value), bleach.clean(command)), extra={'ip_address': request.remote_addr})
+                raise BadRequest()
+            result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+            log_config.logger.info("User %s ran %s command" % (bleach.clean(current_user.username), bleach.clean(command)), extra={'ip_address': request.remote_addr})
+            return jsonify(result=result)
+    except BadRequest:
+        abort(400)
     except Exception as e:
-        log_config.logger.error("User %s failed to run command %s. Exception: %s" % (bleach.clean(current_user.username), bleach.clean(command), e), extra={'ip_address': request.remote_addr})
+        log_config.logger.error("User %s failed to run command %s. Exception: %s" % (bleach.clean(current_user.username), bleach.clean(command_value), e), extra={'ip_address': request.remote_addr})
         abort(400)
 #OSCommandInjection-1 - END
 
@@ -88,21 +101,21 @@ def add_user():
 
             password = request.form.get("add_pass")
             #WeakPasswordRequirements-1 - START
-            """Status: Vulnerable"""
+            """Status: Fixed"""
             #Description: CWE-521: Weak Password Requirements -> https://cwe.mitre.org/data/definitions/521.html
-            #There is no check of length and complexity of a password.
+            check_for_password_complexity(password)
             #WeakPasswordRequirements-1 - END
 
             #CompleteOmissionOfHashFunction-1 - START
             #CompleteOmissionOfHashFunction-1 - END
 
             #WeakHashFunction-1 - START
-            """Status: Vulnerable"""
-            #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
-            password = md5(password.encode()).hexdigest()
             #WeakHashFunction-1 - END
 
             #WeakHashFunctionWithSalt-1 - START
+            """Status: Vulnerable"""
+            #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
+            password = md5_crypt.using(salt_size=8).hash(password)
             #WeakHashFunctionWithSalt-1 - END  
 
             role_name = request.form.get("add_role")
@@ -187,18 +200,18 @@ def update_user():
                 pass
             else:
                 #WeakPasswordRequirements-4 - START
-                """Status: Vulnerable"""
+                """Status: Fixed"""
                 #Description: CWE-521: Weak Password Requirements -> https://cwe.mitre.org/data/definitions/521.html
-                #There is no check of length and complexity of a password.
+                check_for_password_complexity(password)
                 #WeakPasswordRequirements-4 - END
                 #CompleteOmissionOfHashFunction-1 - START
                 #CompleteOmissionOfHashFunction-1 - END
                 #WeakHashFunction-1 - START
-                """Status: Vulnerable"""
-                #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
-                password = md5(password.encode()).hexdigest()
                 #WeakHashFunction-1 - END
                 #WeakHashFunctionWithSalt-1 - START
+                """Status: Vulnerable"""
+                #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
+                password = md5_crypt.using(salt_size=8).hash(password)
                 #WeakHashFunctionWithSalt-1 - END  
                 user.password = password
             user.role_id = role
@@ -244,4 +257,50 @@ def delete_user():
 
 
 #SSRF-1 - START
+"""Status: Fixed"""
+#Description: CWE-918: Server-Side Request Forgery -> https://cwe.mitre.org/data/definitions/918.html
+def development():
+    if request.method == 'GET':
+
+        #Get data from 'url' parameter
+        url = request.args.get('url')
+        if url is not None:
+            log_config.logger.info("URL: %s." % bleach.clean(url))
+            parsed_url = urlparse(url)
+
+            #Get scheme used in a request
+            scheme = parsed_url.scheme
+            print(scheme)
+
+            #Get domain in a request
+            domain = parsed_url.netloc
+            print(domain)
+
+            #Get path in a request
+            path = parsed_url.path
+            print(path)
+            
+            #Unused URL schemas (file, ftp, . . .) are disabled
+            SCHEMES_ALLOWLIST = ['http', 'https']
+            #Whitelist only IPs and DNS names that the application requires access to.
+            DOMAINS_ALLOWLIST = ['127.0.0.1:5000', 'localhost:5000','127.0.0.1:9090', 'localhost:9090']
+
+            try:
+                if scheme in SCHEMES_ALLOWLIST:
+                    if domain in DOMAINS_ALLOWLIST:
+                        log_config.logger.info("User %s successfully opened URL %s." % (bleach.clean(current_user.username), bleach.clean(url)), extra={'ip_address': request.remote_addr})
+                        response = urlopen(url)
+                        return response.read()
+                    else:
+                        log_config.logger.error("User %s tried to open URL %s and failed. Provided domain is prohibited." % (bleach.clean(current_user.username), bleach.clean(url)), extra={'ip_address': request.remote_addr}) 
+                        raise Forbidden()
+                else:
+                    log_config.logger.error("User %s tried to open URL %s and failed. Provided scheme is prohibited." % (bleach.clean(current_user.username), bleach.clean(url)), extra={'ip_address': request.remote_addr})
+                    raise Forbidden()
+            except Forbidden:
+                abort(403)
+            except Exception as e:
+                log_config.logger.error("User %s tried to open URL %s and failed. Exception: %s" % (bleach.clean(current_user.username), bleach.clean(url), e), extra={'ip_address': request.remote_addr})
+                abort(400)
+    return 'This section is currently under development.'
 #SSRF-1 - END

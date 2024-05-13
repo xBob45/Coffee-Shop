@@ -50,7 +50,7 @@ def create_app():
     #CustomErrorPages-2 - END
     
     #DebugModeON-3 - START
-    """Status: Vulnerable"""
+    """Status: Fixed"""
     #Description: CWE-489: Active Debug Code -> https://cwe.mitre.org/data/definitions/489.html
     app.register_error_handler(BadRequest, handle_400)
     app.register_error_handler(Forbidden, handle_403)

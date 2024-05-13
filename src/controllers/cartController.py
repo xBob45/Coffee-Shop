@@ -19,26 +19,26 @@ def add_to_cart():
         quantity = request.form.get('quantity')
         product = db.session.query(Product).filter_by(id=product_id).first()
         if int(quantity) <= 0 or int(quantity) > product.stock:
-            log_config.logger.error("User with username %s tried to put an invalid %s amount of product into the cart." % (current_user.username, quantity), extra={'ip_address': request.remote_addr})
+            log_config.logger.error("User with username %s tried to put an invalid %s amount of product into the cart." % (bleach.clean(current_user.username), bleach.clean(quantity)), extra={'ip_address': request.remote_addr})
             abort(400) #This cannot happen unless a user manually tempers with the quantity value via Burp or whatever proxy.
         else:
             if product_id in session['cart'].keys():
                 if session['cart'][product_id] + int(quantity) > product.stock:
                     session['cart'][product_id] += 0
-                    log_config.logger.error("User with username %s tried to put an invalid amount of %s of %s into the cart." % (current_user.username, quantity, product.name), extra={'ip_address': request.remote_addr})
+                    log_config.logger.error("User with username %s tried to put an invalid amount of %s of %s into the cart." % (bleach.clean(current_user.username), bleach.clean(quantity), bleach.clean(product.name)), extra={'ip_address': request.remote_addr})
                     flash("Invalid amount.", 'danger')
                 else:
                     session['cart'][product_id] += int(quantity)
-                    log_config.logger.info("User with username %s added amount of %s of %s into the cart." % (current_user.username, quantity, product.name), extra={'ip_address': request.remote_addr})
+                    log_config.logger.info("User with username %s added amount of %s of %s into the cart." % (bleach.clean(current_user.username), bleach.clean(quantity), bleach.clean(product.name)), extra={'ip_address': request.remote_addr})
                     flash("Product added to the cart.", 'success')
             else:
                 if int(quantity) > product.stock:
                     session['cart'][product_id] = 0
-                    log_config.logger.error("User with username %s tried to put an invalid %s amount of %s into the cart." % (current_user.username, quantity, product.name), extra={'ip_address': request.remote_addr})
+                    log_config.logger.error("User with username %s tried to put an invalid %s amount of %s into the cart." % (bleach.clean(current_user.username), bleach.clean(quantity), bleach.clean(product.name)), extra={'ip_address': request.remote_addr})
                     flash("Invalid amount.", "danger")
                 else:
                     session['cart'][product_id] = int(quantity)
-                    log_config.logger.info("User with username %s added amount of %s of %s into the cart." % (current_user.username, quantity, product.name), extra={'ip_address': request.remote_addr})
+                    log_config.logger.info("User with username %s added amount of %s of %s into the cart." % (bleach.clean(current_user.username), bleach.clean(quantity), bleach.clean(product.name)), extra={'ip_address': request.remote_addr})
                     flash("Product added to the cart.", 'success')
             
             session['total'] += product.price*float(quantity)
@@ -57,7 +57,7 @@ def delete_from_cart():
             session['cart'].pop(product_id)
             session['total'] -= (product.price*float(quantity))
             session.modified = True
-            log_config.logger.info("User with username %s removed a product %s from the cart." % (current_user.username, product.name), extra={'ip_address': request.remote_addr})
+            log_config.logger.info("User with username %s removed a product %s from the cart." % (bleach.clean(current_user.username), bleach.clean(product.name)), extra={'ip_address': request.remote_addr})
             flash("Product removed from the cart.", 'danger')
             return redirect(request.referrer)
         except ValidationError:
