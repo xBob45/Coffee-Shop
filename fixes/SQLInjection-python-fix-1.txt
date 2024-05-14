@@ -52,8 +52,8 @@ def login():
             #SensitiveInformationDisclosure-1 - START
             #SensitiveInformationDisclosure-1 - END
         except Exception as e:
-            log_config.logger.error("User was not updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
-            flash("Error occured, try again.", 'danger')
+            log_config.logger.info("Error occured, try again. Exception: %s" % e, extra={'ip_address': request.remote_addr})
+            flash("Unexpected error. Try again, please.", 'danger')
             return redirect(request.referrer)  
     #BruteForce-3 - START
     #BruteForce-3 - END

@@ -35,9 +35,9 @@ class Config(object):
     basedir = os.path.abspath(os.path.dirname(__file__))
 
     #HardCodedCredentials-1 - START
-    """Status: Fixed"""
+    """Status: Vulnerable"""
     #Description: CWE-798: Use of Hard-coded Credentials -> https://cwe.mitre.org/data/definitions/798.html
-    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:postgres@postgresql:5432/postgres'
     #HardCodedCredentials-1 - END
     
 

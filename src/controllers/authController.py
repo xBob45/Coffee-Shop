@@ -30,9 +30,11 @@ VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify'
 
 
 #SQLInjection-1 - START
-"""Status: Fixed"""
+"""Status: Vulnerable"""
 #Description: CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html
-def login():
+def login():     
+    #' OR 1=1; DELETE FROM users WHERE id=1; --
+    #' OR 1=1; INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'vojta', 'vojta@example.com', 'Vojta', 'M', '$argon2id$v=19$m=65536,t=3,p=4$L3jNUzeRVWWiYP/u/mt2Ag$QYqf5Ayvr3H+XtD7QdOMh92Hf456DTpjmfzUq96lZgE'); --
     if request.method == 'POST':
         try:
             #BruteForce-2 - START
@@ -47,8 +49,12 @@ def login():
             username = request.form.get('username')
             password = request.form.get('password')
             remember = True if request.form.get('remember') else False
-            user = User.query.filter_by(username=username).first()  
+            user_result = db.session.execute(text("SELECT * FROM users WHERE username = '%s'" % (username)))
+            db.session.commit()
+            user = user_result.fetchone()
             if user is not None:
+                user = User(id=user[0], username=user[2], email= user[3], first_name=user[4], last_name=user[5],password=user[6])
+                db.session.commit()
                 #CompleteOmissionOfHashFunction-2 - START
                 #CompleteOmissionOfHashFunction-2 - END
                 #WeakHashFunction-2 - START
@@ -64,23 +70,23 @@ def login():
                     #Description: CWE-532: Insertion of Sensitive Information into Log File -> https://cwe.mitre.org/data/definitions/532.html
                     log_config.logger.error("User failed to login! Wrong credentials.", extra={'ip_address': request.remote_addr})
                     #InsertionOfSensitiveInformationIntoLogFile-2 - END
-
+                    
                     #SensitiveInformationDisclosure-1 - START
                     """Status: Fixed"""
                     #Description: CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> https://cwe.mitre.org/data/definitions/200.html
                     flash("Incorrect credentials, try again.", 'danger')
                     #SensitiveInformationDisclosure-1 - END
                     return redirect(request.referrer)
+
                 else:
                     # Perform the login action or redirect to the home page
                     login_user(user, remember=remember)
                     session['cart'] = {}
                     session['total'] = 0
-
                     #InsertionOfSensitiveInformationIntoLogFile-1 - START
                     """Status: Fixed"""
                     #Description: CWE-532: Insertion of Sensitive Information into Log File -> https://cwe.mitre.org/data/definitions/532.html
-                    log_config.logger.info("User successfully logged in.", extra={'ip_address': request.remote_addr}) 
+                    log_config.logger.info("User %s successfully logged in." % bleach.clean(username), extra={'ip_address': request.remote_addr}) 
                     #InsertionOfSensitiveInformationIntoLogFile-1 - END
 
                     #SensitiveDatawithinCookie-1 - START
@@ -90,6 +96,7 @@ def login():
                     
                     #SensitiveDatawithinCookie-1 - END
                     return redirect(url_for('home.home'))
+                 
             else:
                 #ReflectedXSS-1 - START
                 """Status: Fixed"""
@@ -102,8 +109,9 @@ def login():
                 log_config.logger.error("User failed to login! Wrong credentials.", extra={'ip_address': request.remote_addr})
                 #InsertionOfSensitiveInformationIntoLogFile-3 - END   
                 return redirect(request.referrer)
+
         except ValidationError:
-            log_config.logger.error("User was not updated. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
+            log_config.logger.error("Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
             abort(400)
         except BadRequest:
             log_config.logger.error("Failed reCAPTCHA.", extra={'ip_address': request.remote_addr})
@@ -120,9 +128,9 @@ def login():
             flash("Incorrect credentials, try again.", 'danger')
             #SensitiveInformationDisclosure-1 - END
         except Exception as e:
-            log_config.logger.error("User was not updated. Exception: %s" % e, extra={'ip_address': request.remote_addr})
-            flash("Error occured, try again.", 'danger')
-            return redirect(request.referrer)  
+            print(e)
+            log_config.logger.info("Error occured, try again. Exception: %s" % e, extra={'ip_address': request.remote_addr})
+            flash("Unexpected error. Try again, please.", 'danger')
     #BruteForce-3 - START
     """Status: Fixed"""
     #Description: CWE-307: Improper Restriction of Excessive Authentication Attempts -> https://cwe.mitre.org/data/definitions/307.html

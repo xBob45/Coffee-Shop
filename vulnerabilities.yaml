@@ -1,6 +1,6 @@
 vulnerabilities:
   SQLInjection: 
-    enabled: False 
+    enabled: True
     description: "CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html"
   SQLInjection2: 
     enabled: False
@@ -87,7 +87,7 @@ vulnerabilities:
     enabled: False #For exploitation, set 'DirectoryListing' to 'True'
     description: "CWE-434: Unrestricted Upload of File with Dangerous Type -> https://cwe.mitre.org/data/definitions/434.html"
   HardCodedCredentials: 
-    enabled: False
+    enabled: True
     description: "CWE-798: Use of Hard-coded Credentials -> https://cwe.mitre.org/data/definitions/798.html"
   FunctionalityFromUntrustedSource: 
     enabled: False
