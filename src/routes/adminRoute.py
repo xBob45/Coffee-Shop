@@ -16,7 +16,7 @@ def check_if_admin():
         #Only authenticated users with role 'admin' can access admin panel
         if current_user.is_authenticated:
             if current_user.roles.name == 'admin':
-                log_config.logger.info("User accesed the admin panel.", extra={'ip_address': request.remote_addr})
+                log_config.logger.info("User %s accessed the admin panel." % bleach.clean(current_user.username), extra={'ip_address': request.remote_addr})
                 return #If everything is OK, let user proceed.
             else:
                 log_config.logger.error("User tried to access the admin panel and failed as a result of insufficient privileges.", extra={'ip_address': request.remote_addr})

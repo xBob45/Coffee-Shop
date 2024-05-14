@@ -1,6 +1,6 @@
 vulnerabilities:
   SQLInjection: 
-    enabled: True
+    enabled: False
     description: "CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html"
   SQLInjection2: 
     enabled: False
@@ -30,10 +30,10 @@ vulnerabilities:
     enabled: False
     description: "CWE-78: OS Command Injection -> https://cwe.mitre.org/data/definitions/78.html"
   SensitiveCookiewithImproperSameSiteAttribute: 
-    enabled: True # In case you want to exploit "Clickjacking" and "CSRF" set this to "True"
+    enabled: False # In case you want to exploit "Clickjacking" and "CSRF" set this to "True"
     description: "CWE-1275: Sensitive Cookie with Improper SameSite Attribute -> https://cwe.mitre.org/data/definitions/1275.html"
   Clickjacking: 
-    enabled: True
+    enabled: False
     description: "CWE-1021: Improper Restriction of Rendered UI Layers or Frames -> https://cwe.mitre.org/data/definitions/1021.html"
   InsufficientLogging: 
     enabled: False
@@ -45,10 +45,10 @@ vulnerabilities:
     enabled: False
     description: "CWE-521: Weak Password Requirements -> https://cwe.mitre.org/data/definitions/521.html"
   CSRF: 
-    enabled: True
+    enabled: False
     description: "CWE-352: Cross-Site Request Forgery -> https://cwe.mitre.org/data/definitions/352.html"
   IDOR: 
-    enabled: True
+    enabled: False
     description: "CWE-639: Authorization Bypass Through User-Controlled Key -> https://cwe.mitre.org/data/definitions/639.html"
   SensitiveDatawithinCookie: 
     enabled: False  #If you set this vulnerability to either "True" or "False" set "ForcedBrowsing" to "null". In order to exploit this vulnerability set 'HardCodedKey' to 'True'
@@ -63,13 +63,13 @@ vulnerabilities:
     enabled: null
     description: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html"
   WeakHashFunction: 
-    enabled: null 
+    enabled: null
     description: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html"
   WeakHashFunctionWithSalt: 
-    enabled: True
+    enabled: False
     description: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html"
   UnprotectedTransportofCredentials:  
-    enabled: True
+    enabled: False
     description: "CWE-523: Unprotected Transport of Credentials -> https://cwe.mitre.org/data/definitions/523.html"
   DirectoryListing: 
     enabled: False
@@ -87,7 +87,7 @@ vulnerabilities:
     enabled: False #For exploitation, set 'DirectoryListing' to 'True'
     description: "CWE-434: Unrestricted Upload of File with Dangerous Type -> https://cwe.mitre.org/data/definitions/434.html"
   HardCodedCredentials: 
-    enabled: True
+    enabled: False
     description: "CWE-798: Use of Hard-coded Credentials -> https://cwe.mitre.org/data/definitions/798.html"
   FunctionalityFromUntrustedSource: 
     enabled: False

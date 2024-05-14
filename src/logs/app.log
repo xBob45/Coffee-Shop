@@ -1,1 +1,5 @@
 
+2024-05-14 17:10:55,119 - IP:127.0.0.1 - ERROR - User failed to login! Wrong credentials.
+2024-05-14 17:11:02,381 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-05-14 17:11:08,120 - IP:127.0.0.1 - ERROR - User failed to login! Wrong credentials.
+2024-05-14 17:12:13,477 - IP:127.0.0.1 - INFO - Error occured, try again. Exception: not a valid md5_crypt hash

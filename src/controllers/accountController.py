@@ -21,12 +21,10 @@ load_dotenv()
 UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER")
 
 #IDOR-3 - START
-"""Status: Vulnerable"""
+"""Status: Fixed"""
 #Description: CWE-639: Authorization Bypass Through User-Controlled Key -> https://cwe.mitre.org/data/definitions/639.html
 def setting():
-    id = request.args.get("id")
-    user = User.query.filter_by(id=id).first()
-    return render_template("account/setting.html", user=user)
+    return render_template("account/setting.html")
 #IDOR-3 - END
 
 #StoredXSS-2 - START
@@ -37,9 +35,9 @@ def update_user():
         try:
             validate_csrf(request.form.get('csrf_token'))
             #IDOR-4 - START
-            """Status: Vulnerable"""
+            """Status: Fixed"""
             #Description: CWE-639: Authorization Bypass Through User-Controlled Key -> https://cwe.mitre.org/data/definitions/639.html
-            id = request.form.get("edit_id")
+            id = current_user.id
             #IDOR-4 - END
             username = request.form.get("edit_username")
             email = request.form.get("edit_email")
@@ -79,9 +77,9 @@ def update_user():
                 #WeakHashFunction-1 - START
                 #WeakHashFunction-1 - END
                 #WeakHashFunctionWithSalt-1 - START
-                """Status: Vulnerable"""
+                """Status: Fixed"""
                 #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
-                password = md5_crypt.using(salt_size=8).hash(password)
+                password = ph.hash(password)
                 #WeakHashFunctionWithSalt-1 - END 
                 user.password = password
             db.session.commit()
@@ -102,11 +100,12 @@ def update_user():
 
 
 #CSRF-3 - START
-"""Status: Vulnerable"""
+"""Status: Fixed"""
 #Description: CWE-352: Cross-Site Request Forgery -> https://cwe.mitre.org/data/definitions/352.html
 def delete_user():
-    if request.method == 'GET':
+    if request.method == 'POST':
         try:
+            validate_csrf(request.form.get('csrf_token'))
             id = current_user.id
             user = User.query.filter_by(id=id).first()
             if user is not None:
@@ -121,15 +120,18 @@ def delete_user():
                 db.session.delete(user)
                 db.session.commit()
                 db.session.close()
-                log_config.logger.info("User with username %s was deleted." %  bleach.clean(user.username), extra={'ip_address': request.remote_addr})
+                log_config.logger.info("User with ID %s was deleted." % bleach.clean(user.username), extra={'ip_address': request.remote_addr})
                 flash("User has been deleted.", 'danger')
                 return redirect(url_for("auth.login"))
             else:
                 flash("User doesn't exists.", 'danger')
                 return redirect(request.referrer)
+        except ValidationError:
+            log_config.logger.error("User was not deleted. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
+            abort(400)
         except Exception as e:
             flash("Error occureed. Please try again.", 'danger')
-            log_config.logger.error("User with username %s was not deleted. Exception: %s." % (bleach.clean(user.username), e), extra={'ip_address': request.remote_addr})
+            log_config.logger.error("User with ID %s was not deleted. Exception: %s." % (bleach.clean(user.username), e), extra={'ip_address': request.remote_addr})
             return redirect(request.referrer)
     return redirect(request.referrer)
 #CSRF-3 - END

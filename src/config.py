@@ -24,20 +24,20 @@ class Config(object):
     #DebugModeON-1 - END
 
     #SensitiveCookiewithImproperSameSiteAttribute-1 - START
-    """Status: Vulnerable"""
+    """Status: Fixed"""
     #Description: CWE-1275: Sensitive Cookie with Improper SameSite Attribute -> https://cwe.mitre.org/data/definitions/1275.html
     SESSION_COOKIE_SECURE = True 
     SESSION_COOKIE_HTTPONLY = True
-    SESSION_COOKIE_SAMESITE = 'None'
+    SESSION_COOKIE_SAMESITE = 'Strict'
     #SensitiveCookiewithImproperSameSiteAttribute-1 - END
 
     # Grabs the folder where the script runs.
     basedir = os.path.abspath(os.path.dirname(__file__))
 
     #HardCodedCredentials-1 - START
-    """Status: Vulnerable"""
+    """Status: Fixed"""
     #Description: CWE-798: Use of Hard-coded Credentials -> https://cwe.mitre.org/data/definitions/798.html
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:postgres@postgresql:5432/postgres'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
     #HardCodedCredentials-1 - END
     
 

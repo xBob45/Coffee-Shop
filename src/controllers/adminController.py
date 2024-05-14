@@ -113,9 +113,9 @@ def add_user():
             #WeakHashFunction-1 - END
 
             #WeakHashFunctionWithSalt-1 - START
-            """Status: Vulnerable"""
+            """Status: Fixed"""
             #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
-            password = md5_crypt.using(salt_size=8).hash(password)
+            password = ph.hash(password)
             #WeakHashFunctionWithSalt-1 - END  
 
             role_name = request.form.get("add_role")
@@ -209,9 +209,9 @@ def update_user():
                 #WeakHashFunction-1 - START
                 #WeakHashFunction-1 - END
                 #WeakHashFunctionWithSalt-1 - START
-                """Status: Vulnerable"""
+                """Status: Fixed"""
                 #Description: CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html
-                password = md5_crypt.using(salt_size=8).hash(password)
+                password = ph.hash(password)
                 #WeakHashFunctionWithSalt-1 - END  
                 user.password = password
             user.role_id = role
