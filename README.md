@@ -7,7 +7,7 @@ The primary goal of the bachelor's thesis is to create a demonstrably vulnerable
 
 
 ## Requirements
-- Docke
+- Docker
 - Python
 - PyYAML
 
