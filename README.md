@@ -7,7 +7,9 @@ The primary goal of the bachelor's thesis is to create a demonstrably vulnerable
 
 
 ## Requirements
-- Docker
+- Docke
+- Python
+- PyYAML
 
 ## Usage
 1. Open **vulnerabilities.yaml** and set vulnerabilities: 
@@ -16,9 +18,9 @@ The primary goal of the bachelor's thesis is to create a demonstrably vulnerable
    * Set to null to skip the vulnerability.
 2. Run the **code_generation.py** script
 3. Run **docker compose up -d**
-4. Visit the http://127.0.0.1:9090 or https://127.0.0.1:9090/ if you chose to use HTTPS. 
+4. Visit the http://127.0.0.1:9090 or https://127.0.0.1:9090 if you chose to use HTTPS. 
    * If using HTTPS, you must import the security certificate found in the /ssl folder. The method for importing a certificate may vary depending on the browser.
 
 ## Warning
-- Application has been tested with Chrome 124.0.6367.119.
+- Application has been tested with Chrome 124.0.6367.119, Python 3.10.10 and PyYAML 6.0.1.
 - Do **not** run the application in Incognito Mode, as it will prevent certain cookie-based attacks from being carried out.
