@@ -222,7 +222,7 @@ def check_for_password_complexity(password):
     password_pattern = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
     if not re.match(password_pattern, password):
         log_config.logger.error("User entered password which lacked complexity and was rejected.", extra={'ip_address': request.remote_addr})
-        flash("Insufficiently complex password!\nPlease try again!\nRemeber password has to be at least 8 characters long and contains some special cahracters\n!#$%&*_^ and digits.", "danger")
+        flash("Insufficiently complex password!\nPlease try again!\nRemeber password has to be at least 8 characters long and contain some special characters\n!#?!@$%^&*-, digits, lowercase as well as uppercase letters.", "danger")
         raise ValueError
 #WeakPasswordRequirements-2 - END
 

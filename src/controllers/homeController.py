@@ -69,6 +69,22 @@ def guide_reader():
 
 
 #SSRF-1 - START
+"""Status: Vulnerable"""
+#Description: CWE-918: Server-Side Request Forgery -> https://cwe.mitre.org/data/definitions/918.html
+def development():
+    #http://127.0.0.1:5000/development?url=file:///etc/passwd
+    #http://127.0.0.1:5000/development?url=http://scanme.nmap.org:22
+    if request.method == 'GET':
+        url = request.args.get('url')
+        if url is not None:
+            print(url)
+            try:
+                response = urlopen(url)
+                log_config.logger.info("User opened URL %s." % bleach.clean(url), extra={'ip_address': request.remote_addr})
+                return response.read()
+            except Exception as e:
+                return str(e)
+    return "This section is currently under development!"
 #SSRF-1 - END
 
 def product_info():

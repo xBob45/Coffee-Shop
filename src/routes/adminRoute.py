@@ -39,9 +39,5 @@ admin_blueprint.route('/view', methods=['POST', 'GET'])(view_user)
 admin_blueprint.route('/update', methods=['POST', 'GET'])(update_user)
 admin_blueprint.route('/delete', methods=['POST', 'GET'])(delete_user)
 #SSRF-2 - START
-"""Status: Fixed"""
-#Description: CWE-918: Server-Side Request Forgery -> https://cwe.mitre.org/data/definitions/918.html
-from src.controllers.adminController import development
-admin_blueprint.route('/development', methods=['POST', 'GET'])(development)
 #SSRF-2 - END
 

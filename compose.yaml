@@ -4,10 +4,10 @@ services:
       context: .
       dockerfile: apache/Docker/Dockerfile-apache
     #UnprotectedTransportofCredentials-1 - START
-    #Status: Fixed
+    #Status: Vulnerable
     #Description: CWE-523: Unprotected Transport of Credentials -> https://cwe.mitre.org/data/definitions/523.html
     ports:
-      - 9090:443
+      - 9090:80
     #UnprotectedTransportofCredentials-1 - END
     networks:
       - coffee-shop
