@@ -20,7 +20,7 @@ def development():
             path = parsed_url.path
             print(path)
             
-            #Unused URL schemas (file, ftp, . . .) are disabled
+            #Unused URI schemas (file, ftp, . . .) are disabled
             SCHEMES_ALLOWLIST = ['http', 'https']
             #Whitelist only IPs and DNS names that the application requires access to.
             DOMAINS_ALLOWLIST = ['127.0.0.1:443', 'localhost:443', '127.0.0.1:80','localhost:80']
