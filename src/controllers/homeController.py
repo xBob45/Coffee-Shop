@@ -1,6 +1,6 @@
 import functools
 import os
-from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for, send_file, abort)
+from flask import (Blueprint, flash, g, redirect, render_template, render_template_string, request, session, url_for, send_file, abort)
 from flask_login import current_user
 import re
 from urllib.request import urlopen
@@ -30,26 +30,33 @@ def check_path(basedir, path, follow_symlinks=True):
     if follow_symlinks:
         #Resolves the symbolic links if any
         matchpath = os.path.realpath(path)
-        #print(matchpath)
     else:
         matchpath = os.path.abspath(path)
-        #print(matchpath)
-            
+         
     #Return 'True' or 'False' based on if base directory is the common directory between 'basedir' and 'matchpath'
-    #print(basedir)
-    print(basedir == os.path.commonpath((basedir, matchpath)))
-    return basedir == os.path.commonpath((basedir, matchpath))
+    if ((basedir == os.path.commonpath((basedir, matchpath))) == True):
+        return basedir == os.path.commonpath((basedir, matchpath))
+    else:
+        raise Exception
 
-def guide_reader():
-    file_name = request.args.get('file_name')
-    #FIRST MEASURE OF PROTECTION -> ALLOWED PATTERN
+def check_file(file_name):
     allowed_pattern = r'^[guide0-9.txt]+$'
     if re.match(allowed_pattern, file_name):
         guides_dir = os.path.join(os.getcwd(), 'src', 'guides')
         requested_file = os.path.join(guides_dir, file_name)
         log_config.logger.info("User requested: %s" % bleach.clean(requested_file), extra={'ip_address': request.remote_addr})
+        return guides_dir, requested_file
+    else:
+        return str(None), str(None)
 
-    #SECOND MEASURE OF PROTECTION -> PATH VALIDATION
+def guide_reader():
+    try:
+        file_name = request.args.get('file_name')
+        #FIRST MEASURE OF PROTECTION -> ALLOWED PATTERN
+        guides_dir, requested_file = check_file(file_name)
+        print(guides_dir)
+        print(requested_file)
+        #SECOND MEASURE OF PROTECTION -> PATH VALIDATION
         if check_path(guides_dir, requested_file):
             try:
                 with open(requested_file, 'r') as file:
@@ -57,14 +64,29 @@ def guide_reader():
                     content = file.read()
                 return render_template("public/guide.html", content=content)
             except FileNotFoundError:
-                log_config.logger.error("User failed to open: %s." % bleach.clean(requested_file), extra={'ip_address': request.remote_addr})
-                abort(404)
+                #SSTI-1 - START
+                """Status: Vulnerable"""
+                #Description: CWE-1336: Improper Neutralization of Special Elements Used in a Template Engine -> https://cwe.mitre.org/data/definitions/1336.html
+                template = "File '%s' couldn't have been opened. " % file_name
+                log_config.logger.error("User failed to open: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
+                return render_template_string(template)
+                #SSTI-1 - END
         else:
-            log_config.logger.error("User failed to open: %s" % bleach.clean(requested_file), extra={'ip_address': request.remote_addr})
-            abort(400)
-    else:
+            #SSTI-1 - START
+            """Status: Vulnerable"""
+            #Description: CWE-1336: Improper Neutralization of Special Elements Used in a Template Engine -> https://cwe.mitre.org/data/definitions/1336.html
+            template = "File '%s' couldn't have been opened. " % file_name
+            log_config.logger.error("User failed to open: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
+            return render_template_string(template)
+            #SSTI-1 - END
+    except Exception:
+        #SSTI-1 - START
+        """Status: Vulnerable"""
+        #Description: CWE-1336: Improper Neutralization of Special Elements Used in a Template Engine -> https://cwe.mitre.org/data/definitions/1336.html
+        template = "File '%s' couldn't have been opened. " % file_name
         log_config.logger.error("User failed to open: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
-        abort(400)
+        return render_template_string(template)
+        #SSTI-1 - END
 #PathTraversal-1 - END
 
 

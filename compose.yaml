@@ -15,6 +15,18 @@ services:
       always
 
   #FunctionalityFromUntrustedSource-1 - START
+  #Status: Vulnerable
+  #Description: CWE-830: Inclusion of Web Functionality from an Untrusted Source -> https://cwe.mitre.org/data/definitions/830.html
+  compromised_service:
+      image: httpd:alpine
+      ports:
+        - "9091:80"
+      volumes:
+        - ./src/static/js/:/usr/local/apache2/htdocs
+        - ./apache/Docker/apache-js.conf:/usr/local/apache2/conf/apache-js.conf
+      networks:
+        - coffee-shop
+      restart: always
   #FunctionalityFromUntrustedSource-1 - END
   
   postgresql:

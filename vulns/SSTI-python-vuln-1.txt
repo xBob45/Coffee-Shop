@@ -1,0 +1,4 @@
+#src/controllers/homeController.py
+template = "File '%s' couldn't have been opened. " % file_name
+log_config.logger.error("User failed to open: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
+return render_template_string(template)

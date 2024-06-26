@@ -101,9 +101,9 @@ def add_user():
 
             password = request.form.get("add_pass")
             #WeakPasswordRequirements-1 - START
-            """Status: Fixed"""
+            """Status: Vulnerable"""
             #Description: CWE-521: Weak Password Requirements -> https://cwe.mitre.org/data/definitions/521.html
-            check_for_password_complexity(password)
+            #There is no check of length and complexity of a password.
             #WeakPasswordRequirements-1 - END
 
             #CompleteOmissionOfHashFunction-1 - START
@@ -200,9 +200,9 @@ def update_user():
                 pass
             else:
                 #WeakPasswordRequirements-4 - START
-                """Status: Fixed"""
+                """Status: Vulnerable"""
                 #Description: CWE-521: Weak Password Requirements -> https://cwe.mitre.org/data/definitions/521.html
-                check_for_password_complexity(password)
+                #There is no check of length and complexity of a password.
                 #WeakPasswordRequirements-4 - END
                 #CompleteOmissionOfHashFunction-1 - START
                 #CompleteOmissionOfHashFunction-1 - END

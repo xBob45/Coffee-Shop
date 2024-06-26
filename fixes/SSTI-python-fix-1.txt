@@ -1,0 +1,3 @@
+#src/controllers/homeController.py
+log_config.logger.error("User failed to open: %s" % bleach.clean(requested_file), extra={'ip_address': request.remote_addr})
+abort(400)

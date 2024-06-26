@@ -18,8 +18,8 @@ def guide_reader():
             content = file.read()
         return render_template("public/guide.html", content=content)
     except FileNotFoundError:
-        log_config.logger.error("User failed open: %s. File not found." % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
-        abort(404)
+        #SSTI-1 - START
+        #SSTI-1 - END
     except Exception as e:
-        log_config.logger.error("User failed open: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
-        abort(400)
+        #SSTI-1 - START
+        #SSTI-1 - END

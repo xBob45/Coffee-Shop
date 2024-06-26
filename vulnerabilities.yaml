@@ -6,13 +6,13 @@ vulnerabilities:
     enabled: False
     description: "CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html"
   SensitiveInformationDisclosure: 
-    enabled: False
+    enabled: True
     description: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> https://cwe.mitre.org/data/definitions/200.html"
   ReflectedXSS: 
-    enabled: False
+    enabled: True
     description: "CWE-79: Cross-site Scripting -> https://cwe.mitre.org/data/definitions/79.html"
   StoredXSS: 
-    enabled: False
+    enabled: True
     description: "CWE-79: Cross-site Scripting -> https://cwe.mitre.org/data/definitions/79.html"
   InsufficientSessionInvalidation: 
     enabled: False
@@ -26,6 +26,9 @@ vulnerabilities:
   PathTraversal: 
     enabled: False
     description: "CWE-35: Path Traversal -> https://cwe.mitre.org/data/definitions/35.html"
+  SSTI:
+    enabled: True
+    description: "CWE-1336: Improper Neutralization of Special Elements Used in a Template Engine -> https://cwe.mitre.org/data/definitions/1336.html"
   OSCommandInjection: 
     enabled: False
     description: "CWE-78: OS Command Injection -> https://cwe.mitre.org/data/definitions/78.html"
@@ -42,7 +45,7 @@ vulnerabilities:
     enabled: False
     description: "CWE-532: Insertion of Sensitive Information into Log File -> https://cwe.mitre.org/data/definitions/532.html"
   WeakPasswordRequirements: 
-    enabled: False
+    enabled: True
     description: "CWE-521: Weak Password Requirements -> https://cwe.mitre.org/data/definitions/521.html"
   CSRF: 
     enabled: False
@@ -78,10 +81,10 @@ vulnerabilities:
     enabled: null #If you set this vunerability to either "True" or "False" set 'DebugModeON' to 'null'
     description: "CWE-756: Missing Custom Error Page -> https://cwe.mitre.org/data/definitions/756.html"
   DebugModeON: 
-    enabled: False #If you set this vunerability to either "True" or 'False' set 'CustomErrorPages' to 'null'.
+    enabled: True #If you set this vunerability to either "True" or 'False' set 'CustomErrorPages' to 'null'.
     description: "CWE-489: Active Debug Code -> https://cwe.mitre.org/data/definitions/489.html"
   BruteForce: #Vuln: Checked; Fix: Checked
-    enabled: False
+    enabled: True
     description: "CWE-307: Improper Restriction of Excessive Authentication Attempts -> https://cwe.mitre.org/data/definitions/307.html"
   MaliciousFileUpload:
     enabled: False #For exploitation, set 'DirectoryListing' to 'True'
@@ -90,5 +93,5 @@ vulnerabilities:
     enabled: False
     description: "CWE-798: Use of Hard-coded Credentials -> https://cwe.mitre.org/data/definitions/798.html"
   FunctionalityFromUntrustedSource: 
-    enabled: False
+    enabled: True
     description: "CWE-830: Inclusion of Web Functionality from an Untrusted Source -> https://cwe.mitre.org/data/definitions/830.html"

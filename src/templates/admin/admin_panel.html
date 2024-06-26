@@ -25,13 +25,13 @@
           <div class="collapse navbar-collapse" id="navbarsExample09">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="{{ url_for('admin.add_user') }}">Add User</a>
+                <a class="nav-link" aria-current="page" href="{{ url_for('admin.add_user') }}">Create User</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('admin.view_user') }}">View & Update User</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="{{ url_for('admin.delete_user') }}">Delete</a>
+                <a class="nav-link" aria-current="page" href="{{ url_for('admin.delete_user') }}">Delete User</a>
               </li>
             </ul>
             <!-- Right-aligned navigation cells -->
@@ -43,9 +43,9 @@
                   </li>
                   <li class="nav-item dropdown">
                       {# StoredXSS-1 - START #}
-                      {# Status: Fixed #}
-                      {# Description: CWE-79: Cross-site Scripting -> https://cwe.mitre.org/data/definitions/79.html #}
-                      <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{ current_user.username }}</a>
+                      {# Status: Vulnerable #}
+                      {#Description:  CWE-79: Cross-site Scripting -> https://cwe.mitre.org/data/definitions/79.html #}
+                      <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{current_user.username | safe}}</a>
                       {# StoredXSS-1 - END #}
                       <ul class="dropdown-menu animate__animated animate__fadeInDown">
                       {# IDOR-1 - START #}

@@ -59,7 +59,7 @@ border-color: #ff0000a1;
 }
 
 .flash {
-  animation: fadeOut 1s ease-in-out 2s forwards;
+  animation: fadeOut 2s ease-in-out 10s forwards;
 }
 
 h4 {
