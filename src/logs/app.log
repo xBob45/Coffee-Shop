@@ -202,3 +202,11 @@
 2024-06-26 16:40:30,559 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1000.txt
 2024-06-26 16:40:30,561 - IP:127.0.0.1 - ERROR - User failed to open: guide1000.txt
 2024-06-26 16:41:17,203 - IP:127.0.0.1 - ERROR - User failed to open: {{ get_flashed_messages.__globals__.__builtins__.open("/etc/passwd").read() }}
+2024-07-01 17:23:18,356 - IP:127.0.0.1 - ERROR - User failed to login! Wrong credentials.
+2024-07-01 17:23:22,359 - IP:127.0.0.1 - ERROR - User failed to login! Wrong credentials.
+2024-07-01 17:23:56,708 - IP:127.0.0.1 - INFO - User admin123 was sucessfully created.
+2024-07-01 17:24:03,155 - IP:127.0.0.1 - INFO - User admin123 successfully logged in.
+2024-07-01 17:35:36,790 - IP:127.0.0.1 - INFO - User with username admin123 logged out.
+2024-07-01 17:35:39,105 - IP:127.0.0.1 - INFO - User admin123 successfully logged in.
+2024-07-01 17:36:15,228 - IP:127.0.0.1 - INFO - User with username admin123 logged out.
+2024-07-01 17:36:18,873 - IP:127.0.0.1 - INFO - User admin123 successfully logged in.

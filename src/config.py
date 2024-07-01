@@ -24,12 +24,19 @@ class Config(object):
     #DebugModeON-1 - END
 
     #SensitiveCookiewithImproperSameSiteAttribute-1 - START
+    #SensitiveCookiewithImproperSameSiteAttribute-1 - END
+
+
+    #SensitiveCookiewithoutSecureAttribute-1 - START
+    #SensitiveCookiewithoutSecureAttribute-1 - END
+
+    #SensitiveCookiewithoutHttpOnlyAttribute-1 - START
     """Status: Fixed"""
-    #Description: CWE-1275: Sensitive Cookie with Improper SameSite Attribute -> https://cwe.mitre.org/data/definitions/1275.html
+    #Description: CWE-1004: Sensitive Cookie Without HttpOnly Flag -> https://cwe.mitre.org/data/definitions/1004.html
     SESSION_COOKIE_SECURE = True 
     SESSION_COOKIE_HTTPONLY = True
     SESSION_COOKIE_SAMESITE = 'Strict'
-    #SensitiveCookiewithImproperSameSiteAttribute-1 - END
+    #SensitiveCookiewithoutHttpOnlyAttribute-1 - END
 
     # Grabs the folder where the script runs.
     basedir = os.path.abspath(os.path.dirname(__file__))

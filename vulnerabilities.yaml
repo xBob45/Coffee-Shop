@@ -33,8 +33,14 @@ vulnerabilities:
     enabled: False
     description: "CWE-78: OS Command Injection -> https://cwe.mitre.org/data/definitions/78.html"
   SensitiveCookiewithImproperSameSiteAttribute: 
-    enabled: False # In case you want to exploit "Clickjacking" and "CSRF" set this to "True"
+    enabled: null # In case you want to exploit "Clickjacking" and "CSRF" set this to "True"
     description: "CWE-1275: Sensitive Cookie with Improper SameSite Attribute -> https://cwe.mitre.org/data/definitions/1275.html"
+  SensitiveCookiewithoutSecureAttribute:
+    enabled: null
+    description: "CWE-614: Sensitive Cookie in HTTPS Session Without Secure Attribute -> https://cwe.mitre.org/data/definitions/614.html"
+  SensitiveCookiewithoutHttpOnlyAttribute:
+    enabled: False
+    description: "CWE-1004: Sensitive Cookie Without HttpOnly Flag -> https://cwe.mitre.org/data/definitions/1004.html"
   Clickjacking: 
     enabled: False
     description: "CWE-1021: Improper Restriction of Rendered UI Layers or Frames -> https://cwe.mitre.org/data/definitions/1021.html"
