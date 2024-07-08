@@ -1,6 +1,6 @@
-#src/routes/adminRoute.py
-@admin_blueprint.before_request
-def check_if_admin():
+#src/auxiliary/custom_decorators.py
+@wraps(func)
+def decorated_view(*args, **kwargs):
     try:
         if current_user.is_authenticated:
             role = session.get('role')
@@ -16,3 +16,7 @@ def check_if_admin():
     except Exception as e:
         log_config.logger.error("Error occured while accessing the admin panel. Exception: %s" % e, extra={'ip_address': request.remote_addr})
         abort(400)
+
+
+
+        

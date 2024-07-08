@@ -16,6 +16,8 @@ from passlib.hash import md5_crypt
 from werkzeug.exceptions import Forbidden, BadRequest
 import bleach
 
+from src.auxiliary.custom_decorators import check_if_admin
+
 #OSCommandInjection-1 - START
 """Status: Fixed"""
 #Description: CWE-78: OS Command Injection -> https://cwe.mitre.org/data/definitions/78.html
@@ -43,6 +45,7 @@ def execute_command():
         abort(400)
 #OSCommandInjection-1 - END
 
+@check_if_admin
 def admin_panel():
     """Function renders main page of admin panel."""
     try:
@@ -82,6 +85,7 @@ def admin_panel():
 
     return render_template("admin/admin_panel.html", postgre_message=postgre_message, apache_message=apache_message, log_content=log_content)
 
+@check_if_admin
 def add_user():
     """Functionallows to add new entry to User table."""
     if request.method == 'POST':
@@ -142,7 +146,7 @@ def add_user():
             redirect(request.referrer)
     return render_template("admin/admin_panel_add.html")
 
-
+@check_if_admin
 def view_user():
     """Function allows to view an arbitrary entry in User table."""
     if request.method == 'POST':
@@ -169,6 +173,7 @@ def view_user():
             return redirect(request.referrer)
     return render_template("admin/admin_panel_view_and_update.html")
 
+@check_if_admin
 def update_user():
     if request.method == 'POST':
         try:
@@ -229,6 +234,7 @@ def update_user():
             redirect(request.referrer)    
     return render_template("admin/admin_panel_view_and_update.html")
 
+@check_if_admin
 def delete_user():
     """Function allows to delete arbitrary entry from User table."""
     if request.method == 'POST':

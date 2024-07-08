@@ -1,6 +1,6 @@
-#src/routes/adminRoute.py
-@admin_blueprint.before_request
-def check_if_admin():
+#src/auxiliary/custom_decorators.py
+@wraps(func)
+def decorated_view(*args, **kwargs):
     try:
         #Only authenticated users with role 'admin' can access admin panel
         if current_user.is_authenticated:

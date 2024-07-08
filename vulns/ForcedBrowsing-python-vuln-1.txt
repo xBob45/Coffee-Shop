@@ -1,2 +1,4 @@
-#src/routes/adminRoute.py
-"""Application doesn't perform any kind of check whether or not user who's trying to access these endpoints has 'admin' role."""
+#src/auxiliary/custom_decorators.py
+@wraps(func)
+    def decorated_view(*args, **kwargs):
+        return func(*args, **kwargs)
