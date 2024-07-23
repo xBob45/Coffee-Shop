@@ -65,27 +65,24 @@ def guide_reader():
                 return render_template("public/guide.html", content=content)
             except FileNotFoundError:
                 #SSTI-1 - START
-                """Status: Vulnerable"""
+                """Status: Fixed"""
                 #Description: CWE-1336: Improper Neutralization of Special Elements Used in a Template Engine -> https://cwe.mitre.org/data/definitions/1336.html
-                template = "File '%s' couldn't have been opened. " % file_name
-                log_config.logger.error("User failed to open: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
-                return render_template_string(template)
+                log_config.logger.error("User failed to open: %s" % bleach.clean(requested_file), extra={'ip_address': request.remote_addr})
+                abort(400)
                 #SSTI-1 - END
         else:
             #SSTI-1 - START
-            """Status: Vulnerable"""
+            """Status: Fixed"""
             #Description: CWE-1336: Improper Neutralization of Special Elements Used in a Template Engine -> https://cwe.mitre.org/data/definitions/1336.html
-            template = "File '%s' couldn't have been opened. " % file_name
-            log_config.logger.error("User failed to open: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
-            return render_template_string(template)
+            log_config.logger.error("User failed to open: %s" % bleach.clean(requested_file), extra={'ip_address': request.remote_addr})
+            abort(400)
             #SSTI-1 - END
     except Exception:
         #SSTI-1 - START
-        """Status: Vulnerable"""
+        """Status: Fixed"""
         #Description: CWE-1336: Improper Neutralization of Special Elements Used in a Template Engine -> https://cwe.mitre.org/data/definitions/1336.html
-        template = "File '%s' couldn't have been opened. " % file_name
-        log_config.logger.error("User failed to open: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
-        return render_template_string(template)
+        log_config.logger.error("User failed to open: %s" % bleach.clean(requested_file), extra={'ip_address': request.remote_addr})
+        abort(400)
         #SSTI-1 - END
 #PathTraversal-1 - END
 

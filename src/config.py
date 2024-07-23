@@ -18,9 +18,9 @@ class Config(object):
     #HardCodedKey-1 - END
 
     #DebugModeON-1 - START
-    """Status: Vulnerable"""
+    """Status: Fixed"""
     #Description: CWE-489: Active Debug Code -> https://cwe.mitre.org/data/definitions/489.html
-    os.environ['WERKZEUG_DEBUG_PIN'] = 'off'
+    os.environ['WERKZEUG_DEBUG_PIN'] = 'on'
     #DebugModeON-1 - END
 
     #SensitiveCookiewithImproperSameSiteAttribute-1 - START

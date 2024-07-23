@@ -10,7 +10,7 @@ def decorated_view(*args, **kwargs):
             else:
                 log_config.logger.error("User tried to access the admin panel and failed as a result of insufficient privileges.", extra={'ip_address': request.remote_addr})
                 raise Forbidden()
-            return redirect(url_for('auth.login'))
+        return redirect(url_for('auth.login'))
     except Forbidden:
         abort(403)
     except Exception as e:

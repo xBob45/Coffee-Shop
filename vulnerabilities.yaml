@@ -27,7 +27,7 @@ vulnerabilities:
     enabled: False
     description: "CWE-35: Path Traversal -> https://cwe.mitre.org/data/definitions/35.html"
   SSTI:
-    enabled: True
+    enabled: False
     description: "CWE-1336: Improper Neutralization of Special Elements Used in a Template Engine -> https://cwe.mitre.org/data/definitions/1336.html"
   OSCommandInjection: 
     enabled: False
@@ -87,7 +87,7 @@ vulnerabilities:
     enabled: null #If you set this vunerability to either "True" or "False" set 'DebugModeON' to 'null'
     description: "CWE-756: Missing Custom Error Page -> https://cwe.mitre.org/data/definitions/756.html"
   DebugModeON: 
-    enabled: True #If you set this vunerability to either "True" or 'False' set 'CustomErrorPages' to 'null'.
+    enabled: False #If you set this vunerability to either "True" or 'False' set 'CustomErrorPages' to 'null'.
     description: "CWE-489: Active Debug Code -> https://cwe.mitre.org/data/definitions/489.html"
   BruteForce: #Vuln: Checked; Fix: Checked
     enabled: True

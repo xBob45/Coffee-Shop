@@ -1,4 +1,5 @@
 #src/controllers/adminController.py
+@check_if_admin
 def execute_command():
     try:
         command = request.args.get('command')

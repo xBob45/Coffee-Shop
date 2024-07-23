@@ -155,7 +155,8 @@ def delete_function():
                          'apache/Docker/coffee-shop.conf',
                          'src/auxiliary/custom_error_responses.py',
                          'src/templates/order/order_success.html',
-                         '.env'
+                         '.env',
+                         'src/auxiliary/custom_decorators.py'
                         ]
     
     for file_name in destination_files:

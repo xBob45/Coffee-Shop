@@ -18,9 +18,11 @@ import bleach
 
 from src.auxiliary.custom_decorators import check_if_admin
 
+
 #OSCommandInjection-1 - START
 """Status: Fixed"""
 #Description: CWE-78: OS Command Injection -> https://cwe.mitre.org/data/definitions/78.html
+@check_if_admin
 def execute_command():
     try:
         command_value = request.args.get('command')

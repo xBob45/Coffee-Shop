@@ -241,3 +241,5 @@
 2024-07-08 15:09:05,258 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
 2024-07-08 15:30:37,646 - IP:127.0.0.1 - INFO - User with username admin123 logged out.
 2024-07-08 15:30:46,328 - IP:127.0.0.1 - INFO - User Vojta successfully logged in.
+2024-07-08 20:09:20,471 - IP:127.0.0.1 - INFO - User with username Vojta logged out.
+2024-07-08 20:09:34,936 - IP:127.0.0.1 - INFO - User Vojta successfully logged in.
