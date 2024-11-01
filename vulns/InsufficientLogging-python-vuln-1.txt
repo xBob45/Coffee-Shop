@@ -1,0 +1,2 @@
+#src/log_config.py
+log_format = '%(levelname)s - %(message)s'

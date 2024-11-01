@@ -1,0 +1,3 @@
+#src/routes/adminRoute.py
+from src.controllers.adminController import development
+admin_blueprint.route('/development', methods=['POST', 'GET'])(development)

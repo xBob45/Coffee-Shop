@@ -1,0 +1,2 @@
+#src/controllers/authController.py,src/controllers/adminController.py,src/controllers/accountController.py
+password = ph.hash(password)

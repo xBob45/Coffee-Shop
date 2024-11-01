@@ -1,0 +1,2 @@
+#src/controllers/authController.py,src/controllers/accountController.py
+"""Since 'role' is not a part of a session, there is no need to do anything at this point."""

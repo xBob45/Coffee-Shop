@@ -1,0 +1,25 @@
+#src/controllers/homeController.py
+def guide_reader():
+    #../../../../../../etc/passwd
+    #Extracts file from 'file_name' parameter
+    try:
+        file_name = request.args.get('file_name')
+        log_config.logger.info("User requested: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
+
+        #Creates a path by concatenating '/home/vojta/Bakalarka/Coffee-Shop/src/' and 'guides'
+        guides_dir = os.path.join(os.getcwd(), 'src', 'guides')
+
+        #Creates path to the requested file by concatenating '/home/vojta/Bakalarka/Coffee-Shop/src/guides' and '<file_name>'
+        requested_file = os.path.join(guides_dir, file_name)
+            
+        #Opens the file located at the location of 'requested_file' for reading ('r')
+        with open(requested_file, 'r') as file:
+            log_config.logger.info("User opened: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
+            content = file.read()
+        return render_template("public/guide.html", content=content)
+    except FileNotFoundError:
+        #SSTI-1 - START
+        #SSTI-1 - END
+    except Exception as e:
+        #SSTI-1 - START
+        #SSTI-1 - END

@@ -1,0 +1,2 @@
+#src/templates/public/home.html,src/templates/admin/admin_panel.html
+<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{current_user.username | safe}}</a>

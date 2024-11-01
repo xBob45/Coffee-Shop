@@ -1,0 +1,2 @@
+#src/templates/order/order_success.html
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5211.330944539617!2d16.573342510452687!3d49.22587104692048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471296a9e2c34c3b%3A0x345e6cfc3e04adae!2sFakulta%20elektrotechniky%20a%20komunika%C4%8Dn%C3%ADch%20technologi%C3%AD%20VUT%20v%20Brn%C4%9B!5e0!3m2!1scs!2scz!4v1708532251150!5m2!1scs!2scz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

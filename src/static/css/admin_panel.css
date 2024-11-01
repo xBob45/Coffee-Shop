@@ -1,0 +1,67 @@
+.navbar-nav .nav-item {  
+    margin: 7px;
+  }
+  
+#right-part-nav {
+    padding-right: 35px;
+  }
+
+ .hr{
+  width:28em;
+ } 
+
+ .row{
+  padding-top: 10px;
+ }
+
+#button-danger {
+  border-color: #ff000085;
+}
+
+#button-danger:hover {
+background-color: #ff0000a1;
+border-color: #ff0000a1;
+}
+
+.alert {
+  margin-top: 10px;
+  margin-left: -175px;
+  text-align: center;
+  width: 800px;
+}
+
+#view_user_box, #update_user_box, #delete_user_box, #add_user_box {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.col-md-3 {
+  padding-top: 10px;
+}
+
+#services-alert {
+  width: 262px;
+}
+
+#services-button {
+  color: grey;
+  margin-bottom: 12px;
+  margin-top: -15px;
+}
+
+#logContent {
+  height: 500px;
+}
+
+#admin_button{
+  margin-right: 10px;
+  margin-left: -6px;
+  height: 39px 
+}
+
+.flash {
+  animation: fadeOut 2s ease-in-out 10s forwards;
+}
+
+h4 {
+  margin-left: -15px;
+}

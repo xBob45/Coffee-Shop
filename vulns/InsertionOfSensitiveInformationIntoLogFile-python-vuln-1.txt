@@ -1,0 +1,2 @@
+#src/controllers/authController.py
+log_config.logger.info("User with %s username successfully logged in with password %s ." % (bleach.clean(username), password), extra={'ip_address': request.remote_addr})

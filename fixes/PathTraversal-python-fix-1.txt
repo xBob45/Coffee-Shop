@@ -1,0 +1,51 @@
+#src/controllers/homeController.py
+def check_path(basedir, path, follow_symlinks=True):
+    #Function checks for safety of a given path.
+    # basedir - base dir against which 'path' is compared -> /home/vojta/Bakalarka/Coffee-Shop/src/guides
+    # path - path that subject of control -> /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt[OK] or /etc/passwd[NOT OK]
+    # follow_symlinks - if 'True' function will also resolve symbolic links and checks if it safe.
+    if follow_symlinks:
+        #Resolves the symbolic links if any
+        matchpath = os.path.realpath(path)
+    else:
+        matchpath = os.path.abspath(path)
+         
+    #Return 'True' or 'False' based on if base directory is the common directory between 'basedir' and 'matchpath'
+    if ((basedir == os.path.commonpath((basedir, matchpath))) == True):
+        return basedir == os.path.commonpath((basedir, matchpath))
+    else:
+        raise Exception
+
+def check_file(file_name):
+    allowed_pattern = r'^[guide0-9.txt]+$'
+    if re.match(allowed_pattern, file_name):
+        guides_dir = os.path.join(os.getcwd(), 'src', 'guides')
+        requested_file = os.path.join(guides_dir, file_name)
+        log_config.logger.info("User requested: %s" % bleach.clean(requested_file), extra={'ip_address': request.remote_addr})
+        return guides_dir, requested_file
+    else:
+        return str(None), str(None)
+
+def guide_reader():
+    try:
+        file_name = request.args.get('file_name')
+        #FIRST MEASURE OF PROTECTION -> ALLOWED PATTERN
+        guides_dir, requested_file = check_file(file_name)
+        print(guides_dir)
+        print(requested_file)
+        #SECOND MEASURE OF PROTECTION -> PATH VALIDATION
+        if check_path(guides_dir, requested_file):
+            try:
+                with open(requested_file, 'r') as file:
+                    log_config.logger.info("User opened: %s" % bleach.clean(requested_file), extra={'ip_address': request.remote_addr})
+                    content = file.read()
+                return render_template("public/guide.html", content=content)
+            except FileNotFoundError:
+                #SSTI-1 - START
+                #SSTI-1 - END
+        else:
+            #SSTI-1 - START
+            #SSTI-1 - END
+    except Exception:
+        #SSTI-1 - START
+        #SSTI-1 - END

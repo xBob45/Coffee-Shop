@@ -1,0 +1,75 @@
+{% extends "public/home.html" %} 
+{% block title %}Orders{% endblock %}
+{% block content %}
+<div class="container text-center", id="orders">
+    <h2>Your orders</h2>
+    {% for order in orders %}
+    <div class="card mt-3" id="order_cart">
+        <div class="card-body">
+            <!-- First Row -->
+            <div class="row">
+                <div class="col">
+                    <h5 class="card-title">Order From: {{ order.date.strftime("%d %B, %Y") }}</h5>
+                </div>
+                <div class="col text-right">
+                    <p class="card-text"><b>Total: </b> {{ order.total_price }}$</p>
+                </div>
+            </div>
+            <!-- Second Row -->
+            <div class="row mt-3">
+                <div class="col">
+                    <p class="card-text">
+                        {% set products = get_products_by_order_id(order.id) %}
+                        <div class="d-flex">
+                            {% for product in products %}
+                                <img src="{{ url_for('static', filename=product.image) }}" class="bd-placeholder-img card-img-top mr-1" width="50" height="50" role="img" aria-label="Product Image" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            {% endfor %}
+                        </div>
+                    </p>
+                </div>
+                <div class="col text-center">
+                   <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal{{order.id}}">
+                            Show Details
+                        </button>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal{{order.id}}" tabindex="-1" aria-labelledby="exampleModal{{order.id}}" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModal{{order.id}}">Modal title</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    {% set order_items= get_order_items(order.id) %}
+                                    {% for order_item, product in order_items %}
+                                    <li class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <img src="{{ url_for('static', filename=product.image) }}" class="bd-placeholder-img card-img-top" width="50" height="50" role="img" aria-label="Product Image" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <span class="item-name">{{ product.name }}</span><br>
+                                                <span class="item-quantity">{{ order_item.quantity }}x</span>
+                                            </div>
+                                            <div class="col-auto">
+                                                <span class="item-price">Price: ${{ order_item.total }}</span>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </li>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

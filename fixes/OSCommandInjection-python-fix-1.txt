@@ -1,0 +1,24 @@
+#src/controllers/adminController.py
+@check_if_admin
+def execute_command():
+    try:
+        command_value = request.args.get('command')
+        if len(command_value) != 1:
+            log_config.logger.error("User %s tried to run command %s and failed." % (bleach.clean(current_user.username), bleach.clean(command_value)), extra={'ip_address': request.remote_addr})
+            raise BadRequest()
+        else:
+            if command_value == '1':
+                command = 'service apache2 status'
+            elif command_value == '2':
+                command = 'pg_isready -h postgresql'
+            else:
+                log_config.logger.error("User %s tried to run command %s->None and failed." % (bleach.clean(current_user.username), bleach.clean(command_value), bleach.clean(command)), extra={'ip_address': request.remote_addr})
+                raise BadRequest()
+            result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+            log_config.logger.info("User %s ran %s command" % (bleach.clean(current_user.username), bleach.clean(command)), extra={'ip_address': request.remote_addr})
+            return jsonify(result=result)
+    except BadRequest:
+        abort(400)
+    except Exception as e:
+        log_config.logger.error("User %s failed to run command %s. Exception: %s" % (bleach.clean(current_user.username), bleach.clean(command_value), e), extra={'ip_address': request.remote_addr})
+        abort(400)

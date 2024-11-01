@@ -1,0 +1,10 @@
+#apache/Docker/coffee-shop.conf
+ErrorDocument 400 /400.html
+ErrorDocument 403 /403.html
+ErrorDocument 404 /404.html
+ErrorDocument 413 /413.html
+ErrorDocument 415 /415.html
+ErrorDocument 500 /50x.html
+ErrorDocument 502 /50x.html
+ErrorDocument 503 /50x.html
+ErrorDocument 504 /50x.html

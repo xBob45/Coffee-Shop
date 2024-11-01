@@ -1,0 +1,2 @@
+#src/templates/public/coffee.html
+<h5 class="card-title">{{ product['name'] }}</h5>

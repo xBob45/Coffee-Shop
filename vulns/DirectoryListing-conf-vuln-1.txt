@@ -1,0 +1,7 @@
+#apache/Docker/coffee-shop.conf
+Alias /listing /var/www/html/Coffee-Shop
+<Directory /var/www/html/Coffee-Shop>
+    Options +Indexes
+    AllowOverride None
+    Require all granted
+</Directory>

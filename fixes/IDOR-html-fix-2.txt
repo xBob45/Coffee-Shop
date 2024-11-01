@@ -1,0 +1,33 @@
+#src/templates/account/setting.html
+<form method="POST" action="{{ url_for('account.update_user') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <div class="mb-3">
+          <input type="hidden" name="edit_id" value="{{current_user.id}}">
+        </div>
+        <div class="mb-3">
+            <label for="edit_username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="edit_username" placeholder="Change Username" name="edit_username" value="{{current_user.username}}">
+        </div>
+        <div class="mb-3">
+          <label for="edit_email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="edit_email" placeholder="Change Email" name="edit_email" value="{{current_user.email}}">
+      </div>
+        <div class="mb-3">
+            <label for="edit_fn" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="edit_fn" placeholder="Change First Name" name="edit_fn" value="{{current_user.first_name}}">
+        </div>
+        <div class="mb-3">
+            <label for="edit_ln" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="edit_ln" placeholder="Change Last Name" name="edit_ln" value="{{current_user.last_name}}">
+        </div>
+        <div class="mb-3">
+          <label for="edit_password" class="form-label">Password</label>
+          <div class="input-group">
+              <input type="password" class="form-control" id="edit_password" placeholder="Change Password" name="edit_password">
+              <span class="input-group-text" id="password-toggle" onclick="togglePasswordVisibility()">
+                  <i class="bi bi-eye" id="password-icon"></i>
+              </span>
+          </div>
+      </div>
+      <button type="submit" class="btn btn-outline-success" id="button-success">Update</button>
+      </form>

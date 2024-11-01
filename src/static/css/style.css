@@ -1,0 +1,231 @@
+.dropdown-menu.show {
+  animation: fadeInDown 0.6s ease forwards;
+}
+.dropdown-menu.hide {
+  animation: fadeOutUp 0.6s ease forwards;
+}
+
+.navbar-nav .nav-item {
+  margin: 7px;
+}
+
+#right-part-nav {
+  padding-right: 35px;
+}
+
+
+#cart {
+  margin-top: 7px;
+  margin-right: 9px;
+  /* height: 39px */
+}
+
+#admin_button{
+  margin-right: 10px;
+  margin-left: -6px;
+  /* height: 39px  */
+}
+
+.card {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 20px ;
+  margin-left: 20px ;
+}
+
+.coffee-section .card-body, .tea-section .card-body {
+  height: 300px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.coffee-section .card-body a, .tea-section .card-body a {
+  margin-top: auto;
+}
+
+#toggler{
+  padding-top: 50px;
+}
+
+input{
+  display: none;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+  }
+
+.slider.round {
+  background-color: #198754c7;
+}
+
+.slider.round:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%; 
+}
+
+ 
+input:checked + .slider.round:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.carousel-item.active .row, .carousel-item .row {
+  display: flex;
+  justify-content: center;
+}
+.carousel img{
+  width: 240px !important;
+  height: 240px !important;
+  display: block !important;
+  margin-bottom: 200px !important;
+  
+}
+.dropdown-cart .cart-item {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#dropdown-menu-cart.dropdown-menu[data-bs-popper] {
+  left: -130px !important; 
+  min-width: 400px;
+}
+
+.dropdown-cart .item-details {
+  display: flex;
+  flex-direction: column;
+  width: 200px; 
+}
+
+.dropdown-cart .item-name {
+  margin-bottom: 5px;
+}
+
+.dropdown-cart .item-quantity, .item-quantity {
+  font-size: 14px;
+  color: #888;
+}
+
+.dropdown-cart .item-price {
+  font-size: 14px;
+  text-align: right;
+}
+
+.dropdown-cart .total {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+#checkout_button, #order_button {
+  width: 50%;
+  margin-top: 20px;
+}
+
+.item-cancel{
+  margin-left: 20px;
+}
+
+.bi.bi-x {
+  color: red;
+  font-size: 20px;
+}
+
+.solid {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.checkout-section{
+  width: 50rem;
+  height: 30rem;
+}
+
+.checkout-section .card-body {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.checkout-section .card-body a {
+  margin-top: auto;
+}
+
+.card.checkout-section{
+  border: none;
+}
+
+.list-group-item{
+  border:none !important;
+}
+
+#list-group-item-total{
+  font-weight: bold !important;
+}
+
+.modal-content {
+  width: 130% !important;
+}
+
+.note{
+  color: rgba(33, 37, 41, 0.75);
+}
+
+#orders {
+  width:40%;
+}
+
+#order_cart{
+  margin-bottom: 10px;
+  border: none;
+}
+
+#alert{
+  text-align: center;
+  animation: fadeOut 1s ease-in-out 2s forwards;
+}
+
+#alert-cart {
+  text-align: center;
+  width: 753px;
+  margin-left: -41px;
+  animation: fadeOut 1s ease-in-out 2s forwards;
+}
+
+
+/* This fixes the footer problem. */
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  margin: auto 0;
+}

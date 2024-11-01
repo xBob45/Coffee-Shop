@@ -1,0 +1,53 @@
+#src/controllers/authController.py
+def signup():
+    if request.method == 'POST':
+        try:
+            response = request.form.get('g-recaptcha-response')
+            verify_response = requests.post(url='%s?secret=%s&response=%s' % (VERIFY_URL, SECRET_KEY, response)).json()
+            if verify_response.get('success') != True:
+                raise BadRequest()
+            validate_csrf(request.form.get('csrf_token'))
+            first_name = request.form.get('first_name')
+            #Function compares user input against allowed pattern.
+            input_validation(first_name, 'First name')
+            last_name = request.form.get('last_name')
+            #Function compares user input against allowed pattern.
+            input_validation(last_name, 'Last name')
+            email = request.form.get('email')
+            #Function compares user input against allowed pattern.
+            email_validation(email)
+            username= request.form.get('username')
+            #Function compares user input against allowed pattern.
+            input_validation(username, 'Username')
+            password = request.form.get('password')
+            check_if_exists('email', email, 'Email')
+            check_if_exists('username', username, 'Username')
+            #WeakPasswordRequirements-1 - START
+            #WeakPasswordRequirements-1 - END
+            #CompleteOmissionOfHashFunction-1 - START
+            #CompleteOmissionOfHashFunction-1 - END
+            #WeakHashFunction-1 - START
+            #WeakHashFunction-1 - END
+
+            #WeakHashFunctionWithSalt-1 - START
+            #WeakHashFunctionWithSalt-1 - END            
+            user = User(role_id=2, username=username, email=email, first_name=first_name, last_name=last_name, password=password)
+            db.session.add(user)
+            db.session.commit()
+            db.session.close()
+            log_config.logger.info("New user with username %s was successfully created." %  bleach.clean(username), extra={'ip_address': request.remote_addr})
+            flash("Account has been sucesfully created.", 'success')
+            return redirect(url_for("auth.login"))
+        except ValidationError:
+            log_config.logger.error("User was not created. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
+            abort(400)
+        except ValueError:
+            return redirect(request.referrer)
+        except BadRequest:
+            log_config.logger.error("Failed reCAPTCHA.", extra={'ip_address': request.remote_addr})
+            abort(400)
+        except Exception as e:
+            log_config.logger.error("User was not successfully created. Exception: %s" % e, extra={'ip_address': request.remote_addr})
+            flash("Error occured, try again.", 'danger')
+            redirect(request.referrer)         
+    return render_template('auth/signup.html', site_key = SITE_KEY)

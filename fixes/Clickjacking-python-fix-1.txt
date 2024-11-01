@@ -1,0 +1,5 @@
+#src/__init__.py
+@app.after_request
+def security_measures(response):
+    response.headers['X-Frame-Options'] = 'DENY'
+    return response

@@ -1,0 +1,69 @@
+#src/templates/public/product.html
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-6">
+            <div class="d-flex justify-content-center">
+                <div class="card" style="width: 25rem; height: 26rem;">
+                    <img src="{{ url_for('static', filename=product.image) }}" class="bd-placeholder-img card-img-top" width="150" height="150" role="img" aria-label="Product Image" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name | safe }}</h5>
+                        {% if product.details %}
+                        <h6 class="card-subtitle mb-2">Details</h6>
+                          {% for key, value in product.details.items() %}
+                            <li>{{ key }}: {{ value }}</li>
+                          {% endfor %}
+                        {% endif %}
+                        <div class="d-flex flex-column">
+                            <div class="d-flex">
+                                <p class="card-text-price"><br><b>Price:</b> ${{ product.price }}</p>
+                                <p class="card-text-stock"><br><b>Stock:</b> {{ product.stock }}</p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                {% if product['stock'] > 0 %}
+                                <form id="add_to_cart-form" method="POST" action="{{ url_for('cart.add_to_cart') }}">
+                                  <div class="row align-items-center">
+                                    <label for="quantity" class="col-auto">Quantity:</label>
+                                    <div class="col-auto">
+                                      <input type="number" id="quantity" class="form-control" aria-label="Quantity" name="quantity" value="1" max="{{ product['stock'] }}" min="1">
+                                    </div>
+                                    <div class="col-auto">
+                                      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                      <input type="hidden" name="product_id" value="{{ product['id'] }}">
+                                      <button class="btn btn-outline-success" type="submit" id="button">Add to Cart</button>
+                                    </div>
+                                  </div>
+                                </form>
+                                {% else %}
+                                <button class="btn btn-danger" type="submit" id="button" disabled>Out of Stock</button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <div class="col-12" id="col-alert-product">
+        <div class="container animate__animated animate__fadeIn d-flex justify-content-center">      
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <ul class="flash">
+                {% for category, message in messages %}
+                  {% if message %}
+                    <div class="alert alert-{{ category }} " role="alert" id="alert">
+                      {{ message }}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}</div>
+      </div>
+</div>
+{% endblock %}

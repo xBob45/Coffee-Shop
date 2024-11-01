@@ -1,0 +1,30 @@
+#src/controllers/accountController.py
+def delete_user():
+    if request.method == 'POST':
+        try:
+            validate_csrf(request.form.get('csrf_token'))
+            id = current_user.id
+            user = User.query.filter_by(id=id).first()
+            if user is not None:
+                #SensitiveDatawithinCookie-2 - START
+                #SensitiveDatawithinCookie-2 - END
+                session.pop('cart')
+                session.pop('total')
+                logout_user()
+                db.session.delete(user)
+                db.session.commit()
+                db.session.close()
+                log_config.logger.info("User with ID %s was deleted." % bleach.clean(user.username), extra={'ip_address': request.remote_addr})
+                flash("User has been deleted.", 'danger')
+                return redirect(url_for("auth.login"))
+            else:
+                flash("User doesn't exists.", 'danger')
+                return redirect(request.referrer)
+        except ValidationError:
+            log_config.logger.error("User was not deleted. Missing or invalid CSRF token.", extra={'ip_address': request.remote_addr})
+            abort(400)
+        except Exception as e:
+            flash("Error occureed. Please try again.", 'danger')
+            log_config.logger.error("User with ID %s was not deleted. Exception: %s." % (bleach.clean(user.username), e), extra={'ip_address': request.remote_addr})
+            return redirect(request.referrer)
+    return redirect(request.referrer)

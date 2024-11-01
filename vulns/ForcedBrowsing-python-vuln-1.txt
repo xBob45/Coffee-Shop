@@ -1,0 +1,4 @@
+#src/auxiliary/custom_decorators.py
+@wraps(func)
+def decorated_view(*args, **kwargs):
+    return func(*args, **kwargs)

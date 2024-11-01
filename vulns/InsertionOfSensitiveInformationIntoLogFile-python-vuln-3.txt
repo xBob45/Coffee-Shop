@@ -1,0 +1,2 @@
+#src/controllers/authController.py
+log_config.logger.error("User %s failed to login! Username doesn't exist." %  bleach.clean(username), extra={'ip_address': request.remote_addr})

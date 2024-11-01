@@ -1,0 +1,61 @@
+{% extends "auth/login.html" %} 
+{% block title %}Sign Up{% endblock %}
+
+
+    {% block form%}
+    <main class="form-signup w-100 m-auto">
+      <div class="row">
+        <div class="col-auto">
+          <img class="mb-4 mx-auto d-block" src="{{ url_for('static', filename='images/favicon_and_logo/favicon_and_logo.svg') }}" id="coffee-shop-icon" alt="" width="55" height="55">
+        </div>
+        <div class="col-auto">
+            <h4>Sign Up</h4>
+        </div>
+      </div>
+      <form id="signup-form" method="POST" action="{{ url_for('auth.signup') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <div class="mb-3">
+            <label for="first_name" class="form-label">First name</label>
+            <input type="text" class="form-control" id="first_name" placeholder="Enter First Name" name="first_name">
+        </div>
+        <div class="mb-3">
+            <label for="last_name" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="last_name" placeholder="Enter Last Name" name="last_name">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter Email Address" name="email">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="username" class="form-control" id="username" placeholder="Enter Username" name="username">
+          </div>
+        <div class="mb-3">
+          <label for="PasswordTextArea" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password">
+        </div>
+        <div class="mb-3">
+          <div class="g-recaptcha" data-sitekey="{{ site_key }}" style="margin-left: 22px;"></div>
+        </div>
+        <button type="submit" class="btn btn-success w-100 py-2" id="button">Sign Up!</button>
+      </form>
+      
+      {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <ul class="flash">
+                {% for category, message in messages %}
+                  {% if message %}
+                    <div class="alert alert-{{ category }} " role="alert" id="alert">
+                      {{ message }}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+          </main>
+    {% endblock %}
+
+
+

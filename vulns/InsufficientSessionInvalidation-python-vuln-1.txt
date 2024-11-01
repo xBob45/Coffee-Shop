@@ -1,0 +1,10 @@
+#src/controllers/authController.py
+def logout():
+    #SensitiveDatawithinCookie-2 - START
+    #SensitiveDatawithinCookie-2 - END
+    session.pop('cart')
+    session.pop('total')
+    username = current_user.username
+    log_config.logger.info("User %s logged out." %  bleach.clean(username), extra={'ip_address': request.remote_addr})
+    flash("You were logged out.", 'success')
+    return redirect(url_for("auth.login"))

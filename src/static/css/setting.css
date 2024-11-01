@@ -1,0 +1,20 @@
+#setting-button-danger {
+    margin-left: 93px;
+    margin-top: -66px;}
+
+#setting-alert-success, #setting-alert-danger{
+    margin-top: 10px;
+    text-align: center;
+}
+
+#setting-alert {
+    margin-top: 10px;
+    margin-left: -34px;
+    text-align: center;
+    animation: fadeOut 1s ease-in-out 2s forwards;
+}
+
+#customFile2 {
+    display: block;
+    width: 40%;
+}

@@ -1,0 +1,111 @@
+{% extends "public/home.html" %} 
+{% block title %}Tips & Tricks{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-center" id="toggler">
+  <h5>Coffee/Tea</h5>
+</div>
+<div class="d-flex justify-content-center">
+  <div class="row">
+    <div class="col-12">
+      <label class="switch">
+        <input type="checkbox" id="toggleSwitch">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+
+    <div class="card coffee-section" style="width: 21rem;">
+    <div class="card-body">
+      <h5 class="card-title">Choose</h5>
+      <div class="d-flex justify-content-center">
+        <img class="mb-4" src="{{ url_for('static', filename='images/earth-icon.svg') }}" id="earth" alt="" width="72" height="57">
+        <img class="mb-4" src="{{ url_for('static', filename='images/coffee-beans.svg') }}" id="coffee-beans-icon" alt="" width="72" height="57">
+        <img class="mb-4" src="{{ url_for('static', filename='images/coffee-bag-1.svg') }}" id="earth" alt="" width="72" height="57">
+      </div>
+        <p class="card-text">Choose coffee beans from the world's most renowned locations <img src="{{ url_for('static', filename='images/flags/brazil-flag-icon.svg') }}" title="Brazil" id="brazil" alt="Brazil" width="28" height="17">
+        <img src="{{ url_for('static', filename='images/flags/colombia-flag-icon.svg') }}" title="Colombia" id="colombia" alt="Colombia" width="28" height="17">
+        <img src="{{ url_for('static', filename='images/flags/vietnam-flag-icon.svg') }}" title="Vietnam" id="vietnam" alt="Vietnam" width="28" height="17"> .
+        Understand the difference and pick the one that is best for you.
+        </p>
+      <a href="{{ url_for('home.guide_reader', file_name='guide1.txt') }}" class="btn btn-outline-success" id="button-outline">Read</a>
+    </div>
+    </div>
+
+  <div class="card coffee-section" style="width: 21rem;">
+    <div class="card-body">
+      <h5 class="card-title">Prepare</h5>
+      <div class="d-flex justify-content-center">
+        <img class="mb-4" src="{{ url_for('static', filename='images/coffee-bag.svg') }}" id="coffee-kettle-icon" alt="" width="72" height="57">
+        <img class="mb-4" src="{{ url_for('static', filename='images/coffee-machine.svg') }}" id="coffee-machine-icon" alt="" width="72" height="57">
+        <img class="mb-4" src="{{ url_for('static', filename='images/coffee-kettle.svg') }}" id="coffee-kettle-icon" alt="" width="72" height="57">  
+      </div>
+        <p class="card-text">Bring your caffee to your home. With our guidelines you can prepare your favorite coffee.</p>
+        <a href="{{ url_for('home.guide_reader', file_name='guide2.txt') }}" class="btn btn-outline-success" id="button-outline" data-topic="guide1.txt">Read</a>
+      </div>
+  </div>
+  
+
+  <div class="card tea-section" style="width: 21rem;">
+    <div class="card-body">
+      <h5 class="card-title">Choose</h5>
+      <div class="d-flex justify-content-center">
+        <img class="mb-4" src="{{ url_for('static', filename='images/earth-icon.svg') }}" id="earth" alt="" width="72" height="57">
+        <img class="mb-4" src="{{ url_for('static', filename='images/tea-leaf-icon.svg') }}" id="coffee-beans-icon" alt="" width="72" height="57">
+      </div>
+        <p class="card-text">Choose from variaty types of loose leafs tea from contries like
+          <img src="{{ url_for('static', filename='images/flags/china-flag-icon.svg') }}" title="China" id="china" alt="China" width="28" height="17">
+          <img src="{{ url_for('static', filename='images/flags/sri-lanka-flag-icon.svg') }}" title="Sri Lanka" id="srilanka" alt="Sri Lanka" width="28" height="17">
+          or
+          <img src="{{ url_for('static', filename='images/flags/india-flag-icon.svg') }}" title="India" id="india" alt="India" width="28" height="17"> .
+          <br>Learn the difference between each type and pick the right one for you.
+        </p>
+      <a href="{{ url_for('home.guide_reader', file_name='guide2.txt') }}" class="btn btn-outline-success" id="button-outline" data-topic="guide1.txt">Read</a>
+    </div>
+  </div>
+
+
+  <div class="card tea-section" style="width: 21rem;">
+    <div class="card-body">
+      <h5 class="card-title">Prepare</h5>
+      <div class="d-flex justify-content-center">
+        <img class="mb-4" src="{{ url_for('static', filename='images/tea-pot-icon.svg') }}" id="tea-pot-icon" alt="" width="72" height="57">
+        <img class="mb-4" src="{{ url_for('static', filename='images/tea-kettle-icon.svg') }}" id="tea-kettle-icon" alt="" width="72" height="57">
+      </div>
+        <p class="card-text">Follow our step-by-step guide and learn how to prepare perfect tea.</p>
+      <a href="{{ url_for('home.guide_reader', file_name='guide2.txt') }}" class="btn btn-outline-success" id="button-outline" data-topic="guide1.txt">Read</a>
+    </div>
+  </div>
+</div>
+
+  <script>
+    const toggleSwitch = document.getElementById("toggleSwitch");
+    const coffeeSection = document.querySelectorAll(".coffee-section");
+    const teaSection = document.querySelectorAll(".tea-section");
+    
+    function updateCardVisibility() {
+      const showTea = toggleSwitch.checked;
+      
+      coffeeSection.forEach(section => {
+        section.style.display = showTea ? "none" : "block";
+      });
+      
+      teaSection.forEach(section => {
+        section.style.display = showTea ? "block" : "none";
+      });
+    }
+    updateCardVisibility();
+    
+    toggleSwitch.addEventListener("change", () => {
+      updateCardVisibility();
+    });
+    </script>
+    
+    
+    
+
+
+{% endblock %}

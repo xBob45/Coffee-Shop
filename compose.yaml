@@ -1,0 +1,55 @@
+services:
+  apache:
+    build:
+      context: .
+      dockerfile: apache/Docker/Dockerfile-apache
+    #UnprotectedTransportofCredentials-1 - START
+    #Status: Vulnerable
+    #Description: CWE-523: Unprotected Transport of Credentials -> https://cwe.mitre.org/data/definitions/523.html
+    ports:
+      - 9090:80
+    #UnprotectedTransportofCredentials-1 - END
+    networks:
+      - coffee-shop
+    restart:
+      always
+
+  #FunctionalityFromUntrustedSource-1 - START
+  #Status: Vulnerable
+  #Description: CWE-830: Inclusion of Web Functionality from an Untrusted Source -> https://cwe.mitre.org/data/definitions/830.html
+  compromised_service:
+      image: httpd:alpine
+      ports:
+        - "9091:80"
+      volumes:
+        - ./src/static/js/:/usr/local/apache2/htdocs
+        - ./apache/Docker/apache-js.conf:/usr/local/apache2/conf/apache-js.conf
+      networks:
+        - coffee-shop
+      restart: always
+  #FunctionalityFromUntrustedSource-1 - END
+  
+  postgresql:
+    #VulnerablePostgreSQL-1 - START
+    #Status: Fixed
+    #Description: CWE-1035: Using Components with Known Vulnerabilities -> https://cwe.mitre.org/data/definitions/1035.html
+    image: postgres
+    #VulnerablePostgreSQL-1 - END
+    networks:
+      - coffee-shop
+    ports:
+      - 5433:5432
+    restart:
+      always
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+      - ./database/db.sql:/docker-entrypoint-initdb.d/db.sql
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+
+networks:
+  coffee-shop:
+volumes:
+  postgresql-data:
+    driver: local

@@ -1,0 +1,138 @@
+{% extends "base.html" %} 
+{% block title %}Home{% endblock %}
+{% block navbar %}
+    {% if current_user.is_authenticated %}
+        <ul class="navbar-nav my-2 my-lg-0" id="right-part-nav">
+            {% if current_user.roles.name == 'admin'%}
+                <li class="nav-item">
+                    <a href="{{ url_for('admin.admin_panel')}}" class="btn btn-outline-danger" role="button" id="admin_button">Admin Panel</a>
+                </li>
+            {% endif %}
+            <div class="dropdown dropdown-cart">
+              <button class="btn btn-outline-success dropdown-toggle" type="button" id="cart" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-cart"></i>
+                  <span class="badge rounded-pill badge-notification bg-danger">{{ session['cart']|count }}</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu animate__animated animate__fadeInDown" aria-labelledby="cart" id="dropdown-menu-cart">
+                  {% if session['cart']|count > 0 %}
+                      {% for item_id, quantity in session['cart'].items() %}
+                          {% set product = get_product_by_id(item_id) %}
+                          {% if product %}
+                              <li class="dropdown-item cart-item">
+                                  <div class="row align-items-center">
+                                    <div class="col-auto">
+                                      <img src="{{ url_for('static', filename=product.image) }}" class="bd-placeholder-img card-img-top" width="50" height="50" role="img" aria-label="Product Image" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                  </div>
+                                  <div class="col">
+                                      <span class="item-name">{{ product.name }}</span><br>
+                                      <span class="item-quantity">{{ quantity }}x</span>
+                                  </div>
+                                  <div class="col-auto">
+                                      <span class="item-price">${{ product.price }}</span>
+                                  </div>
+                                  <div class="col-auto">
+                                      <form id="delete_from_cart-form" method="POST" action="{{ url_for('cart.delete_from_cart') }}">
+                                          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                          <input type="hidden" name="product_id" value="{{ product.id }}">
+                                          <button class="btn btn-link" type="submit"><i class="bi bi-x"></i></button>
+                                      </form>
+                                  </div>
+                              </div>
+                              </li>
+                          {% endif %}
+                      {% endfor %}
+                      <hr class="solid">
+                      <li class="total">Total: ${{ session['total']|round(2) }}</li>
+                      <li class="text-center"></liclass><a href="{{url_for('cart.checkout')}}" class="btn btn-outline-success" role="button" id="checkout_button">Checkout</a>                  
+                  {% else %}
+                      <li class="text-center"><span class="item-empty">Cart is empty</span></li>
+                  {% endif %}
+              </ul>
+          </div>
+          
+            <li class="nav-item dropdown">
+                {# StoredXSS-1 - START #}
+                {# Status: Vulnerable #}
+                {#Description:  CWE-79: Cross-site Scripting -> https://cwe.mitre.org/data/definitions/79.html #}
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{current_user.username | safe}}</a>
+                {# StoredXSS-1 - END #}
+            <ul class="dropdown-menu">
+                {# IDOR-1 - START #}
+                {# Status: Fixed #}
+                {# Description: CWE-639: Authorization Bypass Through User-Controlled Key -> https://cwe.mitre.org/data/definitions/639.html #}
+                <li><a class="dropdown-item" href="{{ url_for('account.setting') }}">Account</a></li>
+                {# IDOR-1 - END #}
+                <li><a class="dropdown-item" href="{{ url_for('account.orders') }}">Orders</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.logout') }}">Log Out</a>
+            </li>
+        </ul>
+    {% else %}
+
+        <ul class="navbar-nav my-2 my-lg-0">
+            <li class="nav-item">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.login') }}">Sign In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.signup') }}">Sign Up</a>
+            </li>
+        </ul>
+    {% endif %}
+{% endblock %}
+{% block content %}
+<div class="container">
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <div class="row">
+          <img src="{{ url_for('static', filename='images/home_page/coffee-beans.svg') }}" class="d-block w-100" alt="...">
+          <img src="{{ url_for('static', filename='images/home_page/coffee3.svg') }}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Coffee</h5>
+          <p>Try our wonderfull coffee. Order online, pick up at our café.</p>
+          <a href="{{url_for('home.coffee')}}" class="btn btn-outline-success" role="button" id="add_to_cart_button">Take a look!</a>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <div class="row">
+          <img src="{{ url_for('static', filename='images/home_page/tea-leaf-icon.svg') }}" class="d-block w-100" alt="...">
+          <img src="{{ url_for('static', filename='images/home_page/tea1.svg') }}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Tea</h5>
+          <p>Try our wonderfull tea. Order online, pick up at our café.</p>
+          <a href="{{url_for('home.tea')}}" class="btn btn-outline-success" role="button" id="add_to_cart_button">Take a look!</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row">
+          <img src="{{ url_for('static', filename='images/home_page/tea-kettle-icon.svg') }}" class="d-block w-100" alt="...">
+          <img src="{{ url_for('static', filename='images/home_page/coffee-machine.svg') }}" class="d-block w-100" alt="...">
+          <img src="{{ url_for('static', filename='images/home_page/accessory2.svg') }}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Coffee & Tea Accessories</h5>
+          <p>We also offer various of accessory to coffee machines as well as cupes, mugs and kettles.</p>
+          <a href="{{url_for('home.accessories')}}" class="btn btn-outline-success" role="button" id="add_to_cart_button">Take a look!</a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+  
+{% endblock %}
+
+<!-- https://marketsplash.com/tutorials/flask/how-to-create-a-shopping-cart-in-flask/ -->

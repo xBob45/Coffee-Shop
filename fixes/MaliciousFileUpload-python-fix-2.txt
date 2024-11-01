@@ -1,0 +1,2 @@
+#src/config.py
+MAX_CONTENT_LENGTH = 400 * 1024 #Accept max 400KB

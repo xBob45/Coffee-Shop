@@ -1,0 +1,103 @@
+vulnerabilities:
+  SQLInjection: 
+    enabled: True
+    description: "CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html"
+  SQLInjection2: 
+    enabled: False
+    description: "CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html"
+  SensitiveInformationDisclosure: 
+    enabled: True
+    description: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor -> https://cwe.mitre.org/data/definitions/200.html"
+  ReflectedXSS: 
+    enabled: True
+    description: "CWE-79: Cross-site Scripting -> https://cwe.mitre.org/data/definitions/79.html"
+  StoredXSS: 
+    enabled: True
+    description: "CWE-79: Cross-site Scripting -> https://cwe.mitre.org/data/definitions/79.html"
+  InsufficientSessionInvalidation: 
+    enabled: False
+    description: "CWE-613: Insufficient Session Expiration -> https://cwe.mitre.org/data/definitions/613.html"
+  ForcedBrowsing: 
+    enabled: null #If you set this vulnerability to either "True" or "False" set "SensitiveDatawithinCookie" to "null"
+    description: "CWE-425: Forced Browsings -> https://cwe.mitre.org/data/definitions/425.html"
+  HardCodedKey: 
+    enabled: False
+    description: "CWE-321: Use of Hard-coded Cryptographic Key -> https://cwe.mitre.org/data/definitions/321.html"
+  PathTraversal: 
+    enabled: False
+    description: "CWE-35: Path Traversal -> https://cwe.mitre.org/data/definitions/35.html"
+  SSTI:
+    enabled: False
+    description: "CWE-1336: Improper Neutralization of Special Elements Used in a Template Engine -> https://cwe.mitre.org/data/definitions/1336.html"
+  OSCommandInjection: 
+    enabled: False
+    description: "CWE-78: OS Command Injection -> https://cwe.mitre.org/data/definitions/78.html"
+  SensitiveCookiewithImproperSameSiteAttribute: 
+    enabled: null # In case you want to exploit "Clickjacking" and "CSRF" set this to "True"
+    description: "CWE-1275: Sensitive Cookie with Improper SameSite Attribute -> https://cwe.mitre.org/data/definitions/1275.html"
+  SensitiveCookiewithoutSecureAttribute:
+    enabled: null
+    description: "CWE-614: Sensitive Cookie in HTTPS Session Without Secure Attribute -> https://cwe.mitre.org/data/definitions/614.html"
+  SensitiveCookiewithoutHttpOnlyAttribute:
+    enabled: False
+    description: "CWE-1004: Sensitive Cookie Without HttpOnly Flag -> https://cwe.mitre.org/data/definitions/1004.html"
+  Clickjacking: 
+    enabled: False
+    description: "CWE-1021: Improper Restriction of Rendered UI Layers or Frames -> https://cwe.mitre.org/data/definitions/1021.html"
+  InsufficientLogging: 
+    enabled: False
+    description: "CWE-778: Insufficient Logging -> https://cwe.mitre.org/data/definitions/778.html"
+  InsertionOfSensitiveInformationIntoLogFile: 
+    enabled: False
+    description: "CWE-532: Insertion of Sensitive Information into Log File -> https://cwe.mitre.org/data/definitions/532.html"
+  WeakPasswordRequirements: 
+    enabled: True
+    description: "CWE-521: Weak Password Requirements -> https://cwe.mitre.org/data/definitions/521.html"
+  CSRF: 
+    enabled: False
+    description: "CWE-352: Cross-Site Request Forgery -> https://cwe.mitre.org/data/definitions/352.html"
+  IDOR: 
+    enabled: False
+    description: "CWE-639: Authorization Bypass Through User-Controlled Key -> https://cwe.mitre.org/data/definitions/639.html"
+  SensitiveDatawithinCookie: 
+    enabled: False  #If you set this vulnerability to either "True" or "False" set "ForcedBrowsing" to "null". In order to exploit this vulnerability set 'HardCodedKey' to 'True'
+    description: "CWE-315: Cleartext Storage of Sensitive Information in a Cookie -> https://cwe.mitre.org/data/definitions/315.html"
+  VulnerablePostgreSQL: 
+    enabled: False
+    description: "CWE-1035: Using Components with Known Vulnerabilities -> https://cwe.mitre.org/data/definitions/1035.html"
+  SSRF: 
+    enabled: True #Exploitation via file:/// should work without any issues. port scanning however, does not work in Docker for some reason, but you can try to run the app in you local environment if you keen to try it and see the response. Furthermore if you set 'UnprotectedTransportofCredentials' to 'False' and 'SSRF' to 'False' you won't be able to render this https://127.0.0.1:9090/admin/development?url=https://127.0.0.1:443  due to the certifcate issue. In order to check the SSRF fix you can turn the 'UnprotectedTransportofCredentials' to 'True' and check that the fix works, like this http://127.0.0.1:9090/admin/development?url=http://127.0.0.1:80 .
+    description: "CWE-918: Server-Side Request Forgery -> https://cwe.mitre.org/data/definitions/918.html"
+  CompleteOmissionOfHashFunction:  
+    enabled: null
+    description: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html"
+  WeakHashFunction: 
+    enabled: null
+    description: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html"
+  WeakHashFunctionWithSalt: 
+    enabled: False
+    description: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm -> https://cwe.mitre.org/data/definitions/327.html"
+  UnprotectedTransportofCredentials:  
+    enabled: True
+    description: "CWE-523: Unprotected Transport of Credentials -> https://cwe.mitre.org/data/definitions/523.html"
+  DirectoryListing: 
+    enabled: False
+    description: "CWE-548: Exposure of Information Through Directory Listing -> https://cwe.mitre.org/data/definitions/548.html"
+  CustomErrorPages: 
+    enabled: null #If you set this vunerability to either "True" or "False" set 'DebugModeON' to 'null'
+    description: "CWE-756: Missing Custom Error Page -> https://cwe.mitre.org/data/definitions/756.html"
+  DebugModeON: 
+    enabled: False #If you set this vunerability to either "True" or 'False' set 'CustomErrorPages' to 'null'.
+    description: "CWE-489: Active Debug Code -> https://cwe.mitre.org/data/definitions/489.html"
+  BruteForce: #Vuln: Checked; Fix: Checked
+    enabled: True
+    description: "CWE-307: Improper Restriction of Excessive Authentication Attempts -> https://cwe.mitre.org/data/definitions/307.html"
+  MaliciousFileUpload:
+    enabled: False #For exploitation, set 'DirectoryListing' to 'True'
+    description: "CWE-434: Unrestricted Upload of File with Dangerous Type -> https://cwe.mitre.org/data/definitions/434.html"
+  HardCodedCredentials: 
+    enabled: False
+    description: "CWE-798: Use of Hard-coded Credentials -> https://cwe.mitre.org/data/definitions/798.html"
+  FunctionalityFromUntrustedSource: 
+    enabled: True
+    description: "CWE-830: Inclusion of Web Functionality from an Untrusted Source -> https://cwe.mitre.org/data/definitions/830.html"

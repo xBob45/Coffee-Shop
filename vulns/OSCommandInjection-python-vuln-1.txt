@@ -1,0 +1,11 @@
+#src/controllers/adminController.py
+@check_if_admin
+def execute_command():
+    try:
+        command = request.args.get('command')
+        result = subprocess.check_output([command], universal_newlines=True, stderr=subprocess.STDOUT, shell=True)
+        log_config.logger.info("User %s ran command %s" % (bleach.clean(current_user.username), bleach.clean(command)), extra={'ip_address': request.remote_addr})
+        return jsonify(result=result)
+    except Exception as e:
+        log_config.logger.error("User %s failed to run command %s. Exception: %s" % (bleach.clean(current_user.username), bleach.clean(command), e), extra={'ip_address': request.remote_addr})
+        abort(400)

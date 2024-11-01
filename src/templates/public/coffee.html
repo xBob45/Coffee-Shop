@@ -1,0 +1,89 @@
+{% extends "public/home.html" %} 
+{% block title %}Coffee{% endblock %}
+{% block head %}
+    {% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/coffee.css') }}">
+    {% endblock %}
+    <meta name="theme-color" content="#712cf9">
+{% endblock %}
+
+{% block content %}
+<main>
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          {% block heading %}
+          <h1 class="fw-light"><img src="{{ url_for('static', filename='images/coffee-beans.svg') }}" width="65" height="47">
+            Coffee
+            <img src="{{ url_for('static', filename='images/coffee-beans.svg') }}" width="65" height="47"></h1>
+          <p class="lead text-body-secondary">Explore our wide range of exquisite coffees sourced from around the world.</p>
+          <p class="note"><i>* We do not offer delivery, all orders must be paid and picked up at our café.</i></p>
+          {% endblock %}
+        </div>
+      </div>
+    </section>
+    <div class="container animate__animated animate__fadeIn">    
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      <ul class="flash">
+          {% for category, message in messages %}
+            {% if message %}
+              <div class="alert alert-{{ category }} " role="alert" id="alert">
+                {{ message }}
+              </div>
+            {% endif %}
+          {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}</div>
+    <div class="album py-5 bg-body-tertiary">
+      <div class="container">
+  
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          {% for product in products %}
+          <!-- Product card START-->
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="{{ url_for('static', filename=product['image']) }}" class="bd-placeholder-img card-img-top" width="150" height="150" role="img" aria-label="Product Image" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <div class="card-body">
+                <a href="{{ url_for('home.product_info', id=product['id']) }}" class="card-link">
+                  {# SQLInjection2-2 - START #}
+                  {# Status: Fixed #}
+                  {# Description: CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html #}
+                  <h5 class="card-title">{{ product['name'] }}</h5>
+                  {# SQLInjection2-2 - END #}
+                </a>
+                <div class="d-flex">
+                  <p class="card-text-price">Price: ${{ product['price'] }}</p>
+                  <p class="card-text-stock">Stock: {{ product['stock'] }}</p>
+                </div>
+                
+                <div class="d-flex justify-content-between align-items-center">
+                  {% if product['stock'] > 0 %}
+                  <form id="add_to_cart-form" method="POST" action="{{ url_for('cart.add_to_cart') }}">
+                    <div class="row align-items-center">
+                      <label for="quantity" class="col-auto">Quantity:</label>
+                      <div class="col-auto">
+                        <input type="number" id="quantity" class="form-control" aria-label="Quantity" name="quantity" value="1" max="{{ product['stock'] }}" min="1">
+                      </div>
+                      <div class="col-auto"> <!-- Place the button in the same row -->
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="product_id" value="{{ product['id'] }}">
+                        <button class="btn btn-outline-success" type="submit" id="button">Add to Cart</button>
+                      </div>
+                    </div>
+                  </form>
+                  {% else %}
+                  <button class="btn btn-danger" type="submit" id="button" disabled>Out of Stock</button>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Product card END-->
+          {% endfor %}
+          </div>
+          </div>
+  </main>
+{% endblock %}

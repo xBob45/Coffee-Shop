@@ -1,0 +1,22 @@
+#src/auxiliary/custom_decorators.py
+@wraps(func)
+def decorated_view(*args, **kwargs):
+    try:
+        if current_user.is_authenticated:
+            role = session.get('role')
+            if role == 'admin':
+                log_config.logger.info("User %s accessed the admin panel." % bleach.clean(current_user.username), extra={'ip_address': request.remote_addr})
+                return func(*args, **kwargs) #If everything is OK, let the user proceed.
+            else:
+                log_config.logger.error("User %s tried to access the admin panel and was blocked due to insufficient privileges." % bleach.clean(current_user.username), extra={'ip_address': request.remote_addr})
+                raise Forbidden()
+        return redirect(url_for('auth.login'))
+    except Forbidden:
+        abort(403)
+    except Exception as e:
+        log_config.logger.error("Error occured while accessing the admin panel. Exception: %s" % e, extra={'ip_address': request.remote_addr})
+        abort(400)
+
+
+
+        

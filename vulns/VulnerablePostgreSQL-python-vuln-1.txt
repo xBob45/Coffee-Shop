@@ -1,0 +1,4 @@
+#compose.yaml
+build:
+  context: .
+  dockerfile: database/Docker/Dockerfile-db

@@ -1,0 +1,83 @@
+{% extends "admin/admin_panel.html" %} 
+{% block title %}Admin Panel - Add{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center">
+    <div class="col-md-3 " id="add_user_box">
+        <div class="row">
+            <div class="col-auto">
+                <img src="{{ url_for('static', filename='images/admin_panel/add.svg') }}" class="bd-placeholder-img card-img-top mr-1" width="30" height="30" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+            </div>
+            <div class="col-auto">
+                <h4>Add User</h4>
+            </div>
+        </div>
+        <hr class="hr" />
+        <form method="POST" action="{{ url_for('admin.add_user') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <div class="mb-2">
+                <label for="add_username" class="form-label">Username</label>
+                <input type="username" class="form-control" id="add_username" placeholder="Enter Username" name="add_username">
+            </div>
+            <div class="mb-2">
+                <label for="add_username" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter Email Address" name="email">
+            </div>
+            <div class="mb-3">
+                <label for="add_fname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="add_fname" placeholder="Enter First Name" name="add_fname">
+            </div>
+            <div class="mb-3">
+                <label for="add_lname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="add_lname" placeholder="Enter Last Name" name="add_lname">
+            </div>
+            <div class="mb-3">
+                <label for="add_pass" class="form-label">Password</label>
+                <input type="password" class="form-control" id="add_pass" placeholder="Enter Password" name="add_pass">
+            </div>
+            <fieldset class="row mb-3">
+                <label for="formGroupExampleInput" class="form-label">Privileges</label>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="add_role" id="gridRadios1" value="admin" checked>
+                      <label class="form-check-label" for="gridRadios1">Admin</label>
+                    </div>
+                <div class="form-check">
+                      <input class="form-check-input" type="radio" name="add_role" id="gridRadios2" value="customer">
+                      <label class="form-check-label" for="gridRadios2">Customer</label>
+                </div>
+                </div>
+            </fieldset>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-outline-success" id="button-success">Add</button>
+            </div>
+            
+        </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class="flash">
+            {% for category, message in messages %}
+                {% if message %}
+                <div class="alert alert-{{ category }} animate__animated animate__fadeIn " role="alert" id="alert">
+                    {{ message }}
+                </div>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

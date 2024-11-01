@@ -1,0 +1,45 @@
+#src/controllers/adminController.py
+def development():
+    if request.method == 'GET':
+
+        #Get data from 'url' parameter
+        url = request.args.get('url')
+        if url is not None:
+            log_config.logger.info("URL: %s." % bleach.clean(url))
+            parsed_url = urlparse(url)
+
+            #Get scheme used in a request
+            scheme = parsed_url.scheme
+            print(scheme)
+
+            #Get domain in a request
+            domain = parsed_url.netloc
+            print(domain)
+
+            #Get path in a request
+            path = parsed_url.path
+            print(path)
+            
+            #Unused URI schemas (file, ftp, . . .) are disabled
+            SCHEMES_ALLOWLIST = ['http', 'https']
+            #Whitelist only IPs and DNS names that the application requires access to.
+            DOMAINS_ALLOWLIST = ['127.0.0.1:443', 'localhost:443', '127.0.0.1:80','localhost:80']
+
+            try:
+                if scheme in SCHEMES_ALLOWLIST:
+                    if domain in DOMAINS_ALLOWLIST:
+                        log_config.logger.info("User %s successfully opened URL %s." % (bleach.clean(current_user.username), bleach.clean(url)), extra={'ip_address': request.remote_addr})
+                        response = urlopen(url)
+                        return response.read()
+                    else:
+                        log_config.logger.error("User %s tried to open URL %s and failed. Provided domain is prohibited." % (bleach.clean(current_user.username), bleach.clean(url)), extra={'ip_address': request.remote_addr}) 
+                        raise Forbidden()
+                else:
+                    log_config.logger.error("User %s tried to open URL %s and failed. Provided scheme is prohibited." % (bleach.clean(current_user.username), bleach.clean(url)), extra={'ip_address': request.remote_addr})
+                    raise Forbidden()
+            except Forbidden:
+                abort(403)
+            except Exception as e:
+                log_config.logger.error("User %s tried to open URL %s and failed. Exception: %s" % (bleach.clean(current_user.username), bleach.clean(url), e), extra={'ip_address': request.remote_addr})
+                abort(400)
+    return 'This section is currently under development.'

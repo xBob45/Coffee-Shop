@@ -1,0 +1,245 @@
+2024-05-16 12:25:56,726 - IP:127.0.0.1 - INFO - User opened URL http://127.0.0.1:5000/.
+2024-06-24 14:13:24,370 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-06-24 14:13:42,630 - IP:127.0.0.1 - INFO - Error occured, try again. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-06-24 14:15:38,911 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-06-24 14:15:54,893 - IP:127.0.0.1 - INFO - Error occured, try again. Exception: (psycopg2.OperationalError) could not translate host name "postgresql" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-06-24 14:17:36,303 - IP:127.0.0.1 - ERROR - Failed reCAPTCHA.
+2024-06-24 14:18:04,165 - IP:127.0.0.1 - INFO - User admin successfully logged in.
+2024-06-24 14:18:06,898 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:18:08,247 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:18:54,698 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:19:23,281 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:19:24,040 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:19:31,065 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:21:14,513 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:21:22,414 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:21:22,415 - IP:127.0.0.1 - ERROR - User entered an invalid email.
+2024-06-24 14:21:22,420 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:21:29,188 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:21:29,189 - IP:127.0.0.1 - ERROR - User entered an invalid email.
+2024-06-24 14:21:29,196 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:22:10,221 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:22:11,483 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:22:11,483 - IP:127.0.0.1 - ERROR - User entered an invalid email.
+2024-06-24 14:22:11,488 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:22:30,375 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:22:31,376 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:22:31,376 - IP:127.0.0.1 - ERROR - User entered an invalid email.
+2024-06-24 14:22:31,384 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:22:40,416 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:22:41,354 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:22:41,354 - IP:127.0.0.1 - ERROR - User admin failed to view user. No username supplied.
+2024-06-24 14:22:41,364 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:22:53,001 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:23:13,834 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:23:13,834 - IP:127.0.0.1 - ERROR - User entered an invalid email.
+2024-06-24 14:23:13,841 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:24:16,670 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:24:17,853 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:24:17,854 - IP:127.0.0.1 - ERROR - User entered an invalid email.
+2024-06-24 14:24:17,861 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:25:37,618 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:25:38,627 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:25:38,627 - IP:127.0.0.1 - ERROR - User entered an invalid email.
+2024-06-24 14:25:38,633 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:26:14,145 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:26:15,109 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:26:15,109 - IP:127.0.0.1 - ERROR - User entered an invalid email.
+2024-06-24 14:26:15,116 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:26:26,359 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:26:26,359 - IP:127.0.0.1 - ERROR - User entered an invalid email.
+2024-06-24 14:26:26,368 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:26:35,898 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:26:35,899 - IP:127.0.0.1 - ERROR - User entered an invalid email.
+2024-06-24 14:26:35,906 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:26:42,985 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:26:42,985 - IP:127.0.0.1 - ERROR - User entered an invalid email.
+2024-06-24 14:26:42,992 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:26:54,599 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:26:54,599 - IP:127.0.0.1 - ERROR - User entered an invalid email.
+2024-06-24 14:26:54,606 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 14:27:45,209 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Coffee Brew into the cart.
+2024-06-24 14:27:45,999 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Coffee Portafilter into the cart.
+2024-06-24 14:27:46,751 - IP:127.0.0.1 - INFO - User with username admin added amount of 1 of Coffee Machine into the cart.
+2024-06-24 15:18:07,373 - IP:127.0.0.1 - INFO - User admin successfully logged in.
+2024-06-24 15:18:08,478 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 15:18:21,100 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 15:18:22,136 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 15:18:31,817 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 15:18:31,820 - IP:127.0.0.1 - ERROR - User with username vojta+"\n INFO : Looks like problem with our calculation" could not be deleted due to non-existence.
+2024-06-24 15:19:06,945 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 15:19:06,947 - IP:127.0.0.1 - ERROR - User with username + \n INFO : Looks like problem with our calculation" could not be deleted due to non-existence.
+2024-06-24 15:19:16,802 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 15:19:16,804 - IP:127.0.0.1 - ERROR - User with username +"\n" INFO : Looks like problem with our calculation" could not be deleted due to non-existence.
+2024-06-24 15:19:42,857 - IP:127.0.0.1 - INFO - User admin accessed the admin panel.
+2024-06-24 15:19:42,859 - IP:127.0.0.1 - ERROR - User with username dede+"\n INFO : Looks like problem with our calculation" could not be deleted due to non-existence.
+2024-06-25 14:13:32,841 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-25 14:13:32,843 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-25 14:13:48,702 - IP:127.0.0.1 - ERROR - User failed to open: {{config.items()}}
+2024-06-25 14:14:16,023 - IP:127.0.0.1 - ERROR - User failed to login! Wrong credentials.
+2024-06-25 14:15:07,244 - IP:127.0.0.1 - ERROR - User failed to open: {{config.items()}}
+2024-06-25 14:15:13,313 - IP:127.0.0.1 - INFO - User admin successfully logged in.
+2024-06-25 14:16:43,278 - IP:127.0.0.1 - INFO - User with username admin logged out.
+2024-06-25 14:16:45,953 - IP:127.0.0.1 - ERROR - User failed to login! Wrong credentials.
+2024-06-25 14:16:49,578 - IP:127.0.0.1 - ERROR - User failed to login! Wrong credentials.
+2024-06-25 14:17:29,589 - IP:127.0.0.1 - ERROR - User failed to login! Wrong credentials.
+2024-06-25 14:17:32,323 - IP:127.0.0.1 - ERROR - User failed to login! Wrong credentials.
+2024-06-25 14:17:40,579 - IP:127.0.0.1 - ERROR - User failed to login! Wrong credentials.
+2024-06-25 14:19:21,723 - IP:127.0.0.1 - INFO - User admin successfully logged in.
+2024-06-25 14:19:29,401 - IP:127.0.0.1 - ERROR - User entered password which lacked complexity and was rejected.
+2024-06-25 14:20:04,342 - IP:127.0.0.1 - INFO - User with username {{config.items()}} was sucessfully updated.
+2024-06-25 14:21:30,728 - IP:127.0.0.1 - INFO - User with username {{7*7}} was sucessfully updated.
+2024-06-25 14:42:46,177 - IP:127.0.0.1 - INFO - User with username {{7*7}} added amount of 1 of Yellow Tea into the cart.
+2024-06-25 15:08:55,680 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-25 15:08:55,680 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-25 15:09:20,803 - IP:127.0.0.1 - ERROR - User failed to open: {{ config.items() }}
+2024-06-25 15:09:53,439 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide100.txt
+2024-06-25 15:09:53,440 - IP:127.0.0.1 - ERROR - User failed to open: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide100.txt.
+2024-06-25 15:10:59,977 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-06-25 15:10:59,978 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-06-25 15:13:04,009 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-06-25 15:13:04,011 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-06-25 15:13:04,788 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-06-25 15:13:04,790 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-06-25 15:13:56,815 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-06-25 15:13:56,817 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-06-25 15:16:49,134 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-06-25 15:16:49,135 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-06-25 15:17:12,892 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide200.txt
+2024-06-26 14:00:36,222 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 14:00:36,224 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 14:02:39,021 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 14:02:39,024 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 14:05:51,975 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 14:05:51,978 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 14:08:48,025 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 14:08:48,028 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 14:15:28,584 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 14:15:28,585 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 14:16:00,448 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 14:16:00,449 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 14:16:29,690 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 14:16:29,691 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 14:57:54,713 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 14:58:39,912 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:00:14,385 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:02:25,924 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:03:27,338 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:03:27,339 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:10:00,502 - IP:127.0.0.1 - ERROR - User failed to open: {{7*7}}
+2024-06-26 15:10:01,046 - IP:127.0.0.1 - ERROR - User failed to open: {{7*7}}
+2024-06-26 15:10:01,319 - IP:127.0.0.1 - ERROR - User failed to open: {{7*7}}
+2024-06-26 15:10:03,056 - IP:127.0.0.1 - ERROR - User failed to open: ../../../../../../etc/passwd
+2024-06-26 15:10:04,993 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:10:04,994 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:10:05,122 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:10:05,123 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:10:05,276 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:10:05,279 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:10:05,433 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:10:05,434 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:10:05,575 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:10:05,577 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:21:08,835 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide100.txt
+2024-06-26 15:21:08,838 - IP:127.0.0.1 - ERROR - User failed to open: guide100.txt
+2024-06-26 15:21:14,163 - IP:127.0.0.1 - ERROR - User failed to open: ../../../../../../etc/passwd
+2024-06-26 15:21:21,222 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:21:21,225 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:42:22,406 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:42:22,409 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:42:27,105 - IP:127.0.0.1 - ERROR - User failed to open: ../../../../../../etc/passwd
+2024-06-26 15:42:37,358 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1000.txt
+2024-06-26 15:42:37,360 - IP:127.0.0.1 - ERROR - User failed to open: guide1000.txt
+2024-06-26 15:42:43,826 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-06-26 15:42:43,827 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide2.txt
+2024-06-26 15:43:58,331 - IP:127.0.0.1 - ERROR - User failed to open: {{ get_flashed_messages.__globals__.__builtins__.open("/etc/passwd").read() }}
+2024-06-26 15:52:13,991 - IP:127.0.0.1 - INFO - User requested: guide2.txt
+2024-06-26 15:52:13,993 - IP:127.0.0.1 - INFO - User opened: guide2.txt
+2024-06-26 15:52:14,557 - IP:127.0.0.1 - INFO - User requested: guide2.txt
+2024-06-26 15:52:14,558 - IP:127.0.0.1 - INFO - User opened: guide2.txt
+2024-06-26 15:52:14,713 - IP:127.0.0.1 - INFO - User requested: guide2.txt
+2024-06-26 15:52:14,714 - IP:127.0.0.1 - INFO - User opened: guide2.txt
+2024-06-26 15:52:14,873 - IP:127.0.0.1 - INFO - User requested: guide2.txt
+2024-06-26 15:52:14,874 - IP:127.0.0.1 - INFO - User opened: guide2.txt
+2024-06-26 15:52:17,456 - IP:127.0.0.1 - INFO - User requested: ../../../../../../etc/passwd
+2024-06-26 15:52:17,457 - IP:127.0.0.1 - INFO - User opened: ../../../../../../etc/passwd
+2024-06-26 15:52:26,857 - IP:127.0.0.1 - INFO - User requested: ../../../../../../etc/passwddd
+2024-06-26 15:52:26,861 - IP:127.0.0.1 - ERROR - User failed to open: ../../../../../../etc/passwddd
+2024-06-26 15:52:29,380 - IP:127.0.0.1 - INFO - User requested: ../../../../../../etc/passwd
+2024-06-26 15:52:29,382 - IP:127.0.0.1 - INFO - User opened: ../../../../../../etc/passwd
+2024-06-26 15:52:39,022 - IP:127.0.0.1 - INFO - User requested: guide1.txt
+2024-06-26 15:52:39,024 - IP:127.0.0.1 - INFO - User opened: guide1.txt
+2024-06-26 15:52:43,635 - IP:127.0.0.1 - INFO - User requested: guide1000.txt
+2024-06-26 15:52:43,636 - IP:127.0.0.1 - ERROR - User failed to open: guide1000.txt
+2024-06-26 15:53:21,416 - IP:127.0.0.1 - INFO - User requested: {% for key, value in config.iteritems() %} &lt;dt&gt;{{ key|e }}&lt;/dt&gt; &lt;dd&gt;{{ value|e }}&lt;/dd&gt; {% endfor %}
+2024-06-26 15:53:21,420 - IP:127.0.0.1 - ERROR - User failed to open: {% for key, value in config.iteritems() %} &lt;dt&gt;{{ key|e }}&lt;/dt&gt; &lt;dd&gt;{{ value|e }}&lt;/dd&gt; {% endfor %}
+2024-06-26 15:53:59,562 - IP:127.0.0.1 - INFO - User requested: {{ get_flashed_messages.__globals__.__builtins__.open("/etc/passwd").read() }}
+2024-06-26 15:53:59,564 - IP:127.0.0.1 - ERROR - User failed to open: {{ get_flashed_messages.__globals__.__builtins__.open("/etc/passwd").read() }}
+2024-06-26 15:57:16,366 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:57:16,367 - IP:127.0.0.1 - INFO - User opened: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1.txt
+2024-06-26 15:57:19,781 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide100.txt
+2024-06-26 15:57:19,784 - IP:127.0.0.1 - ERROR - User failed to open: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide100.txt
+2024-06-26 15:57:19,785 - IP:127.0.0.1 - ERROR - User failed to open: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide100.txt
+2024-06-26 16:14:14,173 - IP:127.0.0.1 - ERROR - User failed to open a file.: None
+2024-06-26 16:14:19,101 - IP:127.0.0.1 - ERROR - User failed to open a file.: None
+2024-06-26 16:17:15,247 - IP:127.0.0.1 - ERROR - User failed to open a file.: None
+2024-06-26 16:29:10,099 - IP:127.0.0.1 - ERROR - User failed to open a file.: None
+2024-06-26 16:38:23,787 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1000.txt
+2024-06-26 16:38:23,790 - IP:127.0.0.1 - ERROR - User failed to open: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1000.txt
+2024-06-26 16:38:23,790 - IP:127.0.0.1 - ERROR - User failed to open a file.: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1000.txt
+2024-06-26 16:40:29,401 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1000.txt
+2024-06-26 16:40:29,402 - IP:127.0.0.1 - ERROR - User failed to open: guide1000.txt
+2024-06-26 16:40:30,095 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1000.txt
+2024-06-26 16:40:30,097 - IP:127.0.0.1 - ERROR - User failed to open: guide1000.txt
+2024-06-26 16:40:30,237 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1000.txt
+2024-06-26 16:40:30,238 - IP:127.0.0.1 - ERROR - User failed to open: guide1000.txt
+2024-06-26 16:40:30,418 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1000.txt
+2024-06-26 16:40:30,419 - IP:127.0.0.1 - ERROR - User failed to open: guide1000.txt
+2024-06-26 16:40:30,559 - IP:127.0.0.1 - INFO - User requested: /home/vojta/Bakalarka/Coffee-Shop/src/guides/guide1000.txt
+2024-06-26 16:40:30,561 - IP:127.0.0.1 - ERROR - User failed to open: guide1000.txt
+2024-06-26 16:41:17,203 - IP:127.0.0.1 - ERROR - User failed to open: {{ get_flashed_messages.__globals__.__builtins__.open("/etc/passwd").read() }}
+2024-07-01 17:23:18,356 - IP:127.0.0.1 - ERROR - User failed to login! Wrong credentials.
+2024-07-01 17:23:22,359 - IP:127.0.0.1 - ERROR - User failed to login! Wrong credentials.
+2024-07-01 17:23:56,708 - IP:127.0.0.1 - INFO - User admin123 was sucessfully created.
+2024-07-01 17:24:03,155 - IP:127.0.0.1 - INFO - User admin123 successfully logged in.
+2024-07-01 17:35:36,790 - IP:127.0.0.1 - INFO - User with username admin123 logged out.
+2024-07-01 17:35:39,105 - IP:127.0.0.1 - INFO - User admin123 successfully logged in.
+2024-07-01 17:36:15,228 - IP:127.0.0.1 - INFO - User with username admin123 logged out.
+2024-07-01 17:36:18,873 - IP:127.0.0.1 - INFO - User admin123 successfully logged in.
+2024-07-08 14:51:13,890 - IP:127.0.0.1 - INFO - User admin123 successfully logged in.
+2024-07-08 14:51:24,909 - IP:127.0.0.1 - ERROR - User tried to access the admin panel and failed as a result of insufficient privileges.
+2024-07-08 14:58:51,134 - IP:127.0.0.1 - INFO - User admin123 succesfully updated user with username admin123.
+2024-07-08 15:05:13,338 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
+2024-07-08 15:06:22,599 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
+2024-07-08 15:06:32,670 - IP:127.0.0.1 - ERROR - Error occurred while accessing admin panel. Exception: local variable 'apache_message' referenced before assignment
+2024-07-08 15:07:32,097 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
+2024-07-08 15:07:33,046 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
+2024-07-08 15:07:35,890 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
+2024-07-08 15:07:36,068 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
+2024-07-08 15:07:36,238 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
+2024-07-08 15:07:36,401 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
+2024-07-08 15:07:36,559 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
+2024-07-08 15:07:53,981 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
+2024-07-08 15:07:58,620 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
+2024-07-08 15:08:09,110 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
+2024-07-08 15:08:09,207 - IP:127.0.0.1 - INFO - User admin123 created a new user with username Vojta.
+2024-07-08 15:08:09,219 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
+2024-07-08 15:08:10,881 - IP:127.0.0.1 - INFO - User with username admin123 logged out.
+2024-07-08 15:08:16,228 - IP:127.0.0.1 - INFO - User Vojta successfully logged in.
+2024-07-08 15:08:19,655 - IP:127.0.0.1 - ERROR - User tried to access the admin panel and failed as a result of insufficient privileges.
+2024-07-08 15:08:20,549 - IP:127.0.0.1 - ERROR - User tried to access the admin panel and failed as a result of insufficient privileges.
+2024-07-08 15:08:23,442 - IP:127.0.0.1 - ERROR - User tried to access the admin panel and failed as a result of insufficient privileges.
+2024-07-08 15:08:24,116 - IP:127.0.0.1 - ERROR - User tried to access the admin panel and failed as a result of insufficient privileges.
+2024-07-08 15:08:41,209 - IP:127.0.0.1 - INFO - User with username Vojta logged out.
+2024-07-08 15:08:50,057 - IP:127.0.0.1 - INFO - User admin123 successfully logged in.
+2024-07-08 15:08:52,433 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
+2024-07-08 15:09:02,517 - IP:127.0.0.1 - ERROR - Error occurred while accessing admin panel. Exception: local variable 'apache_message' referenced before assignment
+2024-07-08 15:09:05,258 - IP:127.0.0.1 - INFO - User admin123 accessed the admin panel.
+2024-07-08 15:30:37,646 - IP:127.0.0.1 - INFO - User with username admin123 logged out.
+2024-07-08 15:30:46,328 - IP:127.0.0.1 - INFO - User Vojta successfully logged in.
+2024-07-08 20:09:20,471 - IP:127.0.0.1 - INFO - User with username Vojta logged out.
+2024-07-08 20:09:34,936 - IP:127.0.0.1 - INFO - User Vojta successfully logged in.

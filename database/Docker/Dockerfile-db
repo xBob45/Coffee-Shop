@@ -1,0 +1,16 @@
+#FROM chrisgarrett/postgres:9.6.1
+FROM postgres:9.6.1-alpine
+
+RUN apk --update add sudo vim dcron && rm -rf /var/cache/apk/*
+
+RUN echo 'root:password' | chpasswd --md5
+RUN adduser -D Alice
+RUN echo 'Alice:Alice' | chpasswd --md5
+RUN adduser -D Bob
+RUN echo 'Bob:Bob' | chpasswd --md5
+RUN adduser -D Mallory
+RUN echo 'Mallory:Mallory' | chpasswd --md5
+
+COPY . www/html/Coffee-Shop
+RUN echo "ALL ALL=(ALL) NOPASSWD: /bin/cat" > /etc/sudoers.d/nopassword
+

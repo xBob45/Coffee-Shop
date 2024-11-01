@@ -1,0 +1,72 @@
+.
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── apache
+│   └── Docker
+│       ├── Dockerfile-apache
+│       └── coffee-shop.conf
+├── app.py
+├── attacks.py
+├── code_generation.py
+├── compose.yaml
+├── database
+│   ├── Docker
+│   │   └── Dockerfile-db
+│   └── backups
+├── db.sql
+├── exploit.py
+├── fixes
+├── requirements.txt
+├── src
+│   ├── __init__.py
+│   ├── auxiliary
+│   │   ├── __pycache__
+│   │   │   └── context_processors.cpython-310.pyc
+│   │   └── context_processors.py
+│   ├── config.py
+│   ├── controllers
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-310.pyc
+│   │   │   ├── accountController.cpython-310.pyc
+│   │   │   ├── adminController.cpython-310.pyc
+│   │   │   ├── authController.cpython-310.pyc
+│   │   │   ├── cartController.cpython-310.pyc
+│   │   │   ├── homeController.cpython-310.pyc
+│   │   │   └── orderController.cpython-310.pyc
+│   │   ├── accountController.py
+│   │   ├── adminController.py
+│   │   ├── authController.py
+│   │   ├── cartController.py
+│   │   └── homeController.py
+│   ├── guides
+│   │   ├── guide1.txt
+│   │   ├── guide2.txt
+│   │   └── guide3.txt
+│   ├── log_config.py
+│   ├── logs
+│   │   └── app.log
+│   ├── models
+│   │   ├── User.py
+│   │   └── __pycache__
+│   │       └── User.cpython-310.pyc
+│   ├── routes
+│   │   ├── __init__.py
+│   │   ├── accountRoute.py
+│   │   ├── adminRoute.py
+│   │   ├── authRoute.py
+│   │   ├── cartRoute.py
+│   │   └── homeRoute.py
+│   ├── static
+│   ├── templates
+│   └── tree.txt
+├── ssl
+│   ├── rootCA.key
+│   ├── rootCA.pem
+│   ├── server.crt
+│   ├── server.csr
+│   ├── server.csr.cnf
+│   ├── server.key
+│   └── v3.ext
+└── vulns

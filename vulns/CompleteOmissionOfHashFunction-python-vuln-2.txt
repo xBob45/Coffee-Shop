@@ -1,0 +1,3 @@
+#src/controllers/authController.py
+db_passwd = user.password 
+if (password == db_passwd) != True:

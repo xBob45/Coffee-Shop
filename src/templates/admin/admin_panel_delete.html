@@ -1,0 +1,40 @@
+{% extends "admin/admin_panel.html" %} 
+{% block title %}Admin Panel - Delete{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center">
+    <div class="col-md-3" id="delete_user_box">
+        <div class="row">
+            <div class="col-auto">
+                <img src="{{ url_for('static', filename='images/admin_panel/delete.svg') }}" class="bd-placeholder-img card-img-top mr-1" width="30" height="30" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+            </div>
+            <div class="col-auto">
+                <h4>Delete User</h4>
+            </div>
+        </div>
+        <form method="POST" action="{{ url_for('admin.delete_user') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <hr class="hr" />
+        <div class="mb-3">
+        <label for="delete_username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="delete_username" name="delete_username" placeholder="Enter username">
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-outline-danger" id="admin_button">Delete</button>
+        </div>
+        </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class="flash">
+            {% for category, message in messages %}
+                {% if message %}
+                <div class="alert alert-{{ category }} animate__animated animate__fadeIn" role="alert" id="alert">
+                    {{ message }}
+                </div>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+</div>
+{% endblock %}

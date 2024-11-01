@@ -1,0 +1,124 @@
+{% extends "admin/admin_panel.html" %} 
+{% block title %}Admin Panel - View & Update{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-center">
+  <div class="col-md-3" id="view_user_box">
+    <div class="row">
+        <div class="col-auto">
+            <img src="{{ url_for('static', filename='images/admin_panel/search.svg') }}" class="bd-placeholder-img card-img-top mr-1" width="30" height="30" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+        <div class="col-auto">
+            <h4>Search User</h4>
+        </div>
+    </div>
+      <hr class="hr" />
+      <form method="POST" action="{{ url_for('admin.view_user') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+          <div class="mb-3">
+              <label for="view_username" class="form-label">Username</label>
+              <input type="username" class="form-control" id="view_username" placeholder="Enter username" name="view_username">
+          </div>
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-outline-danger" id="admin_button">Search</button>
+        </div>
+      </form>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      <ul class="flash">
+          {% for category, message in messages %}
+              {% if message %}
+              <div class="alert alert-{{ category }} animate__animated animate__fadeIn" role="alert" id="alert">
+                  {{ message }}
+              </div>
+              {% endif %}
+          {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}
+  </div>
+
+{%if user %}
+  <div class="col-md-3 animate__animated animate__bounceInLeft" id="update_user_box">
+    <div class="row">
+        <div class="col-auto">
+            <img src="{{ url_for('static', filename='images/admin_panel/update.svg') }}" class="bd-placeholder-img card-img-top mr-1" width="30" height="30" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+        <div class="col-auto">
+            <h4>Update User</h4>
+        </div>
+    </div>
+      <hr class="hr" />
+      <form method="POST" action="{{ url_for('admin.update_user') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+          <div class="mb-3">
+            <input type="hidden" name="edit_id" value="{{ user.id }}">
+          </div>
+          <div class="mb-3">
+              <label for="edit_username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="edit_username" placeholder="Change Username" name="edit_username" value="{{ user.username }}">
+          </div>
+          <div class="mb-3">
+            <label for="edit_email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="edit_email" placeholder="Change Email" name="edit_email" value="{{ user.email }}">
+        </div>
+          <div class="mb-3">
+              <label for="edit_fn" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="edit_fn" placeholder="Change First Name" name="edit_fn" value="{{ user.first_name }}">
+          </div>
+          <div class="mb-3">
+              <label for="edit_ln" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="edit_ln" placeholder="Change Last Name" name="edit_ln" value="{{ user.last_name }}">
+          </div>
+          <div class="mb-3">
+            <label for="edit_password" class="form-label">Password</label>
+            <div class="input-group">
+                <input type="password" class="form-control" id="edit_password" placeholder="Change Password" name="edit_password">
+                <span class="input-group-text" id="password-toggle" onclick="togglePasswordVisibility()">
+                    <i class="bi bi-eye" id="password-icon"></i>
+                </span>
+            </div>
+           </div>
+        
+
+        <fieldset class="row mb-3">
+            <legend class="col-form-label">Privileges</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="edit_role" id="gridRadios1" value="1" {% if user.roles.name == 'admin' %}checked{% endif %}>
+                    <label class="form-check-label" for="gridRadios1">Admin</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="edit_role" id="gridRadios2" value="2" {% if user.roles.name == 'customer' %}checked{% endif %}>
+                    <label class="form-check-label" for="gridRadios2">Customer</label>
+                </div>
+            </div>
+        </fieldset>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-outline-danger" id="update_button">Update</button>
+        </div>
+      </form>
+  </div>
+  {%else%}
+  {%endif%}
+
+</div>
+
+<script>
+    function togglePasswordVisibility() {
+        const passwordInput = document.querySelector('#edit_password');
+        const passwordIcon = document.querySelector('#password-icon');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            passwordIcon.classList.remove('bi-eye');
+            passwordIcon.classList.add('bi-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            passwordIcon.classList.remove('bi-eye-slash');
+            passwordIcon.classList.add('bi-eye');
+        }
+    }
+</script>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "public/home.html" %} 
+{% block title %}Checkout{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="card checkout-section mx-auto">
+                <div class="card-body">
+                    <h5 class="card-title">Your Cart</h5>
+                    <ul class="list-group">
+                        {% if session['cart']|count > 0 %}
+                            {% for item_id, quantity in session['cart'].items() %}
+                                {% set product = get_product_by_id(item_id) %}
+                                {% if product %}
+                                    <li class="list-group-item animate__animated animate__bounceInDown">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <img src="{{ url_for('static', filename=product.image) }}" class="bd-placeholder-img card-img-top" width="50" height="50" role="img" aria-label="Product Image" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                            </div>
+                                            <div class="col">
+                                                <span class="item-name">{{ product.name }}</span><br>
+                                                <span class="item-quantity">{{ quantity }}x</span>
+                                            </div>
+                                            <div class="col">
+                                                <span class="item-price">Price: ${{ product.price }}</span>
+                                            </div>
+                                            <div class="col-auto">
+                                                <form id="delete_from_cart-form" method="POST" action="{{ url_for('cart.delete_from_cart') }}">
+                                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                                    <input type="hidden" name="product_id" value="{{ product.id }}">
+                                                    <button class="btn btn-link" type="submit"><i class="bi bi-x"></i></button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            <hr class="solid">
+                            <li class="list-group-item" id="list-group-item-total">Total: ${{ session['total']|round(2) }}</li>
+                            <div class="text-center">
+                                <form id="create-order-form" method="POST" action="{{url_for('cart.create_order')}}">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                    <button class="btn btn-outline-success" role="button" id="order_button" type="submit">Order!</button>
+                                </form>
+                            </div>
+                        {% else %}
+                            <li class="list-group-item text-center">Cart is empty</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12" id="col-alert-product">
+        <div class="container animate__animated animate__fadeIn d-flex justify-content-center">    
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <ul class="flash">
+                {% for category, message in messages %}
+                  {% if message %}
+                    <div class="alert alert-{{ category }} " role="alert" id="alert-cart">
+                      {{ message }}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}</div>
+      </div>
+</div>
+{% endblock %}

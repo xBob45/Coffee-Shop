@@ -1,0 +1,22 @@
+#src/templates/admin/admin_panel.html
+<h4 class="text-center">Apache</h4>
+{% if apache_message == "Apache is running correctly."%}
+    <div class="alert alert-success mx-auto" role="alert" id="services-alert">{{apache_message}}</div>
+{% else %}
+    <div class="alert alert-danger mx-auto" role="alert" id="services-alert">{{apache_message}}</div>
+{% endif %}
+    <div class="text-center">
+        {# Vulnerability #}
+        <button type="button" class="btn btn-link" id="services-button" data-bs-toggle="modal" data-bs-target="#resultModal" onclick="executeCommand('service apache2 status')">Show status</button>
+    </div>
+
+<h4 class="text-center">PostgreSQL</h4>
+{% if postgre_message == "PostgreSQL is running correctly."%}
+    <div class="alert alert-success mx-auto" role="alert" id="services-alert">{{postgre_message}}</div>
+{% else %}
+    <div class="alert alert-danger mx-auto" role="alert" id="services-alert">{{postgre_message}}</div>
+{% endif %}
+    <div class="text-center">
+        {# Vulnerability #}
+        <button type="button" class="btn btn-link" id="services-button" data-bs-toggle="modal" data-bs-target="#resultModal" onclick="executeCommand('pg_isready -h postgresql')">Show status</button>
+    </div>

@@ -1,0 +1,2 @@
+#src/controllers/authController.py,src/controllers/accountController.py,src/controllers/adminController.py
+password = md5_crypt.using(salt_size=8).hash(password)

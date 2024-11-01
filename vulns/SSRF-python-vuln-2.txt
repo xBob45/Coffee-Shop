@@ -1,0 +1,3 @@
+#src/routes/homeRoute.py
+from src.controllers.homeController import development
+home_blueprint.route('/development', methods=['POST', 'GET'])(development)

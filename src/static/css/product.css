@@ -1,0 +1,20 @@
+.flex-column {
+    flex-direction: column!important;
+    margin-top: 10px;
+}
+.card-text-price{
+    margin-right: 26px;
+  }
+
+#alert{
+    margin-top: -50px;
+    width: 398px;
+    text-align: center;
+    margin-right: 34px; 
+    animation: fadeOut 1s ease-in-out 2s forwards;
+}
+
+h5.card-title {
+    margin-bottom: 20px;
+}
+

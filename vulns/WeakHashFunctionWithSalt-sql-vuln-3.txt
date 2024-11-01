@@ -1,0 +1,2 @@
+#database/db.sql
+INSERT INTO users (role_id, username, email, first_name, last_name, password) VALUES(1,'admin', 'admin@example.com', 'John', 'Doe', '$1$AdJoO/1c$/ofFs1UX.FLnstuVy.UBK0');

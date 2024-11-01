@@ -1,0 +1,11 @@
+#compose.yaml
+compromised_service:
+    image: httpd:alpine
+    ports:
+      - "9091:80"
+    volumes:
+      - ./src/static/js/:/usr/local/apache2/htdocs
+      - ./apache/Docker/apache-js.conf:/usr/local/apache2/conf/apache-js.conf
+    networks:
+      - coffee-shop
+    restart: always

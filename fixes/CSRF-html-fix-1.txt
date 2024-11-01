@@ -1,0 +1,6 @@
+#src/templates/account/setting.html
+<form method="POST" action="{{ url_for('account.delete_user') }}">
+    {# CSRF-2 - START #}
+    {# CSRF-2 - END #}
+    <button type="submit" class="btn btn-outline-danger" id="setting-button-danger">Delete</button>
+</form>

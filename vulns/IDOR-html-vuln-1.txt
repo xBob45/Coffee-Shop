@@ -1,0 +1,2 @@
+#src/templates/public/home.html,src/templates/admin/admin_panel.html
+<li><a class="dropdown-item" href="{{ url_for('account.setting', id=current_user.id) }}">Account</a></li>

@@ -1,0 +1,2 @@
+#src/controllers/homeController.py
+product = db.session.execute(text("SELECT * FROM products WHERE id = '%s'" % (product_id)))

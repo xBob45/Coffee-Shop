@@ -1,0 +1,3 @@
+#src/controllers/accountController.py
+def setting():
+    return render_template("account/setting.html")

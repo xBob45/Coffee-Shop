@@ -1,0 +1,5 @@
+#src/controllers/authController.py
+db_passwd = user.password 
+password = md5(password.encode()).hexdigest()
+if (db_passwd == password) != True:
+
