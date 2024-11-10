@@ -3,7 +3,7 @@ vulnerabilities:
     enabled: True
     description: "CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html"
   SQLInjection2: 
-    enabled: False
+    enabled: True
     description: "CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html"
   SensitiveInformationDisclosure: 
     enabled: True

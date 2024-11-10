@@ -111,9 +111,9 @@ def product_info():
     #SQLi#2 - http://127.0.0.1:5000/product?id=1'; UPDATE products SET price = 0.01 WHERE id = 1; --
     #StoredXSS - http://127.0.0.1:5000/product?id=15'; UPDATE products SET name = '<script>alert(1333)</script>Ginger Tea' WHERE id = 15; --
     #SQLInjection2-1 - START
-    """Status: Fixed"""
+    """Status: Vulnerable"""
     #Description: CWE-89: SQL Injecttion -> https://cwe.mitre.org/data/definitions/89.html
-    product = db.session.query(Product).filter_by(id=product_id).first()
+    product = db.session.execute(text("SELECT * FROM products WHERE id = '%s'" % (product_id)))
     #SQLInjection2-1 - END
     db.session.commit()
     return render_template("public/product.html", product=product)
